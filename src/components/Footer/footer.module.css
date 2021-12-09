@@ -1,0 +1,88 @@
+.footerSection {
+  margin-top: 100px;
+}
+
+.footer {
+  border-top: 1px solid #0f528b;
+  opacity: 0.1;
+  width: 75%;
+  height: 1px;
+  margin: 0 auto;
+}
+
+.footerDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+  margin: 1rem auto;
+}
+
+@media screen (max-width: 703px) {
+  .donorSearch {
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 753px) {
+  .footerDetails {
+    flex-direction: column;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 753px) {
+  .left {
+    margin-bottom: 1rem;
+  }
+
+  .center {
+    margin-bottom: 1rem;
+  }
+}
+
+.logoImg {
+  margin-right: 12px;
+}
+
+.logoText {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 42px;
+  color: #f6655f;
+}
+
+.center {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: #434343;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.socialContainer {
+  height: 39px;
+  width: 39px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 14px;
+  border: 1.5px solid #f6655f;
+  cursor: pointer;
+}
