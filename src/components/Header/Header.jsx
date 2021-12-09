@@ -1,6 +1,6 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import "./Header.css";
-import {ReactComponent as ReactLogo} from '../images/logo.png';
+import logo from '../images/logo.svg';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -8,7 +8,11 @@ const Header = () => {
         <header>
             <div className="logo">
                 <Link to="/home">
-                    <ReactLogo />
+                    <img 
+                        src={logo} 
+                        alt="RIBI logo" 
+                        srcset=""
+                    />
                 </Link>
             </div>
             <nav>
