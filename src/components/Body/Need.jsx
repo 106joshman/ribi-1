@@ -1,8 +1,8 @@
-import styles from "./newblood.module.css";
-import hero from "../assets/hero.png";
-import profile1 from "../assets/profile1.png";
-import profile2 from "../assets/profile2.png";
-import place from "../assets/place.png";
+import styles from "./need.module.css";
+import hero from "../../assets/hero.png";
+import profile1 from "../../assets/profile1.png";
+import profile2 from "../../assets/profile2.png";
+import place from "../../assets/place.png";
 
 const data = [
   {
@@ -55,7 +55,7 @@ const data = [
   },
 ];
 
-const NewBlood = () => {
+const Need = () => {
   return (
     <>
       <section className={styles.newBloodSection}>
@@ -114,4 +114,4 @@ const NewBlood = () => {
   );
 };
 
-export default NewBlood;
+export default Need;

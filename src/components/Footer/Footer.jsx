@@ -1,8 +1,8 @@
 import styles from "./footer.module.css";
-import logo from "../assets/logo.png";
-import facebook from "../assets/facebook.png";
-import twitter from "../assets/Twitter.png";
-import linkedin from "../assets/linkedin.png";
+import logo from "../../assets/logo.png";
+import facebook from "../../assets/facebook.png";
+import twitter from "../../assets/Twitter.png";
+import linkedin from "../../assets/linkedin.png";
 
 const Footer = () => {
   return (

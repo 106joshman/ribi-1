@@ -1,0 +1,39 @@
+.hero-body {
+    background: #FCC0BD;
+    display: flex;
+    flex-direction: row;
+    height: 400px;
+    justify-content: space-between;
+}
+
+.hero-left {
+    margin: auto 60px;
+}
+
+.hero-left h1 {
+    font-family: var(--second-font);
+    font-size: 40px;
+    width: 300px;
+    font-weight: 700;
+    color: #F6655F;
+}
+
+.hero-left p {
+    font-family: var(--second-font);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var(--drk-red-bckgrd);
+}
+
+.hero-left button {
+    border-radius: 20px;
+    background: var(--drk-red-bckgrd);
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 12px 15px;
+}
