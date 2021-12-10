@@ -1,25 +1,28 @@
-.newBloodSection {
+.needBloodSection {
   position: relative;
 }
 
 .imageContainer {
   width: 100%;
+  height: 177px;
+  background: url(../../assets/hero.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .heroImg {
   width: 100%;
-  /* height: 100%; */
 }
 
 .heroText {
-  position: absolute;
   font-family: "Poppins" serif;
   font-style: normal;
   font-weight: bold;
   font-size: 35px;
-  /* line-height: 80px; */
+  line-height: 80px;
   color: #f6655f;
-  top: -400px;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,6 +172,21 @@
 @media screen and (min-width: 768px) {
   .donorCard, .bttn, .donorDesc {
     width: 40%;
+  }
+
+  .heroText {
+    /* position: absolute; */
+    font-family: "Poppins" serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 45px;
+    color: #f6655f;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
   }
 
   .donorDetail {

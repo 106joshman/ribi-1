@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from "./donate.module.css";
-import hero from "../../assets/hero.png";
+// import hero from "../../assets/hero.png";
 import profile1 from "../images/Ellipse.png";
 // import { useNavigate } from 'react-router-dom';
 import Popup from './pop/Popup';
@@ -9,10 +9,12 @@ const Donate = () => {
     // const navigate =useNavigate();
     const [show, setShow] = useState(false);
     return (
-        <div className={styles.needBloodSection}>
-            <div className={styles.imageContainer}>
-                <img className={styles.heroImg} src={hero} alt="hero" />
-                <p className={styles.heroText}>DONOR INFO</p>
+        <>
+            <div className={styles.needBloodSection}>
+                <div className={styles.imageContainer}>
+                    {/* <img className={styles.heroImg} src={hero} alt="hero" /> */}
+                    <p className={styles.heroText}>DONOR INFO</p>
+                </div>
             </div>
             <div className={styles.findDonor}>
                 <div className={styles.donateBlood}>
@@ -51,7 +53,7 @@ const Donate = () => {
                     <Popup onClose={() => setShow(false)} show={show} />
                 </div>
             </div>
-        </div>
+        </>
     );
 }
  
