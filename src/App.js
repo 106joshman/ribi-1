@@ -5,6 +5,7 @@ import Home from "./components/Body/Home";
 import Need from "./components/Body/Need";
 import Donate from "./components/Body/Donate";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Popup from "./components/Body/pop/Popup";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/need-blood" element={<Need />} />
           <Route path="/donate-blood" element={<Donate />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/popup" element={<Popup />} />
         </Routes>
         <Footer />
       </div>
