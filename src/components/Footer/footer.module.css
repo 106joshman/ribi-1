@@ -1,0 +1,133 @@
+.footerSection {
+  margin-top: 50px;
+  height: 400px;
+}
+
+.footerTop {
+  text-align: center;
+}
+
+.headText {
+  width: 350px;
+  margin: auto;
+  font-size: 20px;
+  color: var(--primary-bckgrd);
+  font-family: var(--second-font);
+}
+
+.missionText {
+  margin: 40px auto;
+  font-family: var(--second-font);
+  color: #434343;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+
+.bttn {
+  margin: 50px 0;
+}
+
+.btn {
+  border-radius: 30px;
+  background: var(--drk-red-bckgrd);
+  color: #fff;
+  border: none;
+  outline: none;
+  margin: 0 10px;
+  padding: 8px 15px;
+}
+
+.footer {
+  border-top: 1px solid #0f528b;
+  opacity: 0.1;
+  width: 75%;
+  height: 1px;
+  margin: 0 auto;
+}
+
+.footerDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+  margin: 1rem auto;
+}
+
+@media screen (max-width: 703px) {
+  .donorSearch {
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 753px) {
+  .footerDetails {
+    flex-direction: column;
+  }
+
+  .missionText {
+    width: 300px;
+  }
+
+  .headText {
+    width: 350px;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 753px) {
+  .left {
+    margin-bottom: 1rem;
+  }
+
+  .center {
+  font-family: 'Poppins' serif;
+  margin-bottom: 1rem;
+  }
+}
+
+.logoImg {
+  margin-right: 12px;
+}
+
+.logoText {
+  font-family: 'Poppins' serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 42px;
+  color: #f6655f;
+}
+
+.center {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: #434343;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.socialContainer {
+  height: 39px;
+  width: 39px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 14px;
+  border: 1.5px solid #f6655f;
+  cursor: pointer;
+}

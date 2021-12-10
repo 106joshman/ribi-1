@@ -1,0 +1,54 @@
+.newBloodSection {
+  position: relative;
+}
+
+.imageContainer {
+  width: 100%;
+}
+
+.heroImg {
+  width: 100%;
+}
+
+.heroText {
+  position: absolute;
+  font-family: "Poppins" serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 80px;
+  color: #f6655f;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.findDonor {
+  margin: 49px auto;
+  height: 400px;
+  width: 600px;
+  border-radius: 5px;
+  border: 1px solid #f6655f;
+  background: #F6655F;
+}
+
+.donateBlood {
+  min-width: 374px;
+  height: 169px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 40px;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.donorImage {
+  width: 80px;
+  height: 80px;
+}
