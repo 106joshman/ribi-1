@@ -1,0 +1,283 @@
+.bioSection {
+  position: relative;
+}
+
+.imageContainer {
+  width: 100%;
+}
+
+.heroImg {
+  width: 100%;
+}
+
+.textContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.heroText {
+  position: absolute;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 80px;
+  color: #f6655f;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.bioContainer {
+  width: 80%;
+  margin: 49px auto;
+  background: #f6655f;
+  padding: 37px;
+}
+
+.profileContainer {
+  width: 440px;
+  background: #fcc0bd;
+  border-radius: 25px;
+  margin: 0 auto 16px auto;
+  padding: 1rem 0;
+}
+
+.bloodGroup {
+  position: relative;
+}
+
+.blub {
+  position: absolute;
+  right: 22px;
+  top: 25px;
+}
+
+.blub2 {
+  position: absolute;
+  right: 23px;
+  top: 58px;
+}
+
+.bloodGroupText {
+  position: absolute;
+  right: 32px;
+  top: 35px;
+}
+
+.profilePicture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilePic {
+  margin-top: 36px;
+  width: 80px;
+}
+
+.flex {
+  margin-top: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 22px;
+}
+
+.editButton {
+  cursor: pointer;
+  width: 104px;
+  height: 46px;
+  background: #f6655f;
+  border-radius: 100px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  background: #f6655f;
+  border-radius: 50%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.bioText {
+  width: 25%;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 auto 42px auto;
+}
+
+.detailsTitle {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  margin: 0 auto 8px auto;
+}
+
+.detailsContainer {
+  width: 602px;
+  height: 613px;
+  background: #eb5757;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+
+.details {
+  width: 70%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+}
+
+.detailText {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.grid {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.donate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.donateTitle {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 56px;
+  text-align: center;
+  color: #f6655f;
+  width: 100%;
+  margin-top: 72px;
+  margin-bottom: 20px;
+}
+
+.donateDesc {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #434343;
+  opacity: 0.8;
+}
+
+.donateButtons {
+  display: flex;
+  margin-top: 62px;
+}
+
+.donateButton {
+  margin-right: 29px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+  background: #f6655f;
+  border-radius: 20px;
+  border: none;
+  width: 109px;
+  height: 34px;
+  cursor: pointer;
+}
+
+/* MEDIA SCREENS */
+@media (max-width: 1097px) {
+  .bioText {
+    width: 50%;
+  }
+}
+
+@media (max-width: 811px) {
+  .detailsContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .profileContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .bioText {
+    width: 100%;
+  }
+
+  .bioContainer {
+    width: 100%;
+  }
+
+  .details {
+    width: 100%;
+  }
+
+  .heroText {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 350px) {
+  .heroText {
+    font-size: 25px;
+  }
+}
