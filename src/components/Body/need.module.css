@@ -18,7 +18,7 @@
 
 .heroText {
   position: absolute;
-  font-family: Poppins;
+  font-family: "Poppins" serif;
   font-style: normal;
   font-weight: bold;
   font-size: 45px;
@@ -40,7 +40,7 @@
 }
 
 .donorTitle {
-  font-family: Poppins;
+  font-family: "Poppins" serif;
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
@@ -72,7 +72,7 @@
 }
 
 .donorSearch::placeholder {
-  font-family: Poppins;
+  font-family: "Poppins" serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -85,7 +85,7 @@
   height: 90px;
   background: #f6655f;
   border-radius: 100px;
-  font-family: Poppins;
+  font-family: "Poppins" serif;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
@@ -101,7 +101,7 @@
 }
 
 .availableDonorTitle {
-  font-family: Poppins;
+  font-family: "Poppins" serif;
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
@@ -135,7 +135,7 @@
 }
 
 .profileName {
-  font-family: Poppins;
+  font-family: "Poppins" serif;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -156,7 +156,7 @@
 }
 
 .locationName {
-  font-family: Poppins;
+  font-family: "Poppins" serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -166,7 +166,7 @@
 }
 
 .city {
-  font-family: Poppins;
+  font-family: "Poppins" serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -187,7 +187,7 @@
 }
 
 .bloodGroup {
-  font-family: Poppins;
+  font-family: 'poppins' serif;
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
@@ -203,7 +203,7 @@
 }
 
 .donateTitle {
-  font-family: Poppins;
+  font-family: 'poppins' serif;
   font-style: normal;
   font-weight: normal;
   font-size: 40px;
@@ -216,7 +216,7 @@
 }
 
 .donateDesc {
-  font-family: Poppins;
+  font-family: 'poppins' serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;

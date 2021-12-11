@@ -98,18 +98,6 @@ const Need = () => {
           </div>
         </div>
       </section>
-
-      <section className={styles.donate}>
-        <h3 className={styles.donateTitle}>DONATE BLOOD WHEN NEEDED</h3>
-        <p className={styles.donateDesc}>
-          Please book an appointment to donate. Appointments are available at
-          some of our centres.
-        </p>
-        <div className={styles.donateButtons}>
-          <button className={styles.donateButton}>👀 Insights</button>
-          <button className={styles.donateButton}>👋 Contact</button>
-        </div>
-      </section>
     </>
   );
 };

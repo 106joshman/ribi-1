@@ -29,6 +29,7 @@ nav a {
   text-decoration: none;
   margin: 0 5px;
   font-size: 13px;
+  cursor: pointer;
   font-family: var(--second-font);
 }
 
@@ -43,4 +44,22 @@ nav a {
 
 .icon {
   display: none;
+}
+
+/* ======
+Small screen orientation
+======= */
+@media screen and (max-width: 600px) {
+  .icon {
+    display: block;
+  }
+
+  nav .icon svg {
+    color: #EB5757;
+    font-size: 26px;
+  }
+
+  nav a {
+    display: none;
+  }
 }
