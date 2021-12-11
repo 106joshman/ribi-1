@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styles from "./donate.module.css";
 // import hero from "../../assets/hero.png";
+// import WindowSize from "../../../hooks/windowSize";
 import profile1 from "../images/Ellipse.png";
 // import { useNavigate } from 'react-router-dom';
 import Popup from './pop/Popup';

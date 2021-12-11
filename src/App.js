@@ -22,8 +22,8 @@ function App() {
           <Route path="/bio" element={<Bio />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="*" element={<ErrorPage />} />
           <Route path="/popup" element={<Popup />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
       </div>
