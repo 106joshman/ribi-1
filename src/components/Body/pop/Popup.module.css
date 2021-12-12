@@ -1,20 +1,21 @@
 .popBody {
-    height: 100vh;
-    width: 100vw;
-    top: -700px;
-    bottom: 0;
-    left: 50%;
-    right: 0;
-    /* background: #d3817e; */
-    opacity: 1;
-    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
 
 .popUp {
-    position: absolute;
-    background: #F6655F;
-    height: 60%;
-    padding: 15px;
+    position: fixed;
+    height: 100vh;
+    top: 60%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
     font-family: 'poppins' serif;
 }
 
@@ -101,22 +102,21 @@ svg {
 }
 
 .bttn {
-    margin-bottom: 50px;
+    margin: 30px 50px;
     display: flex;
     justify-content: center;
 }
 
 .searchButton {
-    padding: 15px 30px;
+    padding: 12px 20px;
     background: #F1908C;
     border-radius: 20px;
     font-family: "Poppins" serif;
     font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 20px;
     margin: 0 15px;
-    color: #ffffff;
+    color: #fff;
     outline: none;
     cursor: pointer;
     border: none;
@@ -126,6 +126,15 @@ svg {
     .popCard {
         margin: 0 auto;
         width: 50%;
+    }
+
+    .popUp {
+        /* width: 80%;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        left: 0;
+        position: absolute; */
     }
 
     .line {

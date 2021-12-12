@@ -61,10 +61,6 @@ const Need = () => {
   const [search, setSearch] = useState("");
   const [donor, setDonor] = useState({});
   const url ="https://ribi-donor.herokuapp.com/";
-  const [appState, setAppState] = useState({
-    loading:false,
-    datas: null,
-  });
 
   const getSearch = evt => {
     if(evt.key === "Enter") {
