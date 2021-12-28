@@ -13,7 +13,7 @@ const ErrorPage = () => {
             <p className="error-msg text-sm my-3">
                 The page you are looking for was removed, renamed or might never existed
             </p>
-            <Link to="/" className="rounded-full cursor-pointer text-white uppercase bg-thickred py-2 px-6 border-2">
+            <Link to="/home" className="rounded-full cursor-pointer text-white uppercase bg-thickred py-2 px-6 border-2">
                 go to home
           </Link>
         </div>
