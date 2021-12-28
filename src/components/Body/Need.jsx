@@ -59,7 +59,7 @@ const data = [
 
 const Need = () => {
   const [search, setSearch] = useState("");
-  const [donor, setDonor] = useState({});
+  // const [donor, setDonor] = useState({});
   const url ="https://ribi-donor.herokuapp.com/";
 
   const getSearch = evt => {
@@ -68,7 +68,6 @@ const Need = () => {
       .then((res) => res.json())
       .then((datas) => {
         console.log(datas)
-        setDonor(datas)
       });
     }
   }
