@@ -24,7 +24,7 @@ const Header = () => {
             <nav className="hidden sm:block">
                 {navLinks.map((link) => (
                     <Link 
-                        to={`/${link.to}`} 
+                        to={link.to} 
                         key={link.id} 
                         className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
                             {link.name}
