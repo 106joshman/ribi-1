@@ -49,7 +49,7 @@ const Donate = () => {
                     </div>
                 </div>
                 <div className={styles.bttn}>
-                <button className={styles.searchButton} onClick={() => {
+                    <button className={styles.searchButton} onClick={() => {
                     setShow(true)}}>Request</button>
                     <Popu onClose={() => setShow(false)} show={show} />
                 </div>

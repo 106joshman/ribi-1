@@ -30,7 +30,7 @@ const Popu = (props) => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Request</Button>
+      <Button onClick={handleOpen}>Request </Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

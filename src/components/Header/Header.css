@@ -10,56 +10,13 @@
 /* ========
 the header
 ========= */
-header {
-  display: flex;
-  justify-content: space-between;
-  height: 50px;
-  padding: 13px 10px;
-  background: #fff;
-  margin: 0 30px;
-}
-
-nav a {
-  border: 1px solid #EB5757;
-  border-radius: 30px;
-  color: #fff;
-  padding: 5px 18px;
-  text-transform: uppercase;
-  background: #F6655F;
-  text-decoration: none;
-  margin: 0 5px;
-  font-size: 13px;
-  cursor: pointer;
-  font-family: var(--second-font);
-}
-
 .logo {
-  width: 50px;
-  height: 50px;
+  width: 115px;
+  height: 70px;
+  padding: 5px;
 }
 
-.logo img {
-  width: 100%;
-}
-
-.icon {
-  display: none;
-}
-
-/* ======
-Small screen orientation
-======= */
-@media screen and (max-width: 600px) {
-  .icon {
-    display: block;
-  }
-
-  nav .icon svg {
-    color: #EB5757;
-    font-size: 26px;
-  }
-
-  nav a {
-    display: none;
-  }
+.icon svg {
+  font-size: 32px;
+  color: #F6655F;
 }

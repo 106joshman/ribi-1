@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&family=Poppins:wght@400;500;700;900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,14 +15,15 @@
   --light-bckgrd: #fcc0bd;
   --drk-red-bckgrd: #eb5757;
   --primary-font-size: 16px;
-  --first-font: "Orbitron", sans-serif;
-  --second-font: "Poppins", sans-serif;
+  --first-font: 'Orbitron', sans-serif;
+  --second-font: 'Poppins', sans-serif;
+  --supplemet: rgb(231, 188, 186, 0.5);
 }
 
 .App {
   flex: 1;
   flex-direction: column;
-  font-family: var(--second-font);
+  /* font-family: var(--second-font); */
 }
 
 .link {
