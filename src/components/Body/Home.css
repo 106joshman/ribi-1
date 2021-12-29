@@ -1,286 +1,35 @@
-.hero-body {
-  background: rgb(231, 188, 186, 0.5);
-  display: flex;
-  flex-direction: row;
-  justify-content: normal;
-  width: 100%;
-  height: 500px;
+/* ======
+Small screen orientation
+======= */
+@media screen and (max-width: 768px) {
+  .hero-right .front img {
+    width:30%;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 80px;
+  }
 }
 
-.hero-left {
-  width: 40%;
-  margin-left: 30px;
-}
-
-.hero-left h1 {
-  font-family: var(--second-font);
-  font-size: 45px;
-  width: 300px;
-  font-weight: 700;
-  color: #f6655f;
-  margin: 7rem 0px 0px;
-}
-
-.hero-left p {
-  font-family: var(--second-font);
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 33px;
-  letter-spacing: 0em;
-  margin: 15px 0;
-  text-align: left;
-  color: var(--drk-red-bckgrd);
-}
-
-.hero-left button {
-  border-radius: 30px;
-  background: var(--drk-red-bckgrd);
-  color: #fff;
-  border: none;
-  outline: none;
-  padding: 12px 18px;
-}
-
-.back {
-  background: url(../images/Vector.png);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 600px;
-  height: 100%;
-}
-
-.hero-right {
-  width: 60%;
-  overflow: hidden;
-}
-
-.hero-right .front img {
-  width: 60%;
-  position: relative;
-  margin-top: 85px;
-  margin-left: 130px;
-}
-
-.types {
-  height: 250px;
-}
-
-.blood-types {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.types h4 {
-  color: #f6655f;
-  font-size: 34px;
-  margin-top: 15px;
-  text-align: center;
-}
-
-.blood {
-  background: #eb5757;
-  margin: 30px 55px;
-  height: 150px;
-  border-radius: 20px;
-  padding: 20px;
-  width: 150px;
+@media screen and (min-width: 1024px) {
+  .hero-right .front img {
+    width: 25%;
+    position: absolute;
+    margin-top: 32px;
+    margin-left: 151px;
+  }
 }
 
 .drop {
-  background: url(../images/Blood.svg);
+  background: url(../images/Group130.png);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   width: 100px;
   height: 100px;
-  position: relative;
-  padding: 15px;
+  /* position: relative; */
+  padding: 10px;
 }
 
-.blood p {
-  text-align: center;
-  font-size: 28px;
-  font-weight: bold;
-  text-decoration: underline;
-  color: #eb5757;
-}
-
-.mission {
-  font-family: var(--second-font);
-  background: url(../images/unsplash_iisbRpVq7DI.png);
-  height: 350px;
-  text-align: center;
-  padding: 20px;
-}
-
-.mission .mssn {
-  width: 400px;
-  margin: 0 auto;
-}
-
-.mssn p {
-  margin: 15px 0;
-  font-size: 15px;
-  color: #fff;
-  align-items: center;
-}
-
-.cardhold {
-  display: flex;
-  margin: 20px auto;
-  justify-content: space-evenly;
-}
-
-.mission .card {
-  width: 550px;
-  height: 200px;
-  margin: 15px 0;
-  background: #fff;
-  text-align: center;
-}
-
-.card h6 {
-  margin: 20px 0;
-}
-
-.card p {
-  width: 90%;
-  color: #c6c6c6;
-  margin: 30px auto;
-}
-
-.card button {
-  border: none;
-  outline: none;
-  background: none;
-  text-align: center;
-  cursor: pointer;
-}
-
-/* ======
-Small screen orientation
-======= */
-@media screen and (max-width: 768px) {
-  .hero-body {
-    display: flex;
-    justify-content: normal;
-    overflow: hidden;
-  }
-
-  .hero-left {
-    margin-left: 30px;
-  }
-
-  .hero-left p {
-      font-size: 16px;
-  }
-
-  .hero-right {
-    width: 400px;
-  }
-
-  .back {
-    background-size: contain;
-    width: 500px;
-    height: 100%;
-  }
-
-  .hero-right .front img {
-    width: 70%;
-    margin-top: 80px;
-    margin-left: 105px;
-  }
-
-  .blood {
-    width: 110px;
-    height: 110px;
-    margin: 20px 30px;
-  }
-
-  .drop {
-    width: 70px;
-    height: 70px;
-  }
-
-  .drop p {
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .hero-body {
-    margin: auto;
-    height: 300px;
-  }
-
-  .hero-left {
-    padding: 20px;
-  }
-
-  .hero-left h1 {
-    font-size: 45px;
-  }
-
-  .hero-left p {
-    font-size: 18px;
-    margin: 20px 0;
-  }
-
-  .hero-left button {
-    font-size: 20px;
-  }
-
-  .hero-right {
-    display: none;
-  }
-
-  .types {
-    height: 350px;
-  }
-
-  .blood-types {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-
-  .blood {
-    margin: 20px 50px;
-    height: 100px;
-    width: 100px;
-    padding: 13px 15px;
-  }
-
-  .drop {
-    width: 70px;
-    height: 70px;
-  }
-
-  .drop p {
-    font-size: 20px;
-  }
-
-  .cardhold {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .mission {
-    height: 650px;
-  }
-
-  .card p {
-    width: 200px;
-    color: #c6c6c6;
-    margin: 18px auto;
-  }
-
-  .cardhold .card {
-    height: 250px;
-    width: 300px;
-    margin: 10px auto;
-  }
+.work-guide ul {
+  list-style-image: url(../images/list-icon.png);
 }

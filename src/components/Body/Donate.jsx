@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import styles from "./donate.module.css";
 // import hero from "../../assets/hero.png";
+// import WindowSize from "../../../hooks/windowSize";
 import profile1 from "../images/Ellipse.png";
 // import { useNavigate } from 'react-router-dom';
-import Popup from './pop/Popup';
+import Popu from './pop/Popu';
 
 const Donate = () => {
     // const navigate =useNavigate();
@@ -29,7 +30,7 @@ const Donate = () => {
                 </div>
                 <div className={styles.donorCard}>
                     <div className={styles.donorLoc}>
-                        <p className={styles.loc}>Location</p>
+                        <p className={styles.lo}>Location</p>
                         <h5 className={styles.donorLo}>Lagos State, Nigeria</h5>
                         <h5 className={styles.donorLo}>Mushin</h5>
                     </div>
@@ -48,9 +49,9 @@ const Donate = () => {
                     </div>
                 </div>
                 <div className={styles.bttn}>
-                <button className={styles.searchButton} onClick={() => {
+                    <button className={styles.searchButton} onClick={() => {
                     setShow(true)}}>Request</button>
-                    <Popup onClose={() => setShow(false)} show={show} />
+                    <Popu onClose={() => setShow(false)} show={show} />
                 </div>
             </div>
         </>

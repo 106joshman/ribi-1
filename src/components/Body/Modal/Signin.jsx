@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Backdrop, Box, Modal, Fade, Button, Typography } from "@mui/material";
+import { Backdrop, Box, Modal, Fade, Button } from "@mui/material";
 import styles from "./signin.module.css";
 import closeIcon from "../../../assets/close.png";
 import logo from "../../../assets/logo.png";
@@ -18,7 +18,6 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 3,
-  border: "none",
 };
 
 const Signin = () => {
@@ -52,7 +51,7 @@ const Signin = () => {
           >
             <div className={styles.top}>
               <div className={styles.left}>
-                <img src={logo} className={styles.logoImg} />
+                <img src={logo} alt="Ribi logo" className={styles.logoImg} />
                 <p className={styles.logoText}>RIBI</p>
               </div>
               <div onClick={() => handleClose()} className={styles.right}>

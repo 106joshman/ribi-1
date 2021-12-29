@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import styles from "./need.module.css";
 import hero from "../../assets/hero.png";
 import profile1 from "../../assets/profile1.png";
@@ -55,7 +56,22 @@ const data = [
   },
 ];
 
+
 const Need = () => {
+  const [search, setSearch] = useState("");
+  // const [donor, setDonor] = useState({});
+  const url ="https://ribi-donor.herokuapp.com/";
+
+  const getSearch = evt => {
+    if(evt.key === "Enter") {
+      fetch(url)
+      .then((res) => res.json())
+      .then((datas) => {
+        console.log(datas)
+      });
+    }
+  }
+
   return (
     <>
       <section className={styles.newBloodSection}>
@@ -71,7 +87,10 @@ const Need = () => {
           <input
             className={styles.donorSearch}
             type="text"
-            placeholder="Search by State/Province"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyPress={getSearch}
+            placeholder="Search by State/ Province/ City/ Blood type"
           />
           <button className={styles.searchButton}>Search</button>
         </div>
@@ -81,17 +100,17 @@ const Need = () => {
         <h2 className={styles.availableDonorTitle}>Available Donors</h2>
         <div className={styles.availableDonorContainer}>
           <div className={styles.donorLists}>
-            {data.map(({ id, name, image, location, city, bloodGroup }) => (
-              <div key={id} className={styles.donorItem}>
-                <img src={image} alt={name} />
-                <h5 className={styles.profileName}>{name}</h5>
+            {data.map((data) => (
+              <div key={data.id} className={styles.donorItem}>
+                <img src={data.image} alt={data.name} />
+                <h5 className={styles.profileName}>{data.name}</h5>
                 <div className={styles.location}>
                   <img className={styles.place} src={place} alt="place" />
-                  <p className={styles.locationName}>{location}</p>
+                  <p className={styles.locationName}>{data.location}</p>
                 </div>
-                <p className={styles.city}>{city}</p>
+                <p className={styles.city}>{data.city}</p>
                 <div className={styles.bloodGroupContainer}>
-                  <h4 className={styles.bloodGroup}>{bloodGroup}</h4>
+                  <h4 className={styles.bloodGroup}>{data.bloodGroup}</h4>
                 </div>
               </div>
             ))}
