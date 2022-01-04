@@ -15,7 +15,7 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 916,
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: 0,
   boxShadow: 24,
   p: 3,
 };
@@ -56,63 +56,6 @@ const Signin = () => {
               </div>
               <div onClick={() => handleClose()} className={styles.right}>
                 <img src={closeIcon} alt="close" />
-              </div>
-            </div>
-
-            <div className={styles.main}>
-              <div className={styles.mainLeft}>
-                <div className={styles.nav}>
-                  <button className={`${styles.button} ${styles.active}`}>
-                    Sign In
-                  </button>
-                  <button
-                    onClick={<Link className="link" to="/signup" />}
-                    className={styles.button}
-                  >
-                    Sign Up
-                  </button>
-                </div>
-
-                <form className={styles.form}>
-                  <div className={styles.formGroup}>
-                    <div className={styles.formController}>
-                      <label required={true} className={styles.label}>
-                        Email
-                      </label>
-                      <input type="email" className={styles.inputField} />
-                    </div>
-
-                    <div className={styles.formController}>
-                      <label required={true} className={styles.label}>
-                        Password
-                      </label>
-                      <div className={styles.inputContainer}>
-                        <input
-                          type={showPassword ? "text" : "password"}
-                          className={styles.inputFieldPassword}
-                        />
-                        {showPassword === false ? (
-                          <RemoveRedEye
-                            style={{ color: "#C0C6C9", cursor: "pointer" }}
-                            onClick={() => setShowPassword(!showPassword)}
-                          />
-                        ) : (
-                          <VisibilityOff
-                            style={{ color: "#C0C6C9", cursor: "pointer" }}
-                            onClick={() => setShowPassword(!showPassword)}
-                          />
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                  <span className={styles.forgot}>Forget Password?</span>
-                  <button className={styles.submitButton}>Sign In</button>
-                </form>
-              </div>
-              <div className={styles.mainRight}>
-                <div className={styles.imageContainer}>
-                  <img src={img} alt="img" />
-                </div>
               </div>
             </div>
           </Box>

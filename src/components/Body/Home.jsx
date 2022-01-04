@@ -3,6 +3,7 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import image from "../images/Group.png";
 import work from "../images/unsplash_W6yy0wYV-hk.png";
+import Signup from "../Body/Modal/Signup";
 
 const Home = () => {
   const cardData = [
@@ -18,35 +19,32 @@ const Home = () => {
     },
   ];
 
-  const blood = [
-      { type: "A" }, 
-      { type: "AB" }, 
-      { type: "B" }, 
-      { type: "O" }
-    ];
+  const blood = [{ type: "A" }, { type: "AB" }, { type: "B" }, { type: "O" }];
 
   return (
     <main className="">
       <section className="hero-body h-auto px-10 bg-thickred flex justify-between">
         <div className="hero-left text-white font-poppins">
-          <h1 className="text-5xl font-bold md:mt-20">
-            Learn To Give Blood
-          </h1>
+          <h1 className="text-5xl font-bold md:mt-20">Learn To Give Blood</h1>
+          <Signup />
           <p className="text font-normal my-5 leading-relaxed">
             Register today and help save a live
           </p>
-          <Link to="/find-blood" className="rounded-full mb-10 inline-flex py-2 px-6 border-2">
+          <Link
+            to="/find-blood"
+            className="rounded-full mb-10 inline-flex py-2 px-6 border-2"
+          >
             Find Blood <AiOutlineArrowRight />
           </Link>
         </div>
         <div className="hero-right invisible md:visible w-3/5">
           <div className="back bg-local md:bg-vector bg-center bg-contain bg-no-repeat h-full">
             <div className="front">
-              <img 
-                src={image} 
-                className="" 
-                alt="Ribi homapage display" 
-                srcset="" 
+              <img
+                src={image}
+                className=""
+                alt="Ribi homapage display"
+                srcset=""
               />
             </div>
           </div>
@@ -80,7 +78,10 @@ const Home = () => {
         <div className="cardhold flex flex-col md:flex-row md:justify-center">
           {cardData.map(({ id, title, text }) => {
             return (
-              <div key={id} className="card bg-thickred my-eX text-white p-blip md:m-eX md:w-card">
+              <div
+                key={id}
+                className="card bg-thickred my-eX text-white p-blip md:m-eX md:w-card"
+              >
                 <h6 className="mt-2.5 mb-5">{title}</h6>
                 <p className="my-5">{text}</p>
                 <button className="inline-flex cursor-pointer">
