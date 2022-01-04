@@ -132,6 +132,7 @@
 .inputFieldPassword {
   border: none;
   outline: none;
+  width: 100%;
 }
 
 .submitButton {
@@ -166,6 +167,87 @@
   color: #f6655f;
   border-bottom: 1px solid #f6655f;
   margin-bottom: 72px;
+}
+
+.profilePicFlex {
+  display: flex;
+  align-items: center;
+}
+
+.defaultPhoto {
+  width: 55px;
+height: 55px;
+margin-right: 33.4px;
+}
+
+.chooseImageButton {
+  width: 90px;
+height: 29px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+line-height: 15px;
+color: #434343;
+cursor: pointer;
+border: 1px solid #C0C6C9;
+border-radius: 4px;
+}
+
+.spanText {
+  cursor: pointer;
+  font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 18px;
+text-align: center;
+color: #F6655F;
+margin-bottom: 1rem;
+}
+
+.forgotButton {
+  display: flex;
+  align-items: center;
+}
+
+.submitSignInButton{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 81px;
+  height: 34px;
+  background: #f6655f;
+  border-radius: 8px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: #ffffff;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.changeSignup {
+  font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 18px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #F6655F;
+margin-top: 50px;
+cursor: pointer;
 }
 
 @media (max-width: 615px) {
