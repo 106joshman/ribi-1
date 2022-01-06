@@ -42,8 +42,6 @@ const Bio = () => {
           An Entrepreneur and a lover of humanity.
         </p>
 
-        <p className={styles.detailsTitle}>Details</p>
-
         <div className={styles.detailsContainer}>
           <div className={styles.detailsHead}>
             <div className={styles.headTags}>
