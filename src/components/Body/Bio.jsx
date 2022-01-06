@@ -3,6 +3,7 @@ import hero from "../../assets/hero.png";
 import profile from "../../assets/profile1.png";
 import blub from "../../assets/blub.png";
 import blub2 from "../../assets/blub2.png";
+import donorPic from "../../assets/donorPic.png";
 
 const Bio = () => {
   return (
@@ -25,7 +26,7 @@ const Bio = () => {
           <div className={styles.profilePicture}>
             <img
               className={styles.profilePic}
-              src={profile}
+              src={donorPic}
               alt="profilePicture"
             />
           </div>
@@ -37,8 +38,7 @@ const Bio = () => {
         </div>
 
         <p className={styles.bioText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique
-          diam aliquetmassa non quam augue
+          An Entrepreneur and a lover of humanity.
         </p>
 
         <p className={styles.detailsTitle}>Details</p>

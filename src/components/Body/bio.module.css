@@ -41,14 +41,15 @@
 
 .profileContainer {
   width: 440px;
-  background: #fcc0bd;
+  background: #EB5757;
   border-radius: 25px;
   margin: 0 auto 16px auto;
   padding: 1rem 0;
+  position: relative;
 }
 
 .bloodGroup {
-  position: relative;
+  
 }
 
 .blub {
@@ -72,12 +73,13 @@
 .profilePicture {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center
 }
 
 .profilePic {
   margin-top: 36px;
-  width: 80px;
+  width: 180px;
+  height: 176px;
 }
 
 .flex {
@@ -158,7 +160,7 @@
 .detailsContainer {
   width: 602px;
   height: 613px;
-  background: #eb5757;
+  background: #ffffff;
   border-radius: 25px;
   margin: 0 auto;
 }
@@ -176,7 +178,7 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff;
+  color: #434343;
   margin-bottom: 30px;
 }
 
