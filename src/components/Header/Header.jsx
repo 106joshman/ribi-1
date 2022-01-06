@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     const navLinks = [
         { id: 0, name: "need blood", to: "/need-blood" },
-        { id: 1, name: "donate blood", to: "/donate-blood" },
+        // { id: 1, name: "donate blood", to: "/donate-blood" },
+        { id: 1, name: "donate blood", to: "/popup" },
     ];
 
     return (
@@ -37,7 +38,6 @@ const Header = () => {
                 <svg className="" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                     <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path>
                 </svg>
-                {/* <GiHamburgerMenu  className="fill-thickred-700"/> */}
             </button>
         </header>
     );

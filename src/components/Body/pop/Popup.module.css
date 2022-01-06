@@ -20,8 +20,7 @@
 }
 
 .closeIcon {
-    display: flex;
-    justify-content: end;
+    display: flex-end;
 }
 
 .closeIcon button {
@@ -31,8 +30,8 @@
     font-weight: bold;
 }
 
-svg {
-    color: #fff;
+.closeIcon svg {
+    color: green;
     font-size: 20px;
     vertical-align: middle;
 }
@@ -126,15 +125,6 @@ svg {
     .popCard {
         margin: 0 auto;
         width: 50%;
-    }
-
-    .popUp {
-        /* width: 80%;
-        bottom: 0;
-        right: 0;
-        top: 0;
-        left: 0;
-        position: absolute; */
     }
 
     .line {

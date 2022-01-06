@@ -1,33 +1,62 @@
 import { AiOutlineArrowRight } from "react-icons/ai";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import image from "../images/Group.png";
+import image from "../images/Group1.png";
+import search from "../images/Group147.png";
+import contact from "../images/Group148.png";
+import heart from "../images/Group157.png";
 import work from "../images/unsplash_W6yy0wYV-hk.png";
 
 const Home = () => {
+  // donor instructions card
   const cardData = [
     {
-      id: 1,
+      id: 0,
       title: "HOW TO DONATE",
       text: "Donating blood is a safe, simple and rewarding experience that usually takes less than an hour! Donating is easy, and it makes a huge difference in the lives of others.",
     },
     {
-      id: 2,
+      id: 1,
       title: "WHERE TO DONATE",
       text: "We offer two types of locations for donations: donor centers and blood drives. We serve local hospitals in within Nigeria.",
     },
   ];
 
+  // blood type array
   const blood = [
-      { type: "A" }, 
-      { type: "AB" }, 
-      { type: "B" }, 
-      { type: "O" }
-    ];
+    { id: 0, type: "A" }, 
+    { id: 1, type: "AB" }, 
+    { id: 2, type: "B" }, 
+    { id: 3, type: "O" }
+  ];
+
+  // about ribi card array
+  const card = [
+    { 
+      id: 0, 
+      text: "Find Blood", 
+      image: search, 
+    }, 
+    { 
+      id: 1,
+      text: "Get Notified",
+      image: contact,
+    }, 
+    { 
+      id: 2,
+      text: "Save a Life",
+      image: heart,
+    }, 
+    { 
+      id: 3,
+      text: "Be Free", 
+      image: heart, 
+    }
+  ];
 
   return (
     <main className="">
-      <section className="hero-body h-auto px-10 bg-thickred flex justify-between">
+      <section className="hero-body h-auto px-10 py-4 bg-thickred flex justify-between">
         <div className="hero-left text-white font-poppins">
           <h1 className="text-5xl font-bold md:mt-20">
             Learn To Give Blood
@@ -52,6 +81,43 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <section className="about flex flex-col md:flex-row font-poppins justify-between my-6 px-10">
+        <div className="about-card grid grid-cols-2">
+          {card.map((card) => {
+            return (
+              <div key={card.id} className="w-about h-about mx-auto shadow-md md:m-4 p-5 rounded-3xl">
+                <img 
+                  src={card.image} 
+                  alt="" 
+                  srcset=""
+                  className="m-auto" 
+                />
+                <p className="text-center font-bold my-4 text-base">
+                  {card.text}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+        <div className="about-text md:w-hero px-4 font-poppins">
+          <h4 className="text-pryclr text-4xl font-bold">
+            About RIBI
+          </h4>
+          <p className="my-5">
+            RIBI is an intermediary between the Donor, Donee and the Medical Center. We are focus on saving life by creating an avenue in which blood can be easily donated and lives can be saved.
+          </p>
+          <p className="">
+            We provide the day to day communication between the individual who needs the blood and the donor who is ready to donate his/blood to save a life. We are open to different Medical Centers who are ready to make this a successfuly and assisting to save human lives by establishing a testing center for the Donor and the Donee.
+          </p>
+          <div className="about-btn  mt-5">
+            <Link 
+              to="/learn-more" 
+              className="rounded-full text-white bg-thickred inline-flex py-2 px-6">
+                Learn More <AiOutlineArrowRight />
+            </Link>
+          </div>
+        </div>
+      </section>
       <section className="types">
         <h4 className="text-pryclr font-bold my-4 text-4xl text-center font-poppins">
           Blood Types
@@ -59,7 +125,7 @@ const Home = () => {
         <div className="blood-types grid grid-cols-2 md:flex md:flex-row px-10 mb-8 md:justify-evenly">
           {blood.map(({ type }) => {
             return (
-              <div className="blood my-5 mx-10 w-drip h-drip p-2.5 md:p-2.5 md:my-eX md:mx-whY md:w-drop md:h-drop rounded-3xl bg-fade">
+              <div key={blood.id} className="blood my-5 mx-10 w-drip h-drip p-2.5 md:p-2.5 md:my-eX md:mx-whY md:w-drop md:h-drip rounded-3xl bg-fade">
                 <div className="drop">
                   <p className="text-pryclr text-underline text-center font-bold">
                     {type}

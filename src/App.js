@@ -9,7 +9,6 @@ import Signin from "./components/Body/Modal/Signin";
 import Signup from "./components/Body/Modal/Signup";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Popup from "./components/Body/pop/Popup";
-import Popu from "./components/Body/pop/Popu";
 
 function App() {
   return (
@@ -25,7 +24,6 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/popup" element={<Popup />} />
-          <Route path="/popup" element={<Popu />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
