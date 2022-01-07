@@ -4,6 +4,7 @@ import profile from "../../assets/profile1.png";
 import blub from "../../assets/blub.png";
 import blub2 from "../../assets/blub2.png";
 import donorPic from "../../assets/donorPic.png";
+import { Link } from "react-router-dom";
 
 const Bio = () => {
   return (
@@ -32,7 +33,9 @@ const Bio = () => {
           </div>
 
           <div className={styles.flex}>
-            <div className={styles.editButton}>Edit</div>
+            <div className={styles.editButton}>
+              <Link to="/edit">Edit</Link>
+            </div>
             <div className={styles.circle}>2</div>
           </div>
         </div>

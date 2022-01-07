@@ -3,7 +3,6 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import image from "../images/Group.png";
 import work from "../images/unsplash_W6yy0wYV-hk.png";
-import Signup from "../Body/Modal/Signup";
 
 const Home = () => {
   const cardData = [
@@ -26,7 +25,6 @@ const Home = () => {
       <section className="hero-body h-auto px-10 bg-thickred flex justify-between">
         <div className="hero-left text-white font-poppins">
           <h1 className="text-5xl font-bold md:mt-20">Learn To Give Blood</h1>
-          <Signup />
           <p className="text font-normal my-5 leading-relaxed">
             Register today and help save a live
           </p>
