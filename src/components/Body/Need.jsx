@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import styles from "./need.module.css";
 import hero from "../../assets/hero.png";
 import profile1 from "../../assets/profile1.png";
 import profile2 from "../../assets/profile2.png";
 import place from "../../assets/place.png";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -56,21 +57,20 @@ const data = [
   },
 ];
 
-
 const Need = () => {
   const [search, setSearch] = useState("");
   // const [donor, setDonor] = useState({});
-  const url ="https://ribi-donor.herokuapp.com/";
+  const url = "https://ribi-donor.herokuapp.com/";
 
-  const getSearch = evt => {
-    if(evt.key === "Enter") {
+  const getSearch = (evt) => {
+    if (evt.key === "Enter") {
       fetch(url)
-      .then((res) => res.json())
-      .then((datas) => {
-        console.log(datas)
-      });
+        .then((res) => res.json())
+        .then((datas) => {
+          console.log(datas);
+        });
     }
-  }
+  };
 
   return (
     <>
@@ -103,7 +103,9 @@ const Need = () => {
             {data.map((data) => (
               <div key={data.id} className={styles.donorItem}>
                 <img src={data.image} alt={data.name} />
-                <h5 className={styles.profileName}>{data.name}</h5>
+                <Link to="/bio">
+                  <h5 className={styles.profileName}>{data.name}</h5>
+                </Link>
                 <div className={styles.location}>
                   <img className={styles.place} src={place} alt="place" />
                   <p className={styles.locationName}>{data.location}</p>
