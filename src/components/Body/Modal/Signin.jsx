@@ -3,10 +3,10 @@ import { Backdrop, Box, Modal, Fade, Button } from "@mui/material";
 import styles from "./signin.module.css";
 import closeIcon from "../../../assets/close.png";
 import logo from "../../../assets/logo.png";
-import img from "../../../assets/img.png";
-import { RemoveRedEye, VisibilityOff } from "@mui/icons-material";
+// import img from "../../../assets/img.png";
+// import { RemoveRedEye, VisibilityOff } from "@mui/icons-material";
 import WindowSize from "../../../hooks/windowSize";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -22,7 +22,7 @@ const style = {
 
 const Signin = () => {
   const size = WindowSize();
-  const [showPassword, setShowPassword] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

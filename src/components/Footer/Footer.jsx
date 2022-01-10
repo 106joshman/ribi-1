@@ -2,6 +2,7 @@ import styles from "./footer.module.css";
 import facebook from "../../assets/facebook.png";
 import twitter from "../../assets/Twitter.png";
 import logo from '../images/logo.svg';
+import { Link } from "react-router-dom";
 import linkedin from "../../assets/linkedin.png";
 
 const Footer = () => {
@@ -21,10 +22,15 @@ const Footer = () => {
                 </button>
             </div>
         </div>
-        <div className={styles.footer}></div>
+        <div className={styles.footerLine}></div>
         <div className={styles.footerDetails}>
             <div className={styles.left}>
-            <img src={logo} alt="RIBI logo" srcset="" />
+                <Link to="/home">
+                    <img 
+                        src={logo} 
+                        alt="RIBI logo" 
+                        srcset="" />
+                </Link>
             </div>
 
             <div className={styles.center}>

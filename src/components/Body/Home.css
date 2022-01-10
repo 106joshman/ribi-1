@@ -5,17 +5,35 @@ Small screen orientation
   .hero-right .front img {
     width:30%;
     position: absolute;
-    margin-top: 50px;
-    margin-left: 80px;
+    margin-top: 69px;
+    margin-left: 67px;
   }
 }
 
-@media screen and (min-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   .hero-right .front img {
-    width: 25%;
+    width: 20%;
     position: absolute;
     margin-top: 32px;
     margin-left: 151px;
+  }
+} */
+
+@media screen and (min-width: 1024px) {
+  .hero-right .front img {
+    width: 29%;
+    position: absolute;
+    margin-top: 32px;
+    margin-left: 129px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero-right .front img {
+    width: 18%;
+    position: absolute;
+    margin-top: 32px;
+    margin-left: 306px;
   }
 }
 
@@ -24,12 +42,21 @@ Small screen orientation
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   /* position: relative; */
-  padding: 10px;
+  padding: 17px;
 }
 
 .work-guide ul {
   list-style-image: url(../images/list-icon.png);
+}
+
+.about {
+  background: rgba(241, 144, 140, 0.1);;
+}
+
+.main svg {
+  width: 20px;
+  height: 20px;
 }
