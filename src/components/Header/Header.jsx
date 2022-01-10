@@ -27,7 +27,7 @@ const Header = () => {
                 <Link 
                     to="/signup"  
                     className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
-                        Sign In
+                        donate blood
                 </Link>
             </nav>
             <button 
