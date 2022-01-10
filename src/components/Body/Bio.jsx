@@ -3,6 +3,8 @@ import hero from "../../assets/hero.png";
 import profile from "../../assets/profile1.png";
 import blub from "../../assets/blub.png";
 import blub2 from "../../assets/blub2.png";
+import donorPic from "../../assets/donorPic.png";
+import { Link } from "react-router-dom";
 
 const Bio = () => {
   return (
@@ -25,20 +27,21 @@ const Bio = () => {
           <div className={styles.profilePicture}>
             <img
               className={styles.profilePic}
-              src={profile}
+              src={donorPic}
               alt="profilePicture"
             />
           </div>
 
           <div className={styles.flex}>
-            <div className={styles.editButton}>Edit</div>
+            <div className={styles.editButton}>
+              <Link to="/edit">Edit</Link>
+            </div>
             <div className={styles.circle}>2</div>
           </div>
         </div>
 
         <p className={styles.bioText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique
-          diam aliquetmassa non quam augue
+          An Entrepreneur and a lover of humanity.
         </p>
 
         <p className={styles.detailsTitle}>Details</p>
@@ -66,18 +69,6 @@ const Bio = () => {
               <p className={styles.detailText}>Darefatosho@gmail.com</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className={styles.donate}>
-        <h3 className={styles.donateTitle}>DONATE BLOOD WHEN NEEDED</h3>
-        <p className={styles.donateDesc}>
-          Please book an appointment to donate. Appointments are available at
-          some of our centres.
-        </p>
-        <div className={styles.donateButtons}>
-          <button className={styles.donateButton}>👀 Insights</button>
-          <button className={styles.donateButton}>👋 Contact</button>
         </div>
       </section>
     </>

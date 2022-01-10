@@ -7,7 +7,6 @@ import contact from "../images/Group148.png";
 import heart from "../images/Group157.png";
 import hands from "../images/Group217.png";
 import work from "../images/unsplash_W6yy0wYV-hk.png";
-import Signup from "../Body/Modal/Signup";
 
 const Home = () => {
   // donor instructions card
@@ -61,7 +60,6 @@ const Home = () => {
       <section className="hero-body h-auto px-10 py-4 bg-thickred flex justify-between lg:justify-around">
         <div className="hero-left text-white font-poppins">
           <h1 className="text-5xl font-bold md:mt-20">Learn To Give Blood</h1>
-          <Signup />
           <p className="text font-normal my-5 leading-relaxed">
             Register today and help save a live
           </p>
