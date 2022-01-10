@@ -5,7 +5,9 @@ import image from "../images/Group1.png";
 import search from "../images/Group147.png";
 import contact from "../images/Group148.png";
 import heart from "../images/Group157.png";
+import hands from "../images/Group217.png";
 import work from "../images/unsplash_W6yy0wYV-hk.png";
+import Signup from "../Body/Modal/Signup";
 
 const Home = () => {
   // donor instructions card
@@ -45,7 +47,7 @@ const Home = () => {
     { 
       id: 2,
       text: "Save a Life",
-      image: heart,
+      image: hands,
     }, 
     { 
       id: 3,
@@ -55,42 +57,44 @@ const Home = () => {
   ];
 
   return (
-    <main className="">
-      <section className="hero-body h-auto px-10 py-4 bg-thickred flex justify-between">
+    <main className="main">
+      <section className="hero-body h-auto px-10 py-4 bg-thickred flex justify-between lg:justify-around">
         <div className="hero-left text-white font-poppins">
-          <h1 className="text-5xl font-bold md:mt-20">
-            Learn To Give Blood
-          </h1>
+          <h1 className="text-5xl font-bold md:mt-20">Learn To Give Blood</h1>
+          <Signup />
           <p className="text font-normal my-5 leading-relaxed">
             Register today and help save a live
           </p>
-          <Link to="/find-blood" className="rounded-full mb-10 inline-flex py-2 px-6 border-2">
+          <Link
+            to="/find-blood"
+            className="rounded-full mb-10 inline-flex py-2 px-6 border-2"
+          >
             Find Blood <AiOutlineArrowRight />
           </Link>
         </div>
-        <div className="hero-right invisible md:visible w-3/5">
+        <div className="hero-right hidden md:inline w-3/5">
           <div className="back bg-local md:bg-vector bg-center bg-contain bg-no-repeat h-full">
             <div className="front">
-              <img 
-                src={image} 
-                className="" 
-                alt="Ribi homapage display" 
-                srcset="" 
+              <img
+                src={image}
+                className=""
+                alt="Ribi homapage display"
+                srcset=""
               />
             </div>
           </div>
         </div>
       </section>
-      <section className="about flex flex-col md:flex-row font-poppins justify-between my-6 px-10">
+      <section className="about flex flex-col-reverse bg-opacity-50 lg:flex-row font-poppins justify-between lg:justify-around my-6 px-5 md:px-10">
         <div className="about-card grid grid-cols-2">
           {card.map((card) => {
             return (
-              <div key={card.id} className="w-about h-about mx-auto shadow-md md:m-4 p-5 rounded-3xl">
+              <div key={card.id} className="w-about bg-white h- lg:m-5 md:mx-auto shadow-md m-5 p-5 rounded-md">
                 <img 
                   src={card.image} 
                   alt="" 
                   srcset=""
-                  className="m-auto" 
+                  className="m-auto w-24 h-20" 
                 />
                 <p className="text-center font-bold my-4 text-base">
                   {card.text}
@@ -100,7 +104,7 @@ const Home = () => {
           })}
         </div>
         <div className="about-text md:w-hero px-4 font-poppins">
-          <h4 className="text-pryclr text-4xl font-bold">
+          <h4 className="text-pryclr underline md:no-underline text-4xl font-bold">
             About RIBI
           </h4>
           <p className="my-5">
@@ -136,17 +140,20 @@ const Home = () => {
           })}
         </div>
       </section>
-      <section className="mission font-poppins text-center px-10">
+      <section className="mission font-poppins bg-thickred md:bg-white text-center py-5 px-10">
         <div className="mssn">
-          <p className="text-pryclr font-semibold mt-eX">
+          <p className="md:text-pryclr font-normal text-white md:my-5 md:font-semibold w-1/2 mx-auto pt-blip">
             Your donation will save lives. It’s not just an appointment, it’s a
             commitment to save lives!
           </p>
         </div>
-        <div className="cardhold flex flex-col md:flex-row md:justify-center">
+        <div className="cardhold flex flex-col md:flex-row md:justify-evenly">
           {cardData.map(({ id, title, text }) => {
             return (
-              <div key={id} className="card bg-thickred my-eX text-white p-blip md:m-eX md:w-card">
+              <div
+                key={id}
+                className="card bg-white w-4/5 mx-auto p-5 md:bg-thickred md:text-white my-eX md:m-eX md:w-card"
+              >
                 <h6 className="mt-2.5 mb-5">{title}</h6>
                 <p className="my-5">{text}</p>
                 <button className="inline-flex cursor-pointer">

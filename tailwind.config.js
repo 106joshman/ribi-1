@@ -16,6 +16,8 @@ module.exports = {
         fade: "#fbfbfb",
         work: "#fbfbfb",
         donate: "#EB5757",
+        about: "#F1908C",
+        modal: "rgba(0, 0, 0, 0.5)",
       },
       backgroundImage: {
         vector: "url(/src/components/images/Vecto.png)",
@@ -26,7 +28,9 @@ module.exports = {
         drip: "110px",
         hero: "500px",
         card: "452px",
+        inpt: "120px",
         about: "160px",
+        sev: "70%",
       },
       margin: {
         eX: "15px",
@@ -40,6 +44,7 @@ module.exports = {
       },
       height: {
         hero: "500px",
+        ero: "100px",
         donate: "800px",
         drop: "120px",
         about: "160px",

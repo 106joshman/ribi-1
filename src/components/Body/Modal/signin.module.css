@@ -132,17 +132,21 @@
 .inputFieldPassword {
   border: none;
   outline: none;
+  width: 100%;
 }
 
 .forgot {
   font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 18px;
-  cursor: pointer;
-  color: #f6655f;
-  margin-bottom: 16px;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 18px;
+color: #434343;
+}
+
+.forgotButton {
+  display: flex;
+  align-items: center;
 }
 
 .submitButton {

@@ -4,11 +4,7 @@ import logo from '../images/logo.svg';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-    const navLinks = [
-        { id: 0, name: "need blood", to: "/need-blood" },
-        // { id: 1, name: "donate blood", to: "/donate-blood" },
-        { id: 1, name: "donate blood", to: "/popup" },
-    ];
+ // { id: 1, name: "donate blood", to: "/popup" },
 
     return (
         <header className="flex justify-between items-center py-1 px-6 md:px-10 font-poppins mx-auto">
@@ -23,14 +19,16 @@ const Header = () => {
                 </Link>
             </div>
             <nav className="hidden sm:block">
-                {navLinks.map((link) => (
-                    <Link 
-                        to={link.to} 
-                        key={link.id} 
-                        className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
-                            {link.name}
-                    </Link>
-                ))}
+                <Link 
+                    to="/need-blood"  
+                    className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
+                        need blood
+                </Link>
+                <Link 
+                    to="/signup"  
+                    className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
+                        Sign In
+                </Link>
             </nav>
             <button 
                 // onClick={}

@@ -1,159 +1,126 @@
-import React, { useState } from "react";
-// import { Backdrop, Box, Modal, Fade, Button } from "@mui/material";
-import styles from "./Popup.module.css";
+import React from "react";
+// import styles from "./Popup.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 // import { BiTimeFive, BiCalendar } from "react-icons/bi";
-// import WindowSize from "../../../hooks/windowSize";
-// import { Link } from "react-router-dom";
-
-// const style = {
-//   position: "absolute",
-//   top: "50%",
-//   left: "50%",
-//   transform: "translate(-50%, -50%)",
-//   width: 916,
-//   bgcolor: "background.paper",
-// //   border: "2px solid #000",
-//   boxShadow: 24,
-//   p: 3,
-// };
+import { Link } from "react-router-dom";
 
 const Popup = (props) => {
-  const input = [
-    { 
-      id: 0, 
-      type: "date",
-      name: "date",
-      required: "required",
-      value: "03/10/19", 
-    }, 
-    { 
-      id: 1, 
-      type: "time",
-      name: "time",
-      required: "required",
-      value: "11:15:06",
-    },
-  ];
-  // const size = WindowSize();
-//   const [showPassword, setShowPassword] = useState(false);
-  // const [open, setOpen] = useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
-  // if(!props.show) {
-  //   return null
-  // }
+  if(!props.show) {
+    return null
+  }
   return (
-    <div>
-      {/* <Button onClick={handleOpen}>Request </Button> */}
-      {/* <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <Box
-            sx={{
-              ...style,
-              width: size.width > 916 ? 916 : size.width,
-              height: size.width < 616 ? "100%" : "auto",
-            }}
-          > */}
-            <div className="pop font-poppins p-3 bg-thickred w-4/5 mx-auto">
-              <div className="flex justify-end">
-                <button 
-                  onClick={props.onClose}>
-                    <AiOutlineClose />
-                </button>
-              </div>
-              <h6 className="font-normal text-white text-center text-xl w-4/5 mx-auto">
-                If you have already filled before, kindly fill again with the same details. Thanks
-              </h6>
-              <div className="bg-donate p-5 w-4/5 mx-auto rounded-md">
-                <div className="">
-                  <p className="text-white text-center font-semibold mb-2.5">
-                    Choose date and time
-                  </p>
-                  <div className="inline-flex border-b jcustify-center opacity-50">
-                    {input.map(({ id, type, name, required, value }) => {
-                      return (
-                      <div key={id} className="mx-3 mb-3">
-                        <input 
-                          type={type}
-                          className="border-none"
-                          name={name} 
-                          required={required} 
-                          value={value}
-                        />
-                      </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
+    <div className="modal fixed h-screen w-screen bg-modal top-0 bottom-0 left-0 right-0" onClick={props.onClose}>
+      <div className="popup-modal h-screen overflow-scroll font-poppins p-4 bg-thickred w-4/5 mx-auto" onClick={e => e.stopPropagation()}>
+        <div className="flex justify-end">
+          <button
+            className="close-modal-bttn"
+            onClick={props.onClose}>
+              <AiOutlineClose className="text-xl text-white"/>
+          </button>
+        </div>
+        <h6 className="font-normal text-white text-center align-center mt-8 text-xl">
+          If you have already filled before, kindly fill again with the same details. Thanks
+        </h6>
+        <form action="" method="post" className="p-3 bg-donate md:p-5 md:w-3/5 mx-auto mt-5 rounded-md">
+          <p className="text-white text-center mt-2 font-semibold mb-3">
+            Choose date and time
+          </p>
+          <div className="flex row w-4/5 mx-auto justify-around px-3 align-center">
+            <div className="mx-3 mb-3">
+              <input 
+                type="date"
+                className="border-none bg-thickred w-inpt lg:w-about rounded-2xl p-2 text-white"
+                name="date" 
+                required="required" 
+                value=""
+              />
             </div>
-            {/* old below */}
-            {/* <div className={styles.popUp}>
-                <div className={styles.popCard}>
-                    <div className={styles.time}>
-                        <p className={styles.timeHead}>
-                            Choose date and time
-                        </p>
-                        <div className={styles.selectTime}>
-                            <div className={styles.date}>
-                                <BiCalendar />
-                                <input 
-                                  type="date" 
-                                  name="date" 
-                                  id=""
-                                  required
-                                  value="03/10/19"
-                                />
-                            </div>
-                            <div className={styles.date}>
-                                <BiTimeFive />
-                                <input 
-                                  type="time" 
-                                  name="time" 
-                                  id=""
-                                  required
-                                  value="11:15:06"
-                                />
-                            </div>
-                        </div>
-                        <div className={styles.line}></div>
-                        <div className={styles.form}>
-                            <div className="top">
-                                <p>
-                                    Location of Hospital where it is needed
-                                </p>
-                                <input className={styles.box} type="text" name="pint needed" id=""/>
-                            </div>
-                            <div className={styles.down}>
-                                <p>
-                                    Pint of Blood Needed
-                                </p>
-                                <select className={styles.box} type="text" name="pint needed" id="">
-                                    <option value="select pint">select pint</option>
-                                </select> 
-                            </div>                       
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.bttn}>
-                    <button className={styles.searchButton}>Confirm</button>
-                    <button className={styles.searchButton}>Cancel</button>
-                </div>
-            </div> */}
-          {/* </Box>
-        </Fade>
-      </Modal> */}
+            <div className="mx-3 mb-3">
+              <input 
+                type="time"
+                className="border-none bg-thickred w-inpt lg:w-about rounded-2xl p-2 text-white"
+                name="time" 
+                required="required" 
+                value=""
+              />
+            </div>
+          </div>
+          <div className="border opacity-25"></div>
+          <div className="mt-5">
+            <label htmlFor="" className="text-white text-xs my-2.5">First Name</label>
+            <input type="text" className="w-full h-8 border-white rounded-3xl" name="fName" id=""/>
+          </div>
+          <div className="my-3">
+            <label htmlFor="" className="text-white text-xs my-2.5">Last Name</label>
+            <input type="text" className="w-full h-8 border-white rounded-3xl" name="LName" id=""/>
+          </div>
+          <div className="">
+            <label htmlFor="" className="text-white text-xs">Gender</label>
+            <select className="w-full h-8 border-white rounded-3xl text-white" name="gender" id="">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div className="my-3">
+            <label htmlFor="" className="text-white text-xs">Age</label>
+            <input type="number" className="w-full h-8 border-white rounded-3xl" name="age" id=""/>
+          </div>
+          <div className="">
+            <label htmlFor="" className="text-white text-xs">Phone Number</label>
+            <input type="number" className="w-full h-8 border-white rounded-3xl" name="phone" id=""/>
+          </div>
+          <div className="my-3">
+            <label htmlFor="" className="text-white text-xs">Blood Type</label>
+            <select className="w-full h-8 border-white text-white rounded-3xl" name="bloodtype" id="">
+              <option value="A">A</option>
+              <option value="AB">AB</option>
+              <option value="B">B</option>
+              <option value="O">O</option>
+            </select>
+          </div>
+          <div className="">
+            <label htmlFor="" className="text-white text-xs">Ailment Diagnosis</label>
+            <input type="text" className="w-full h-8 border-white rounded-3xl" name="diagnosis" id=""/>
+          </div>
+          <div className="my-3">
+            <label htmlFor="" className="text-white text-xs">Country</label>
+            <input type="text" className="w-full h-8 border-white rounded-3xl" name="country" id=""/>
+          </div>
+          <div className="">
+            <label htmlFor="" className="text-white text-xs">State/Province</label>
+            <input type="text" className="w-full h-8 border-white rounded-3xl" name="state" id=""/>
+          </div>
+          <div className="my-3">
+            <label htmlFor="" className="text-white text-xs">City/Town</label>
+            <input type="text" className="w-full h-8 border-white rounded-3xl" name="city" id=""/>
+          </div>
+          <div className="">
+            <label htmlFor="" className="text-white text-xs">Email</label>
+            <input type="email" className="w-full h-8 border-white rounded-3xl" name="email" id=""/>
+          </div>
+          <div className="my-3">
+            <label htmlFor="" className="text-white text-xs">Location of Hospital where it is needed</label>
+            <input type="text" className="w-full h-8 border-white rounded-3xl" name="hospitalLoc" id=""/>
+          </div>
+          <div className="">
+            <label htmlFor="" className="text-white text-xs">Pint of Blood</label>
+            <input type="text" className="w-full h-8 border-white rounded-3xl" name="pint" id=""/>
+          </div>
+          <div className="bttn text-center mx-auto mt-5">
+            <button type="submit" className="searchButton font-bold mx-3 py-1 px-5 bg-white text-pryclr rounded-3xl">
+              Confirm
+            </button>
+            <Link to="/donate-blood" className="searchButton mx-3 font-bold bg-about py-1 px-5 text-white rounded-3xl">
+              Cancel
+            </Link>
+          </div>
+          <div className="my-5">
+            <p className="font-normal text-center text-white text-xs mx-3">
+              By clicking confirm, you agree to our <Link to="/" className="underline">User Agreement</Link>. Learn how we collect, use and share your data in our Privacy Policy
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

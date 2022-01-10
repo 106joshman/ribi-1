@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import styles from "./donate.module.css";
 import hero from "../../assets/hero.png";
-// import WindowSize from "../../../hooks/windowSize";
 import profile1 from "../images/Ellipse.png";
-// import { useNavigate } from 'react-router-dom';
 import Popu from './pop/Popup';
 
 const Donate = () => {
@@ -63,8 +61,10 @@ const Donate = () => {
                     <button 
                         className="font-bold" 
                         onClick={() => {
-                        setShow(true)}}>
-                            Request
+                            setShow(true)
+                        }}
+                    >
+                        Request
                     </button>
                     <Popu onClose={() => setShow(false)} show={show} />
                 </div>
@@ -74,3 +74,6 @@ const Donate = () => {
 }
  
 export default Donate;
+
+// onClick={() => {
+    // setShow(true)}}
