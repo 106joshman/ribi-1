@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Signup from "../Body/Modal/Signup";
 
 const Header = () => {
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
 
   const navLinks = [
     { id: 0, name: "need blood", to: "/need-blood" },
@@ -20,7 +20,7 @@ const Header = () => {
           <img src={logo} alt="RIBI logo" srcset="" className="w-full" />
         </Link>
       </div>
-      <nav className="hidden sm:block">
+      {/*<nav className="hidden sm:block">
         {isLogged ? (
           navLinks.map((link) => (
             <Link
@@ -31,6 +31,22 @@ const Header = () => {
               {link.name}
             </Link>
           ))
+        ) : (
+          <Signup />
+        )}
+        </nav>*/}
+      <nav className="flex">
+        <Link to="/need-blood">
+          <button className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
+            need blood
+          </button>
+        </Link>
+        {isLogged ? (
+          <Link to="/donate-blood">
+            <button className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
+              donate blood
+            </button>
+          </Link>
         ) : (
           <Signup />
         )}
@@ -71,27 +87,27 @@ export default Header;
 //         <header className="flex justify-between items-center py-1 px-6 md:px-10 font-poppins mx-auto">
 //             <div className="logo">
 //                 <Link to="/home">
-//                     <img 
-//                         src={logo} 
-//                         alt="RIBI logo" 
+//                     <img
+//                         src={logo}
+//                         alt="RIBI logo"
 //                         srcset=""
 //                         className="w-full"
 //                     />
 //                 </Link>
 //             </div>
 //             <nav className="hidden sm:block">
-//                 <Link 
-//                     to="/need-blood"  
+//                 <Link
+//                     to="/need-blood"
 //                     className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
 //                         need blood
 //                 </Link>
-//                 <Link 
-//                     to="/signup"  
+//                 <Link
+//                     to="/signup"
 //                     className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
 //                         donate blood
 //                 </Link>
 //             </nav>
-//             <button 
+//             <button
 //                 // onClick={}
 //                 className="icon cursor-pointer md:hidden">
 //                 <svg className="" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -101,5 +117,5 @@ export default Header;
 //         </header>
 //     );
 // }
- 
+
 // export default Header;

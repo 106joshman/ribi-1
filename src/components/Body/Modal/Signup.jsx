@@ -39,7 +39,7 @@ const Signup = () => {
         className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer"
         onClick={handleOpen}
       >
-        Sign Up / Sign In
+        donate blood
       </button>
       <Modal
         aria-labelledby="transition-modal-title"
