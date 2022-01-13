@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Signup from "../Body/Modal/Signup";
 
 const Header = () => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
 
   const navLinks = [
     { id: 0, name: "need blood", to: "/need-blood" },
@@ -42,7 +42,7 @@ const Header = () => {
           </button>
         </Link>
         {isLogged ? (
-          <Link to="/donate-blood">
+          <Link to="/bio">
             <button className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
               donate blood
             </button>

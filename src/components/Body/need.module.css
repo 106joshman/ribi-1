@@ -129,9 +129,18 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-right: 40px;
+  margin-right: 2rem;
   flex: 1;
   margin-bottom: 1rem;
+}
+
+.link {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .profileName {
