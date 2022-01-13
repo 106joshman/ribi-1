@@ -102,18 +102,20 @@ const Need = () => {
           <div className={styles.donorLists}>
             {data.map((data) => (
               <div key={data.id} className={styles.donorItem}>
-                <img src={data.image} alt={data.name} />
-                <Link to="/bio">
+                <Link className={styles.link} to="/bio">
+                  <img src={data.image} alt={data.name} />
+
                   <h5 className={styles.profileName}>{data.name}</h5>
+
+                  <div className={styles.location}>
+                    <img className={styles.place} src={place} alt="place" />
+                    <p className={styles.locationName}>{data.location}</p>
+                  </div>
+                  <p className={styles.city}>{data.city}</p>
+                  <div className={styles.bloodGroupContainer}>
+                    <h4 className={styles.bloodGroup}>{data.bloodGroup}</h4>
+                  </div>
                 </Link>
-                <div className={styles.location}>
-                  <img className={styles.place} src={place} alt="place" />
-                  <p className={styles.locationName}>{data.location}</p>
-                </div>
-                <p className={styles.city}>{data.city}</p>
-                <div className={styles.bloodGroupContainer}>
-                  <h4 className={styles.bloodGroup}>{data.bloodGroup}</h4>
-                </div>
               </div>
             ))}
           </div>

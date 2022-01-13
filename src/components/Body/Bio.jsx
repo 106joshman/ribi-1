@@ -36,7 +36,9 @@ const Bio = () => {
             <div className={styles.editButton}>
               <Link to="/edit">Edit</Link>
             </div>
-            <div className={styles.circle}>2</div>
+            <Link to="/request">
+              <div className={styles.circle}>2</div>
+            </Link>
           </div>
         </div>
 
