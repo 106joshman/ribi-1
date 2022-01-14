@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
 import styles from "./confirmRequest.module.css"
 import Alert from "./Alert"
+import cross from "../../../assets/close.png"
+
 
 const initialState = {
     success: null,
     error: null
 }
 
-const ConfirmRequest = ({ id }) => {
+const ConfirmRequest = ({ id, setID }) => {
     const [alert, setAlert] = useState(initialState)
   return (
       <>
     <div className={styles.backdrop}>
       <div className={styles.mainModal}>
+      <img onClick={() => setID(null)} className={styles.cross} src={cross} alt="cancel" />
         <div className={styles.main}>
             <div className={styles.heading}>
                 Confirm Request
@@ -55,7 +58,7 @@ const ConfirmRequest = ({ id }) => {
         </div>
     </div>
 
-    {alert.success ? <Alert success={alert.success} /> : alert.error ? <Alert error={alert.error} /> : null}
+    {alert.success ? <Alert setAlert={setAlert} success={alert.success} /> : alert.error ? <Alert setAlert={setAlert} error={alert.error} /> : null}
     </>
   )
 }

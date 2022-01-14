@@ -10,6 +10,7 @@ import ConfirmRequest from "./Modal/ConfirmRequest"
 
 const Bio = () => {
   const [id, setID] = useState(null)
+  const [tag, setTag] = useState("request")
 
   return (
     <>
@@ -49,8 +50,8 @@ const Bio = () => {
         <div className={styles.detailsContainer}>
           <div className={styles.detailsHead}>
             <div className={styles.headTags}>
-              <span className={styles.active}>Request</span>
-              <span className={styles.donations}>Donations</span>
+              <span onClick={() => setTag("request")} className={tag === "request" ? styles.active : styles.request }>Request</span>
+              <span onClick={() => setTag("donations")} className={tag === "donations" ? styles.active : styles.donations}>Donations</span>
             </div>
 
             <ul className={styles.unorderedList}>
@@ -69,6 +70,8 @@ const Bio = () => {
                     <span className={styles.pintLevel}>One pint of blood</span>
                   </div>
                 </div>
+
+                {tag === "donations" && <span className={styles.greenSide}>Donated</span>}
               </li>
 
               <li className={styles.list} onClick={() => setID(2)}>
@@ -86,6 +89,8 @@ const Bio = () => {
                     <span className={styles.pintLevel}>One pint of blood</span>
                   </div>
                 </div>
+
+                {tag === "donations" && <span className={styles.greenSide}>Donated</span>}
               </li>
 
               <li className={styles.list} onClick={() => setID(3)}>
@@ -103,13 +108,15 @@ const Bio = () => {
                     <span className={styles.pintLevel}>One pint of blood</span>
                   </div>
                 </div>
+
+                {tag === "donations" && <span className={styles.greenSide}>Donated</span>}
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      {id && <ConfirmRequest id={id} />}
+      {id && <ConfirmRequest setID={setID} id={id} />}
     </>
   );
 };

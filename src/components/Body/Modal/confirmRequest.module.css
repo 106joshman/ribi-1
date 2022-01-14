@@ -19,6 +19,18 @@
     padding: 2rem 0;
 }
 
+.icon {
+    margin-bottom: 13px;
+}
+
+.cross {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 3;
+    cursor: pointer;
+}
+
 .main {
     display: flex;
     justify-content: center;
@@ -156,6 +168,7 @@ color: #F1908C;
   .details {
     grid-template-columns: repeat(1, 1fr);
   }
+  
 }
 
 @media (max-width: 350px) {
