@@ -1,3 +1,4 @@
+import { useState } from "react"
 import styles from "./request.module.css";
 import hero from "../../assets/hero.png";
 import profile from "../../assets/profile1.png";
@@ -5,8 +6,11 @@ import blub from "../../assets/blub.png";
 import blub2 from "../../assets/blub2.png";
 import donorPic from "../../assets/donorPic.png";
 import requestDrop from "../../assets/requestDrop.png";
+import ConfirmRequest from "./Modal/ConfirmRequest"
 
 const Bio = () => {
+  const [id, setID] = useState(null)
+
   return (
     <>
       <section className={styles.bioSection}>
@@ -50,7 +54,7 @@ const Bio = () => {
             </div>
 
             <ul className={styles.unorderedList}>
-              <li className={styles.list}>
+              <li className={styles.list} onClick={() => setID(1)}>
                 <div className={styles.date}>
                   <div className={styles.month}>Oct</div>
                   <div className={styles.monthDate}>7</div>
@@ -67,7 +71,7 @@ const Bio = () => {
                 </div>
               </li>
 
-              <li className={styles.list}>
+              <li className={styles.list} onClick={() => setID(2)}>
                 <div className={styles.date}>
                   <div className={styles.month}>Dec</div>
                   <div className={styles.monthDate}>8</div>
@@ -84,7 +88,7 @@ const Bio = () => {
                 </div>
               </li>
 
-              <li className={styles.list}>
+              <li className={styles.list} onClick={() => setID(3)}>
                 <div className={styles.date}>
                   <div className={styles.month}>Jan</div>
                   <div className={styles.monthDate}>5</div>
@@ -104,6 +108,8 @@ const Bio = () => {
           </div>
         </div>
       </section>
+
+      {id && <ConfirmRequest id={id} />}
     </>
   );
 };

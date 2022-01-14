@@ -1,0 +1,165 @@
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(242, 242, 242, 0.8);
+}
+
+.mainModal{
+    position: relative;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    margin: 60px auto;
+    box-shadow: 3px 5px 7px rgb(0 0 0 / 50%);
+    background: #F6655F;
+    overflow-y: scroll;
+    padding: 2rem 0;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    background: #FFFFFF;
+    border-radius: 25px;
+    margin: 0 auto;
+    overflow-y: scroll;
+    flex-direction: column;
+    padding: 2rem 0;
+}
+
+.heading {
+    font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+color: #F6655F;
+border-bottom: 1px solid #F6655F;
+margin-bottom: 2rem;
+}
+
+.grid {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .details {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .detailText {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #434343;
+    margin-bottom: 30px;
+  }
+
+  .confirmButtons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-top: 2rem;
+  }
+  
+  .yesButton {
+      cursor: pointer;
+      border: none;
+      width: 139px;
+height: 45px;
+background: #F6655F;
+border-radius: 45px;
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 27px;
+color: #FFFFFF;
+margin-right: 23px;
+  }
+
+  .noButton {
+    cursor: pointer;
+    border: 1px solid #F1908C;;
+    width: 139px;
+height: 45px;
+background: transparent;
+border-radius: 45px;
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 27px;
+color: #F1908C;
+  }
+
+  /* MEDIA SCREENS */
+@media (max-width: 1097px) {
+  .bioText {
+    width: 50%;
+  }
+}
+
+@media (max-width: 811px) {
+  .detailsContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+    .mainModal {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 620px) {
+  .profileContainer {
+    width: 100%;
+  }
+  .main {
+      width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .bioText {
+    width: 100%;
+  }
+
+  .bioContainer {
+    width: 100%;
+  }
+
+  .details {
+    width: 100%;
+  }
+
+  .heroText {
+    font-size: 35px;
+  }
+
+  .details {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 350px) {
+  .heroText {
+    font-size: 25px;
+  }
+}
