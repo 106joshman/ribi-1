@@ -1,3 +1,4 @@
+import { useState } from "react"
 import styles from "./request.module.css";
 import hero from "../../assets/hero.png";
 import profile from "../../assets/profile1.png";
@@ -5,8 +6,12 @@ import blub from "../../assets/blub.png";
 import blub2 from "../../assets/blub2.png";
 import donorPic from "../../assets/donorPic.png";
 import requestDrop from "../../assets/requestDrop.png";
+import ConfirmRequest from "./Modal/ConfirmRequest"
 
 const Bio = () => {
+  const [id, setID] = useState(null)
+  const [tag, setTag] = useState("request")
+
   return (
     <>
       <section className={styles.bioSection}>
@@ -45,12 +50,12 @@ const Bio = () => {
         <div className={styles.detailsContainer}>
           <div className={styles.detailsHead}>
             <div className={styles.headTags}>
-              <span className={styles.active}>Request</span>
-              <span className={styles.donations}>Donations</span>
+              <span onClick={() => setTag("request")} className={tag === "request" ? styles.active : styles.request }>Request</span>
+              <span onClick={() => setTag("donations")} className={tag === "donations" ? styles.active : styles.donations}>Donations</span>
             </div>
 
             <ul className={styles.unorderedList}>
-              <li className={styles.list}>
+              <li className={styles.list} onClick={() => setID(1)}>
                 <div className={styles.date}>
                   <div className={styles.month}>Oct</div>
                   <div className={styles.monthDate}>7</div>
@@ -65,9 +70,11 @@ const Bio = () => {
                     <span className={styles.pintLevel}>One pint of blood</span>
                   </div>
                 </div>
+
+                {tag === "donations" && <span className={styles.greenSide}>Donated</span>}
               </li>
 
-              <li className={styles.list}>
+              <li className={styles.list} onClick={() => setID(2)}>
                 <div className={styles.date}>
                   <div className={styles.month}>Dec</div>
                   <div className={styles.monthDate}>8</div>
@@ -82,9 +89,11 @@ const Bio = () => {
                     <span className={styles.pintLevel}>One pint of blood</span>
                   </div>
                 </div>
+
+                {tag === "donations" && <span className={styles.greenSide}>Donated</span>}
               </li>
 
-              <li className={styles.list}>
+              <li className={styles.list} onClick={() => setID(3)}>
                 <div className={styles.date}>
                   <div className={styles.month}>Jan</div>
                   <div className={styles.monthDate}>5</div>
@@ -99,11 +108,15 @@ const Bio = () => {
                     <span className={styles.pintLevel}>One pint of blood</span>
                   </div>
                 </div>
+
+                {tag === "donations" && <span className={styles.greenSide}>Donated</span>}
               </li>
             </ul>
           </div>
         </div>
       </section>
+
+      {id && <ConfirmRequest setID={setID} id={id} />}
     </>
   );
 };
