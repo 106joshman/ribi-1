@@ -115,9 +115,9 @@ useEffect(() => {
   }
 
   return (
-    <div>
+    <>
       <button
-        className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer"
+        className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
         onClick={handleOpen}
       >
         donate blood
@@ -405,7 +405,7 @@ useEffect(() => {
           </Box>
         </Fade>
       </Modal>
-    </div>
+    </>
   );
 };
 

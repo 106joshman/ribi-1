@@ -45,6 +45,7 @@ const Header = () => {
         </nav>*/}
 
       <nav className="hidden sm:block">
+      <div className="flex">
         <Link
           to="/need-blood"
           className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
@@ -60,7 +61,9 @@ const Header = () => {
           </Link>
         ) : (
           <Signup />
+          
         )}
+        </div>
       </nav>
       <div className="cursor-pointer text-pryclr md:hidden">
         <button
