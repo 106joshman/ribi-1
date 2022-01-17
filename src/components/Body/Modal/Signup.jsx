@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Backdrop, Box, Modal, Fade, Button } from "@mui/material";
+import { Backdrop, Box, Modal, Fade } from "@mui/material";
 import styles from "./signup.module.css";
 import closeIcon from "../../../assets/close.png";
 import logo from "../../../assets/logo.png";
@@ -8,8 +8,8 @@ import img from "../../../assets/img.png";
 import defaultPhoto from "../../../assets/defaultPhoto.png";
 import { RemoveRedEye, VisibilityOff } from "@mui/icons-material";
 import WindowSize from "../../../hooks/windowSize";
-import Signin from "./Signin";
-import { Link } from "react-router-dom";
+// import Signin from "./Signin";
+// import { Link } from "react-router-dom";
 
 const style = {
   position: "absolute",
