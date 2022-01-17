@@ -12,6 +12,8 @@ import Signin from "./components/Body/Modal/Signin";
 import Signup from "./components/Body/Modal/Signup";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Popup from "./components/Body/pop/Popup";
+import DonorInfo from "./components/Body/pop/DonorInfo";
+// import Menu from "./components/Body/pop/Menu";
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
+          {/* <Route path="/menu" element={<Menu />} /> */}
           <Route path="/need-blood" element={<Need />} />
           <Route path="/donate-blood" element={<Donate />} />
           <Route path="/bio" element={<Bio />} />
@@ -30,6 +33,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/popup" element={<Popup />} />
+          <Route path="/donor-info" element={<DonorInfo />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

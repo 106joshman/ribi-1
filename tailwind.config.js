@@ -35,6 +35,7 @@ module.exports = {
       margin: {
         eX: "15px",
         whY: "35px",
+        ero: "100px",
         teh: "30px",
       },
       padding: {
