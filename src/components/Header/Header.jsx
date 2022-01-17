@@ -5,14 +5,13 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import "./Header.css";
 import logo from "../images/logo.svg";
 import { Link } from "react-router-dom";
-// import Signup from "../Body/Modal/Signup";
+import Signup from "../Body/Modal/Signup";
 import Menu from "../Body/pop/Menu";
-
 
 const Header = () => {
   // const [isOpen, setOpen] = useState(false);
   const [show, setShow] = useState(false);
-  // const [isLogged, setIsLogged] = useState(true);
+  const [isLogged] = useState(false);
 
   // const navLinks = [
   //   { id: 0, name: "need blood", to: "/need-blood" },
@@ -44,6 +43,7 @@ const Header = () => {
           <Signup />
         )}
         </nav>*/}
+
       <nav className="hidden sm:block">
         <Link
           to="/need-blood"
@@ -51,24 +51,24 @@ const Header = () => {
         >
           need blood
         </Link>
-        {/* {isLogged ? ( */}
+        {isLogged ? (
           <Link
             to="/bio"
             className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
           >
             donate blood
           </Link>
-        {/* ) : (
+        ) : (
           <Signup />
-        )} */}
+        )}
       </nav>
       <div className="cursor-pointer text-pryclr md:hidden">
         <button
           // onClick={}
           className="icon"
           onClick={() => {
-            setShow(true)
-        }}
+            setShow(true);
+          }}
         >
           <GiHamburgerMenu />
           {/* <Hamburger 
@@ -76,10 +76,7 @@ const Header = () => {
             toggle={setOpen} 
           /> */}
         </button>
-        <Menu 
-          onClose={() => 
-          setShow(false)} 
-          show={show}/>
+        <Menu onClose={() => setShow(false)} show={show} />
       </div>
     </header>
   );
