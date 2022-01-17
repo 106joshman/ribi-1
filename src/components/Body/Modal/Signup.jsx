@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Backdrop, Box, Modal, Fade } from "@mui/material";
 import styles from "./signup.module.css";
 import closeIcon from "../../../assets/close.png";
@@ -8,6 +8,7 @@ import img from "../../../assets/img.png";
 import defaultPhoto from "../../../assets/defaultPhoto.png";
 import { RemoveRedEye, VisibilityOff } from "@mui/icons-material";
 import WindowSize from "../../../hooks/windowSize";
+import axios from "axios"
 // import Signin from "./Signin";
 // import { Link } from "react-router-dom";
 
@@ -33,10 +34,90 @@ const Signup = () => {
   const handleClose = () => setOpen(false);
   const [login, setLogin] = useState(false);
 
+  const [states, setStates] = useState([])
+
+  //Validate: File types (png or jpeg)
+  const types = ["image/png", "image/jpeg"];
+
+// Get All States in Nigeria
+useEffect(() => {
+  const getStates = async () => {
+    const response = await axios.get("https://nigerian-states-info.herokuapp.com/api/v1/states")
+    setStates(response.data.data)
+  }
+  getStates()
+}, [])
+
+  // set values
+  const [image, setImage] = useState("");
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [gender, setGender] = useState("")
+  const [age, setAge] = useState("")
+  const [phone, setPhone] = useState("")
+  const [bloodType, setBloodType] = useState("")
+  const [ailmentDiagnosis, setAilmentDiagnosis] = useState("")
+  const [country, setCountry] = useState("")
+  const [address, setAddress] = useState("")
+  const [stateValue, setStateValue] = useState("")
+  const [city, setCity] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    if(!login) {
+      if(!firstName || !lastName || !gender || !age || !phone || !bloodType || !country || !address || !stateValue || !city || !email || !password) {
+      return console.error("All fields are required")
+    } else {
+      const data = {
+      avater: image,
+      firstname: firstName,
+      lastname: firstName,
+      gender,
+      age,
+      phone,
+      bloodType,
+      ailmentDiagnosis,
+      country,
+      homeAddress: address,
+      state: stateValue,
+      city,
+      email,
+      password
+    }
+
+    try {
+      const response = await axios.post("https://ribi-donor.herokuapp.com/api/v1/auth/register", data);
+    console.log(response.data)
+    } catch (error) {
+      return console.error(error.response?.data)
+    }
+    }
+    } else {
+      if(!email || !password) {
+        return console.error("All fields are required.")
+      } else {
+        const data = {
+          email,
+          password
+        }
+
+        try {
+          const response = await axios.post("https://ribi-donor.herokuapp.com/api/v1/auth/login", data)
+          console.log(response.data)
+        } catch (error) {
+          return console.error(error.response?.data)
+        }
+      }
+    }
+  }
+
   return (
-    <div>
+    <>
       <button
-        className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer"
+        className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
         onClick={handleOpen}
       >
         donate blood
@@ -85,13 +166,13 @@ const Signup = () => {
                     </button>
                   </div>
 
-                  <form className={styles.form}>
+                  <form onSubmit={handleSubmit} className={styles.form}>
                     <div className={styles.formGroup}>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           Email
                         </label>
-                        <input type="email" className={styles.inputField} />
+                        <input type="email" className={styles.inputField} onChange={(e) => setEmail(e.target.value)} />
                       </div>
 
                       <div className={styles.formController}>
@@ -102,6 +183,7 @@ const Signup = () => {
                           <input
                             type={showPassword ? "text" : "password"}
                             className={styles.inputFieldPassword}
+                            onChange={(e) => setPassword(e.target.value)}
                           />
                           {showPassword === false ? (
                             <RemoveRedEye
@@ -152,7 +234,7 @@ const Signup = () => {
                     </button>
                   </div>
 
-                  <form className={styles.form}>
+                  <form onSubmit={handleSubmit} className={styles.form}>
                     <div className={styles.formGroup}>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
@@ -174,6 +256,14 @@ const Signup = () => {
                             style={{ display: "none" }}
                             type="file"
                             id="fusk"
+                            onChange={(e) => {
+                              let selected = e.target.files[0];
+                                if (selected && types.includes(selected.type)) {
+                                  setImage(selected);
+                                } else {
+                                  return console.log("error")
+                              };
+                            }}
                           />
                         </div>
                       </div>
@@ -181,55 +271,94 @@ const Signup = () => {
                         <label required={true} className={styles.label}>
                           First name*
                         </label>
-                        <input type="text" className={styles.inputField} />
+                        <input type="text" className={styles.inputField} onChange={(e) => setFirstName(e.target.value)} />
                       </div>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           Last name*
                         </label>
-                        <input type="text" className={styles.inputField} />
+                        <input type="text" className={styles.inputField} onChange={(e) => setLastName(e.target.value)} />
+                      </div>
+                      <div className={styles.formController}>
+                        <label required={true} className={styles.label}>
+                          Gender*
+                        </label>
+                        <select className={styles.inputField}
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <option value="null"></option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+                      </div>
+                      <div className={styles.formController}>
+                        <label required={true} className={styles.label}>
+                          Age*
+                        </label>
+                        <input type="number" className={styles.inputField} onChange={(e) => setAge(e.target.value)} />
                       </div>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           Phone number*
                         </label>
-                        <input type="text" className={styles.inputField} />
+                        <input type="text" className={styles.inputField} onChange={(e) => setPhone(e.target.value)} />
                       </div>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           Blood Type*
                         </label>
-                        <input type="text" className={styles.inputField} />
+                        <select className={styles.inputField}
+              onChange={(e) => setBloodType(e.target.value)}
+            >
+              <option value="null"></option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="AB">AB</option>
+              <option value="O">O</option>
+            </select>
+                      </div>
+                      <div className={styles.formController}>
+                        <label required={true} className={styles.label}>
+                          Ailment Diagnosis
+                        </label>
+                        <input type="text" className={styles.inputField} onChange={(e) => setAilmentDiagnosis(e.target.value)} />
                       </div>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           Country*
                         </label>
-                        <input type="text" className={styles.inputField} />
+                        <input type="text" className={styles.inputField} onChange={(e) => setCountry(e.target.value)} />
                       </div>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           Home Address*
                         </label>
-                        <input type="text" className={styles.inputField} />
+                        <input type="text" className={styles.inputField} onChange={(e) => setAddress(e.target.value)} />
                       </div>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           State*
                         </label>
-                        <input type="text" className={styles.inputField} />
+
+                        <select className={styles.inputField}
+              onChange={(e) => setStateValue(e.target.value)}
+            >
+            {states.map((state) => (
+              <option value={state.Name}>{state.info.officialName}</option>
+            ))}
+            </select>
                       </div>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           City/Town*
                         </label>
-                        <input type="text" className={styles.inputField} />
+                        <input type="text" className={styles.inputField} onChange={(e) => setCity(e.target.value)} />
                       </div>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           Email
                         </label>
-                        <input type="email" className={styles.inputField} />
+                        <input type="email" className={styles.inputField} onChange={(e) => setEmail(e.target.value)} />
                       </div>
 
                       <div className={styles.formController}>
@@ -240,6 +369,7 @@ const Signup = () => {
                           <input
                             type={showPassword ? "text" : "password"}
                             className={styles.inputFieldPassword}
+                            onChange={(e) => setPassword(e.target.value)}
                           />
                           {showPassword === false ? (
                             <RemoveRedEye
@@ -275,7 +405,7 @@ const Signup = () => {
           </Box>
         </Fade>
       </Modal>
-    </div>
+    </>
   );
 };
 
