@@ -1,6 +1,6 @@
 import styles from "./bio.module.css";
 import hero from "../../assets/hero.png";
-import profile from "../../assets/profile1.png";
+// import profile from "../../assets/profile1.png";
 import blub from "../../assets/blub.png";
 import blub2 from "../../assets/blub2.png";
 import donorPic from "../../assets/donorPic.png";

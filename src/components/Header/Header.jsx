@@ -1,17 +1,23 @@
 import { useState } from "react";
-// import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";
+// import { AiOutlineClose } from "react-icons/ai";
+// import Hamburger from "hamburger-react";
 import "./Header.css";
 import logo from "../images/logo.svg";
 import { Link } from "react-router-dom";
-import Signup from "../Body/Modal/Signup";
+// import Signup from "../Body/Modal/Signup";
+import Menu from "../Body/pop/Menu";
+
 
 const Header = () => {
-  const [isLogged, setIsLogged] = useState(true);
+  // const [isOpen, setOpen] = useState(false);
+  const [show, setShow] = useState(false);
+  // const [isLogged, setIsLogged] = useState(true);
 
-  const navLinks = [
-    { id: 0, name: "need blood", to: "/need-blood" },
-    { id: 1, name: "donate blood", to: "/donate-blood" },
-  ];
+  // const navLinks = [
+  //   { id: 0, name: "need blood", to: "/need-blood" },
+  //   { id: 1, name: "donate blood", to: "/signup" },
+  // ];
 
   return (
     <header className="flex justify-between items-center py-1 px-6 md:px-10 font-poppins mx-auto">
@@ -22,100 +28,61 @@ const Header = () => {
       </div>
       {/*<nav className="hidden sm:block">
         {isLogged ? (
-          navLinks.map((link) => (
-            <Link
-              to={link.to}
-              key={link.id}
-              className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer"
-            >
-              {link.name}
-            </Link>
-          ))
-        ) : (
+          <>
+          <Link 
+              to="/need-blood"  
+              className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
+                  need blood
+          </Link>
+          <Link 
+              to="/signup"  
+              className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
+                  donate blood
+          </Link>
+          </>
+          ) : (
           <Signup />
         )}
         </nav>*/}
-      <nav className="flex">
-        <Link to="/need-blood">
-          <button className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
-            need blood
-          </button>
-        </Link>
-        {isLogged ? (
-          <Link to="/bio">
-            <button className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
-              donate blood
-            </button>
-          </Link>
-        ) : (
-          <Signup />
-        )}
-      </nav>
-      <button
-        // onClick={}
-        className="icon cursor-pointer md:hidden"
-      >
-        <svg
-          className=""
-          stroke="currentColor"
-          fill="currentColor"
-          stroke-width="0"
-          viewBox="0 0 512 512"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+      <nav className="hidden sm:block">
+        <Link
+          to="/need-blood"
+          className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
         >
-          <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path>
-        </svg>
-        {/* <GiHamburgerMenu  className="fill-thickred-700"/> */}
-      </button>
+          need blood
+        </Link>
+        {/* {isLogged ? ( */}
+          <Link
+            to="/bio"
+            className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
+          >
+            donate blood
+          </Link>
+        {/* ) : (
+          <Signup />
+        )} */}
+      </nav>
+      <div className="cursor-pointer text-pryclr md:hidden">
+        <button
+          // onClick={}
+          className="icon"
+          onClick={() => {
+            setShow(true)
+        }}
+        >
+          <GiHamburgerMenu />
+          {/* <Hamburger 
+            toggled={isOpen} 
+            toggle={setOpen} 
+          /> */}
+        </button>
+        <Menu 
+          onClose={() => 
+          setShow(false)} 
+          show={show}/>
+      </div>
     </header>
   );
 };
 
 export default Header;
-
-// import { GiHamburgerMenu } from "react-icons/gi";
-// import "./Header.css";
-// import logo from '../images/logo.svg';
-// import { Link } from 'react-router-dom';
-
-// const Header = () => {
-//  // { id: 1, name: "donate blood", to: "/popup" },
-
-//     return (
-//         <header className="flex justify-between items-center py-1 px-6 md:px-10 font-poppins mx-auto">
-//             <div className="logo">
-//                 <Link to="/home">
-//                     <img
-//                         src={logo}
-//                         alt="RIBI logo"
-//                         srcset=""
-//                         className="w-full"
-//                     />
-//                 </Link>
-//             </div>
-//             <nav className="hidden sm:block">
-//                 <Link
-//                     to="/need-blood"
-//                     className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
-//                         need blood
-//                 </Link>
-//                 <Link
-//                     to="/signup"
-//                     className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
-//                         donate blood
-//                 </Link>
-//             </nav>
-//             <button
-//                 // onClick={}
-//                 className="icon cursor-pointer md:hidden">
-//                 <svg className="" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-//                     <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path>
-//                 </svg>
-//             </button>
-//         </header>
-//     );
-// }
-
-// export default Header;
