@@ -74,7 +74,7 @@ useEffect(() => {
       const data = {
       avater: image,
       firstname: firstName,
-      lastname: firstName,
+      lastname: lastName,
       gender,
       age,
       phone,
