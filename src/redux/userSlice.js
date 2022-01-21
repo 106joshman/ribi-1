@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const userSlice = createSlice({
   name: "user",
-  // User Data State.
   initialState: {
     isLogged: false,
     token: "",
