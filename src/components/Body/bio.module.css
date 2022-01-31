@@ -181,6 +181,7 @@
   line-height: 24px;
   color: #434343;
   margin-bottom: 30px;
+  text-transform: capitalize;
 }
 
 .grid {
