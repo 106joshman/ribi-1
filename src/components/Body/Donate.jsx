@@ -57,16 +57,18 @@ const Donate = () => {
                         </p>
                     </div>
                 </div>
-                <div className="bttn rounded-3xl p-3 my-10 text-center bg-donate md:w-3/4 mx-auto">
-                    <button 
-                        className="font-bold" 
-                        onClick={() => {
-                            setShow(true)
-                        }}
-                    >
-                        Request
-                    </button>
-                    <Popu onClose={() => setShow(false)} show={show} />
+                <div className="bttn rounded-3xl p-3 my-10  bg-donate md:w-3/4 mx-auto">
+                    <div className="text-center">
+                        <button 
+                            className="font-bold" 
+                            onClick={() => {
+                                setShow(true)
+                            }}
+                        >
+                            Request
+                        </button>
+                        </div>
+                        <Popu onClose={() => setShow(false)} show={show} />
                 </div>
             </div>
         </>
@@ -74,6 +76,3 @@ const Donate = () => {
 }
  
 export default Donate;
-
-// onClick={() => {
-    // setShow(true)}}

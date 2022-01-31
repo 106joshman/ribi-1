@@ -27,6 +27,7 @@ module.exports = {
         drop: "100px",
         drip: "110px",
         hero: "500px",
+        ero: "300px",
         card: "452px",
         inpt: "120px",
         about: "160px",

@@ -13,6 +13,8 @@ import Signup from "./components/Body/Modal/Signup";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Popup from "./components/Body/pop/Popup";
 import DonorInfo from "./components/Body/pop/DonorInfo";
+import Contact from "./components/Body/Contact";
+import Insight from "./components/Body/Insight";
 // import Menu from "./components/Body/pop/Menu";
 
 function App() {
@@ -33,8 +35,10 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/popup" element={<Popup />} />
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/insights" element={<Insight />} />
           <Route path="/donor-info" element={<DonorInfo />} />
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="*" element={<ErrorPage />} />  
         </Routes>
         <Footer />
       </div>

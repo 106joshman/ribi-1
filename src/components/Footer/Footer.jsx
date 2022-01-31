@@ -14,12 +14,16 @@ const Footer = () => {
                 Please book an appointment to donate. Appointments are available at some of our centres.
             </p>
             <div className={styles.bttn}>
-                <button className={styles.btn}>
+                <Link 
+                    to="/insights"
+                    className={styles.btn}>
                     👀 Insights
-                </button>
-                <button className={styles.btn}>
+                </Link>
+                <Link 
+                    to="/contact-us"
+                    className={styles.btn}>
                     👋 Contact
-                </button>
+                </Link>
             </div>
         </div>
         <div className={styles.footerLine}></div>
