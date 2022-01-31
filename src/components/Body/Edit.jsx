@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./edit.module.css";
 import hero from "../../assets/hero.png";
 // import profile from "../../assets/profile1.png";
@@ -8,11 +9,31 @@ import camera from "../../assets/camera.png";
 import editPen from "../../assets/editPen.png";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Edit = () => {
+  const [edit, setEdit] = useState(false);
+  const [firstname, setFirstname] = useState("");
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.user.token);
+
+  const handleEdit = (id) => {
+    if (id) {
+      setEdit(true);
+    }
+  };
+
+  const handleClick = async (id) => {
+    if (id === "firstname") {
+      const response = await axios.post(
+        "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
+        {
+          firstname,
+        }
+      );
+    }
+  };
 
   if (!token) {
     return navigate("/home");
@@ -50,10 +71,26 @@ const Edit = () => {
               <div className={styles.grid}>
                 <div className={styles.details}>
                   <p className={styles.detailText}>First name:</p>
-                  <p className={`${styles.flex} ${styles.detailText}`}>
-                    {user?.firstname}
-                    <img src={editPen} alt="edit" />
-                  </p>
+                  {edit ? (
+                    <>
+                      <input onChange={(e) => setFirstname(e.target.value)} />
+                      <button onClick={() => handleClick("firstname")}>
+                        Save
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <p className={`${styles.flex} ${styles.detailText}`}>
+                        {user?.firstname}
+                        <img
+                          onClick={() => handleEdit("firstName")}
+                          style={{ cursor: "pointer" }}
+                          src={editPen}
+                          alt="edit"
+                        />
+                      </p>
+                    </>
+                  )}
                   <p className={styles.detailText}>Last name:</p>
                   <p className={`${styles.flex} ${styles.detailText}`}>
                     {user?.lastname}
