@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 // const data = [
-//   {
+//
 //     id: 1,
 //     image: profile1,
 //     name: "Dare Fatosho",
