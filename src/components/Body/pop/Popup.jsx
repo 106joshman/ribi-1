@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 // import styles from "./Popup.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 // import { BiTimeFive, BiCalendar } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const Popup = (props) => {
+  const [time, setTime] = useState("");
+  const [date, setDate] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [gender, setGender] = useState("");
+  console.log(gender);
+  const [age, setAge] = useState("");
+  const [phone, setPhone] = useState("");
+  const [bloodType, setBloodType] = useState("");
+  const [ailmentDiagnosis, setAilmentDiagnosis] = useState("");
+  const [country, setCountry] = useState("");
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
+  const [email, setEmail] = useState("");
+  const [patientLocation, setPatientLocation] = useState("");
+  const [pintOfBlood, setPintOfBlood] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+
   if(!props.show) {
     return null
   }
@@ -21,7 +43,11 @@ const Popup = (props) => {
         <h6 className="font-normal text-white text-center align-center mt-8 text-xl">
           If you have already filled before, kindly fill again with the same details. Thanks
         </h6>
-        <form action="" method="post" className="p-3 bg-donate md:p-5 md:w-3/5 mx-auto mt-5 rounded-md">
+        <form 
+          action="https://ribi-donor.herokuapp.com/api/v1/patients" 
+          method="post" 
+          className="p-3 bg-donate md:p-5 md:w-3/5 mx-auto mt-5 rounded-md"
+        >
           <p className="text-white text-center mt-2 font-semibold mb-3">
             Choose date and time
           </p>
@@ -31,8 +57,11 @@ const Popup = (props) => {
                 type="date"
                 className="border-none bg-thickred w-inpt lg:w-about rounded-2xl p-2 text-white"
                 name="date" 
-                required="required" 
-                value=""
+                required={true} 
+                value={date}
+                onChange={(e) => {
+                  setDate(e.target.value)
+                }}
               />
             </div>
             <div className="mx-3 mb-3">
@@ -40,38 +69,96 @@ const Popup = (props) => {
                 type="time"
                 className="border-none bg-thickred w-inpt lg:w-about rounded-2xl p-2 text-white"
                 name="time" 
-                required="required" 
-                value=""
+                required={true} 
+                value={time}
+                onChange={(e) => {
+                  setTime(e.target.value)
+                }}
               />
             </div>
           </div>
           <div className="border opacity-25"></div>
           <div className="mt-5">
             <label htmlFor="" className="text-white text-xs my-2.5">First Name</label>
-            <input type="text" className="w-full h-8 border-white rounded-3xl" name="fName" id=""/>
+            <input 
+              type="text" 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={firstName} 
+              name="fName" 
+              required={true} 
+              id=""
+              onChange={(e) => {
+                setFirstName(e.target.value)
+              }}
+            />
           </div>
           <div className="my-3">
             <label htmlFor="" className="text-white text-xs my-2.5">Last Name</label>
-            <input type="text" className="w-full h-8 border-white rounded-3xl" name="LName" id=""/>
+            <input 
+              type="text" 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={lastName} 
+              name="LName" 
+              required={true} 
+              onChange={(e) => {
+                setLastName(e.target.value)
+              }} 
+              id=""
+            />
           </div>
           <div className="">
             <label htmlFor="" className="text-white text-xs">Gender</label>
-            <select className="w-full h-8 border-white rounded-3xl text-white" name="gender" id="">
+            <select 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={gender}
+              required={true} 
+              onChange={(e) => {
+                setGender(e.target.value)
+              }} 
+              name="gender" 
+              id=""
+            >
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
           </div>
           <div className="my-3">
             <label htmlFor="" className="text-white text-xs">Age</label>
-            <input type="number" className="w-full h-8 border-white rounded-3xl" name="age" id=""/>
+            <input 
+              type="number" 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={age} 
+              onChange={(e) => {
+                setAge(e.target.value)
+              }} 
+              name="age" 
+              id="age"
+            />
           </div>
           <div className="">
             <label htmlFor="" className="text-white text-xs">Phone Number</label>
-            <input type="number" className="w-full h-8 border-white rounded-3xl" name="phone" id=""/>
+            <input 
+              type="number" 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={phone} 
+              onChange={(e) => {
+                setPhone(e.target.value)
+              }} 
+              name="phone" 
+              id=""
+            />
           </div>
           <div className="my-3">
             <label htmlFor="" className="text-white text-xs">Blood Type</label>
-            <select className="w-full h-8 border-white text-white rounded-3xl" name="bloodtype" id="">
+            <select 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={bloodType} 
+              onChange={(e) => {
+                setBloodType(e.target.value)
+              }} 
+              name="bloodtype" 
+              id=""
+            >
               <option value="A">A</option>
               <option value="AB">AB</option>
               <option value="B">B</option>
@@ -80,34 +167,101 @@ const Popup = (props) => {
           </div>
           <div className="">
             <label htmlFor="" className="text-white text-xs">Ailment Diagnosis</label>
-            <input type="text" className="w-full h-8 border-white rounded-3xl" name="diagnosis" id=""/>
+            <input 
+              type="text" 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={ailmentDiagnosis} 
+              onChange={(e) => {
+                setAilmentDiagnosis(e.target.value)
+              }} 
+              name="diagnosis" 
+              id=""
+            />
           </div>
           <div className="my-3">
             <label htmlFor="" className="text-white text-xs">Country</label>
-            <input type="text" className="w-full h-8 border-white rounded-3xl" name="country" id=""/>
+            <input 
+              type="text" 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={country} 
+              onChange={(e) => {
+                setCountry(e.target.value)
+              }} 
+              name="country" 
+              id=""
+            />
           </div>
           <div className="">
             <label htmlFor="" className="text-white text-xs">State/Province</label>
-            <input type="text" className="w-full h-8 border-white rounded-3xl" name="state" id=""/>
+            <input 
+              type="text" 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={state} 
+              onChange={(e) => {
+                setState(e.target.value)
+              }} 
+              name="state" 
+              id=""
+            />
           </div>
           <div className="my-3">
             <label htmlFor="" className="text-white text-xs">City/Town</label>
-            <input type="text" className="w-full h-8 border-white rounded-3xl" name="city" id=""/>
+            <input 
+              type="text" 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={city} 
+              onChange={(e) => {
+                setCity(e.target.value)
+              }} 
+              name="city" 
+              id=""
+            />
           </div>
           <div className="">
             <label htmlFor="" className="text-white text-xs">Email</label>
-            <input type="email" className="w-full h-8 border-white rounded-3xl" name="email" id=""/>
+            <input 
+              type="email" 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={email} 
+              onChange={(e) => {
+                setEmail(e.target.value)
+              }} 
+              name="email" 
+              id=""
+            />
           </div>
           <div className="my-3">
             <label htmlFor="" className="text-white text-xs">Location of Hospital where it is needed</label>
-            <input type="text" className="w-full h-8 border-white rounded-3xl" name="hospitalLoc" id=""/>
+            <input 
+              type="text" 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={patientLocation} 
+              onChange={(e) => {
+                setPatientLocation(e.target.value)
+              }} 
+              name="hospitalLoc" 
+              id=""
+            />
           </div>
           <div className="">
             <label htmlFor="" className="text-white text-xs">Pint of Blood</label>
-            <input type="text" className="w-full h-8 border-white rounded-3xl" name="pint" id=""/>
+            <input 
+              type="text" 
+              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              value={pintOfBlood} 
+              onChange={(e) => {
+                setPintOfBlood(e.target.value)
+              }} 
+              name="pint" id=""
+            />
           </div>
           <div className="bttn text-center mx-auto mt-5">
-            <button type="submit" className="searchButton font-bold mx-3 py-1 px-5 bg-white text-pryclr rounded-3xl">
+            <button 
+              onSubmit={handleSubmit}
+              type="submit" 
+              className="searchButton font-bold mx-3 py-1 px-5 bg-white text-pryclr rounded-3xl"
+
+            >
               Confirm
             </button>
             <Link to="/donate-blood" className="searchButton mx-3 font-bold bg-about py-1 px-5 text-white rounded-3xl">

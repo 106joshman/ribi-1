@@ -57,20 +57,20 @@ const Home = () => {
 
   return (
     <main className="main">
-      <section className="hero-body h-auto px-10 py-4 bg-thickred flex justify-between lg:justify-around">
-        <div className="hero-left text-white font-poppins">
+      <div className="hero-body md:h-auto max-h-full px-10 py-4 bg-thickred flex flex-col md:flex-row md:justify-between lg:justify-around">
+        <div className="hero-left text-white text-center md:text-left font-poppins">
           <h1 className="text-5xl font-bold md:mt-20">Learn To Give Blood</h1>
           <p className="text font-normal my-5 leading-relaxed">
             Register today and help save a live
           </p>
           <Link
             to="/need-blood"
-            className="rounded-full mb-10 inline-flex py-2 px-6 border-2"
+            className="rounded-3xl mb-10 inline-flex py-2 px-6 border-2"
           >
             Find Blood <AiOutlineArrowRight />
           </Link>
         </div>
-        <div className="hero-right hidden md:inline w-3/5">
+        <div className="hero-right hidden md:inline md:w-3/5">
           <div className="back bg-local md:bg-vector bg-center bg-contain bg-no-repeat h-full">
             <div className="front">
               <img
@@ -82,8 +82,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
-      <section className="about flex flex-col-reverse bg-opacity-50 lg:flex-row font-poppins justify-between lg:justify-around my-6 px-5 md:px-10">
+      </div>
+      <div className="about flex flex-col-reverse bg-opacity-50 lg:flex-row font-poppins justify-between lg:justify-around my-6 px-5 md:px-10">
         <div className="about-card grid grid-cols-2">
           {card.map((card) => {
             return (
@@ -119,8 +119,8 @@ const Home = () => {
             </Link>
           </div>
         </div>
-      </section>
-      <section className="types">
+      </div>
+      <div className="types">
         <h4 className="text-pryclr font-bold my-4 text-4xl text-center font-poppins">
           Blood Types
         </h4>
@@ -137,8 +137,8 @@ const Home = () => {
             );
           })}
         </div>
-      </section>
-      <section className="mission font-poppins bg-thickred md:bg-white text-center py-5 px-10">
+      </div>
+      <div className="mission font-poppins bg-thickred md:bg-white text-center py-5 px-10">
         <div className="mssn">
           <p className="md:text-pryclr font-normal text-white md:my-5 md:font-semibold w-1/2 mx-auto pt-blip">
             Your donation will save lives. It’s not just an appointment, it’s a
@@ -161,8 +161,8 @@ const Home = () => {
             );
           })}
         </div>
-      </section>
-      <section className="works bg-work px-10 md:pt-px mt-8 md:px-work md:pb-blip">
+      </div>
+      <div className="works bg-work px-10 md:pt-px mt-8 md:px-work md:pb-blip">
         <h4 className="text-pryclr text-center font-bold my-6 text-4xl">
           How it Works
         </h4>
@@ -184,7 +184,7 @@ const Home = () => {
             </ul>
           </div>
         </div>
-      </section>
+      </div>
     </main>
   );
 };

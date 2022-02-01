@@ -4,7 +4,7 @@ import hero from "../../assets/hero.png";
 // import profile from "../../assets/profile1.png";
 import blub from "../../assets/blub.png";
 import blub2 from "../../assets/blub2.png";
-import donorPic from "../../assets/donorPic.png";
+// import donorPic from "../../assets/donorPic.png";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";

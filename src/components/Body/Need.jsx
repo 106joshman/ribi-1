@@ -115,7 +115,7 @@ const Need = () => {
           <div className={styles.donorLists}>
             {data?.map((user) => (
               <div key={user._id} className={styles.donorItem}>
-                <Link className={styles.link} to="/bio">
+                <Link className={styles.link} to="/donate-blood">
                   <img src={profile1} alt={user.name} />
 
                   <h5 className={styles.profileName}>
