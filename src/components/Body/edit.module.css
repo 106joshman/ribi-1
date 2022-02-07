@@ -207,7 +207,6 @@
   
   .detailsContainer {
     width: 602px;
-    height: 613px;
     background: #ffffff;
     border-radius: 25px;
     margin: 0 auto;
@@ -418,6 +417,45 @@
   line-height: 20px;
   color: #C4C4C4;
   }
+
+  .inputField {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 .2rem;
+    margin-top: .5rem;
+  }
+
+  .buttons {
+    display: flex;
+    height: 100%;
+  }
+
+  .buttonSave {
+    width: 139px;
+height: 45px;
+background: #F6655F;
+border-radius: 100px;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 22px;
+color: #FFFFFF;
+margin-right: 1rem;
+margin-bottom: 1rem;
+border: none;
+  }
+  .buttonCancel {
+    width: 139px;
+height: 45px;
+border: 1px solid #F1908C;
+box-sizing: border-box;
+border-radius: 45px;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 22px;
+color: #F1908C;
+  }
   
   /* MEDIA SCREENS */
   @media (max-width: 1097px) {
@@ -474,11 +512,18 @@
     .heroText {
       font-size: 30px;
     }
+
+    .bioContainer {
+      padding: 15px;
+    }
   }
   
   @media (max-width: 350px) {
     .heroText {
       font-size: 25px;
+    }
+    .buttons {
+      flex-direction: column;
     }
   }
   

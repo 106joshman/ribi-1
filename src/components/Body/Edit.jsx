@@ -13,7 +13,15 @@ import axios from "axios";
 
 const Edit = () => {
   const [edit, setEdit] = useState(false);
-  const [firstname, setFirstname] = useState("");
+  const [firstname, setFirstname] = useState(null);
+  const [lastname, setLastname] = useState(null);
+  const [setCountry] = useState(null);
+  const [phone, setPhone] = useState(null);
+  const [bloodType, setBloodType] = useState(null);
+  const [address, setAddress] = useState(null);
+  const [stateValue, setStateValue] = useState(null);
+  const [city, setCity] = useState(null);
+
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.user.token);
@@ -24,15 +32,23 @@ const Edit = () => {
     }
   };
 
-  const handleClick = async (id) => {
-    if (id === "firstname") {
-      const response = await axios.post(
-        "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
-        {
-          firstname,
-        }
-      );
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      firstname: firstname ? firstname : user?.firstname,
+      lastname: lastname ? lastname : user?.lastname,
+      phone: phone ? phone : user?.phone,
+      bloodType: bloodType ? bloodType : user?.bloodType,
+      address: address ? address : user?.address,
+      state: stateValue ? stateValue : user?.state,
+      city: city ? city : user?.city,
+    };
+    const response = await axios.post(
+      "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
+      data
+    );
+    console.log(response.data);
   };
 
   if (!token) {
@@ -73,10 +89,10 @@ const Edit = () => {
                   <p className={styles.detailText}>First name:</p>
                   {edit ? (
                     <>
-                      <input onChange={(e) => setFirstname(e.target.value)} />
-                      <button onClick={() => handleClick("firstname")}>
-                        Save
-                      </button>
+                      <input
+                        className={styles.inputField}
+                        onChange={(e) => setFirstname(e.target.value)}
+                      />
                     </>
                   ) : (
                     <>
@@ -92,47 +108,172 @@ const Edit = () => {
                     </>
                   )}
                   <p className={styles.detailText}>Last name:</p>
-                  <p className={`${styles.flex} ${styles.detailText}`}>
-                    {user?.lastname}
-                    <img src={editPen} alt="edit" />
-                  </p>
+                  {edit ? (
+                    <>
+                      <input
+                        className={styles.inputField}
+                        onChange={(e) => setLastname(e.target.value)}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <p className={`${styles.flex} ${styles.detailText}`}>
+                        {user?.lastname}
+                        <img
+                          onClick={() => handleEdit("lastName")}
+                          style={{ cursor: "pointer" }}
+                          src={editPen}
+                          alt="edit"
+                        />
+                      </p>
+                    </>
+                  )}
                   <p className={styles.detailText}>Phone number:</p>
-                  <p className={`${styles.flex} ${styles.detailText}`}>
-                    {user?.phone}
-                    <img src={editPen} alt="edit" />
-                  </p>
+                  {edit ? (
+                    <>
+                      <input
+                        className={styles.inputField}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <p className={`${styles.flex} ${styles.detailText}`}>
+                        {user?.phone}
+                        <img
+                          onClick={() => handleEdit("lastName")}
+                          style={{ cursor: "pointer" }}
+                          src={editPen}
+                          alt="edit"
+                        />
+                      </p>
+                    </>
+                  )}
                   <p className={styles.detailText}>Blood Type:</p>
-                  <p className={`${styles.flex} ${styles.detailText}`}>
-                    {user?.bloodType}
-                    <img src={editPen} alt="edit" />
-                  </p>
+                  {edit ? (
+                    <>
+                      <input
+                        className={styles.inputField}
+                        onChange={(e) => setBloodType(e.target.value)}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <p className={`${styles.flex} ${styles.detailText}`}>
+                        {user?.bloodType}
+                        <img
+                          onClick={() => handleEdit("lastName")}
+                          style={{ cursor: "pointer" }}
+                          src={editPen}
+                          alt="edit"
+                        />
+                      </p>
+                    </>
+                  )}
                   <p className={styles.detailText}>Country:</p>
-                  <p className={`${styles.flex} ${styles.detailText}`}>
-                    {user?.country}
-                    <img src={editPen} alt="edit" />
-                  </p>
+                  {edit ? (
+                    <>
+                      <input
+                        className={styles.inputField}
+                        onChange={(e) => setCountry(e.target.value)}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <p className={`${styles.flex} ${styles.detailText}`}>
+                        {user?.country}
+                        <img
+                          onClick={() => handleEdit("country")}
+                          style={{ cursor: "pointer" }}
+                          src={editPen}
+                          alt="edit"
+                        />
+                      </p>
+                    </>
+                  )}
                   <p className={styles.detailText}>Home Address:</p>
-                  <p className={`${styles.flex} ${styles.detailText}`}>
-                    {user?.homeAddress}
-                    <img src={editPen} alt="edit" />
-                  </p>
+                  {edit ? (
+                    <>
+                      <input
+                        className={styles.inputField}
+                        onChange={(e) => setAddress(e.target.value)}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <p className={`${styles.flex} ${styles.detailText}`}>
+                        {user?.homeAddress}
+                        <img
+                          onClick={() => handleEdit("homeAddress")}
+                          style={{ cursor: "pointer" }}
+                          src={editPen}
+                          alt="edit"
+                        />
+                      </p>
+                    </>
+                  )}
                   <p className={styles.detailText}>State:</p>
-                  <p className={`${styles.flex} ${styles.detailText}`}>
-                    {user?.state}
-                    <img src={editPen} alt="edit" />
-                  </p>
+                  {edit ? (
+                    <>
+                      <input
+                        className={styles.inputField}
+                        onChange={(e) => setStateValue(e.target.value)}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <p className={`${styles.flex} ${styles.detailText}`}>
+                        {user?.state}
+                        <img
+                          onClick={() => handleEdit("state")}
+                          style={{ cursor: "pointer" }}
+                          src={editPen}
+                          alt="edit"
+                        />
+                      </p>
+                    </>
+                  )}
                   <p className={styles.detailText}>City/Town:</p>
-                  <p className={`${styles.flex} ${styles.detailText}`}>
-                    {user?.city}
-                    <img src={editPen} alt="edit" />
-                  </p>
+                  {edit ? (
+                    <>
+                      <input
+                        className={styles.inputField}
+                        onChange={(e) => setCity(e.target.value)}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <p className={`${styles.flex} ${styles.detailText}`}>
+                        {user?.city}
+                        <img
+                          onClick={() => handleEdit("city")}
+                          style={{ cursor: "pointer" }}
+                          src={editPen}
+                          alt="edit"
+                        />
+                      </p>
+                    </>
+                  )}
                   <p className={styles.detailText}>Email:</p>
+
                   <p className={`${styles.flex} ${styles.detailText}`}>
                     {user?.email}
-                    <img src={editPen} alt="edit" />
                   </p>
                 </div>
               </div>
+              {edit && (
+                <div className={styles.buttons}>
+                  <button onClick={handleSubmit} className={styles.buttonSave}>
+                    Save
+                  </button>
+                  <button
+                    onClick={() => setEdit(false)}
+                    className={styles.buttonCancel}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </section>
