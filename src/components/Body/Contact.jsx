@@ -38,7 +38,11 @@ const Contact = () => {
                 <div className="mapview h-hero md:w-full md:h-52">
                     <iframe 
                         title='map'
-                        src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d63422.428450537205!2d3.34150709280308!3d6.534087790069838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d6.534965499999999!2d3.3892903999999997!4m5!1s0x103b8d29a86758af%3A0xa550a9e9e239740!2sstadium%20surulere!3m2!1d6.4969586!2d3.3646890999999997!5e0!3m2!1sen!2sng!4v1643661573741!5m2!1sen!2sng" width="100%" height="100%" style={{border: "0px"}} allowfullscreen="" loading="lazy"></iframe>
+                        src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d63422.428450537205!2d3.34150709280308!3d6.534087790069838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d6.534965499999999!2d3.3892903999999997!4m5!1s0x103b8d29a86758af%3A0xa550a9e9e239740!2sstadium%20surulere!3m2!1d6.4969586!2d3.3646890999999997!5e0!3m2!1sen!2sng!4v1643661573741!5m2!1sen!2sng" width="100%" height="100%" 
+                        style={{border: "0px"}} 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
                 </div>
                 <div className="info flex flex-col justify-between my-8 md:flex-row-reverse">
                     <div className="form md:w-3/5 border-4 opacity-70 md:p-5">

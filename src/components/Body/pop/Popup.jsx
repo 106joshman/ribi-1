@@ -2,15 +2,17 @@ import React, { useState } from "react";
 // import styles from "./Popup.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 // import { BiTimeFive, BiCalendar } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link as button } from "react-router-dom";
+import axios from 'axios';
 
 const Popup = (props) => {
+
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
-  console.log(gender);
   const [age, setAge] = useState("");
   const [phone, setPhone] = useState("");
   const [bloodType, setBloodType] = useState("");
@@ -21,15 +23,63 @@ const Popup = (props) => {
   const [email, setEmail] = useState("");
   const [patientLocation, setPatientLocation] = useState("");
   const [pintOfBlood, setPintOfBlood] = useState("");
+  
+  // console.log(time);
+  // console.log(date);
+  // console.log(firstName);
+  // console.log(lastName);
+  // console.log(gender);
+  // console.log(age);
+  // console.log(phone);
+  // console.log(bloodType);
+  // console.log(ailmentDiagnosis);
+  // console.log(country);
+  // console.log(state);
+  // console.log(city);
+  // console.log(email);
+  // console.log(patientLocation);
+  // console.log(pintOfBlood);
 
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-  };
+
+    let patientRequest = new FormData();
+    patientRequest.append("date", date)
+    patientRequest.append("time", time)
+    patientRequest.append("firstName", firstName)
+    patientRequest.append("lastName", lastName)
+    patientRequest.append("gender", gender)
+    patientRequest.append("age", age)
+    patientRequest.append("phone", phone)
+    patientRequest.append("bloodType", bloodType)
+    patientRequest.append("ailmentDiagnosis", ailmentDiagnosis)
+    patientRequest.append("country", country)
+    patientRequest.append("state", state)
+    patientRequest.append("city", city)
+    patientRequest.append("email", email)
+    patientRequest.append("patientLocation", patientLocation)
+    patientRequest.append("pintOfBlood", pintOfBlood)
+
+      axios({
+      method: 'post',
+      url: 'https://ribi-donor.herokuapp.com/api/v1/patients',
+      data: patientRequest
+    })
+    .then((res) => {
+      console.log(res);
+      navigate.push('/donate-blood');
+    })
+    .catch((err) => {
+      console.log(err)
+    });
+  }
 
 
   if(!props.show) {
     return null
   }
+
   return (
     <div className="modal fixed h-screen w-screen bg-modal top-0 bottom-0 left-0 right-0" onClick={props.onClose}>
       <div className="popup-modal h-screen overflow-scroll font-poppins p-4 bg-thickred w-4/5 mx-auto" onClick={e => e.stopPropagation()}>
@@ -44,8 +94,6 @@ const Popup = (props) => {
           If you have already filled before, kindly fill again with the same details. Thanks
         </h6>
         <form 
-          action="https://ribi-donor.herokuapp.com/api/v1/patients" 
-          method="post" 
           className="p-3 bg-donate md:p-5 md:w-3/5 mx-auto mt-5 rounded-md"
         >
           <p className="text-white text-center mt-2 font-semibold mb-3">
@@ -82,7 +130,7 @@ const Popup = (props) => {
             <label htmlFor="" className="text-white text-xs my-2.5">First Name</label>
             <input 
               type="text" 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
               value={firstName} 
               name="fName" 
               required={true} 
@@ -96,9 +144,9 @@ const Popup = (props) => {
             <label htmlFor="" className="text-white text-xs my-2.5">Last Name</label>
             <input 
               type="text" 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
               value={lastName} 
-              name="LName" 
+              name="lastName" 
               required={true} 
               onChange={(e) => {
                 setLastName(e.target.value)
@@ -109,24 +157,25 @@ const Popup = (props) => {
           <div className="">
             <label htmlFor="" className="text-white text-xs">Gender</label>
             <select 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
-              value={gender}
-              required={true} 
+              className="w-full h-8 p-4 bg-transparent border text-black border-white rounded-3xl" 
+              value={gender.value} 
+              type="text"
               onChange={(e) => {
                 setGender(e.target.value)
               }} 
               name="gender" 
-              id=""
+              id="gender"
             >
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+              <option className="text-black" selected={true} value="Male">Select Gender</option>
+              <option className="text-black" value="Male">Male</option>
+              <option className="text-black" value="Female">Female</option>
             </select>
           </div>
           <div className="my-3">
             <label htmlFor="" className="text-white text-xs">Age</label>
             <input 
               type="number" 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent border text-black border-white rounded-3xl" 
               value={age} 
               onChange={(e) => {
                 setAge(e.target.value)
@@ -139,7 +188,7 @@ const Popup = (props) => {
             <label htmlFor="" className="text-white text-xs">Phone Number</label>
             <input 
               type="number" 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
               value={phone} 
               onChange={(e) => {
                 setPhone(e.target.value)
@@ -151,25 +200,25 @@ const Popup = (props) => {
           <div className="my-3">
             <label htmlFor="" className="text-white text-xs">Blood Type</label>
             <select 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
-              value={bloodType} 
+              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
+              value={bloodType.value}
               onChange={(e) => {
                 setBloodType(e.target.value)
               }} 
               name="bloodtype" 
-              id=""
+              id="bloodtype"
             >
-              <option value="A">A</option>
-              <option value="AB">AB</option>
-              <option value="B">B</option>
-              <option value="O">O</option>
+              <option className="text-black" value="A">A</option>
+              <option className="text-black" value="AB">AB</option>
+              <option className="text-black" value="B">B</option>
+              <option className="text-black" value="O">O</option>
             </select>
           </div>
           <div className="">
             <label htmlFor="" className="text-white text-xs">Ailment Diagnosis</label>
             <input 
               type="text" 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
               value={ailmentDiagnosis} 
               onChange={(e) => {
                 setAilmentDiagnosis(e.target.value)
@@ -182,7 +231,7 @@ const Popup = (props) => {
             <label htmlFor="" className="text-white text-xs">Country</label>
             <input 
               type="text" 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
               value={country} 
               onChange={(e) => {
                 setCountry(e.target.value)
@@ -195,7 +244,7 @@ const Popup = (props) => {
             <label htmlFor="" className="text-white text-xs">State/Province</label>
             <input 
               type="text" 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
               value={state} 
               onChange={(e) => {
                 setState(e.target.value)
@@ -208,7 +257,7 @@ const Popup = (props) => {
             <label htmlFor="" className="text-white text-xs">City/Town</label>
             <input 
               type="text" 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
               value={city} 
               onChange={(e) => {
                 setCity(e.target.value)
@@ -221,7 +270,7 @@ const Popup = (props) => {
             <label htmlFor="" className="text-white text-xs">Email</label>
             <input 
               type="email" 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
               value={email} 
               onChange={(e) => {
                 setEmail(e.target.value)
@@ -234,7 +283,7 @@ const Popup = (props) => {
             <label htmlFor="" className="text-white text-xs">Location of Hospital where it is needed</label>
             <input 
               type="text" 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
               value={patientLocation} 
               onChange={(e) => {
                 setPatientLocation(e.target.value)
@@ -247,7 +296,7 @@ const Popup = (props) => {
             <label htmlFor="" className="text-white text-xs">Pint of Blood</label>
             <input 
               type="text" 
-              className="w-full h-8 p-4 outline-none border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
               value={pintOfBlood} 
               onChange={(e) => {
                 setPintOfBlood(e.target.value)
@@ -264,13 +313,13 @@ const Popup = (props) => {
             >
               Confirm
             </button>
-            <Link to="/donate-blood" className="searchButton mx-3 font-bold bg-about py-1 px-5 text-white rounded-3xl">
+            <button onClick={props.onClose} className="searchButton mx-3 font-bold bg-about py-1 px-5 text-white rounded-3xl">
               Cancel
-            </Link>
+            </button>
           </div>
           <div className="my-5">
             <p className="font-normal text-center text-white text-xs mx-3">
-              By clicking confirm, you agree to our <Link to="/" className="underline">User Agreement</Link>. Learn how we collect, use and share your data in our Privacy Policy
+              By clicking confirm, you agree to our <button to="/privacy" className="underline">User Agreement</button>. Learn how we collect, use and share your data in our <button to="/privacy" className="underline">Privacy Policy</button>
             </p>
           </div>
         </form>
