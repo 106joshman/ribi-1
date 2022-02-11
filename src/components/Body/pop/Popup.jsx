@@ -1,12 +1,94 @@
 import React, { useState } from "react";
-// import styles from "./Popup.module.css";
+import styles from "./Popup.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 // import { BiTimeFive, BiCalendar } from "react-icons/bi";
+import Select from 'react-select';
 import { useNavigate } from "react-router-dom";
-import { Link as button } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 const Popup = (props) => {
+  const selectGender = [{value:"Male", label: "Male"}, {value:"Female", label: "Female"},];
+
+  const selectType = [
+    {
+      value: "A",
+      label: "A"
+    },
+    {
+      value: "A-",
+      label: "A-"
+    },
+    {
+      value: "A+",
+      label: "A+"
+    },
+    {
+      value: "B",
+      label: "B"
+    },
+    {
+      value: "B-",
+      label: "B-"
+    },
+    {
+      value: "B+",
+      label: "B+"
+    },
+    {
+      value: "AB",
+      label: "AB"
+    },
+    
+    {
+      value: "AB-",
+      label: "AB-"
+    },
+    {
+      value: "AB+",
+      label: "AB+"
+    },
+    {
+      value: "O",
+      label: "O"
+    },
+    {
+      value: "O-",
+      label: "O-"
+    },
+    {
+      value: "O+",
+      label: "O+"
+    },
+  ];
+
+  const selectStyles = {
+    control: (styles) => ({
+       ...styles,
+        backgroundColor: 'transparent',
+        color: "black",
+        borderRadius: "24px !important"
+      }),
+    option: (provided, state) => ({
+      ...provided,
+      fontWeight: state.isSelected ? "bold" : "normal",
+      color: "black",
+      backgroundColor: state.data.color
+    }),
+    singleValue: (provided, state) => ({
+      ...provided,
+      color: state.data.color,
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: "white"
+    }),
+    input: (provided) => ({
+     ...provided,
+     borderRadius: "24px"
+    }),
+  }
+
 
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
@@ -99,7 +181,7 @@ const Popup = (props) => {
           <p className="text-white text-center mt-2 font-semibold mb-3">
             Choose date and time
           </p>
-          <div className="flex row w-4/5 mx-auto justify-around px-3 align-center">
+          <div className="flex row justify-center px-3 align-center">
             <div className="mx-3 mb-3">
               <input 
                 type="date"
@@ -130,7 +212,7 @@ const Popup = (props) => {
             <label htmlFor="" className="text-white text-xs my-2.5">First Name</label>
             <input 
               type="text" 
-              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
+              className="w-full h-8 p-4 bg-transparent outline-none focus-within:bg-transparent border text-black border-white rounded-3xl" 
               value={firstName} 
               name="fName" 
               required={true} 
@@ -156,20 +238,16 @@ const Popup = (props) => {
           </div>
           <div className="">
             <label htmlFor="" className="text-white text-xs">Gender</label>
-            <select 
-              className="w-full h-8 p-4 bg-transparent border text-black border-white rounded-3xl" 
-              value={gender.value} 
-              type="text"
-              onChange={(e) => {
-                setGender(e.target.value)
-              }} 
+            <Select 
+              className="" 
+              styles={selectStyles}
+              value={gender} 
+              onChange={(e) => {setGender(e)}} 
+              options={selectGender}
               name="gender" 
+              placeholder="Select Gender"
               id="gender"
-            >
-              <option className="text-black" selected={true} value="Male">Select Gender</option>
-              <option className="text-black" value="Male">Male</option>
-              <option className="text-black" value="Female">Female</option>
-            </select>
+            />
           </div>
           <div className="my-3">
             <label htmlFor="" className="text-white text-xs">Age</label>
@@ -199,20 +277,16 @@ const Popup = (props) => {
           </div>
           <div className="my-3">
             <label htmlFor="" className="text-white text-xs">Blood Type</label>
-            <select 
-              className="w-full h-8 p-4 bg-transparent outline-none border text-black border-white rounded-3xl" 
-              value={bloodType.value}
-              onChange={(e) => {
-                setBloodType(e.target.value)
-              }} 
+            <Select 
+              className=""
+              styles={selectStyles}
+              value={bloodType}
+              onChange={(e) => {setBloodType(e)}} 
               name="bloodtype" 
+              options={selectType}
+              placeholder="Select Blood Type"
               id="bloodtype"
-            >
-              <option className="text-black" value="A">A</option>
-              <option className="text-black" value="AB">AB</option>
-              <option className="text-black" value="B">B</option>
-              <option className="text-black" value="O">O</option>
-            </select>
+            />
           </div>
           <div className="">
             <label htmlFor="" className="text-white text-xs">Ailment Diagnosis</label>
@@ -319,7 +393,7 @@ const Popup = (props) => {
           </div>
           <div className="my-5">
             <p className="font-normal text-center text-white text-xs mx-3">
-              By clicking confirm, you agree to our <button to="/privacy" className="underline">User Agreement</button>. Learn how we collect, use and share your data in our <button to="/privacy" className="underline">Privacy Policy</button>
+              By clicking confirm, you agree to our <Link to="/privacy" className="underline">User Agreement</Link>. Learn how we collect, use and share your data in our <Link to="/privacy" className="underline">Privacy Policy</Link>
             </p>
           </div>
         </form>
