@@ -5,6 +5,7 @@ import profile1 from "../../assets/profile1.png";
 import place from "../../assets/place.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
+// import Donate from './Donate';
 
 // const data = [
 //
@@ -115,7 +116,7 @@ const Need = () => {
           <div className={styles.donorLists}>
             {data?.map((user) => (
               <div key={user._id} className={styles.donorItem}>
-                <Link className={styles.link} to="/donate-blood">
+                <Link className={styles.link} to="/bio">
                   <img src={profile1} alt={user.name} />
 
                   <h5 className={styles.profileName}>
@@ -131,6 +132,7 @@ const Need = () => {
                     <h4 className={styles.bloodGroup}>{user.bloodType}</h4>
                   </div>
                 </Link>
+                {/* <Donate user={user}/> */}
               </div>
             ))}
           </div>

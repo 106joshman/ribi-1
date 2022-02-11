@@ -5,6 +5,7 @@ import profile1 from "../images/Ellipse.png";
 import Popu from './pop/Popup';
 
 const Donate = () => {
+
     // const navigate =useNavigate();
     const [show, setShow] = useState(false);
     return (
@@ -25,7 +26,7 @@ const Donate = () => {
                         alt="donor holder" 
                     />
                     <h5 className="font-bold my-1">
-                        Dare Fatosho
+                        {/* {user.firstname} */}
                     </h5>
                     <p className="font-semibold profileNumber">
                         #1229
@@ -37,10 +38,10 @@ const Donate = () => {
                             Location
                         </p>
                         <h5 className="mt-2 font-bold">
-                            Lagos State, Nigeria
+                            {/* {user.homeAddress} */}
                         </h5>
                         <h5 className="font-bold">
-                            Mushin
+                            {/* {user.city} */}
                         </h5>
                     </div>
                     <div className="donorStatus border-t border-b border-opacity-50 p-3 mb-5">
@@ -53,22 +54,23 @@ const Donate = () => {
                     </div>
                     <div className="drop mb-5 mx-auto">
                         <p className="text-pryclr text-underline text-center font-bold">
-                            A+
+                            {/* {user.bloodType} */}
                         </p>
                     </div>
                 </div>
                 <div className="bttn rounded-3xl p-3 my-10  bg-donate md:w-3/4 mx-auto">
-                    <div className="text-center">
+                    <div className="text-center"
+                        onClick={() => {
+                        setShow(true)
+                        }}
+                    >
                         <button 
                             className="font-bold" 
-                            onClick={() => {
-                                setShow(true)
-                            }}
                         >
                             Request
                         </button>
-                        </div>
-                        <Popu onClose={() => setShow(false)} show={show} />
+                    </div>
+                    <Popu onClose={() => setShow(false)} show={show} />
                 </div>
             </div>
         </>

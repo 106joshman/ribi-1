@@ -12,7 +12,7 @@ const Insight = () => {
                     </p>
                 </div>
             </section>
-            <div className="insight px-10 py-5">
+            <div className="insight grid place-items-center h-[800px] px-10 py-5">
                 <div className="text-center">
                     <div className="my-5">
                         <h4 className="text-4xl font-bold">
