@@ -63,7 +63,7 @@ const Need = () => {
 
   const [search, setSearch] = useState("");
   // const [donor, setDonor] = useState({});
-  const url = "https://ribi-donor.herokuapp.com/api/v1/donors";
+  const url = `https://ribi-donor.herokuapp.com/api/v1/donors?city=${search}`;
 
   const getSearch = (evt) => {
     if (evt.key === "Enter") {
@@ -81,7 +81,6 @@ const Need = () => {
         "https://ribi-donor.herokuapp.com/api/v1/donors"
       );
       setData(response.data.users);
-      console.log(response.data);
     };
     getDonors();
   }, []);
@@ -104,7 +103,7 @@ const Need = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyPress={getSearch}
-            placeholder="Search by State/ Province/ City/ Blood type"
+            placeholder="Search by State/ Province"
           />
           <button className={styles.searchButton}>Search</button>
         </div>
