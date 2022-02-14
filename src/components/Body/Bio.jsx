@@ -94,7 +94,7 @@ const Bio = () => {
                 <p className={styles.detailText}>Country:</p>
                 <p className={styles.detailText}>{user.country}</p>
                 <p className={styles.detailText}>Home Address:</p>
-                <p className={styles.detailText}>{user.homeAddress}</p>
+                <p className={styles.detailText}>{user.donorLocation}</p>
                 <p className={styles.detailText}>State:</p>
                 <p className={styles.detailText}>{user.state}</p>
                 <p className={styles.detailText}>City/Town:</p>

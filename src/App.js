@@ -15,6 +15,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DonorInfo from "./components/Body/pop/DonorInfo";
 import Contact from "./components/Body/Contact";
 import Insight from "./components/Body/Insight";
+import 'sweetalert2/src/sweetalert2.scss'
 // import Menu from "./components/Body/pop/Menu";
 
 function App() {

@@ -9,6 +9,7 @@ import defaultPhoto from "../../../assets/defaultPhoto.png";
 import { RemoveRedEye, VisibilityOff } from "@mui/icons-material";
 import WindowSize from "../../../hooks/windowSize";
 import axios from "axios";
+import Swal from 'sweetalert2'
 // import Signin from "./Signin";
 // import { Link } from "react-router-dom";
 import {
@@ -60,7 +61,7 @@ const Signup = () => {
   }, []);
 
   // set values
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState("https://cdn.pixabay.com/photo/2018/11/13/21/43/instagram-3814049_960_720.png");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
@@ -80,20 +81,14 @@ const Signup = () => {
 
     if (!login) {
       if (
-        !firstName ||
-        !lastName ||
-        !gender ||
-        !age ||
-        !phone ||
-        !bloodType ||
-        !country ||
-        !address ||
-        !stateValue ||
-        !city ||
-        !email ||
-        !password
+        !firstName
       ) {
-        return console.error("All fields are required");
+        handleClose()
+        return Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'All fields are required!',
+        })
       } else {
         const data = {
           avater: image,
@@ -105,7 +100,7 @@ const Signup = () => {
           bloodType,
           ailmentDiagnosis,
           country,
-          homeAddress: address,
+          donorLocation: address,
           state: stateValue,
           city,
           email,
@@ -119,12 +114,22 @@ const Signup = () => {
           );
           console.log(response.data);
         } catch (error) {
-          return console.error(error.response?.data);
+        handleClose()
+          return Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.response?.data.msg,
+          })
         }
       }
     } else {
       if (!email || !password) {
-        return console.error("All fields are required.");
+        handleClose()
+         return Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "All fields are required",
+        });
       } else {
         const data = {
           email,
@@ -141,7 +146,12 @@ const Signup = () => {
           dispatch(dispatchUserId(response.data.user.userId));
           navigate("/bio");
         } catch (error) {
-          return console.error(error.response?.data.msg);
+        handleClose()
+          return Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.response.data.msg,
+          });
         }
       }
     }
