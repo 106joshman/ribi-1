@@ -89,8 +89,14 @@ const Bio = () => {
                 <p className={styles.detailText}>{user.lastname}</p>
                 <p className={styles.detailText}>Phone number:</p>
                 <p className={styles.detailText}>{user.phone}</p>
+                <p className={styles.detailText}>Gender:</p>
+                <p className={styles.detailText}>{user.gender}</p>
+                <p className={styles.detailText}>Age:</p>
+                <p className={styles.detailText}>{user.age}</p>
                 <p className={styles.detailText}>Blood Type:</p>
                 <p className={styles.detailText}>{user.bloodType}</p>
+                <p className={styles.detailText}>Ailment Diagnosis:</p>
+                <p className={styles.detailText}>{user.ailmentDiagnosis}</p>
                 <p className={styles.detailText}>Country:</p>
                 <p className={styles.detailText}>{user.country}</p>
                 <p className={styles.detailText}>Location:</p>
