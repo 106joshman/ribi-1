@@ -196,7 +196,7 @@ const Edit = () => {
                       </p>
                     </>
                   )}
-                  <p className={styles.detailText}>Donor Location:</p>
+                  <p className={styles.detailText}>Location:</p>
                   {edit ? (
                     <>
                       <input
