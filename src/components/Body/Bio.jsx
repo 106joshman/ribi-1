@@ -91,7 +91,7 @@ const Bio = () => {
                 <p className={styles.detailText}>{user.phone}</p>
                 <p className={styles.detailText}>Gender:</p>
                 <p className={styles.detailText}>{user.gender}</p>
-                <p className={styles.detailText}>Age</p>
+                <p className={styles.detailText}>Age:</p>
                 <p className={styles.detailText}>{user.age}</p>
                 <p className={styles.detailText}>Blood Type:</p>
                 <p className={styles.detailText}>{user.bloodType}</p>
