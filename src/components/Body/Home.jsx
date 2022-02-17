@@ -64,7 +64,8 @@ const Home = () => {
             Register today and help save a live
           </p>
           <Link
-            to="/need-blood"
+            to="/bio"
+            // to="/need-blood"
             className="rounded-3xl mb-10 inline-flex py-2 px-6 border-2"
           >
             Find Blood <AiOutlineArrowRight />
