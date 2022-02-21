@@ -4,7 +4,7 @@ import hero from "../../assets/hero.png";
 // import profile from "../../assets/profile1.png";
 // import blub from "../../assets/blub.png";
 // import blub2 from "../../assets/blub2.png";
-import donorPic from "../../assets/donorPic.png";
+// import donorPic from "../../assets/donorPic.png";
 import camera from "../../assets/camera.png";
 import editPen from "../../assets/editPen.png";
 import { useSelector } from "react-redux";
@@ -40,7 +40,7 @@ const Edit = () => {
       lastname: lastname ? lastname : user?.lastname,
       phone: phone ? phone : user?.phone,
       bloodType: bloodType ? bloodType : user?.bloodType,
-      address: address ? address : user?.address,
+      donorLocation: address ? address : user?.address,
       state: stateValue ? stateValue : user?.state,
       city: city ? city : user?.city,
     };
@@ -73,7 +73,7 @@ const Edit = () => {
             <div className={styles.profilePictureCon}>
               <img
                 className={styles.profilePic}
-                src={donorPic}
+                src={user?.avater}
                 alt="profilePicture"
               />
             </div>
@@ -196,7 +196,7 @@ const Edit = () => {
                       </p>
                     </>
                   )}
-                  <p className={styles.detailText}>Home Address:</p>
+                  <p className={styles.detailText}>Location:</p>
                   {edit ? (
                     <>
                       <input
@@ -207,7 +207,7 @@ const Edit = () => {
                   ) : (
                     <>
                       <p className={`${styles.flex} ${styles.detailText}`}>
-                        {user?.homeAddress}
+                        {user?.donorLocation}
                         <img
                           onClick={() => handleEdit("homeAddress")}
                           style={{ cursor: "pointer" }}

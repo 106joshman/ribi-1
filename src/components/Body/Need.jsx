@@ -60,17 +60,18 @@ import axios from "axios";
 
 const Need = () => {
   const [data, setData] = useState(null);
+  const [searchData, setSearchData] = useState(null);
 
   const [search, setSearch] = useState("");
   // const [donor, setDonor] = useState({});
-  const url = "https://ribi-donor.herokuapp.com/api/v1/donors";
+  const url = `https://ribi-donor.herokuapp.com/api/v1/donors?city=${search}`;
 
   const getSearch = (evt) => {
     if (evt.key === "Enter") {
       fetch(url)
         .then((res) => res.json())
         .then((datas) => {
-          console.log(datas);
+          setSearchData(datas.users)
         });
     }
   };
@@ -81,7 +82,6 @@ const Need = () => {
         "https://ribi-donor.herokuapp.com/api/v1/donors"
       );
       setData(response.data.users);
-      console.log(response.data);
     };
     getDonors();
   }, []);
@@ -104,7 +104,7 @@ const Need = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyPress={getSearch}
-            placeholder="Search by State/ Province/ City/ Blood type"
+            placeholder="Search by State/ Province"
           />
           <button className={styles.searchButton}>Search</button>
         </div>
@@ -114,10 +114,34 @@ const Need = () => {
         <h2 className={styles.availableDonorTitle}>Available Donors</h2>
         <div className={styles.availableDonorContainer}>
           <div className={styles.donorLists}>
-            {data?.map((user) => (
+            {searchData ? searchData?.map((user) => (
               <div key={user._id} className={styles.donorItem}>
-                <Link className={styles.link} to="/donate-blood">
-                  <img src={profile1} alt={user.name} />
+              <Link className={styles.link} to="/bio">
+                <div style={{ width: `60px`, height: `60px`}}>
+                <img style={{ height: `100%`, width: `100%`, borderRadius: `50%`}} src={user.avater || profile1} alt={user.name} />
+                </div>
+
+                <h5 className={styles.profileName}>
+                  {user.firstname} {user.lastname}
+                </h5>
+
+                <div className={styles.location}>
+                  <img className={styles.place} src={place} alt="place" />
+                  <p className={styles.locationName}>{user.homeAddress}</p>
+                </div>
+                <p className={styles.city}>{user.city}</p>
+                <div className={styles.bloodGroupContainer}>
+                  <h4 className={styles.bloodGroup}>{user.bloodType}</h4>
+                </div>
+              </Link>
+              {/* <Donate user={user}/> */}
+            </div>
+            )) : data?.map((user) => (
+              <div key={user._id} className={styles.donorItem}>
+                <Link className={styles.link} to="/bio">
+                <div style={{ width: `60px`, height: `60px`}}>
+                <img style={{ height: `100%`, width: `100%`, borderRadius: `50%`}} src={user.avater || profile1} alt={user.name} />
+                  </div>
 
                   <h5 className={styles.profileName}>
                     {user.firstname} {user.lastname}

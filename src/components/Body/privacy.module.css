@@ -256,6 +256,11 @@
     font-size: 36px;
     line-height: 65px;
     color: #F6655F;
+    font-weight: 400;
+  }
+
+  .paragraph {
+    margin-bottom: 3rem;
   }
 
   .date {
