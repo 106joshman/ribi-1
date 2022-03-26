@@ -73,7 +73,7 @@ const Home = () => {
         </div>
         <div className="hero-right hidden md:inline md:w-3/5">
           <div className="back bg-local md:bg-vector bg-center bg-contain bg-no-repeat h-full">
-            <div className="front">
+            <div className="front grid pi">
               <img
                 src={image}
                 className=""
