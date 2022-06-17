@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./donate.module.css";
 import hero from "../../assets/hero.png";
-import profile1 from "../images/Ellipse.png";
+// import profile1 from "../images/Ellipse.png";
 import Popu from "./pop/Popup";
 // import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -15,14 +15,16 @@ const Donate = () => {
     <>
       <section className={styles.newBloodSection}>
         <div className={styles.imageContainer}>
-          <img className={styles.heroImg} src={hero} alt="hero" />
+          <img className={styles.heroImg} src={hero} alt="hero text" />
           <p className={styles.heroText}>DONOR INFO</p>
         </div>
       </section>
       <div className="findDonor mt-10 mb-20 text-white font-poppins w-4/5 mx-auto bg-thickred px-7 md:px-24 py-10 h-max">
         <div className="align-center text-center">
-          <img className="mx-auto" src={profile1} alt="donor holder" />
-          <h5 className="font-bold my-1">{user.firstname}</h5>
+          <img className="mx-auto" src={user.avater} alt={user.firstname} />
+          <h5 className="font-bold my-1">
+            {user.firstname} {user.lastname}
+          </h5>
           <p className="font-semibold profileNumber">#1229</p>
         </div>
         <div className="donorCard rounded-3xl p-3.5 md:p-6 text-center bg-donate md:w-3/4 mt-8 mx-auto h-max">
