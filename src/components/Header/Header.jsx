@@ -28,13 +28,13 @@ const Header = () => {
       {/*<nav className="hidden sm:block">
         {isLogged ? (
           <>
-          <Link 
-              to="/need-blood"  
+          <Link
+              to="/need-blood"
               className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
                   need blood
           </Link>
-          <Link 
-              to="/signup"  
+          <Link
+              to="/signup"
               className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
                   donate blood
           </Link>
@@ -61,7 +61,7 @@ const Header = () => {
           </Link>
         ) : (
           <Signup />
-          
+
         )}
         </div>
       </nav>
@@ -74,9 +74,9 @@ const Header = () => {
           }}
         >
           <GiHamburgerMenu />
-          {/* <Hamburger 
-            toggled={isOpen} 
-            toggle={setOpen} 
+          {/* <Hamburger
+            toggled={isOpen}
+            toggle={setOpen}
           /> */}
         </button>
         <Menu onClose={() => setShow(false)} show={show} />
