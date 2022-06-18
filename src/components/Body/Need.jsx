@@ -133,7 +133,7 @@ const Need = () => {
       <section className={styles.availableDonor}>
         <h2 className={styles.availableDonorTitle}>Available Donors</h2>
         <div className={styles.availableDonorContainer}>
-          <div className={styles.donorLists}>
+          <Link className={styles.donorLists}>
             {searchData
               ? searchData?.map((user) => (
                   <div key={user._id} className={`${styles.donorItem} flex`}>
@@ -157,20 +157,6 @@ const Need = () => {
                         {user.firstname} {user.lastname}
                       </h5>
 
-<<<<<<< HEAD
-                      <div className={styles.location}>
-                        <img className={styles.place} src={place} alt="place" />
-                        <p className={styles.locationName}>
-                          {user.homeAddress}
-                        </p>
-                      </div>
-                      <p className={styles.city}>{user.city}</p>
-                      <div className={styles.bloodGroupContainer}>
-                        <h4 className={styles.bloodGroup}>{user.bloodType}</h4>
-                      </div>
-                    </Link>
-                    {/* <Donate user={user}/> */}
-=======
                 <div className={styles.location}>
                   <img className={styles.place} src={place} alt="place" />
                   <p className={styles.locationName}>{user.homeAddress}</p>
@@ -187,7 +173,6 @@ const Need = () => {
                 <Link className={styles.link} to="/donate-blood">
                 <div style={{ width: `60px`, height: `60px`}}>
                 <img style={{ height: `100%`, width: `100%`, borderRadius: `50%`}} src={user.avater || profile1} alt={user.name} />
->>>>>>> 10d2f3f7911efa18ca074f256dcd101f9c61a3db
                   </div>
                 ))
               : data?.map((user) => (
@@ -226,7 +211,7 @@ const Need = () => {
                     {/* <Donate user={user}/> */}
                   </div>
                 ))}
-          </div>
+          </Link>
         </div>
       </section>
     </>
