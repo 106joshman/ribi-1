@@ -4,7 +4,7 @@ import hero from "../../assets/hero.png";
 // import profile from "../../assets/profile1.png";
 // import blub from "../../assets/blub.png";
 // import blub2 from "../../assets/blub2.png";
-import donorPic from "../../assets/donorPic.png";
+// import donorPic from "../../assets/donorPic.png";
 import camera from "../../assets/camera.png";
 import editPen from "../../assets/editPen.png";
 import { useSelector } from "react-redux";

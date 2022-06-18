@@ -1,14 +1,14 @@
 /* ======
 Small screen orientation
 ======= */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .hero-right .front img {
     width:30%;
     position: absolute;
     margin-top: 69px;
     margin-left: 67px;
   }
-}
+} */
 
 /* @media screen and (max-width: 1024px) {
   .hero-right .front img {
@@ -19,14 +19,14 @@ Small screen orientation
   }
 } */
 
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   .hero-right .front img {
     width: 29%;
     position: absolute;
     margin-top: 32px;
     margin-left: 129px;
   }
-}
+} */
 
 @media screen and (min-width: 1440px) {
   .hero-right .front img {

@@ -25,45 +25,46 @@ const Home = () => {
 
   // blood type array
   const blood = [
-    { id: 0, type: "A" }, 
-    { id: 1, type: "AB" }, 
-    { id: 2, type: "B" }, 
+    { id: 0, type: "A" },
+    { id: 1, type: "AB" },
+    { id: 2, type: "B" },
     { id: 3, type: "O" }
   ];
 
   // about ribi card array
   const card = [
-    { 
-      id: 0, 
-      text: "Find Blood", 
-      image: search, 
-    }, 
-    { 
+    {
+      id: 0,
+      text: "Find Blood",
+      image: search,
+    },
+    {
       id: 1,
       text: "Get Notified",
       image: contact,
-    }, 
-    { 
+    },
+    {
       id: 2,
       text: "Save a Life",
       image: hands,
-    }, 
-    { 
+    },
+    {
       id: 3,
-      text: "Be Free", 
-      image: heart, 
+      text: "Be Free",
+      image: heart,
     }
   ];
 
   return (
     <main className="main">
-      <div className="hero-body md:h-auto max-h-full px-10 py-4 bg-thickred flex flex-col md:flex-row md:justify-between lg:justify-around">
+      <div className="hero-body h-hero px-10 py-4 bg-thickred flex flex-col md:flex-row md:justify-between lg:justify-around">
         <div className="hero-left text-white text-center md:text-left font-poppins">
           <h1 className="text-5xl font-bold md:mt-20">Learn To Give Blood</h1>
           <p className="text font-normal my-5 leading-relaxed">
             Register today and help save a live
           </p>
           <Link
+            // to="/bio"
             to="/need-blood"
             className="rounded-3xl mb-10 inline-flex py-2 px-6 border-2"
           >
@@ -72,7 +73,7 @@ const Home = () => {
         </div>
         <div className="hero-right hidden md:inline md:w-3/5">
           <div className="back bg-local md:bg-vector bg-center bg-contain bg-no-repeat h-full">
-            <div className="front">
+            <div className="front grid pi">
               <img
                 src={image}
                 className=""
@@ -88,11 +89,11 @@ const Home = () => {
           {card.map((card) => {
             return (
               <div key={card.id} className="w-about bg-white h- lg:m-5 md:mx-auto shadow-md m-5 p-5 rounded-md">
-                <img 
-                  src={card.image} 
-                  alt="" 
+                <img
+                  src={card.image}
+                  alt=""
                   srcset=""
-                  className="m-auto w-24 h-20" 
+                  className="m-auto w-24 h-20"
                 />
                 <p className="text-center font-bold my-4 text-base">
                   {card.text}
@@ -112,8 +113,8 @@ const Home = () => {
             We provide the day to day communication between the individual who needs the blood and the donor who is ready to donate his/blood to save a life. We are open to different Medical Centers who are ready to make this a successfuly and assisting to save human lives by establishing a testing center for the Donor and the Donee.
           </p>
           <div className="about-btn  mt-5">
-            <Link 
-              to="/learn-more" 
+            <Link
+              to="/learn-more"
               className="rounded-full text-white bg-thickred inline-flex py-2 px-6">
                 Learn More <AiOutlineArrowRight />
             </Link>
