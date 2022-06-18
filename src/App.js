@@ -29,6 +29,13 @@ function App() {
           {/* <Route path="/menu" element={<Menu />} /> */}
           <Route path="/need-blood" element={<Need />} />
           <Route path="/donate-blood" element={<Donate />} />
+          
+          {/* --------------------------------------------------------------
+          Kindly update If this will be a pop up when it is clicked by the donee 
+          when a search is made or when the names are displayed on the donate blood page 
+          -------------------------------------------------------------- */}
+
+          {/* <Route path="/bio/:id" element={<Bio />} /> */} 
           <Route path="/bio" element={<Bio />} />
           <Route path="/request" element={<Request />} />
           <Route path="/edit" element={<Edit />} />

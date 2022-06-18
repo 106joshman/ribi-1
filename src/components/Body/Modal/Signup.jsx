@@ -304,13 +304,33 @@ const Signup = () => {
                             type="file"
                             id="fusk"
                             onChange={(e) => {
-                              let selected = e.target.files[0];
-                              if (selected && types.includes(selected.type)) {
-                                setImage(selected);
-                              } else {
-                                return console.log("error");
+                              // let selected = e.target.files[0];
+                              // if (selected && types.includes(selected.type)) {
+                              //   setImage(selected);
+                              // } else {
+                              //   return console.log("error");
+                              // }
+
+                              const file = document.querySelector('input[type=file]').files[0];
+                              const reader = new FileReader();
+                          
+                              reader.addEventListener(
+                                'load',
+                                function () {
+                                  // convert image file to base64 string
+                                  // setImage(reader.result);
+                                  setImage(reader.result);
+                                },
+                                false
+                              );
+                          
+                              if (file) {
+                                reader.readAsDataURL(file);
                               }
-                            }}
+
+
+                            }
+                          }
                           />
                         </div>
                       </div>

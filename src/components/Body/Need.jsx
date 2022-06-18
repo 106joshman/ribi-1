@@ -66,14 +66,16 @@ const Need = () => {
   // const [donor, setDonor] = useState({});
   const url = `https://ribi-donor.herokuapp.com/api/v1/donors?city=${search}`;
 
-  const getSearch = (evt) => {
-    if (evt.key === "Enter") {
-      fetch(url)
-        .then((res) => res.json())
-        .then((datas) => {
-          setSearchData(datas.users)
-        });
-    }
+  // const { id } = useParams();
+
+  const getSearch = async (evt) => {
+    // if (evt.key === "Enter") {
+    fetch(url)
+      .then((res) => res.json())
+      .then((datas) => {
+        setSearchData(datas.users);
+      });
+    // }
   };
 
   useEffect(() => {
@@ -85,6 +87,22 @@ const Need = () => {
     };
     getDonors();
   }, []);
+
+  // Search empty
+
+  // useEffect(() => {
+  //   if (search.value === "") {
+  //     getSearch();
+  //   } else {
+  //     const getDonors = async () => {
+  //       const response = await axios.get(
+  //         "https://ribi-donor.herokuapp.com/api/v1/donors"
+  //       );
+  //       setData(response.data.users);
+  //     };
+  //     getDonors();
+  //   }
+  // });
 
   return (
     <>
@@ -103,10 +121,12 @@ const Need = () => {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            onKeyPress={getSearch}
+            // onKeyPress={getSearch}
             placeholder="Search by State/ Province"
           />
-          <button className={styles.searchButton}>Search</button>
+          <button className={styles.searchButton} onClick={getSearch}>
+            Search
+          </button>
         </div>
       </section>
 
@@ -114,51 +134,79 @@ const Need = () => {
         <h2 className={styles.availableDonorTitle}>Available Donors</h2>
         <div className={styles.availableDonorContainer}>
           <div className={styles.donorLists}>
-            {searchData ? searchData?.map((user) => (
-              <div key={user._id} className={styles.donorItem}>
-              <Link className={styles.link} to="/bio">
-                <div style={{ width: `60px`, height: `60px`}}>
-                <img style={{ height: `100%`, width: `100%`, borderRadius: `50%`}} src={user.avater || profile1} alt={user.name} />
-                </div>
+            {searchData
+              ? searchData?.map((user) => (
+                  <div key={user._id} className={`${styles.donorItem} flex`}>
+                    <Link
+                      className={`${styles.link} hover:bg-blue-200 p-3 lg:w-1/4 w-1/2`}
+                      to={`/bio/${user._id}`}
+                    >
+                      <div style={{ width: `60px`, height: `60px` }}>
+                        <img
+                          style={{
+                            height: `100%`,
+                            width: `100%`,
+                            borderRadius: `50%`,
+                          }}
+                          src={user.avater || profile1}
+                          alt={user.name}
+                        />
+                      </div>
 
-                <h5 className={styles.profileName}>
-                  {user.firstname} {user.lastname}
-                </h5>
+                      <h5 className={styles.profileName}>
+                        {user.firstname} {user.lastname}
+                      </h5>
 
-                <div className={styles.location}>
-                  <img className={styles.place} src={place} alt="place" />
-                  <p className={styles.locationName}>{user.homeAddress}</p>
-                </div>
-                <p className={styles.city}>{user.city}</p>
-                <div className={styles.bloodGroupContainer}>
-                  <h4 className={styles.bloodGroup}>{user.bloodType}</h4>
-                </div>
-              </Link>
-              {/* <Donate user={user}/> */}
-            </div>
-            )) : data?.map((user) => (
-              <div key={user._id} className={styles.donorItem}>
-                <Link className={styles.link} to="/bio">
-                <div style={{ width: `60px`, height: `60px`}}>
-                <img style={{ height: `100%`, width: `100%`, borderRadius: `50%`}} src={user.avater || profile1} alt={user.name} />
+                      <div className={styles.location}>
+                        <img className={styles.place} src={place} alt="place" />
+                        <p className={styles.locationName}>
+                          {user.homeAddress}
+                        </p>
+                      </div>
+                      <p className={styles.city}>{user.city}</p>
+                      <div className={styles.bloodGroupContainer}>
+                        <h4 className={styles.bloodGroup}>{user.bloodType}</h4>
+                      </div>
+                    </Link>
+                    {/* <Donate user={user}/> */}
                   </div>
+                ))
+              : data?.map((user) => (
+                  <div key={user._id} className={styles.donorItem}>
+                    <Link
+                      className={`${styles.link} hover:bg-blue-200 hover:shadow-lg p-3 lg:w-1/4 w-1/2`}
+                      to={`/bio/${user._id}`}
+                    >
+                      <div style={{ width: `60px`, height: `60px` }}>
+                        <img
+                          style={{
+                            height: `100%`,
+                            width: `100%`,
+                            borderRadius: `50%`,
+                          }}
+                          src={user.avater || profile1}
+                          alt={user.name}
+                        />
+                      </div>
 
-                  <h5 className={styles.profileName}>
-                    {user.firstname} {user.lastname}
-                  </h5>
+                      <h5 className={styles.profileName}>
+                        {user.firstname} {user.lastname}
+                      </h5>
 
-                  <div className={styles.location}>
-                    <img className={styles.place} src={place} alt="place" />
-                    <p className={styles.locationName}>{user.homeAddress}</p>
+                      <div className={styles.location}>
+                        <img className={styles.place} src={place} alt="place" />
+                        <p className={styles.locationName}>
+                          {user.homeAddress}
+                        </p>
+                      </div>
+                      <p className={styles.city}>{user.city}</p>
+                      <div className={styles.bloodGroupContainer}>
+                        <h4 className={styles.bloodGroup}>{user.bloodType}</h4>
+                      </div>
+                    </Link>
+                    {/* <Donate user={user}/> */}
                   </div>
-                  <p className={styles.city}>{user.city}</p>
-                  <div className={styles.bloodGroupContainer}>
-                    <h4 className={styles.bloodGroup}>{user.bloodType}</h4>
-                  </div>
-                </Link>
-                {/* <Donate user={user}/> */}
-              </div>
-            ))}
+                ))}
           </div>
         </div>
       </section>
