@@ -10,6 +10,7 @@ import editPen from "../../assets/editPen.png";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Edit = () => {
   const [edit, setEdit] = useState(false);
@@ -21,6 +22,8 @@ const Edit = () => {
   const [address, setAddress] = useState(null);
   const [stateValue, setStateValue] = useState(null);
   const [city, setCity] = useState(null);
+
+  const handleClose = () => setEdit(false);
 
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
@@ -54,6 +57,13 @@ const Edit = () => {
       }
     );
     console.log(response.data);
+    handleClose();
+    // navigate(-1)
+    return Swal.fire({
+      icon: "success",
+      title: "Bio Updated",
+      text: "Your boidata is updated",
+    });
   };
 
   if (!token) {
