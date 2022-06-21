@@ -66,7 +66,7 @@ const Home = () => {
           <Link
             // to="/bio"
             to="/need-blood"
-            className="rounded-3xl mb-10 inline-flex py-2 px-6 border-2"
+            className="rounded-3xl mb-10 inline-flex item-center py-2 px-6 border-2"
           >
             Find Blood <AiOutlineArrowRight />
           </Link>
