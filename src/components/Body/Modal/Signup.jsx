@@ -112,15 +112,16 @@ const Signup = () => {
             "https://ribi-donor.herokuapp.com/api/v1/auth/register",
             data
           );
+          handleClose();
+          navigate.push("/");
           console.log(response.data);
-          // handleClose();
-          // navigate(-1);
-          // return Swal.fire({
-          //   icon: "success",
-          //   title: "Sign up Successful",
-          //   text: "You have Successfully Signed up",
-          // });
+          return Swal.fire({
+            icon: "success",
+            title: "Sign up Successful",
+            text: "You have Successfully Signed up",
+          });
         } catch (error) {
+          handleClose();
           handleClose();
           return Swal.fire({
             icon: "error",
@@ -303,7 +304,7 @@ const Signup = () => {
                         <div className={styles.profilePicFlex}>
                           <img
                             className={styles.defaultPhoto}
-                            src={defaultPhoto}
+                            src={!image ? defaultPhoto : image}
                             alt="default"
                           />
                           <label
@@ -315,19 +316,11 @@ const Signup = () => {
                           <input
                             style={{ display: "none" }}
                             type="file"
-                            accept="image/*, capture=camera, jpeg/*, png/*, jpg/* "
+                            accept="image/*, capture=camera "
                             id="fusk"
                             onChange={(e) => {
-                              let selected = e.target.files[0];
-                              if (
-                                selected.type === "image/jpeg" ||
-                                selected.type === "image/png" ||
-                                selected.type === "image/jpg"
-                              ) {
-                                setImage(selected);
-                              } else {
-                                return console.log("error");
-                              }
+                              console.log(e.target.files);
+                              setImage(URL.createObjectURL(e.target.files[0]));
                             }}
                           />
                         </div>
