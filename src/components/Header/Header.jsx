@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center py-1 px-6 md:px-10 font-poppins mx-auto">
       <div className="logo">
-        <Link to="/home">
+        <Link to="/">
           <img src={logo} alt="RIBI logo" srcset="" className="w-full" />
         </Link>
       </div>
@@ -45,24 +45,23 @@ const Header = () => {
         </nav>*/}
 
       <nav className="hidden sm:block">
-      <div className="flex">
-        <Link
-          to="/need-blood"
-          className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
-        >
-          need blood
-        </Link>
-        {isLogged ? (
+        <div className="flex">
           <Link
-            to="/bio"
+            to="/need-blood"
             className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
           >
-            donate blood
+            need blood
           </Link>
-        ) : (
-          <Signup />
-
-        )}
+          {isLogged ? (
+            <Link
+              to="/bio"
+              className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
+            >
+              donate blood
+            </Link>
+          ) : (
+            <Signup />
+          )}
         </div>
       </nav>
       <div className="cursor-pointer text-pryclr md:hidden">
