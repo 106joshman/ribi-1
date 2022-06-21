@@ -81,7 +81,7 @@ const Need = () => {
                     <div key={user._id} className={`${styles.donorItem} flex`}>
                       <Link
                         className={`${styles.link} hover:bg-blue-200 p-3 lg:w-1/4 w-1/2`}
-                        to={`/bio/${user._id}`}
+                        to={`/donor-request/${user._id}`}
                       >
                         <div style={{ width: `60px`, height: `60px` }}>
                           <img
