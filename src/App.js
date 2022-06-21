@@ -25,7 +25,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          {/* <Route path="/home" element={<Home />} /> */}
           {/* <Route path="/menu" element={<Menu />} /> */}
           <Route path="/need-blood" element={<Need />} />
           <Route path="/donate-blood" element={<Donate />} />
@@ -39,7 +39,7 @@ function App() {
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/insights" element={<Insight />} />
           <Route path="/donor-info" element={<DonorInfo />} />
-          <Route path="*" element={<ErrorPage />} />  
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
       </div>

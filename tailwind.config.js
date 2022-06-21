@@ -1,14 +1,13 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   theme: {
     fontFamily: {
-      poppins: ['Poppins', 'sans-serif'],
+      poppins: ["Poppins", "sans-serif"],
     },
     extend: {
       colors: {
         "pry-clr": "#fff",
-        "pryclr": "#f6655f",
+        pryclr: "#f6655f",
       },
       backgroundColor: {
         thickred: "#f6655f",
@@ -58,4 +57,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};
