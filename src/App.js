@@ -15,7 +15,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DonorInfo from "./components/Body/pop/DonorInfo";
 import Contact from "./components/Body/Contact";
 import Insight from "./components/Body/Insight";
-import 'sweetalert2/src/sweetalert2.scss'
+import "sweetalert2/src/sweetalert2.scss";
+import DonorInfoRequest from "./components/Body/DonorInfoRequest";
 // import Menu from "./components/Body/pop/Menu";
 
 function App() {
@@ -29,8 +30,16 @@ function App() {
           {/* <Route path="/menu" element={<Menu />} /> */}
           <Route path="/need-blood" element={<Need />} />
           <Route path="/donate-blood" element={<Donate />} />
+
+          {/* --------------------------------------------------------------
+          Kindly update If this will be a pop up when it is clicked by the donee 
+          when a search is made or when the names are displayed on the donate blood page 
+          -------------------------------------------------------------- */}
+
+          {/* <Route path="/bio/:id" element={<Bio />} /> */}
           <Route path="/bio" element={<Bio />} />
           <Route path="/request" element={<Request />} />
+          <Route path="/donor-request/:id" element={<DonorInfoRequest />} />
           <Route path="/edit" element={<Edit />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />

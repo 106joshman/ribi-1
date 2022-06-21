@@ -47,7 +47,7 @@ const Signup = () => {
   const [states, setStates] = useState([]);
 
   //Validate: File types (png or jpeg)
-  const types = ["image/png", "image/jpeg"];
+  // const types = ["image/png", "image/jpeg"];
 
   // Get All States in Nigeria
   useEffect(() => {
@@ -113,6 +113,13 @@ const Signup = () => {
             data
           );
           console.log(response.data);
+          // handleClose();
+          // navigate(-1);
+          // return Swal.fire({
+          //   icon: "success",
+          //   title: "Sign up Successful",
+          //   text: "You have Successfully Signed up",
+          // });
         } catch (error) {
           handleClose();
           return Swal.fire({
@@ -144,7 +151,13 @@ const Signup = () => {
           dispatch(dispatchIsLogged());
           dispatch(dispatchUserToken(response.data.token));
           dispatch(dispatchUserId(response.data.user.userId));
+          handleClose();
           navigate("/bio");
+          return Swal.fire({
+            icon: "success",
+            title: "Login Successful",
+            text: "You have Successfully Logged in",
+          });
         } catch (error) {
           handleClose();
           return Swal.fire({
@@ -302,10 +315,15 @@ const Signup = () => {
                           <input
                             style={{ display: "none" }}
                             type="file"
+                            accept="image/*, capture=camera, jpeg/*, png/*, jpg/* "
                             id="fusk"
                             onChange={(e) => {
                               let selected = e.target.files[0];
-                              if (selected && types.includes(selected.type)) {
+                              if (
+                                selected.type === "image/jpeg" ||
+                                selected.type === "image/png" ||
+                                selected.type === "image/jpg"
+                              ) {
                                 setImage(selected);
                               } else {
                                 return console.log("error");
