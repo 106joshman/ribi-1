@@ -184,7 +184,7 @@ const Popup = (props) => {
                   type="date"
                   className={styles.chooseTD}
                   name="date"
-                  required={true}
+                  // required={true}
                   value={date}
                   onChange={(e) => {
                     setDate(e.target.value);
@@ -198,7 +198,7 @@ const Popup = (props) => {
                   type="time"
                   className={styles.chooseTD}
                   name="time"
-                  required={true}
+                  // required={true}
                   value={time}
                   onChange={(e) => {
                     setTime(e.target.value);
@@ -243,7 +243,7 @@ const Popup = (props) => {
               <label htmlFor="" className={styles.label}>
                 Gender
               </label>
-              <Select
+              {/* <Select
                 className=""
                 styles={selectStyles}
                 value={gender}
@@ -254,7 +254,22 @@ const Popup = (props) => {
                 name="gender"
                 placeholder="Select Gender"
                 id="gender"
-              />
+              /> */}
+              <select
+                className=" rounded-3xl"
+                value={gender}
+                onChange={(e) => {
+                  setGender(e);
+                }}
+                options={selectGender}
+                name="gender"
+                placeholder="Select Gender"
+                id="gender"
+              >
+                <option value="null"></option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
             </div>
             <div style={{ marginTop: 12, marginBottom: 12 }}>
               <label htmlFor="" className={styles.label}>

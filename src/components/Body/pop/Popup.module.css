@@ -155,8 +155,8 @@ Select {
   background: transparent;
   color: black;
   outline: none;
-  padding: 16px;
-  height: 323px;
+  padding: 5px;
+  /* height: 323px; */
   width: 100%;
 }
 
@@ -165,7 +165,7 @@ Select {
     width: 100%;
   }
 
-  .popModal{
+  .popModal {
     width: 90%;
     padding: 10px;
   }
