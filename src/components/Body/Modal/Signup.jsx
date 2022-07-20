@@ -174,7 +174,7 @@ const Signup = () => {
   return (
     <>
       <button
-        className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
+        className="text-white mx-1 py-2.5 px-5 text-center cursor-pointer bg-[#f6655f] rounded-3xl text-base uppercase"
         onClick={handleOpen}
       >
         donate blood

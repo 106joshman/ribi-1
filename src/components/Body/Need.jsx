@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./need.module.css";
 import hero from "../../assets/hero.png";
+import spinners from '../../assets/images/spinner.svg'
 import profile1 from "../../assets/profile1.png";
 import place from "../../assets/place.png";
 import { Link } from "react-router-dom";
@@ -72,8 +73,8 @@ const Need = () => {
           <div className={styles.availableDonorContainer}>
             <div className={styles.donorLists}>
               {isPending && (
-                <div className="flex justify-center text-center w-full">
-                  <img src="/images/spinner.svg" alt="spinner" />
+                <div className="flex justify-center text-center items-center w-full">
+                  <img src={spinners} className="inline" alt="spinner" />
                 </div>
               )}
               {searchData

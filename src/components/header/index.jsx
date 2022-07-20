@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-// import { AiOutlineClose } from "react-icons/ai";
-// import Hamburger from "hamburger-react";
-import "./Header.css";
+import styles from "./header.module.css";
 import logo from "../images/logo.svg";
 import { Link } from "react-router-dom";
 import Signup from "../Body/Modal/Signup";
-import Menu from "../Body/pop/Menu";
+import Menu from "../Body/mobile_menu";
 
 const Header = () => {
   // const [isOpen, setOpen] = useState(false);
@@ -19,10 +17,10 @@ const Header = () => {
   // ];
 
   return (
-    <header className="flex justify-between items-center py-1 px-6 md:px-10 font-poppins mx-auto">
-      <div className="logo">
+    <div className={styles.header}>
+      <div className={styles.logo}>
         <Link to="/">
-          <img src={logo} alt="RIBI logo" srcset="" className="w-full" />
+          <img src={logo} alt="RIBI logo" srcset="" className={styles.img} />
         </Link>
       </div>
       {/*<nav className="hidden sm:block">
@@ -44,18 +42,18 @@ const Header = () => {
         )}
         </nav>*/}
 
-      <nav className="hidden sm:block">
+      <nav className={styles.nav}>
         <div className="flex">
           <Link
             to="/need-blood"
-            className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
+            className="text-white mx-1 py-2.5 px-5 cursor-pointer bg-[#f6655f] rounded-3xl text-base uppercase"
           >
             need blood
           </Link>
           {isLogged ? (
             <Link
               to="/bio"
-              className="rounded-full text-white uppercase bg-thickred py-2.5 px-5 mx-1 cursor-pointer"
+              className="text-white mx-1 py-2 px-3 cursor-pointer bg-[#f6655f] rounded-3xl text-base uppercase"
             >
               donate blood
             </Link>
@@ -64,23 +62,19 @@ const Header = () => {
           )}
         </div>
       </nav>
-      <div className="cursor-pointer text-pryclr md:hidden">
+      <div className={styles.hamburger}>
         <button
           // onClick={}
-          className="icon"
+          className={styles.icon}
           onClick={() => {
             setShow(true);
           }}
         >
-          <GiHamburgerMenu />
-          {/* <Hamburger
-            toggled={isOpen}
-            toggle={setOpen}
-          /> */}
+          <GiHamburgerMenu size={35} color="#f6655f" />
         </button>
         <Menu onClose={() => setShow(false)} show={show} />
       </div>
-    </header>
+    </div>
   );
 };
 
