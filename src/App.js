@@ -1,5 +1,5 @@
 import ErrorPage from "./components/Body/not-found";
-import Footer from "./components/footer";
+// import Footer from "./components/footer";
 import Header from "./components/header";
 import Home from "./components/Body/home";
 import Need from "./components/Body/Need";
@@ -49,7 +49,7 @@ function App() {
           {/* <Route path="/donor-verify" element={<DonorInfo />} /> */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
