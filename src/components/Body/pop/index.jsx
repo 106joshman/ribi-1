@@ -9,11 +9,10 @@ import axios from "axios";
 
 const Popup = (props) => {
   const selectGender = [
+    { value: "Select Gender", label: "Select Gender" },
     { value: "Male", label: "Male" },
     { value: "Female", label: "Female" },
   ];
-  const [open, setOpen] = useState(false);
-  const handleClose = () => setOpen(false);
   const selectType = [
     {
       value: "A",
@@ -95,7 +94,9 @@ const Popup = (props) => {
     }),
   };
 
-  const [received, setReceived] = useState("");
+  const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
+  const [received, setReceived] = useState({});
 
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
@@ -113,7 +114,6 @@ const Popup = (props) => {
   const [patientLocation, setPatientLocation] = useState("");
   const [pintOfBlood, setPintOfBlood] = useState("");
 
-  // const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     // setClose(true);
@@ -137,11 +137,12 @@ const Popup = (props) => {
       url: "https://ribi-donor.herokuapp.com/api/v1/patients",
       data: patientRequestData,
     })
-      .then((res) => {
-        // handleClose();
-        console.log(res);
-        setReceived(res);
-        return setOpen(true);
+      .then((response) => {
+        console.log(response.status);
+        if (response.data.status === true) {
+          setReceived(response);
+          return setOpen(true);
+        }
       })
       .catch((err) => {
         handleClose();
@@ -174,7 +175,7 @@ const Popup = (props) => {
             If you have already filled before, kindly fill again with the same
             details. Thanks
           </h6>
-          <form className={styles.formHolder} onSubmit={handleSubmit}>
+          <form className={styles.formHolder}>
             <p className={styles.chooseTimeDate}>Choose date and time</p>
             <div className={styles.timeDateWrap}>
               <div
@@ -243,7 +244,7 @@ const Popup = (props) => {
               <label htmlFor="" className={styles.label}>
                 Gender
               </label>
-              {/* <Select
+              <Select
                 className=""
                 styles={selectStyles}
                 value={gender}
@@ -254,9 +255,9 @@ const Popup = (props) => {
                 name="gender"
                 placeholder="Select Gender"
                 id="gender"
-              /> */}
-              <select
-                className=" rounded-3xl"
+              />
+              {/* <select
+                className=" rounded-3xl text-white"
                 value={gender}
                 onChange={(e) => {
                   setGender(e);
@@ -269,7 +270,7 @@ const Popup = (props) => {
                 <option value="null"></option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
-              </select>
+              </select> */}
             </div>
             <div style={{ marginTop: 12, marginBottom: 12 }}>
               <label htmlFor="" className={styles.label}>
@@ -424,17 +425,18 @@ const Popup = (props) => {
               />
             </div>
             <div className={styles.buttonWrap}>
-              <input
+              {/* <input
                 type="submit"
                 value="Confirm"
                 className="font-bold mx-3 cursor-pointer py-1 px-5 rounded-3xl bg-white text-[#f6655f]"
-              />
-              {/* <button
+              /> */}
+              <button
                 type="submit"
                 className="font-bold mx-3 cursor-pointer py-1 px-5 rounded-3xl bg-white text-[#f6655f]"
+                onSubmit={handleSubmit}
               >
                 Confirm
-              </button> */}
+              </button>
               <button onClick={props.onClose} className={styles.cancelButton}>
                 Cancel
               </button>
@@ -484,9 +486,9 @@ const Popup = (props) => {
                 <div className={stylee.detailWrap}>
                   <div className={stylee.donorDetail}>
                     <p className={stylee.detailText}>First name:</p>
-                    <p className={stylee.detailText}>{received.firstName}</p>
+                    <p className={stylee.detailText}>{received.firstname}</p>
                     <p className={stylee.detailText}>Last name:</p>
-                    <p className={stylee.detailText}>{received.lastName}</p>
+                    <p className={stylee.detailText}>{received.lastname}</p>
                     <p className={stylee.detailText}>Gender:</p>
                     <p className={stylee.detailText}>{received.gender}</p>
                     <p className={stylee.detailText}>Phone number:</p>
