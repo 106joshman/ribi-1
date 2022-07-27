@@ -1,0 +1,68 @@
+:root {
+  --primary-bckgrd: #f6655f;
+  --light-bckgrd: #fcc0bd;
+  --drk-red-bckgrd: #eb5757;
+  --primary-font-size: 16px;
+  --first-font: "Orbitron", sans-serif;
+  --second-font: "Poppins", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 24px;
+  text-align: center;
+  align-items: center;
+  box-shadow: 0px 4px 4px #E5E5E5;
+}
+
+.nav {
+  display: inline-flex;
+}
+
+.hamburger {
+  display: none;
+  color: #f6655f;
+}
+
+/* ======
+Small screen orientation
+======= */
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0 25px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: inline-flex;
+  }
+}
+
+@media screen and (max-width: 624px) {
+  .header {
+    padding: 0 10px;
+  }
+}
+
+/* ========
+the header
+========= */
+.logo {
+  width: 115px;
+  height: 70px;
+  padding: 5px;
+}
+
+.img {
+  width: 100%;
+}
+
+.icon {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}

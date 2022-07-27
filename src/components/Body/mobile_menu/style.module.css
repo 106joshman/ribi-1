@@ -1,0 +1,69 @@
+.backDrop {
+  position: fixed;
+  background-color: white;
+  max-height: 100vh;
+  max-width: 100%;
+  overscroll-behavior: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition-duration: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.holder {
+  position: relative;
+  width: 100vw;
+  padding: 24px;
+  height: 100vh;
+}
+
+.closeIcon {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+}
+
+.navHolder {
+  display: grid;
+  place-items: center;
+  height: inherit;
+}
+
+.navLink {
+  display: flex;
+  flex-direction: column;
+  /* margin: 100px auto; */
+  align-items: center;
+  font-size: 14px;
+}
+
+.need {
+  border-radius: 9999px;
+  color: white;
+  text-transform: uppercase;
+  background-color: #f66557;
+  text-align: center;
+  padding: 10px 20px;
+  width: 160px;
+  margin: 40px 4px;
+  cursor: pointer;
+}
+
+.donate {
+  border-radius: 9999px;
+  color: white;
+  text-transform: uppercase;
+  background-color: #f66557;
+  text-align: center;
+  padding: 10px 20px;
+  width: 160px;
+  margin: 40px 4px;
+  cursor: pointer;
+}

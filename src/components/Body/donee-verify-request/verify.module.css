@@ -1,0 +1,95 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10vw;
+  height: 100vh;
+  background: rgba(242, 242, 242, 0.8);
+}
+
+.scroll {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.popModal {
+  display: block;
+  padding: 20px;
+  background-color: #f6655f;
+  width: 100vw;
+  margin: 50px auto;
+}
+
+.modalClose {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.wrapper {
+  background-color: #fff;
+  color: black;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 20px auto;
+}
+
+.title {
+  color: #f6655f;
+  text-decoration: underline;
+  font-size: 20px;
+  text-align: center;
+  margin: 16px auto;
+}
+
+.img {
+  margin: auto;
+  width: 50%;
+}
+
+.detailWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.donorDetail {
+  margin: 15px auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 0 30px;
+}
+
+.detailText {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.button {
+  background-color: #f6655f;
+  padding: 4px 24px;
+  color: white;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .popModal,
+  .wrapper {
+    width: 80%;
+  }
+
+  .img {
+    max-width: 100%;
+  }
+}

@@ -5,9 +5,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&family=Poppins:wght@400;500;700;900&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 :root {
@@ -20,15 +20,15 @@
   --supplemet: rgb(231, 188, 186, 0.5);
 }
 
-.App {
-  flex: 1;
-  flex-direction: column;
-  /* font-family: var(--second-font); */
+.App{
+  flex:1;
+  flex-direction:column;
+  font-family: var(--second-font);
 }
 
-.link {
-  text-decoration: none;
-  color: inherit;
+body{
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 .swal2-container {
@@ -37,4 +37,9 @@
 
 .css-79ws1d-MuiModal-root {
   z-index: 999;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
 }

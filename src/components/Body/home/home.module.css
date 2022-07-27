@@ -1,0 +1,362 @@
+.heroWrapper {
+  padding: 16px 40px;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+  background-color: #f6655f;
+  color: white;
+  justify-content: space-between;
+}
+
+.heroLeft {
+  text-align: left;
+  align-items: center;
+}
+
+.bigText {
+  font-size: 6vw;
+  font-weight: 700;
+}
+
+.smallText {
+  font-weight: 400;
+  margin: 20px auto;
+  line-height: 1.625;
+}
+
+.linkBlood {
+  border-radius: 1.5rem;
+  margin-bottom: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 24px;
+  border: 2px solid white;
+  text-decoration: none;
+  color: white;
+}
+
+.heroRight {
+  margin: auto;
+}
+
+.backGround {
+  background-attachment: local;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  background-image: url(../../images/Vecto.png);
+}
+
+.front {
+  display: grid;
+  place-items: center;
+}
+
+.heroImage {
+  width: 77%;
+  margin-top: 60px;
+  margin-left: 71px;
+}
+
+.about {
+  background: rgba(241, 144, 140, 0.1);
+  padding: 10px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.aboutCard {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 50px;
+}
+
+.singleCard {
+  width: 160px;
+  background-color: white;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 5px 10px 8px #888888;
+}
+
+.aboutText {
+  width: 500px;
+  padding: 0 0 0 20px;
+}
+
+.cardImage {
+  margin: auto;
+  width: 96px;
+  height: 80px;
+}
+
+.cardText {
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 16px 0;
+}
+
+.aboutHeading {
+  color: #f6655f;
+  text-decoration-line: underline;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.types {
+  color: #f6655f;
+  font-weight: 700;
+  margin: 16px 0;
+  font-size: 36px;
+  text-align: center;
+}
+
+.bloodTypesWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0 40px;
+  margin-bottom: 32px;
+}
+
+.blood {
+  margin: 15px 35px;
+  width: 100px;
+  background-color: #fbfbfb;
+  border-radius: 24px;
+  padding: 10px;
+  height: 110px;
+}
+
+.bloodText {
+  color: #f6655f;
+  text-decoration: underline;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.objectives {
+  background-color: #fff;
+}
+
+.objctText {
+  color: #f6655f;
+  margin: 20px 0;
+  font-weight: 600;
+  align-items: center;
+  text-align: center;
+}
+
+.objectCardHolder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: white;
+  text-align: center;
+}
+
+.objectCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #f6655f;
+  margin: 0 15px;
+  padding: 10px;
+  color: white;
+  width: 452px;
+}
+
+.work {
+  background-color: #fbfbfb;
+  padding: 1px 50px 15px;
+}
+
+.workText {
+  color: #f6655f;
+  text-align: center;
+  font-weight: 700;
+  margin: 24px 0;
+  font-size: 36px;
+}
+
+.workContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.workGuide {
+  padding: 0 20px;
+}
+
+.listImage {
+  list-style-image: url(../../images/list-icon.png);
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+/* ======
+Screen orientation
+======= */
+@media screen and (max-width: 500px) {
+  .heroImage {
+    width: 59%;
+    margin-top: unset;
+    margin-left: 112px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroWrapper {
+    flex-direction: column;
+    height: auto;
+    /* justify-content: space-between; */
+  }
+
+  .heroLeft {
+    text-align: center;
+  }
+
+  .bigText {
+    font-size: 48px;
+  }
+
+  .heroRight {
+    width: 60%;
+    display: inline;
+  }
+  .heroImage {
+    width: 40%;
+    margin-left: 200px;
+    margin-top: unset;
+  }
+
+  .about {
+    /* flex-direction: column; */
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    margin: 24px auto;
+    padding: 0 20px;
+  }
+
+  .singleCard {
+    margin: 20px auto;
+  }
+
+  .aboutHeading {
+    text-decoration: none;
+  }
+
+  .aboutText {
+    width: unset;
+  }
+
+  .bloodTypesWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 5px 20px;
+    place-items: center;
+  }
+
+  .blood {
+    width: 110px;
+    height: 110px;
+    margin: 20px 40px;
+  }
+
+  .objectives {
+    background-color: #f6655f;
+    padding: 20px 40px;
+    text-align: center;
+  }
+
+  .objctText {
+    font-weight: 400;
+    color: white;
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 15px;
+  }
+
+  .objectCardHolder {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .objectCard {
+    background: white;
+    width: 80%;
+    margin: 15px auto;
+    padding: 20px;
+    color: #c4c4c4;
+  }
+
+  .work {
+    padding: 0 40px;
+    margin-top: 32px;
+  }
+
+  .workContent {
+    flex-direction: column;
+  }
+
+  .workGuide {
+    padding: 0 10px;
+  }
+
+  .workImage {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* .heroWrapper {
+    /* justify-content: space-around;
+  } */
+
+  .about {
+    justify-content: space-around;
+  }
+}
+
+/* @media screen and (min-width: 1024px) {
+  .hero-right .front img {
+    width: 29%;
+    position: absolute;
+    margin-top: 32px;
+    margin-left: 129px;
+  }
+} */
+
+/* ====== Large screen orientation ======= */
+@media screen and (min-width: 1440px) {
+  .heroImage {
+    width: 60%;
+    /* position: absolute; */
+    margin-top: 12px;
+    margin-left: 137px;
+  }
+}
+
+.drop {
+  background: url(../../images/Group130.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 80px;
+  /* position: relative; */
+  padding: 17px;
+}
+
+.main svg {
+  width: 20px;
+  height: 20px;
+}
