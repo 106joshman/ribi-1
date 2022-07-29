@@ -123,7 +123,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="types">
+      <div className={styles.typesContainer}>
         <h4 className={styles.types}>Blood Types</h4>
         <div className={styles.bloodTypesWrapper}>
           {blood.map(({ type }) => {
@@ -140,15 +140,25 @@ const Home = () => {
       <div className={styles.objectives}>
         <div className="mssn">
           <p className={styles.objctText}>
-            Your donation will save lives. It’s not just an appointment, it’s a
-            commitment to save lives!
+            Your donation will save lives.{" "}
+            <span className="block">
+              It’s not just an appointment, it’s a commitment to save lives!
+            </span>
           </p>
         </div>
         <div className={styles.objectCardHolder}>
           {cardData.map(({ id, title, text }) => {
             return (
               <div key={id} className={styles.objectCard}>
-                <h6 style={{ margin: "20px 0", color: "black" }}>{title}</h6>
+                <h6
+                  style={{
+                    margin: "20px 0",
+                    color: "white",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {title}
+                </h6>
                 <p style={{ margin: "15px 0" }}>{text}</p>
                 <button
                   style={{
@@ -157,8 +167,9 @@ const Home = () => {
                     border: "none",
                     background: "transparent",
                     alignItems: "center",
-                    textAlign: "center"
+                    textAlign: "center",
                   }}
+                  className="hover:text-[#fabbbb]"
                 >
                   Learn More <AiOutlineArrowRight />
                 </button>
@@ -171,7 +182,12 @@ const Home = () => {
         <h4 className={styles.workText}>How it Works</h4>
         <div className={styles.workContent}>
           <div style={{ marginBottom: "16px" }}>
-            <img src={work} alt="A laboratory Scientist" srcset="" className={styles.workImage}/>
+            <img
+              src={work}
+              alt="A laboratory Scientist"
+              srcset=""
+              className={styles.workImage}
+            />
           </div>
           <div className={styles.workGuide}>
             <p>
@@ -179,11 +195,11 @@ const Home = () => {
               opportunity to Save a Life
             </p>
             <ul className={styles.listImage}>
-              <li style={{ marginTop: "15px 0" }}>Register</li>
-              <li className="">Fill your Profile</li>
-              <li style={{ marginTop: "15px 0" }}>Search for Blood Donor</li>
-              <li className="">View Pending Request</li>
-              <li style={{ marginTop: 15 }}>Make Blood Request</li>
+              <li style={{ marginTop: "15px" }}>Register</li>
+              <li style={{ marginTop: "15px" }}>Fill your Profile</li>
+              <li style={{ marginTop: "15px " }}>Search for Blood Donor</li>
+              <li style={{ marginTop: "15px" }}>View Pending Request</li>
+              <li style={{ marginTop: "15px" }}>Make Blood Request</li>
             </ul>
           </div>
         </div>

@@ -46,14 +46,14 @@ const Header = () => {
         <div className="flex">
           <Link
             to="/need-blood"
-            className="text-white mx-1 py-2.5 px-5 cursor-pointer bg-[#f6655f] rounded-3xl text-base uppercase"
+            className="text-[#f6655f] mx-1 py-2.5 px-5 cursor-pointer outline outline-1 outline-[#f6655f] hover:bg-[#f7c9c7] rounded-3xl text-base uppercase"
           >
             need blood
           </Link>
           {isLogged ? (
             <Link
               to="/bio"
-              className="text-white mx-1 py-2 px-3 cursor-pointer bg-[#f6655f] rounded-3xl text-base uppercase"
+              className="text-white mx-1 py-2 px-3 cursor-pointer bg-[#f6655f] hover:bg-[#f7c9c7]  rounded-3xl text-base uppercase"
             >
               donate blood
             </Link>

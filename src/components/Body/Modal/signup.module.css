@@ -127,7 +127,7 @@
   outline: none;
   padding: 0 1rem;
   height: 34px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .inputFieldPassword {
@@ -177,45 +177,46 @@
 
 .defaultPhoto {
   width: 55px;
-height: 55px;
-margin-right: 33.4px;
+  height: 55px;
+  margin-right: 33.4px;
 }
 
 .chooseImageButton {
   width: 90px;
-height: 29px;
-display: flex;
-justify-content: center;
-align-items: center;
-font-family: Poppins;
-font-style: normal;
-font-weight: normal;
-font-size: 10px;
-line-height: 15px;
-color: #434343;
-cursor: pointer;
-border: 1px solid #C0C6C9;
-border-radius: 4px;
+  height: 29px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 15px;
+  color: #434343;
+  cursor: pointer;
+  border: 1px solid #c0c6c9;
+  border-radius: 4px;
 }
 
 .spanText {
   cursor: pointer;
   font-family: Poppins;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 18px;
-text-align: center;
-color: #F6655F;
-margin-bottom: 1rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: #f6655f;
+  margin-bottom: 1rem;
 }
 
 .forgotButton {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.submitSignInButton{
+.submitSignInButton {
   cursor: pointer;
   border: none;
   outline: none;
@@ -230,7 +231,7 @@ margin-bottom: 1rem;
   line-height: 18px;
   text-align: center;
   color: #ffffff;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   display: flex;
   justify-content: center;
   -ms-align-items: center;
@@ -239,26 +240,26 @@ margin-bottom: 1rem;
 
 .changeSignup {
   font-family: "Poppins";
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 18px;
-display: flex;
-align-items: center;
-text-align: center;
-color: #F6655F;
-margin-top: 50px;
-cursor: pointer;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #f6655f;
+  margin-top: 50px;
+  cursor: pointer;
 }
 
 .agree {
   font-family: "Poppins";
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 18px;
-text-align: center;
-color: #F6655F;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: #f6655f;
 }
 
 @media (max-width: 615px) {
