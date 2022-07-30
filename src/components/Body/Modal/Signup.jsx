@@ -11,7 +11,7 @@ import WindowSize from "../../../hooks/windowSize";
 import axios from "axios";
 import Swal from "sweetalert2";
 // import Signin from "./Signin";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   dispatchIsLogged,
   dispatchUserToken,
@@ -77,6 +77,7 @@ const Signup = () => {
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userChecked, setUserChecked] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -174,7 +175,7 @@ const Signup = () => {
   return (
     <>
       <button
-        className="text-white mx-1 py-2.5 px-5 text-center cursor-pointer bg-[#f6655f] rounded-3xl text-base uppercase"
+        className="text-white mx-1 py-2.5 px-5 text-center cursor-pointer bg-[#f6655f] hover:bg-[#f54b46] rounded-3xl text-base uppercase"
         onClick={handleOpen}
       >
         donate blood
@@ -261,7 +262,9 @@ const Signup = () => {
                       </div>
                     </div>
                     <div className={styles.forgotButton}>
-                      <span className={styles.forgot}>Forget Password?</span>
+                      <span className={`${styles}.forgot`}>
+                        <Link to="/">Forget Password?</Link>
+                      </span>
                       <button className={styles.submitSignInButton}>
                         Sign In
                       </button>
@@ -484,6 +487,21 @@ const Signup = () => {
                         </div>
                       </div>
                     </div>
+                    <div className="mb-4">
+                      <span>
+                        {" "}
+                        <input
+                          type="checkbox"
+                          checked={userChecked}
+                          onChange={() => setUserChecked(!userChecked)}
+                          className="mr-2"
+                          required
+                        />{" "}
+                        I have read the terms and agreed with the User
+                        Agreement.
+                      </span>
+                    </div>
+
                     <span
                       onClick={() => setLogin(true)}
                       className={styles.spanText}

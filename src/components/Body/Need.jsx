@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./need.module.css";
 import hero from "../../assets/hero.png";
-import spinners from '../../assets/images/spinner.svg'
+import spinners from "../../assets/images/spinner.svg";
 import profile1 from "../../assets/profile1.png";
 import place from "../../assets/place.png";
 import { Link } from "react-router-dom";
@@ -14,6 +14,11 @@ const Need = () => {
 
   const [search, setSearch] = useState("");
   // const [donor, setDonor] = useState({});
+  // const urls = [
+  //   `https://ribi-donor.herokuapp.com/api/v1/donors?city=${search}`,
+  //   `https://ribi-donor.herokuapp.com/api/v1/donors?state=${search}`,
+  //   `https://ribi-donor.herokuapp.com/api/v1/donors?bloodType=${search}`,
+  // ];
   const url = `https://ribi-donor.herokuapp.com/api/v1/donors?city=${search}`;
 
   // const { id } = useParams();
@@ -25,6 +30,28 @@ const Need = () => {
         setSearchData(datas.users);
       });
   };
+
+  // const getSearch = async (evt) => {
+  //   Promise.all(urls.map((url) => fetch(url)))
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setSearchData(data.users);
+  //       console.log("Let me have this:", data.users);
+  //     });
+  // };
+
+  // Fecth all Search results
+  // const getSearch = async (evt) => {
+  //   try {
+  //     const response = await Promise.all(
+  //       urls.map((url) => fetch(url).then((res) => res.json()))
+  //     );
+  //     setSearchData(response[0].users);
+  //     console.log("check users: ", response[0].users);
+  //   } catch (error) {
+  //     console.log("Error", error);
+  //   }
+  // };
 
   useEffect(() => {
     setIsPending(true);
@@ -57,6 +84,7 @@ const Need = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               // onKeyPress={getSearch}
+              // onKeyUp={getSearch}
               placeholder="Search by State/ Province"
             />
             <button className={styles.searchButton} onClick={getSearch}>
