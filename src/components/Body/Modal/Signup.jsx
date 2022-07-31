@@ -123,7 +123,6 @@ const Signup = () => {
           });
         } catch (error) {
           handleClose();
-          handleClose();
           return Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -263,7 +262,9 @@ const Signup = () => {
                     </div>
                     <div className={styles.forgotButton}>
                       <span className={`${styles}.forgot`}>
-                        <Link to="/">Forget Password?</Link>
+                        <Link to="/" className="hover:text-[#f6655f]">
+                          Forget Password?
+                        </Link>
                       </span>
                       <button className={styles.submitSignInButton}>
                         Sign In
