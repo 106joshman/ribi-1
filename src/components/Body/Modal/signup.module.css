@@ -248,8 +248,9 @@
   align-items: center;
   text-align: center;
   color: #f6655f;
-  margin-top: 50px;
+  margin: 30px 0;
   cursor: pointer;
+  justify-content: center;
 }
 
 .agree {

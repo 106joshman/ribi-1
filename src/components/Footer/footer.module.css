@@ -84,9 +84,9 @@
   }
 
   .center {
-  font-family: 'Poppins' serif;
-  margin-bottom: 1rem;
-  color: white;
+    font-family: "Poppins" serif;
+    margin-bottom: 1rem;
+    color: white;
   }
 }
 
@@ -95,7 +95,7 @@
 }
 
 .logoText {
-  font-family: 'Poppins' serif;
+  font-family: "Poppins" serif;
   font-style: normal;
   font-weight: normal;
   font-size: 28px;
@@ -127,4 +127,12 @@
   margin-right: 14px;
   border: 1.5px solid #fff;
   cursor: pointer;
+}
+
+@media (max-width: 322px) {
+  .bttn {
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+  }
 }

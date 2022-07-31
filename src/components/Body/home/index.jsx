@@ -64,7 +64,7 @@ const Home = () => {
             to="/need-blood"
             className={styles.linkBlood}
           >
-            Find Blood <AiOutlineArrowRight />
+            Find Blood <AiOutlineArrowRight className="ml-2" />
           </Link>
         </div>
         <div className="hero-right hidden md:inline md:w-3/5">
@@ -118,7 +118,7 @@ const Home = () => {
               className={styles.linkBlood}
               style={{ backgroundColor: "#f66557" }}
             >
-              Learn More <AiOutlineArrowRight />
+              Learn More <AiOutlineArrowRight className="ml-2" />
             </Link>
           </div>
         </div>
@@ -141,7 +141,7 @@ const Home = () => {
         <div className="mssn">
           <p className={styles.objctText}>
             Your donation will save lives.{" "}
-            <span className="block">
+            <span className="lg:block">
               It’s not just an appointment, it’s a commitment to save lives!
             </span>
           </p>
