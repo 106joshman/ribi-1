@@ -1,5 +1,4 @@
 import ErrorPage from "./components/Body/not-found";
-// import Footer from "./components/footer";
 import Footer from "./components/Footer";
 import Header from "./components/header";
 import Home from "./components/Body/home";
@@ -44,6 +43,7 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
