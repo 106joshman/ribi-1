@@ -156,7 +156,6 @@ const Popup = (props) => {
         console.log(response);
         // console.log(userId);
         navigate.push(`/donor-request`);
-        props.show
         setOpen(true);
         setReceived(response.data);
         return Swal.fire({
