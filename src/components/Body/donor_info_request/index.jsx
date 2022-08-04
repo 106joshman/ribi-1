@@ -72,7 +72,7 @@ function DonorInfoRequest() {
             >
               <button className={styles.fontWeight}>Request</button>
             </div>
-            <Popu onClose={() => setShow(false)} show={show} />
+            <Popu onClose={() => setShow(false)} show={show} id={id} />
           </div>
         </div>
       )}

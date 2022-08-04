@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./need.module.css";
 import hero from "../../assets/hero.png";
 import spinners from "../../assets/images/spinner.svg";
@@ -14,44 +14,53 @@ const Need = () => {
 
   const [search, setSearch] = useState("");
   // const [donor, setDonor] = useState({});
-  // const urls = [
-  //   `https://ribi-donor.herokuapp.com/api/v1/donors?city=${search}`,
-  //   `https://ribi-donor.herokuapp.com/api/v1/donors?state=${search}`,
-  //   `https://ribi-donor.herokuapp.com/api/v1/donors?bloodType=${search}`,
-  // ];
-  const url = `https://ribi-donor.herokuapp.com/api/v1/donors?city=${search}`;
+  const urls = [
+    `https://ribi-donor.herokuapp.com/api/v1/donors?city=${search}`,
+    `https://ribi-donor.herokuapp.com/api/v1/donors?state=${search}`,
+    `https://ribi-donor.herokuapp.com/api/v1/donors?bloodType=${search}`,
+  ];
+  // const url = `https://ribi-donor.herokuapp.com/api/v1/donors?city=${search}`;
 
   // const { id } = useParams();
 
-  const getSearch = async (evt) => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((datas) => {
-        setSearchData(datas.users);
-      });
-  };
-
   // const getSearch = async (evt) => {
-  //   Promise.all(urls.map((url) => fetch(url)))
+  //   fetch(url)
   //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setSearchData(data.users);
-  //       console.log("Let me have this:", data.users);
+  //     .then((datas) => {
+  //       setSearchData(datas.users);
   //     });
   // };
 
+  // const refBtn = useRef();
+
   // Fecth all Search results
-  // const getSearch = async (evt) => {
-  //   try {
-  //     const response = await Promise.all(
-  //       urls.map((url) => fetch(url).then((res) => res.json()))
-  //     );
-  //     setSearchData(response[0].users);
-  //     console.log("check users: ", response[0].users);
-  //   } catch (error) {
-  //     console.log("Error", error);
-  //   }
-  // };
+  const getSearch = async (evt) => {
+    // if (search.length == 0 || search.value == "") {
+    //   refBtn.current.setAttribute("disabled", true);
+    //   console.log("This is empty");
+    // } else {
+    //   console.log("This is not empty");
+    //   refBtn.current.removeAttribute("disabled");
+    // }
+    try {
+      const response = await Promise.all(
+        urls.map((url) => fetch(url).then((res) => res.json()))
+      );
+
+      let allResponse = [
+        ...response[0].users,
+        ...response[1].users,
+        ...response[2].users,
+      ];
+
+      let setResponse = allResponse.filter((element, index) => {
+        return allResponse.indexOf(element) === index;
+      });
+      setSearchData(setResponse);
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
 
   useEffect(() => {
     setIsPending(true);
@@ -87,7 +96,11 @@ const Need = () => {
               // onKeyUp={getSearch}
               placeholder="Search by State/ Province"
             />
-            <button className={styles.searchButton} onClick={getSearch}>
+            <button
+              className={styles.searchButton}
+              onClick={getSearch}
+              // ref={refBtn}
+            >
               Search
             </button>
           </div>

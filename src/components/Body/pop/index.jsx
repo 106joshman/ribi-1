@@ -65,6 +65,9 @@ const Popup = (props) => {
     },
   ];
 
+  const id = props.id;
+  console.log(id);
+
   // const [close, setClose] = useState(false);
 
   const selectStyles = {
@@ -113,8 +116,11 @@ const Popup = (props) => {
   const [email, setEmail] = useState("");
   const [patientLocation, setPatientLocation] = useState("");
   const [pintOfBlood, setPintOfBlood] = useState("");
+  const [toggle, setToggle] = useState(false);
 
-  const handleSubmit = (event) => {
+  // const handleConfirmedDonor = () => {};
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // setClose(true);
     var patientRequestData = {
@@ -141,11 +147,15 @@ const Popup = (props) => {
         console.log(response.status);
         if (response.data.status === true) {
           setReceived(response);
+          setToggle(true);
+          console.log("Posted", patientRequestData);
           return setOpen(true);
         }
       })
       .catch((err) => {
         handleClose();
+        setToggle(true);
+        console.log("Did not post", patientRequestData);
         console.log(err);
       });
   };
@@ -175,7 +185,7 @@ const Popup = (props) => {
             If you have already filled before, kindly fill again with the same
             details. Thanks
           </h6>
-          <form className={styles.formHolder}>
+          <form className={styles.formHolder} onSubmit={handleSubmit}>
             <p className={styles.chooseTimeDate}>Choose date and time</p>
             <div className={styles.timeDateWrap}>
               <div
@@ -525,6 +535,13 @@ const Popup = (props) => {
           </div>
         </div>
       )}
+      <div>
+        {!toggle && (
+          <div className="w-full h-full z-50 bg-blue-300">
+            <h2>Hello World</h2>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
