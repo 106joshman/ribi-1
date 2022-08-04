@@ -19,29 +19,9 @@ const Need = () => {
     `https://ribi-donor.herokuapp.com/api/v1/donors?state=${search}`,
     `https://ribi-donor.herokuapp.com/api/v1/donors?bloodType=${search}`,
   ];
-  // const url = `https://ribi-donor.herokuapp.com/api/v1/donors?city=${search}`;
-
-  // const { id } = useParams();
-
-  // const getSearch = async (evt) => {
-  //   fetch(url)
-  //     .then((res) => res.json())
-  //     .then((datas) => {
-  //       setSearchData(datas.users);
-  //     });
-  // };
-
-  // const refBtn = useRef();
 
   // Fecth all Search results
   const getSearch = async (evt) => {
-    // if (search.length == 0 || search.value == "") {
-    //   refBtn.current.setAttribute("disabled", true);
-    //   console.log("This is empty");
-    // } else {
-    //   console.log("This is not empty");
-    //   refBtn.current.removeAttribute("disabled");
-    // }
     try {
       const response = await Promise.all(
         urls.map((url) => fetch(url).then((res) => res.json()))
@@ -53,8 +33,16 @@ const Need = () => {
         ...response[2].users,
       ];
 
-      let setResponse = allResponse.filter((element, index) => {
-        return allResponse.indexOf(element) === index;
+      const uniqueIds = [];
+      let setResponse = allResponse.filter((element) => {
+        const isDuplicate = uniqueIds.includes(element._id);
+
+        if (!isDuplicate) {
+          uniqueIds.push(element._id);
+          return true;
+        }
+
+        return false;
       });
       setSearchData(setResponse);
     } catch (error) {
@@ -112,17 +100,24 @@ const Need = () => {
           {/* Users Info */}
 
           <div className={styles.availableDonorContainer}>
-            <div className={styles.donorLists}>
-              {isPending && (
-                <div className="flex justify-center text-center items-center w-full">
-                  <img src={spinners} className="inline" alt="spinner" />
-                </div>
-              )}
+            {/* <div className={styles.donorLists}> */}
+            {isPending && (
+              <div className="flex justify-center text-center items-center w-full h-auto">
+                <img src={spinners} className="flex" alt="spinner" />
+              </div>
+            )}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-11 px-8 mx-auto">
               {searchData
                 ? searchData?.map((user) => (
-                    <div key={user._id} className={`${styles.donorItem} flex`}>
+                    // <div key={user._id} className={`${styles.donorItem} flex`}>
+                    <div
+                      key={user._id}
+                      className="flex hover:bg-blue-200 
+                     
+                      bg-[#f1908c1a] rounded-lg justify-center items-center mb-4"
+                    >
                       <Link
-                        className={`${styles.link} hover:bg-blue-200 p-3 lg:w-1/4 w-1/2`}
+                        className={`${styles.link} rounded-lg  py-4 px-3 bg-[#f1908c1a] `}
                         to={`/donor-request/${user._id}`}
                       >
                         <div style={{ width: `60px`, height: `60px` }}>
@@ -162,7 +157,10 @@ const Need = () => {
                     </div>
                   ))
                 : data?.map((user) => (
-                    <div key={user._id} className={styles.donorItem}>
+                    <div
+                      key={user._id}
+                      className={`${styles.donorItem} rounded-lg`}
+                    >
                       <div style={{ width: `60px`, height: `60px` }}>
                         <img
                           style={{
@@ -179,7 +177,7 @@ const Need = () => {
                 ? data?.map((user) => (
                     <div key={user._id} className={styles.donorItem}>
                       <Link
-                        className={`${styles.link} hover:bg-blue-200 hover:shadow-lg p-3 lg:w-1/4 w-1/2`}
+                        className={`${styles.link} hover:bg-blue-200 hover:shadow-lg py-4 px-3 rounded-lg`}
                         to={`/donor-request/${user._id}`}
                       >
                         <div style={{ width: `60px`, height: `60px` }}>
