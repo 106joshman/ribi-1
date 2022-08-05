@@ -112,8 +112,8 @@ const Need = () => {
                     // <div key={user._id} className={`${styles.donorItem} flex`}>
                     <div
                       key={user._id}
-                      className="flex hover:bg-blue-200 
-                     
+                      className="flex hover:bg-blue-200
+
                       bg-[#f1908c1a] rounded-lg justify-center items-center mb-4"
                     >
                       <Link
@@ -202,11 +202,11 @@ const Need = () => {
                             src={place}
                             alt="place"
                           />
-                          <p className={`styles.locationName first-letter:uppercase`}>
+                          <p className={`${styles.locationName} first-letter:uppercase`}>
                            {user.state} State
                           </p>
                         </div>
-                        <p className={styles.city}>{user.city}</p>
+                        <p className={`${styles.city} first-letter:uppercase`}>{user.city}</p>
                         <div className={styles.bloodGroupContainer}>
                           <h4 className={styles.bloodGroup}>
                             {user.bloodType}
