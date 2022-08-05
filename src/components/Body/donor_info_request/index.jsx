@@ -33,7 +33,7 @@ function DonorInfoRequest() {
   return (
     <>
       <section className={design.newBloodSection}>
-        <div className={`design.imageContainer position-relative`}>
+        <div className={`${design.imageContainer} position-relative`}>
           <img className={design.heroImg} src={hero} alt="hero text" />
           <p className={design.heroText}>DONOR INFO</p>
         </div>
@@ -56,10 +56,10 @@ function DonorInfoRequest() {
           <div className={styles.donorCard}>
             <div className={styles.donorLocWrap}>
               <p className={styles.donorLocTop}>Location</p>
-              <p className={`styles.donorLocation first-letter:uppercase`}>
+              <p className={`${styles.donorLocation} first-letter:uppercase`}>
                 {donor.state} State
               </p>
-              <p className={styles.donorLocation}>{donor.city}</p>
+              <p className={`${styles.donorLocation} first-letter:uppercase`}>{donor.city}</p>
             </div>
             <div className={styles.donorStatusWrap}>
               <p className={styles.donorLocWrap}>Availability</p>
@@ -79,8 +79,6 @@ function DonorInfoRequest() {
               <button className={styles.fontWeight}>Request</button>
             </div>
             <Popu onClose={() => setShow(false)} show={show} />
-            {/* <DonorVerified id={id} />{" "} */}
-            {/* this is the verification component after form is submited */}
           </div>
         </div>
       )}

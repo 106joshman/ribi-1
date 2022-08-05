@@ -1,10 +1,10 @@
 .modal {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 0;right: 0;
   width: 10vw;
   height: 100vh;
-  background: rgba(242, 242, 242, 0.8);
+  background: #f2f2f2cc;
 }
 
 .scroll {
@@ -48,17 +48,19 @@
 }
 
 .detailWrap {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  place-items: center;
+  /* justify-content: center; */
   align-items: center;
+  gap: 50px;
+  padding: 20px 0;
   height: 100%;
-  width: 80%;
-  margin: auto;
+  /* width: 80%; */
+  /* margin: auto; */
   border-bottom: 1px solid #c4c4c4;
 }
 
 .donorDetail {
-  margin: 15px auto;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -68,7 +70,7 @@
 }
 
 .detailText {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
 }
 

@@ -19,6 +19,7 @@ import "sweetalert2/src/sweetalert2.scss";
 import DonorInfoRequest from "./components/Body/donor_info_request";
 import WithoutNav from "./components/header/navheaders/WithoutNav";
 import { WithNav } from "./components/header/navheaders/WithNav";
+// import DonorVerified from "./components/Body/donee-verify-request";
 // import Menu from "./components/Body/pop/Menu";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
             <Route path="contact-us" element={<Contact />} />
             <Route path="insights" element={<Insight />} />
             <Route path="*" element={<ErrorPage />} />
+            {/* <Route path="/donee-verify" element={<DonorVerified/>}/> */}
           </Route>
         </Routes>
         <Footer />

@@ -8,7 +8,7 @@ const WithNav = () => {
     <>
       <Header />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
