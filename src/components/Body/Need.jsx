@@ -202,8 +202,8 @@ const Need = () => {
                             src={place}
                             alt="place"
                           />
-                          <p className={styles.locationName}>
-                            {user.homeAddress}
+                          <p className={`styles.locationName first-letter:uppercase`}>
+                           {user.state} State
                           </p>
                         </div>
                         <p className={styles.city}>{user.city}</p>

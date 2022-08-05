@@ -74,7 +74,7 @@ const Home = () => {
                 src={image}
                 className={styles.heroImage}
                 alt="Ribi homapage display"
-                srcset=""
+                srcSet=""
               />
             </div>
           </div>
@@ -90,7 +90,7 @@ const Home = () => {
                 <img
                   src={item.image}
                   alt=""
-                  srcset=""
+                  srcSet=""
                   className={styles.cardImage}
                 />
                 <p className={styles.cardText}>{item.text}</p>
@@ -185,7 +185,7 @@ const Home = () => {
             <img
               src={work}
               alt="A laboratory Scientist"
-              srcset=""
+              srcSet=""
               className={styles.workImage}
             />
           </div>

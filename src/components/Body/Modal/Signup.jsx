@@ -174,7 +174,7 @@ const Signup = () => {
   return (
     <>
       <button
-        className="text-white mx-1 py-2.5 px-5 text-center cursor-pointer bg-[#f6655f] hover:bg-[#f54b46] rounded-3xl text-base uppercase"
+        className="text-white mx-1 py-2.5 px-5 text-center cursor-pointer bg-[#f6655f] hover:bg-[#f54b46] border-none outline-none rounded-3xl text-base uppercase"
         onClick={handleOpen}
       >
         donate blood
@@ -436,8 +436,8 @@ const Signup = () => {
                           className={styles.inputField}
                           onChange={(e) => setStateValue(e.target.value)}
                         >
-                          {states.map((state) => (
-                            <option value={state.Name}>
+                          {states.map((state, index) => (
+                            <option key={index} value={state.Name}>
                               {state.info.officialName}
                             </option>
                           ))}

@@ -131,21 +131,21 @@ const Contact = () => {
             <div className="border-t-2 border-b-2 border-opacity-75 mr-5">
               <ul className="my-5">
                 <li className="flex">
-                  <img src={call} alt="" srcset="" />
+                  <img src={call} alt="" srcSet="" />
                   <p className="ml-2 text-sm">
                     +234 8013 756 884, +234 8013 756 844
                   </p>
                 </li>
                 <li className="flex my-4">
-                  <img src={mail} alt="" srcset="" />
+                  <img src={mail} alt="" srcSet="" />
                   <p className="ml-2 text-sm">teamspace@mail.com</p>
                 </li>
                 <li className="flex my-4">
-                  <img src={browser} alt="" srcset="" />
+                  <img src={browser} alt="" srcSet="" />
                   <p className="ml-2 text-sm">www.teamspace.com</p>
                 </li>
                 <li className="flex">
-                  <img src={map} alt="" srcset="" />
+                  <img src={map} alt="" srcSet="" />
                   <p className="ml-2 text-sm">Lagos, Nigeria</p>
                 </li>
               </ul>
@@ -154,13 +154,13 @@ const Contact = () => {
               <h5 className="font-semibold my-2">Connect with us</h5>
               <div className="flex flex-row">
                 <Link to="/">
-                  <img src={facebook} alt="" srcset="" />
+                  <img src={facebook} alt="" srcSet="" />
                 </Link>
                 <Link to="/">
-                  <img src={Linkedin} className="mx-3" alt="" srcset="" />
+                  <img src={Linkedin} className="mx-3" alt="" srcSet="" />
                 </Link>
                 <Link to="/">
-                  <img src={Twitter} alt="" srcset="" />
+                  <img src={Twitter} alt="" srcSet="" />
                 </Link>
               </div>
             </div>

@@ -2,10 +2,16 @@ import { React, useState } from "react";
 import profile1 from "../../images/Ellipse.png";
 import { AiOutlineClose } from "react-icons/ai";
 import styles from "./verify.module.css";
+// import { useParams } from "react-router-dom";
 
-const DonorInfo = (props) => {
+const DonorVerified = (props) => {
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
+   const id = props.id;
+console.log("This is a try", id)
+  //Please check if this is fetching any  console.
+  // Is it fetching any result?
+  // console error, look
 
   const {
     firstName,
@@ -16,7 +22,7 @@ const DonorInfo = (props) => {
     country,
     state,
     city,
-  } = props.received;
+  } = props.received; {/* this line is giving */}
   // const [show, setShow] = useState(false);
   // const handleClose = () => {
   //   setShow({ show: false });
@@ -24,6 +30,16 @@ const DonorInfo = (props) => {
   if (!props.close) {
     return null;
   }
+  const getDonor = () => {
+    fetch("https://ribi-donor.herokuapp.com/api/v1/donors/" + id)
+      .then((res) => res.json())
+      .then((data) => {
+        setReceived(data.user);
+        console.log(data.user);
+        console.log(userId);
+      });
+  };
+
 
   return (
     <div className={styles.modal} onClick={handleClose}>
@@ -95,4 +111,4 @@ const DonorInfo = (props) => {
   );
 };
 
-export default DonorInfo;
+export default DonorVerified;

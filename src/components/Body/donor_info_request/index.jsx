@@ -4,6 +4,7 @@ import styles from "./donorInfo.module.css";
 import design from "../need.module.css";
 import hero from "../../../assets/hero.png";
 import Popu from "../pop";
+import DonorVerified from "../donee-verify-request";
 // import { useSelector } from "react-redux";
 // import axios from "axios";
 
@@ -25,6 +26,9 @@ function DonorInfoRequest() {
     };
     fetchDonor();
   }, [id]);
+  // commemt here lets see
+  // Can you see mine
+  // yes.
 
   return (
     <>
@@ -52,7 +56,9 @@ function DonorInfoRequest() {
           <div className={styles.donorCard}>
             <div className={styles.donorLocWrap}>
               <p className={styles.donorLocTop}>Location</p>
-              <p className={styles.donorLocation}>{donor.donorLocation}</p>
+              <p className={`styles.donorLocation first-letter:uppercase`}>
+                {donor.state} State
+              </p>
               <p className={styles.donorLocation}>{donor.city}</p>
             </div>
             <div className={styles.donorStatusWrap}>
@@ -72,7 +78,9 @@ function DonorInfoRequest() {
             >
               <button className={styles.fontWeight}>Request</button>
             </div>
-            <Popu onClose={() => setShow(false)} show={show} id={id} />
+            <Popu onClose={() => setShow(false)} show={show} />
+            {/* <DonorVerified id={id} />{" "} */}
+            {/* this is the verification component after form is submited */}
           </div>
         </div>
       )}
