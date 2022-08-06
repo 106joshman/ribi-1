@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./bio.module.css";
 import logo from "../images/logo.svg";
 
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -78,7 +78,8 @@ const Bio = (props) => {
   }, [userId, dispatch, token]);
 
   if (!token) {
-    return navigate("/home");
+    // return navigate("/home");
+    return <Navigate to="/" />;
   } else {
     return (
       <>
