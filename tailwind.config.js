@@ -3,8 +3,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}", './node_modules/tw-elements/dist/js/**/*.js'
   ],
   theme: {
+    fontFamily: {
+      poppins: ["Poppins", "sans-serif"],
+    },
     extend: {
-      
+
     },
   },
   plugins: [

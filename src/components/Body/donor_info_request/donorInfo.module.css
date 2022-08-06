@@ -49,8 +49,8 @@
 }
 
 .donorStatusWrap {
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
   opacity: 0.5;
   padding: 12px;
   margin-bottom: 20px;
@@ -70,7 +70,7 @@
 
 .bloodType {
   color: #f6655f;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   font-size: 24px;
   text-align: center;
   font-weight: 700;
