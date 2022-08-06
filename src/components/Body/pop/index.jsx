@@ -77,6 +77,8 @@ const Popup = (props) => {
       ...styles,
       backgroundColor: "transparent",
       color: "black",
+      outline: "none",
+      border: "1px solid white",
       borderRadius: "24px !important",
     }),
     option: (provided, state) => ({
