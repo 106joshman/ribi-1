@@ -1,10 +1,6 @@
 import ErrorPage from "./components/Body/not-found";
-// import Footer from "./components/footer";
-import Footer from "./components/Footer";
-import Header from "./components/header";
 import Home from "./components/Body/home";
 import Need from "./components/Body/Need";
-// import Donate from "./components/Body/Donate";
 import Bio from "./components/Body/Bio";
 import Request from "./components/Body/Request";
 import Edit from "./components/Body/Edit";
@@ -12,16 +8,12 @@ import Privacy from "./components/Body/Privacy";
 import Signin from "./components/Body/Modal/Signin";
 import Signup from "./components/Body/Modal/Signup";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Popup from "./components/Body/pop/Popup";
-// import DonorInfo from "./components/Body/donee-verify-request";
 import Contact from "./components/Body/Contact";
 import Insight from "./components/Body/Insight";
 import "sweetalert2/src/sweetalert2.scss";
 import DonorInfoRequest from "./components/Body/donor_info_request";
 import WithoutNav from "./components/header/navheaders/WithoutNav";
 import { WithNav } from "./components/header/navheaders/WithNav";
-// import Menu from "./components/Body/pop/Menu";
-
 function App() {
   return (
     <Router>
@@ -32,6 +24,7 @@ function App() {
           </Route>
           <Route path="/" element={<WithNav />}>
             <Route index element={<Home />} />
+            <Route path="home" element={<Home />} />
             <Route path="need-blood" element={<Need />} />
             <Route path="request" element={<Request />} />
             <Route path="donor-request/:id" element={<DonorInfoRequest />} />
