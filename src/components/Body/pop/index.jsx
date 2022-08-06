@@ -162,9 +162,9 @@ const Popup = (props) => {
           text: response.data.msg,
         });
       })
-      .catch((err) => {
-        handleClose();
-        console.log(err);
+      .catch((error) => {
+        // handleClose();
+        console.log(error);
         return Swal.fire({
           icon: "error",
           title: "Oops...",
