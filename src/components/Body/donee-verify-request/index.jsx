@@ -31,7 +31,7 @@ const DonorVerified = () => {
   //   return null;
   // }
   // const getDonor = () => {
-  //   fetch("https://ribi-donor.herokuapp.com/api/v1/donors/" + id)
+  //   fetch("https://ribi-donor.herokuapp.com/api/v1/donors/" + userId)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setReceived(data.user);
@@ -44,13 +44,14 @@ const DonorVerified = () => {
   return (
     <div
       className="fixed modal left-0 top-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto bg-[#f2f2f2cc] font-poppins"
-      tabIndex="-1" onClick={(e) => e.stopPropagation()}
+      tabIndex="-1"
+      onClick={(e) => e.stopPropagation()}
     >
       <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
         <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-[#f6655f] bg-clip-padding p-3 rounded-md outline-none text-current">
           <div className={styles.modalClose}>
             <button
-            type="button"
+              type="button"
               className="btn-close box-content"
               // data-bs-dismiss="modal"
               // aria-label="Close"

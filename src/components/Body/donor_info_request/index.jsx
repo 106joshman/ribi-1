@@ -59,7 +59,9 @@ function DonorInfoRequest() {
               <p className={`${styles.donorLocation} first-letter:uppercase`}>
                 {donor.state} State
               </p>
-              <p className={`${styles.donorLocation} first-letter:uppercase`}>{donor.city}</p>
+              <p className={`${styles.donorLocation} first-letter:uppercase`}>
+                {donor.city}
+              </p>
             </div>
             <div className={styles.donorStatusWrap}>
               <p className={styles.donorLocWrap}>Availability</p>
@@ -78,7 +80,7 @@ function DonorInfoRequest() {
             >
               <button className={styles.fontWeight}>Request</button>
             </div>
-            <Popu onClose={() => setShow(false)} show={show} />
+            <Popu onClose={() => setShow(false)} show={show} donor={donor} />
           </div>
         </div>
       )}

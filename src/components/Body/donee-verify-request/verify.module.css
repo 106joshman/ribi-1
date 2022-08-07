@@ -1,7 +1,8 @@
 .modal {
   position: fixed;
   top: 0;
-  left: 0;right: 0;
+  left: 0;
+  right: 0;
   width: 10vw;
   height: 100vh;
   background: #f2f2f2cc;
@@ -32,6 +33,7 @@
   border-radius: 10px;
   padding: 16px;
   margin: 20px auto;
+  width: 700px;
 }
 
 .title {
@@ -64,9 +66,9 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
   grid-template-columns: repeat(2, 2fr);
-  gap: 0 30px;
+  gap: 5px 30px;
 }
 
 .detailText {
@@ -88,7 +90,7 @@
 @media screen and (min-width: 768px) {
   .popModal,
   .wrapper {
-    width: 80%;
+    width: 90%;
   }
 
   .img {
