@@ -73,21 +73,21 @@ const DonorVerified = () => {
             <div className={styles.detailWrap}>
               <div className={styles.donorDetail}>
                 <p className={styles.detailText}>First name:</p>
-                {/* <p className={styles.detailText}>{received.firstName}</p> */}
+                <p className={styles.detailText}>firstName</p>
                 <p className={styles.detailText}>Last name:</p>
-                {/* <p className={styles.detailText}>{received.lastName}</p> */}
+                <p className={styles.detailText}>lastName</p>
                 <p className={styles.detailText}>Gender:</p>
-                {/* <p className={styles.detailText}>{received.gender}</p> */}
+                <p className={styles.detailText}>gender</p>
                 <p className={styles.detailText}>Phone number:</p>
-                {/* <p className={styles.detailText}>{received.phone}</p> */}
+                <p className={styles.detailText}>phone</p>
                 <p className={styles.detailText}>Blood Type:</p>
-                {/* <p className={styles.detailText}>{received.bloodType}</p> */}
+                <p className={styles.detailText}>bloodType</p>
                 <p className={styles.detailText}>Country:</p>
-                {/* <p className={styles.detailText}>{received.country}</p> */}
+                <p className={styles.detailText}>country</p>
                 <p className={styles.detailText}>State:</p>
-                {/* <p className={styles.detailText}>{received.state}</p> */}
+                <p className={styles.detailText}>state</p>
                 <p className={styles.detailText}>City/Town:</p>
-                {/* <p className={styles.detailText}>{received.city}</p> */}
+                <p className={styles.detailText}>city</p>
               </div>
             </div>
             <div

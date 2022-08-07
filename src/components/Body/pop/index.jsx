@@ -80,6 +80,8 @@ const Popup = (props) => {
       ...styles,
       backgroundColor: "transparent",
       color: "black",
+      outline: "none",
+      border: "1px solid white",
       borderRadius: "24px !important",
     }),
     option: (provided, state) => ({
@@ -168,9 +170,9 @@ const Popup = (props) => {
         });
         return setOpen(true);
       })
-      .catch((err) => {
-        setOpen(false);
-        console.log(err);
+      .catch((error) => {
+        // handleClose();
+        console.log(error);
         return Swal.fire({
           icon: "error",
           title: "Oops...",
