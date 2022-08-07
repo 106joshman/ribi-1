@@ -105,7 +105,6 @@ const Popup = (props) => {
   };
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  // const [received, setReceived] = useState({});
   const { id } = useParams();
 
   console.log("This is a text for the id", id);
@@ -176,7 +175,7 @@ const Popup = (props) => {
         return Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: err.response.data.msg,
+          text: error.response.data.msg,
         });
       });
   };
@@ -496,8 +495,6 @@ const Popup = (props) => {
                 <button
                   type="button"
                   className="btn-close box-content"
-                  // data-bs-dismiss="modal"
-                  // aria-label="Close"
                   onClick={props.onClose}
                   style={{
                     backgroundColor: "transparent",

@@ -53,8 +53,6 @@ const DonorVerified = () => {
             <button
               type="button"
               className="btn-close box-content"
-              // data-bs-dismiss="modal"
-              // aria-label="Close"
               onClick={handleClose}
               style={{
                 backgroundColor: "transparent",
