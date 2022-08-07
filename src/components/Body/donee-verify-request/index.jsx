@@ -31,7 +31,7 @@ const DonorVerified = () => {
   //   return null;
   // }
   // const getDonor = () => {
-  //   fetch("https://ribi-donor.herokuapp.com/api/v1/donors/" + id)
+  //   fetch("https://ribi-donor.herokuapp.com/api/v1/donors/" + userId)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setReceived(data.user);
@@ -44,13 +44,14 @@ const DonorVerified = () => {
   return (
     <div
       className="fixed modal left-0 top-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto bg-[#f2f2f2cc] font-poppins"
-      tabIndex="-1" onClick={(e) => e.stopPropagation()}
+      tabIndex="-1"
+      onClick={(e) => e.stopPropagation()}
     >
       <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
         <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-[#f6655f] bg-clip-padding p-3 rounded-md outline-none text-current">
           <div className={styles.modalClose}>
             <button
-            type="button"
+              type="button"
               className="btn-close box-content"
               // data-bs-dismiss="modal"
               // aria-label="Close"
@@ -72,21 +73,21 @@ const DonorVerified = () => {
             <div className={styles.detailWrap}>
               <div className={styles.donorDetail}>
                 <p className={styles.detailText}>First name:</p>
-                <p className={styles.detailText}>{received.firstName}</p>
+                {/* <p className={styles.detailText}>{received.firstName}</p> */}
                 <p className={styles.detailText}>Last name:</p>
-                <p className={styles.detailText}>{received.lastName}</p>
+                {/* <p className={styles.detailText}>{received.lastName}</p> */}
                 <p className={styles.detailText}>Gender:</p>
-                <p className={styles.detailText}>{received.gender}</p>
+                {/* <p className={styles.detailText}>{received.gender}</p> */}
                 <p className={styles.detailText}>Phone number:</p>
-                <p className={styles.detailText}>{received.phone}</p>
+                {/* <p className={styles.detailText}>{received.phone}</p> */}
                 <p className={styles.detailText}>Blood Type:</p>
-                <p className={styles.detailText}>{received.bloodType}</p>
+                {/* <p className={styles.detailText}>{received.bloodType}</p> */}
                 <p className={styles.detailText}>Country:</p>
-                <p className={styles.detailText}>{received.country}</p>
+                {/* <p className={styles.detailText}>{received.country}</p> */}
                 <p className={styles.detailText}>State:</p>
-                <p className={styles.detailText}>{received.state}</p>
+                {/* <p className={styles.detailText}>{received.state}</p> */}
                 <p className={styles.detailText}>City/Town:</p>
-                <p className={styles.detailText}>{received.city}</p>
+                {/* <p className={styles.detailText}>{received.city}</p> */}
               </div>
             </div>
             <div

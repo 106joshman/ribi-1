@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styles from "./Popup.module.css";
 import stylee from "./verify.module.css";
 import { AiOutlineClose } from "react-icons/ai";
-import profile1 from "../../images/Ellipse.png";
+// import profile1 from "../../images/Ellipse.png";
 import Select from "react-select";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -69,6 +69,9 @@ const Popup = (props) => {
     },
   ];
 
+  let donor = props.donor;
+  console.log("Example of the donorresult fetched after request", donor);
+
   // const id = props.id;
   // console.log(id);
 
@@ -100,8 +103,10 @@ const Popup = (props) => {
   };
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const [received, setReceived] = useState({});
+  // const [received, setReceived] = useState({});
   const { id } = useParams();
+
+  console.log("This is a text for the id", id);
 
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
@@ -119,7 +124,12 @@ const Popup = (props) => {
   const [patientLocation, setPatientLocation] = useState("");
   const [pintOfBlood, setPintOfBlood] = useState("");
 
-  // const handleConfirmedDonor = () => {};
+  // Toggle Results
+
+  const handleRequestClose = () => {
+    props.onClose();
+    navigate("/need-blood");
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -151,22 +161,20 @@ const Popup = (props) => {
       .then((response) => {
         console.log(response);
         console.log(response.data.name);
-        setOpen(true);
-        navigate('/need-blood');
-        setReceived(response.data.name);
-        return Swal.fire({
+        Swal.fire({
           icon: "success",
           title: "Request Successful",
           text: response.data.msg,
         });
+        return setOpen(true);
       })
       .catch((err) => {
-        handleClose();
+        setOpen(false);
         console.log(err);
         return Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: error.response.data.msg,
+          text: err.response.data.msg,
         });
       });
   };
@@ -475,79 +483,109 @@ const Popup = (props) => {
         </div>
       </div>
       {open && (
-         <div
-         className="fixed modal left-0 top-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto bg-[#f2f2f2cc] font-poppins"
-         tabIndex="-1" onClick={(e) => e.stopPropagation()}
-       >
-         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
-           <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-[#f6655f] bg-clip-padding p-3 rounded-md outline-none text-current">
-             <div className={stylee.modalClose}>
-               <button
-               type="button"
-                 className="btn-close box-content"
-                 // data-bs-dismiss="modal"
-                 // aria-label="Close"
-                 onClick={props.onClose}
-                 style={{
-                   backgroundColor: "transparent",
-                   border: "none",
-                   cursor: "pointer",
-                 }}
-               >
-                 <AiOutlineClose color="white" size={32} />
-               </button>
-             </div>
-             <div className={stylee.wrapper}>
-               <p className={stylee.title}>Donor Information</p>
-               <div className="" style={{ display: "grid" }}>
-                 <img className={stylee.img} src={profile1} alt="donor holder" />
-               </div>
-               <div className={stylee.detailWrap}>
-                 <div className={stylee.donorDetail}>
-                   <p className={stylee.detailText}>First name:</p>
-                   <p className={`${styles.detailText} first-letter:uppercase`}>{received.firstname}</p>
-                   <p className={stylee.detailText}>Last name:</p>
-                   <p className={`${styles.detailText} first-letter:uppercase`}>{received.lastname}</p>
-                   <p className={stylee.detailText}>Gender:</p>
-                   <p className={`${stylee.detailText} first-letter:uppercase`}>{received.gender}</p>
-                   <p className={stylee.detailText}>Phone number:</p>
-                   <p className={stylee.detailText}>{received.phone}</p>
-                   <p className={stylee.detailText}>Blood Type:</p>
-                   <p className={stylee.detailText}>{received.bloodType}</p>
-                   <p className={stylee.detailText}>Country:</p>
-                   <p className={`${styles.detailText} first-letter:uppercase`}>{received.country}</p>
-                   <p className={stylee.detailText}>State:</p>
-                   <p className={`${styles.detailText} first-letter:uppercase`}>{received.state}</p>
-                   <p className={stylee.detailText}>City/Town:</p>
-                   <p className={`${styles.detailText} first-letter:uppercase`}>{received.city}</p>
-                 </div>
-               </div>
-               <div
-                 className="barLine"
-                 style={{
-                   border: 6,
-                   color: "red",
-                   margin: "10px auto",
-                   opacity: 0.25,
-                 }}
-               ></div>
-               <div
-                 className=""
-                 style={{ margin: "20px 0px", textAlign: "center" }}
-               >
-                 <button
-                   type="button"
-                   className={`${stylee.button} transition duration-150 ease-in-out`}
-                   data-bs-dismiss="modal"
-                   onClick={props.onClose}
-                 >
-                   Close
-                 </button>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
+        <div
+          className="fixed modal left-0 top-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto bg-[#f2f2f2cc] font-poppins"
+          tabIndex="-1"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
+            <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-[#f6655f] bg-clip-padding p-3 rounded-md outline-none text-current">
+              <div className={stylee.modalClose}>
+                <button
+                  type="button"
+                  className="btn-close box-content"
+                  // data-bs-dismiss="modal"
+                  // aria-label="Close"
+                  onClick={props.onClose}
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  <AiOutlineClose color="white" size={32} />
+                </button>
+              </div>
+              <div className={stylee.wrapper}>
+                <p className={stylee.title}>Donor Information</p>
+                <div className="" style={{ display: "grid" }}>
+                  <img
+                    className={stylee.img}
+                    src={donor.avater}
+                    alt="donor holder"
+                  />
+                </div>
+                <div className={stylee.detailWrap}>
+                  <div className={stylee.donorDetail}>
+                    <p className={stylee.detailText}>First name:</p>
+                    <p
+                      className={`${styles.detailText} first-letter:uppercase`}
+                    >
+                      {donor.firstname}
+                    </p>
+                    <p className={stylee.detailText}>Last name:</p>
+                    <p
+                      className={`${styles.detailText} first-letter:uppercase`}
+                    >
+                      {donor.lastname}
+                    </p>
+                    <p className={stylee.detailText}>Gender:</p>
+                    <p
+                      className={`${stylee.detailText} first-letter:uppercase`}
+                    >
+                      {donor.gender}
+                    </p>
+                    <p className={stylee.detailText}>Phone number:</p>
+                    <p className={stylee.detailText}>{donor.phone}</p>
+                    <p className={stylee.detailText}>Blood Type:</p>
+                    <p className={stylee.detailText}>{donor.bloodType}</p>
+                    <p className={stylee.detailText}>Country:</p>
+                    <p
+                      className={`${styles.detailText} first-letter:uppercase`}
+                    >
+                      {donor.country}
+                    </p>
+                    <p className={stylee.detailText}>State:</p>
+                    <p
+                      className={`${styles.detailText} first-letter:uppercase`}
+                    >
+                      {donor.state}
+                    </p>
+                    <p className={stylee.detailText}>City/Town:</p>
+                    <p
+                      className={`${styles.detailText} first-letter:uppercase`}
+                    >
+                      {donor.city}
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="barLine"
+                  style={{
+                    border: 6,
+                    color: "red",
+                    margin: "10px auto",
+                    opacity: 0.25,
+                  }}
+                ></div>
+                <div
+                  className=""
+                  style={{ margin: "20px 0px", textAlign: "center" }}
+                >
+                  <button
+                    type="button"
+                    className={`${stylee.button} transition duration-150 ease-in-out`}
+                    data-bs-dismiss="modal"
+                    onClick={handleRequestClose}
+                    // onClick={props.onClose}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );
