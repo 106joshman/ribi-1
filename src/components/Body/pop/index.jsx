@@ -70,7 +70,7 @@ const Popup = (props) => {
   ];
 
   let donor = props.donor;
-  console.log("Example of the donorresult fetched after request", donor);
+  // console.log("Example of the donorresult fetched after request", donor);
 
   // const id = props.id;
   // console.log(id);
@@ -279,9 +279,7 @@ const Popup = (props) => {
                   className=""
                   styles={selectStyles}
                   value={gender}
-                  onChange={(e) => {
-                    setGender(e);
-                  }}
+                  onChange={(e) => setGender(e)}
                   options={selectGender}
                   name="gender"
                   placeholder="Select Gender"

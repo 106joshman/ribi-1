@@ -45,14 +45,15 @@
 
 .img {
   margin: auto;
-  width: 50%;
+  width: 100px;
+  height: 100px;
 }
 
 .detailWrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 80%;
   width: 100%;
   margin: auto;
   gap: 20px 2px;

@@ -262,7 +262,10 @@ const Signup = () => {
                     </div>
                     <div className={styles.forgotButton}>
                       <span className={`${styles}.forgot`}>
-                        <Link to="/" className="hover:text-[#f6655f]">
+                        <Link
+                          to="/forget-password"
+                          className="hover:text-[#f6655f]"
+                        >
                           Forget Password?
                         </Link>
                       </span>
@@ -498,18 +501,28 @@ const Signup = () => {
                           className="mr-2"
                           required
                         />{" "}
-                        I have read the terms and agreed with the User
-                        Agreement.
+                        I have read the terms and agreed with the
+                        <Link
+                          to="/privacy"
+                          className="ml-1 hover:underline text-red-400"
+                        >
+                          User Agreement
+                        </Link>
                       </span>
                     </div>
 
-                    <span
-                      onClick={() => setLogin(true)}
-                      className={styles.spanText}
-                    >
-                      Already have an Account? Sign In
+                    <button className={`${styles.submitButton} my-2`}>
+                      Sign Up
+                    </button>
+                    <span className="mt-2 mb-8 text-center">
+                      Already have an Account?{" "}
+                      <span
+                        onClick={() => setLogin(true)}
+                        className="hover:underline text-red-400 cursor-pointer"
+                      >
+                        Sign In
+                      </span>
                     </span>
-                    <button className={styles.submitButton}>Sign Up</button>
                   </form>
                 </div>
                 <div className={styles.mainRight}>
