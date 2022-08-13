@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { Backdrop, Box, Modal, Fade } from "@mui/material";
 
 import styles from "./signup.module.css";
 import logo from "../../../assets/logo.png";
-import { Link } from "react-router-dom";
 
 const ForgetPassword = () => {
   const [open, setOpen] = useState(false);
+  const [login, setLogin] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -20,12 +21,12 @@ const ForgetPassword = () => {
             <p className={styles.logoText}>RIBI</p>
           </div>
         </div>
-        <div className="flex flex-col text-center">
+        <div className="flex flex-col text-center justify-center">
           <div className="flex flex-col items-center justify-center">
             <p className="text-red-500">Forget Password</p>{" "}
             <span className="bg-red-400 h-[0.12rem] w-28"></span>
           </div>
-          <div className="mt-[37px] text-center">
+          <div className="mt-[37px] text-center flex flex-col justify-center">
             <p>
               Enter your email below to receive your password reset instructions
             </p>
@@ -47,15 +48,16 @@ const ForgetPassword = () => {
                 className="bg-red-500 text-white w-[78px] h-[45px]  rounded-lg mt-[34px] mb-[28px] cursor-pointer hover:bg-red-600"
               />
             </form>
-            <Link
-              to="/login"
-              className="flex items-center justify-center hover:text-red-500"
+            <button
+              onClick={handleOpen}
+              className="flex items-center justify-center hover:text-red-500 text-center"
             >
               <AiOutlineArrowLeft className="mr-2" /> Back to Login Page
-            </Link>
+            </button>
           </div>
         </div>
       </div>
+
       {/* </div> */}
     </div>
   );

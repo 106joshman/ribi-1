@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Backdrop, Box, Modal, Fade } from "@mui/material";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 import styles from "./signup.module.css";
 import closeIcon from "../../../assets/close.png";
 import logo from "../../../assets/logo.png";
@@ -43,8 +44,16 @@ const Signup = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [login, setLogin] = useState(false);
+  const [forgetPassword, setForgetPassword] = useState(false);
 
   const [states, setStates] = useState([]);
+
+  // Handles Forget Password
+  function handleForgetPassword() {
+    setLogin(false);
+    handleClose();
+    setForgetPassword(true);
+  }
 
   //Validate: File types (png or jpeg)
   // const types = ["image/png", "image/jpeg"];
@@ -262,12 +271,12 @@ const Signup = () => {
                     </div>
                     <div className={styles.forgotButton}>
                       <span className={`${styles}.forgot`}>
-                        <Link
-                          to="/forget-password"
+                        <button
+                          onClick={handleForgetPassword}
                           className="hover:text-[#f6655f]"
                         >
                           Forget Password?
-                        </Link>
+                        </button>
                       </span>
                       <button className={styles.submitSignInButton}>
                         Sign In
@@ -536,6 +545,71 @@ const Signup = () => {
           </Box>
         </Fade>
       </Modal>
+      <>
+        {forgetPassword ? (
+          <section>
+            <div className="fixed top-0 left-0 w-screen flex justify-center items-center my-0 mx-auto h-screen bg-white z-50 bg-opacity-80">
+              <div className="w-[90vw] lg:w-[52vw] md:w-[56vw] lg:h-[86vh] bg-white shadow-lg p-8">
+                {" "}
+                <div className={styles.top}>
+                  <div className={styles.left}>
+                    <img src={logo} alt="Ribi logo" className="w-[40%]" />
+                    <p className={styles.logoText}>RIBI</p>
+                  </div>
+                  <div
+                    onClick={() => setForgetPassword(false)}
+                    className={styles.right}
+                  >
+                    <img
+                      src={closeIcon}
+                      alt="close"
+                      className="hover:scale-125"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col text-center justify-center">
+                  <div className="flex flex-col items-center justify-center">
+                    <p className="text-red-500">Forget Password</p>{" "}
+                    <span className="bg-red-400 h-[0.12rem] w-28"></span>
+                  </div>
+                  <div className="mt-[37px] text-center flex flex-col justify-center">
+                    <p>
+                      Enter your email below to receive your password reset
+                      instructions
+                    </p>
+                    <form className="mt-[37px] flex flex-col items-center justify-center">
+                      <div
+                      //   className="flex flex-col items-center justify-start"
+                      >
+                        <label htmlFor="Email" className="text-left block">
+                          Email*
+                        </label>
+                        <input
+                          type="email"
+                          className="w-[80vw] lg:w-[40vw] md:w-[46vw] rounded-lg h-[34px] border border-black block px-3 outline-0"
+                        />
+                      </div>
+                      <input
+                        type="submit"
+                        value="Send"
+                        className="bg-red-500 text-white w-[78px] h-[45px]  rounded-lg mt-[34px] mb-[28px] cursor-pointer hover:bg-red-600"
+                      />
+                    </form>
+                    <button
+                      onClick={handleOpen}
+                      className="flex items-center justify-center hover:text-red-500 text-center"
+                    >
+                      <AiOutlineArrowLeft className="mr-2" /> Back to Login Page
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* </div> */}
+            </div>
+          </section>
+        ) : null}
+      </>
     </>
   );
 };
