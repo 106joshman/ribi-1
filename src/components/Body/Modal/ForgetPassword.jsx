@@ -12,7 +12,7 @@ const ForgetPassword = () => {
 
   return (
     <div className="relative flex justify-center items-center my-0 mx-auto h-screen">
-      <div className="w-[90vw] lg:w-[52vw] lg:first-letter:h-[86vh] bg-white shadow-lg p-8">
+      <div className="w-[90vw] lg:w-[52vw] md:w-[56vw] lg:h-[86vh] bg-white shadow-lg p-8">
         {" "}
         <div className={styles.top}>
           <div className={styles.left}>
@@ -38,13 +38,13 @@ const ForgetPassword = () => {
                 </label>
                 <input
                   type="email"
-                  className="w-[80vw] lg:w-[40vw] rounded-lg h-[34px] border border-black block px-3 outline-0"
+                  className="w-[80vw] lg:w-[40vw] md:w-[46vw] rounded-lg h-[34px] border border-black block px-3 outline-0"
                 />
               </div>
               <input
                 type="submit"
                 value="Send"
-                className="bg-red-500 text-white w-[78px] h-[45px] rounded-lg mt-[34px] mb-[28px] cursor-pointer hover:bg-red-600"
+                className="bg-red-500 text-white w-[78px] h-[45px]  rounded-lg mt-[34px] mb-[28px] cursor-pointer hover:bg-red-600"
               />
             </form>
             <Link
