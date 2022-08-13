@@ -92,6 +92,7 @@ const Need = () => {
               Search
             </button>
           </div>
+          <p className="text-gray-400 text-center">Search with Blood type (e.g. O, O+, A, A+, B) Or with state or city</p>
         </section>
 
         <section className={styles.availableDonor}>
