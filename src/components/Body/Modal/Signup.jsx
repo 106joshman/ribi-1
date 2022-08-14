@@ -278,9 +278,7 @@ const Signup = () => {
                           Forget Password?
                         </button>
                       </span>
-                      <button className={styles.submitSignInButton}>
-                        Sign In
-                      </button>
+                      <button className={styles.submitSignInButton}>Sign In</button>
                     </div>
                     <span
                       onClick={() => setLogin(false)}
@@ -520,9 +518,7 @@ const Signup = () => {
                       </span>
                     </div>
 
-                    <button className={`${styles.submitButton} my-2`}>
-                      Sign Up
-                    </button>
+                    <button className={`${styles.submitButton} my-2`}>Sign Up</button>
                     <span className="mt-2 mb-8 text-center">
                       Already have an Account?{" "}
                       <span
