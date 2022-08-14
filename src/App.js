@@ -7,7 +7,6 @@ import Edit from "./components/Body/Edit";
 import Privacy from "./components/Body/Privacy";
 import Signin from "./components/Body/Modal/Signin";
 import Signup from "./components/Body/Modal/Signup";
-import ForgetPassword from "./components/Body/Modal/ForgetPassword";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Contact from "./components/Body/Contact";
 import Insight from "./components/Body/Insight";
@@ -22,7 +21,6 @@ function App() {
         <Routes>
           <Route element={<WithoutNav />}>
             <Route path="/bio" element={<Bio />} />
-            <Route path="/forget-password" element={<ForgetPassword />} />
           </Route>
           <Route path="/" element={<WithNav />}>
             <Route index element={<Home />} />

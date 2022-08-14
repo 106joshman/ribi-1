@@ -5,10 +5,12 @@ import logo from "../images/logo.svg";
 import { Link } from "react-router-dom";
 import Signup from "../Body/Modal/Signup";
 import Menu from "../Body/mobile_menu";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   // const [isOpen, setOpen] = useState(false);
   const [show, setShow] = useState(false);
+  const token = useSelector((state) => state.user.token);
   const [isLogged] = useState(false);
 
   // const navLinks = [
@@ -44,22 +46,35 @@ const Header = () => {
 
       <nav className={styles.nav}>
         <div className="flex">
-          <Link
-            to="/need-blood"
-            className="text-[#f6655f] mx-1 py-2.5 px-5 cursor-pointer outline outline-1 outline-[#f6655f] hover:bg-[#f7c9c7] rounded-3xl text-base uppercase"
-          >
-            need blood
-          </Link>
-          {isLogged ? (
+          {!token ? (
             <Link
-              to="/bio"
-              className="text-white mx-1 py-2 px-3 cursor-pointer bg-[#f6655f] hover:bg-[#f7c9c7]  rounded-3xl text-base uppercase"
+              to="/need-blood"
+              className="text-[#f6655f] mx-1 py-2.5 px-5 cursor-pointer outline outline-1 outline-[#f6655f] hover:bg-[#f7c9c7] rounded-3xl text-base uppercase"
             >
-              donate blood
+              need blood
             </Link>
           ) : (
-            <Signup />
+            <Link
+              to="/bio"
+              className="text-[#f6655f] mx-1 py-2.5 px-5 cursor-pointer outline outline-1 outline-[#f6655f] hover:bg-[#f7c9c7] rounded-3xl text-base uppercase"
+            >
+              Account
+            </Link>
           )}
+          {!token ? (
+            <>
+              {isLogged ? (
+                <Link
+                  to="/bio"
+                  className="text-white mx-1 py-2 px-3 cursor-pointer bg-[#f6655f] hover:bg-[#f7c9c7]  rounded-3xl text-base uppercase"
+                >
+                  donate blood
+                </Link>
+              ) : (
+                <Signup />
+              )}
+            </>
+          ) : null}
         </div>
       </nav>
       <div className={styles.hamburger}>
