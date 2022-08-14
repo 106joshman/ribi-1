@@ -209,11 +209,11 @@ const Signup = () => {
           >
             <div className={styles.top}>
               <div className={styles.left}>
-                <img src={logo} alt="Ribi logo" className={styles.logoImg} />
+                <button src={logo} alt="Ribi logo" className={styles.logoImg} />
                 <p className={styles.logoText}>RIBI</p>
               </div>
               <div onClick={() => handleClose()} className={styles.right}>
-                <img src={closeIcon} alt="close" />
+                <button src={closeIcon} alt="close" />
               </div>
             </div>
 
@@ -292,7 +292,7 @@ const Signup = () => {
                 </div>
                 <div className={styles.mainRight}>
                   <div className={styles.imageContainer}>
-                    <img src={img} alt="img" />
+                    <button src={img} alt="img" />
                   </div>
                 </div>
               </div>
@@ -318,7 +318,7 @@ const Signup = () => {
                           Profile Picture*
                         </label>
                         <div className={styles.profilePicFlex}>
-                          <img
+                          <button
                             className={styles.defaultPhoto}
                             src={!image ? defaultPhoto : image}
                             alt="default"
@@ -537,7 +537,7 @@ const Signup = () => {
                 <div className={styles.mainRight}>
                   <div className={styles.ready}>Ready to Donate</div>
                   <div className={styles.imageContainer}>
-                    <img src={man} alt="man" />
+                    <button src={man} alt="man" />
                   </div>
                 </div>
               </div>
@@ -553,14 +553,14 @@ const Signup = () => {
                 {" "}
                 <div className={styles.top}>
                   <div className={styles.left}>
-                    <img src={logo} alt="Ribi logo" className="w-[40%]" />
+                    <button src={logo} alt="Ribi logo" className="w-[40%]" />
                     <p className={styles.logoText}>RIBI</p>
                   </div>
                   <div
                     onClick={() => setForgetPassword(false)}
                     className={styles.right}
                   >
-                    <img
+                    <button
                       src={closeIcon}
                       alt="close"
                       className="hover:scale-125"

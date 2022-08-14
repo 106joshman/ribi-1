@@ -51,11 +51,11 @@ const Signin = () => {
           >
             <div className={styles.top}>
               <div className={styles.left}>
-                <img src={logo} alt="Ribi logo" className={styles.logoImg} />
+                <button src={logo} alt="Ribi logo" className={styles.logoImg} />
                 <p className={styles.logoText}>RIBI</p>
               </div>
               <div onClick={() => handleClose()} className={styles.right}>
-                <img src={closeIcon} alt="close" />
+                <button src={closeIcon} alt="close" />
               </div>
             </div>
           </Box>

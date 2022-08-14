@@ -7,7 +7,7 @@ const Privacy = () => {
     <>
       <section className={styles.bioSection}>
         <div className={styles.imageContainer}>
-          <img className={styles.heroImg} src={hero} alt="hero" />
+          <button className={styles.heroImg} src={hero} alt="hero" />
           <p className={styles.heroText}>PRIVACY POLICY AND USER AGREEMENT</p>
         </div>
       </section>

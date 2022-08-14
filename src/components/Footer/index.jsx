@@ -14,12 +14,12 @@ const Footer = () => {
                 Please book an appointment to donate. Appointments are available at some of our centres.
             </p>
             <div className={styles.bttn}>
-                <Link 
+                <Link
                     to="/insights"
                     className={styles.btn}>
                     👀 Insights
                 </Link>
-                <Link 
+                <Link
                     to="/contact-us"
                     className={styles.btn}>
                     👋 Contact
@@ -30,9 +30,9 @@ const Footer = () => {
         <div className={styles.footerDetails}>
             <div className={styles.left}>
                 <Link to="/home">
-                    <img 
-                        src={logo} 
-                        alt="RIBI logo" 
+                    <button
+                        src={logo}
+                        alt="RIBI logo"
                         srcset="" />
                 </Link>
             </div>
@@ -43,13 +43,13 @@ const Footer = () => {
 
             <div className={styles.right}>
             <div className={styles.socialContainer}>
-                <img src={facebook} alt="facebook" />
+                <button src={facebook} alt="facebook" />
             </div>
             <div className={styles.socialContainer}>
-                <img src={linkedin} alt="linkedin" />
+                <button src={linkedin} alt="linkedin" />
             </div>
             <div className={styles.socialContainer}>
-            <img src={twitter} alt="twitter" />
+            <button src={twitter} alt="twitter" />
             </div>
         </div>
       </div>

@@ -17,7 +17,7 @@ const ForgetPassword = () => {
         {" "}
         <div className={styles.top}>
           <div className={styles.left}>
-            <img src={logo} alt="Ribi logo" className="w-[40%]" />
+            <button src={logo} alt="Ribi logo" className="w-[40%]" />
             <p className={styles.logoText}>RIBI</p>
           </div>
         </div>

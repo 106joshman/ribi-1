@@ -6,7 +6,7 @@ const Insight = () => {
         <>
             <section className={styles.newBloodSection}>
                 <div className={styles.imageContainer}>
-                    <img className={styles.heroImg} src={hero} alt="hero" />
+                    <button className={styles.heroImg} src={hero} alt="hero" />
                     <p className={styles.heroText}>
                         Insight
                     </p>
@@ -37,5 +37,5 @@ const Insight = () => {
         </>
     );
 }
- 
+
 export default Insight;

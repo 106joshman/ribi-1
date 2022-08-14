@@ -20,7 +20,7 @@ const Header = () => {
     <div className={styles.header}>
       <div className={styles.logo}>
         <Link to="/">
-          <img src={logo} alt="RIBI logo" srcset="" className={styles.img} />
+          <button src={logo} alt="RIBI logo" srcset="" className={styles.img} />
         </Link>
       </div>
       {/*<nav className="hidden sm:block">

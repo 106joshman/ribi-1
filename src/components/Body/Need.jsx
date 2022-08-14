@@ -67,7 +67,7 @@ const Need = () => {
       <>
         <section className={styles.newBloodSection}>
           <div className={styles.imageContainer}>
-            <img className={styles.heroImg} src={hero} alt="hero" />
+            <button className={styles.heroImg} src={hero} alt="hero" />
             <p className={styles.heroText}>NEED BLOOD</p>
           </div>
         </section>
@@ -92,7 +92,9 @@ const Need = () => {
               Search
             </button>
           </div>
-          <p className="text-gray-400 text-center">Search with Blood type (e.g. O, O+, A, A+, B) Or with state or city</p>
+          <p className="text-gray-400 text-center">
+            Search with Blood type (e.g. O, O+, A, A+, B) Or with state or city
+          </p>
         </section>
 
         <section className={styles.availableDonor}>
@@ -104,7 +106,7 @@ const Need = () => {
             {/* <div className={styles.donorLists}> */}
             {isPending && (
               <div className="flex justify-center text-center items-center w-full h-auto">
-                <img src={spinners} className="flex" alt="spinner" />
+                <button src={spinners} className="flex" alt="spinner" />
               </div>
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-11 px-8 mx-auto">
@@ -122,7 +124,7 @@ const Need = () => {
                         to={`/donor-request/${user._id}`}
                       >
                         <div style={{ width: `60px`, height: `60px` }}>
-                          <img
+                          <button
                             style={{
                               height: `100%`,
                               width: `100%`,
@@ -138,7 +140,7 @@ const Need = () => {
                         </h5>
 
                         <div className={styles.location}>
-                          <img
+                          <button
                             className={styles.place}
                             src={place}
                             alt="place"
@@ -163,7 +165,7 @@ const Need = () => {
                       className={`${styles.donorItem} rounded-lg`}
                     >
                       <div style={{ width: `60px`, height: `60px` }}>
-                        <img
+                        <button
                           style={{
                             height: `100%`,
                             width: `100%`,
@@ -182,7 +184,7 @@ const Need = () => {
                         to={`/donor-request/${user._id}`}
                       >
                         <div style={{ width: `60px`, height: `60px` }}>
-                          <img
+                          <button
                             style={{
                               height: `100%`,
                               width: `100%`,
@@ -198,16 +200,20 @@ const Need = () => {
                         </h5>
 
                         <div className={styles.location}>
-                          <img
+                          <button
                             className={styles.place}
                             src={place}
                             alt="place"
                           />
-                          <p className={`${styles.locationName} first-letter:uppercase`}>
-                           {user.state} State
+                          <p
+                            className={`${styles.locationName} first-letter:uppercase`}
+                          >
+                            {user.state} State
                           </p>
                         </div>
-                        <p className={`${styles.city} first-letter:uppercase`}>{user.city}</p>
+                        <p className={`${styles.city} first-letter:uppercase`}>
+                          {user.city}
+                        </p>
                         <div className={styles.bloodGroupContainer}>
                           <h4 className={styles.bloodGroup}>
                             {user.bloodType}
