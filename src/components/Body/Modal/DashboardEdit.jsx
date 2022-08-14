@@ -34,6 +34,7 @@ const DashboardEdit = ({ handleToggles }) => {
       state: stateValue ? stateValue : user?.stateValue,
       city: city ? city : user?.city,
     };
+    console.log("This is just the data", data);
     const response = await axios.patch(
       "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
       data,
@@ -44,6 +45,7 @@ const DashboardEdit = ({ handleToggles }) => {
       }
     );
     console.log("This is the which is newly updated", response.data);
+    console.log("This is just the data", data);
     // handleToggles();
     return Swal.fire({
       icon: "success",
