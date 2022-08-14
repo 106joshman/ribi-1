@@ -26,13 +26,13 @@ const DashboardEdit = ({ handleToggles }) => {
     e.preventDefault();
     console.log("Profile Submitted");
     const data = {
-      firstname: firstname ? firstname : user.firstname,
-      lastname: lastname ? lastname : user.lastname,
-      phone: phone ? phone : user.phone,
-      bloodType: bloodType ? bloodType : user.bloodType,
-      donorLocation: address ? address : user.address,
-      state: stateValue ? stateValue : user.stateValue,
-      city: city ? city : user.city,
+      firstname: firstname ? firstname : user?.firstname,
+      lastname: lastname ? lastname : user?.lastname,
+      phone: phone ? phone : user?.phone,
+      bloodType: bloodType ? bloodType : user?.bloodType,
+      donorLocation: address ? address : user?.address,
+      state: stateValue ? stateValue : user?.stateValue,
+      city: city ? city : user?.city,
     };
     const response = await axios.patch(
       "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
@@ -43,8 +43,8 @@ const DashboardEdit = ({ handleToggles }) => {
         },
       }
     );
-    console.log("This is the which is newly updated", response);
-    handleToggles();
+    console.log("This is the which is newly updated", response.data);
+    // handleToggles();
     return Swal.fire({
       icon: "success",
       title: "Profile Updated",
