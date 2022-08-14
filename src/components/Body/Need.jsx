@@ -25,7 +25,13 @@ const Need = () => {
   const getSearch = async (evt) => {
     try {
       const response = await Promise.all(
-        urls.map((url) => fetch(url).then((res) => res.json()))
+        urls.map((url) =>
+          fetch(url, {
+            params: {
+              _limit: 10,
+            },
+          }).then((res) => res.json())
+        )
       );
 
       let allResponse = [
@@ -37,7 +43,7 @@ const Need = () => {
       const uniqueIds = [];
       let setResponse = allResponse.filter((element) => {
         const isDuplicate = uniqueIds.includes(element._id);
-        
+
         if (!isDuplicate) {
           uniqueIds.push(element._id);
           return true;
@@ -133,17 +139,18 @@ const Need = () => {
                         className={`${styles.link} rounded-lg  py-4 px-3 bg-[#f1908c1a] `}
                         to={`/donor-request/${user._id}`}
                       >
-                        <div style={{ width: `60px`, height: `60px` }}>
+                        <div style={{ width: "60px", height: "60px" }}>
                           <img
                             style={{
-                              height: `100%`,
-                              width: `100%`,
-                              borderRadius: `50%`,
+                              height: " 100%",
+                              width: "100%",
+                              borderRadius: "50%",
                             }}
                             src={user.avater || profile1}
                             alt={user.name}
                             onError={(event) => {
-                              event.target.src = { Default };
+                              event.target.src =
+                                "https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png";
                               event.onerror = null;
                             }}
                           />
@@ -178,7 +185,7 @@ const Need = () => {
                       key={user._id}
                       className={`${styles.donorItem} rounded-lg`}
                     >
-                      <div style={{ width: `60px`, height: `60px` }}>
+                      <div style={{ width: "60px", height: "60px" }}>
                         <img
                           style={{
                             height: `100%`,
@@ -197,7 +204,7 @@ const Need = () => {
                         className={`${styles.link} hover:bg-blue-200 hover:shadow-lg py-4 px-3 rounded-lg`}
                         to={`/donor-request/${user._id}`}
                       >
-                        <div style={{ width: `60px`, height: `60px` }}>
+                        <div style={{ width: "60px", height: "60px" }}>
                           <img
                             style={{
                               height: `100%`,
@@ -206,6 +213,11 @@ const Need = () => {
                             }}
                             src={user.avater || profile1}
                             alt={user.name}
+                            onError={(event) => {
+                              event.target.src =
+                                "https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png";
+                              event.onerror = null;
+                            }}
                           />
                         </div>
 

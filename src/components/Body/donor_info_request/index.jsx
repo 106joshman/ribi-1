@@ -49,7 +49,7 @@ function DonorInfoRequest() {
               src={donor.avater}
               alt={donor.firstname}
               onError={event => {
-                event.target.src={Default}
+                event.target.src="https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png"
                 event.onerror = null
               }}
             />
