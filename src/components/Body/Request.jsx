@@ -16,7 +16,7 @@ const Bio = () => {
     <>
       <section className={styles.bioSection}>
         <div className={styles.imageContainer}>
-          <button className={styles.heroImg} src={hero} alt="hero" />
+          <img className={styles.heroImg} src={hero} alt="hero" />
           <p className={styles.heroText}>REQUEST/DONATIONS</p>
         </div>
       </section>
@@ -24,13 +24,13 @@ const Bio = () => {
       <section className={styles.bioContainer}>
         <div className={styles.profileContainer}>
           <div className={styles.bloodGroup}>
-            <button className={styles.blub} src={blub} alt="blub" />
-            <button className={styles.blub2} src={blub2} alt="blub2" />
+            <img className={styles.blub} src={blub} alt="blub" />
+            <img className={styles.blub2} src={blub2} alt="blub2" />
             <p className={styles.bloodGroupText}>A+</p>
           </div>
 
           <div className={styles.profilePicture}>
-            <button
+            <img
               className={styles.profilePic}
               src={donorPic}
               alt="profilePicture"
@@ -78,11 +78,7 @@ const Bio = () => {
                     Lagos Teaching Hospital
                   </div>
                   <div className={styles.requestPint}>
-                    <button
-                      className={styles.drop}
-                      src={requestDrop}
-                      alt="drop"
-                    />{" "}
+                    <img className={styles.drop} src={requestDrop} alt="drop" />{" "}
                     <span className={styles.pintLevel}>One pint of blood</span>
                   </div>
                 </div>
@@ -103,11 +99,7 @@ const Bio = () => {
                     Iyana Ipaja Medical Hospital
                   </div>
                   <div className={styles.requestPint}>
-                    <button
-                      className={styles.drop}
-                      src={requestDrop}
-                      alt="drop"
-                    />{" "}
+                    <img className={styles.drop} src={requestDrop} alt="drop" />{" "}
                     <span className={styles.pintLevel}>One pint of blood</span>
                   </div>
                 </div>
@@ -128,11 +120,7 @@ const Bio = () => {
                     Lagos state Medical Hospital
                   </div>
                   <div className={styles.requestPint}>
-                    <button
-                      className={styles.drop}
-                      src={requestDrop}
-                      alt="drop"
-                    />{" "}
+                    <img className={styles.drop} src={requestDrop} alt="drop" />{" "}
                     <span className={styles.pintLevel}>One pint of blood</span>
                   </div>
                 </div>

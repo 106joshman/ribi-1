@@ -99,7 +99,7 @@ const Bio = (props) => {
             </>
           )}
           <Link to="/">
-            <button src={logo} alt="RIBI logo" className="w-full" />
+            <img src={logo} alt="RIBI logo" className="w-full" />
           </Link>
           <div className="relative">
             {/* Dropdown Options */}
@@ -114,7 +114,7 @@ const Bio = (props) => {
                   src={user.avater}
                   alt="profilePicture"
                 /> */}
-                <button
+                <img
                   className="w-12 h-12 rounded-full"
                   src="/images/chidi.png"
                   alt={user.firstname}
@@ -151,12 +151,17 @@ const Bio = (props) => {
           <div className="flex flex-col lg:w-1/3 w-full gap-4">
             {/* ---------------------------------------- first Sitter ---------------------------------------------------- */}
             <div className="px-3 shadow-lg bg-white rounded-lg py-6">
-              <div>
-                <div className={styles.bloodGroup}></div>
+              <div
+              // className={styles.profileContainer}
+              >
+                <div className={styles.bloodGroup}>
+
+                </div>
 
                 <div className="text-center">
                   <div className="flex flex-row items-center gap-x-6 px-3">
-                    <button
+
+                    <img
                       className="w-24 h-24 rounded-full"
                       src="/images/chidi.png"
                       alt={user.firstname}

@@ -3,7 +3,6 @@ import styles from "./confirmRequest.module.css";
 import Alert from "./Alert";
 import { AiOutlineClose } from "react-icons/ai";
 
-
 const initialState = {
   success: null,
   error: null,
@@ -20,10 +19,7 @@ const ConfirmRequest = ({ id, setID }) => {
       >
         <div className="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
           <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-[#f6655f] bg-clip-padding p-3 rounded-md outline-none text-current">
-            <button
-              onClick={() => setID(null)}
-              className={styles.cross}
-            >
+            <button onClick={() => setID(null)} className={styles.cross}>
               <AiOutlineClose color="white" size={32} />
             </button>
             <div className={styles.main}>

@@ -28,7 +28,7 @@ const Contact = () => {
     <>
       <section className={styles.newBloodSection}>
         <div className={styles.imageContainer}>
-          <button className={styles.heroImg} src={hero} alt="hero" />
+          <img className={styles.heroImg} src={hero} alt="hero" />
           <p className={styles.heroText}>Contact Us</p>
         </div>
       </section>
@@ -131,21 +131,21 @@ const Contact = () => {
             <div className="border-t-2 border-b-2 border-opacity-75 mr-5">
               <ul className="my-5">
                 <li className="flex">
-                  <button src={call} alt="" srcSet="" />
+                  <img src={call} alt="" srcSet="" />
                   <p className="ml-2 text-sm">
                     +234 8013 756 884, +234 8013 756 844
                   </p>
                 </li>
                 <li className="flex my-4">
-                  <button src={mail} alt="" srcSet="" />
+                  <img src={mail} alt="" srcSet="" />
                   <p className="ml-2 text-sm">teamspace@mail.com</p>
                 </li>
                 <li className="flex my-4">
-                  <button src={browser} alt="" srcSet="" />
+                  <img src={browser} alt="" srcSet="" />
                   <p className="ml-2 text-sm">www.teamspace.com</p>
                 </li>
                 <li className="flex">
-                  <button src={map} alt="" srcSet="" />
+                  <img src={map} alt="" srcSet="" />
                   <p className="ml-2 text-sm">Lagos, Nigeria</p>
                 </li>
               </ul>
@@ -154,13 +154,13 @@ const Contact = () => {
               <h5 className="font-semibold my-2">Connect with us</h5>
               <div className="flex flex-row">
                 <Link to="/">
-                  <button src={facebook} alt="" srcSet="" />
+                  <img src={facebook} alt="" srcSet="" />
                 </Link>
                 <Link to="/">
-                  <button src={Linkedin} className="mx-3" alt="" srcSet="" />
+                  <img src={Linkedin} className="mx-3" alt="" srcSet="" />
                 </Link>
                 <Link to="/">
-                  <button src={Twitter} alt="" srcSet="" />
+                  <img src={Twitter} alt="" srcSet="" />
                 </Link>
               </div>
             </div>

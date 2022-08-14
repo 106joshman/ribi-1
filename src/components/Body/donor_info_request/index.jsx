@@ -34,7 +34,7 @@ function DonorInfoRequest() {
     <>
       <section className={design.newBloodSection}>
         <div className={`${design.imageContainer} position-relative`}>
-          <button className={design.heroImg} src={hero} alt="hero text" />
+          <img className={design.heroImg} src={hero} alt="hero text" />
           <p className={design.heroText}>DONOR INFO</p>
         </div>
       </section>
@@ -43,7 +43,7 @@ function DonorInfoRequest() {
       {donor && (
         <div className={styles.findDonor}>
           <div className={styles.imgHolder}>
-            <button
+            <img
               className={styles.image}
               src={donor.avater}
               alt={donor.firstname}

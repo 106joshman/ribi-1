@@ -17,7 +17,7 @@ const Donated = () => {
           <div className={styles.requestDetails}>
             <div className={styles.requestTitle}>Lagos Teaching Hospital</div>
             <div className={styles.requestPint}>
-              <button className={styles.drop} src={requestDrop} alt="drop" />{" "}
+              <img className={styles.drop} src={requestDrop} alt="drop" />{" "}
               <span className={styles.pintLevel}>One pint of blood</span>
             </div>
           </div>
@@ -35,7 +35,7 @@ const Donated = () => {
               Iyana Ipaja Medical Hospital
             </div>
             <div className={styles.requestPint}>
-              <button className={styles.drop} src={requestDrop} alt="drop" />{" "}
+              <img className={styles.drop} src={requestDrop} alt="drop" />{" "}
               <span className={styles.pintLevel}>One pint of blood</span>
             </div>
           </div>
@@ -53,7 +53,7 @@ const Donated = () => {
               Lagos state Medical Hospital
             </div>
             <div className={styles.requestPint}>
-              <button className={styles.drop} src={requestDrop} alt="drop" />{" "}
+              <img className={styles.drop} src={requestDrop} alt="drop" />{" "}
               <span className={styles.pintLevel}>One pint of blood</span>
             </div>
           </div>

@@ -209,11 +209,11 @@ const Signup = () => {
           >
             <div className={styles.top}>
               <div className={styles.left}>
-                <button src={logo} alt="Ribi logo" className={styles.logoImg} />
+                <img src={logo} alt="Ribi logo" className={styles.logoImg} />
                 <p className={styles.logoText}>RIBI</p>
               </div>
               <div onClick={() => handleClose()} className={styles.right}>
-                <button src={closeIcon} alt="close" />
+                <img src={closeIcon} alt="close" />
               </div>
             </div>
 
@@ -278,9 +278,7 @@ const Signup = () => {
                           Forget Password?
                         </button>
                       </span>
-                      <button className={styles.submitSignInButton}>
-                        Sign In
-                      </button>
+                      <button className={styles.submitSignInButton}>Sign In</button>
                     </div>
                     <span
                       onClick={() => setLogin(false)}
@@ -292,7 +290,7 @@ const Signup = () => {
                 </div>
                 <div className={styles.mainRight}>
                   <div className={styles.imageContainer}>
-                    <button src={img} alt="img" />
+                    <img src={img} alt="img" />
                   </div>
                 </div>
               </div>
@@ -318,7 +316,7 @@ const Signup = () => {
                           Profile Picture*
                         </label>
                         <div className={styles.profilePicFlex}>
-                          <button
+                          <img
                             className={styles.defaultPhoto}
                             src={!image ? defaultPhoto : image}
                             alt="default"
@@ -520,9 +518,7 @@ const Signup = () => {
                       </span>
                     </div>
 
-                    <button className={`${styles.submitButton} my-2`}>
-                      Sign Up
-                    </button>
+                    <button className={`${styles.submitButton} my-2`}>Sign Up</button>
                     <span className="mt-2 mb-8 text-center">
                       Already have an Account?{" "}
                       <span
@@ -537,7 +533,7 @@ const Signup = () => {
                 <div className={styles.mainRight}>
                   <div className={styles.ready}>Ready to Donate</div>
                   <div className={styles.imageContainer}>
-                    <button src={man} alt="man" />
+                    <img src={man} alt="man" />
                   </div>
                 </div>
               </div>
@@ -553,14 +549,14 @@ const Signup = () => {
                 {" "}
                 <div className={styles.top}>
                   <div className={styles.left}>
-                    <button src={logo} alt="Ribi logo" className="w-[40%]" />
+                    <img src={logo} alt="Ribi logo" className="w-[40%]" />
                     <p className={styles.logoText}>RIBI</p>
                   </div>
                   <div
                     onClick={() => setForgetPassword(false)}
                     className={styles.right}
                   >
-                    <button
+                    <img
                       src={closeIcon}
                       alt="close"
                       className="hover:scale-125"

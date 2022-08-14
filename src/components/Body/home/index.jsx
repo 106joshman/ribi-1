@@ -70,7 +70,7 @@ const Home = () => {
         <div className="hero-right hidden md:inline md:w-3/5">
           <div className={styles.backGround}>
             <div className="front grid pi">
-              <button
+              <img
                 src={image}
                 className={styles.heroImage}
                 alt="Ribi homapage display"
@@ -87,7 +87,7 @@ const Home = () => {
             return (
               <div key={index} className={styles.singleCard}>
                 {/* w-about bg-white h- lg:m-5 md:mx-auto shadow-md m-5 p-5 rounded-md */}
-                <button
+                <img
                   src={item.image}
                   alt=""
                   srcSet=""
@@ -182,7 +182,7 @@ const Home = () => {
         <h4 className={styles.workText}>How it Works</h4>
         <div className={styles.workContent}>
           <div style={{ marginBottom: "16px" }}>
-            <button
+            <img
               src={work}
               alt="A laboratory Scientist"
               srcSet=""

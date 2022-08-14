@@ -66,11 +66,7 @@ const DonorVerified = () => {
           <div className={styles.wrapper}>
             <p className={styles.title}>Donor Information</p>
             <div className="" style={{ display: "grid" }}>
-              <button
-                className={styles.img}
-                src={profile1}
-                alt="donor holder"
-              />
+              <img className={styles.img} src={profile1} alt="donor holder" />
             </div>
             <div className={styles.detailWrap}>
               <div className={styles.donorDetail}>

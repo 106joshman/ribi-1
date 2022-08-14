@@ -73,7 +73,7 @@ const Edit = () => {
       <>
         <section className={styles.bioSection}>
           <div className={styles.imageContainer}>
-            <button className={styles.heroImg} src={hero} alt="hero" />
+            <img className={styles.heroImg} src={hero} alt="hero" />
             <p className={styles.heroText}>DONOR EDIT/UPDATE</p>
           </div>
         </section>
@@ -81,7 +81,7 @@ const Edit = () => {
         <section className={styles.bioContainer}>
           <div className={styles.profilePicture}>
             <div className={styles.profilePictureCon}>
-              <button
+              <img
                 className={styles.profilePic}
                 src={user?.avater}
                 alt="profilePicture"
@@ -89,7 +89,7 @@ const Edit = () => {
             </div>
 
             <label for="fusk" className={styles.editPhoto}>
-              <button className={styles.cameraIcon} src={camera} alt="camera" />
+              <img className={styles.cameraIcon} src={camera} alt="camera" />
               <span className={styles.editCameraText}>
                 Change Profile Photo
               </span>
@@ -113,7 +113,7 @@ const Edit = () => {
                     <>
                       <p className={`${styles.flex} ${styles.detailText}`}>
                         {user?.firstname}
-                        <button
+                        <img
                           onClick={() => handleEdit("firstName")}
                           style={{ cursor: "pointer" }}
                           src={editPen}
@@ -134,7 +134,7 @@ const Edit = () => {
                     <>
                       <p className={`${styles.flex} ${styles.detailText}`}>
                         {user?.lastname}
-                        <button
+                        <img
                           onClick={() => handleEdit("lastName")}
                           style={{ cursor: "pointer" }}
                           src={editPen}
@@ -155,7 +155,7 @@ const Edit = () => {
                     <>
                       <p className={`${styles.flex} ${styles.detailText}`}>
                         {user?.phone}
-                        <button
+                        <img
                           onClick={() => handleEdit("lastName")}
                           style={{ cursor: "pointer" }}
                           src={editPen}
@@ -176,7 +176,7 @@ const Edit = () => {
                     <>
                       <p className={`${styles.flex} ${styles.detailText}`}>
                         {user?.bloodType}
-                        <button
+                        <img
                           onClick={() => handleEdit("lastName")}
                           style={{ cursor: "pointer" }}
                           src={editPen}
@@ -197,7 +197,7 @@ const Edit = () => {
                     <>
                       <p className={`${styles.flex} ${styles.detailText}`}>
                         {user?.country}
-                        <button
+                        <img
                           onClick={() => handleEdit("country")}
                           style={{ cursor: "pointer" }}
                           src={editPen}
@@ -218,7 +218,7 @@ const Edit = () => {
                     <>
                       <p className={`${styles.flex} ${styles.detailText}`}>
                         {user?.donorLocation}
-                        <button
+                        <img
                           onClick={() => handleEdit("homeAddress")}
                           style={{ cursor: "pointer" }}
                           src={editPen}
@@ -239,7 +239,7 @@ const Edit = () => {
                     <>
                       <p className={`${styles.flex} ${styles.detailText}`}>
                         {user?.state}
-                        <button
+                        <img
                           onClick={() => handleEdit("state")}
                           style={{ cursor: "pointer" }}
                           src={editPen}
@@ -260,7 +260,7 @@ const Edit = () => {
                     <>
                       <p className={`${styles.flex} ${styles.detailText}`}>
                         {user?.city}
-                        <button
+                        <img
                           onClick={() => handleEdit("city")}
                           style={{ cursor: "pointer" }}
                           src={editPen}

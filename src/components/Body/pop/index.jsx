@@ -506,7 +506,7 @@ const Popup = (props) => {
               <div className={stylee.wrapper}>
                 <p className={stylee.title}>Donor Information</p>
                 <div className="" style={{ display: "grid" }}>
-                  <button
+                  <img
                     className={stylee.img}
                     src={donor.avater}
                     alt="donor holder"

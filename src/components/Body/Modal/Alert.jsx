@@ -18,7 +18,7 @@ const Alert = ({ success, error, setAlert }) => {
   return (
     <div className={styles.backdrop}>
       <div className={styles.mainModal}>
-        <button
+        <img
           onClick={() =>
             success
               ? setAlert({
@@ -33,7 +33,7 @@ const Alert = ({ success, error, setAlert }) => {
           alt="cross"
         />
         <div className={styles.main}>
-          <button
+          <img
             className={styles.icon}
             src={success ? successIcon : redCross}
             alt={success ? "success" : "error"}
