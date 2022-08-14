@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./bio.module.css";
-import logo from "../images/logo.svg";
+import logo from "../../images/logo.svg";
 
 import { Link, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,8 +13,10 @@ import {
   dispatchLogout,
   dispatchUserToken,
   dispatchUserId,
-} from "../../redux/userSlice.js";
-import DashboardEdit from "./Modal/DashboardEdit";
+} from "../../../redux/userSlice.js";
+import DashboardEdit from "../Modal/DashboardEdit";
+import BloodRequest from "./BloodRequest";
+import Donated from "./Donated";
 
 const Bio = (props) => {
   const dispatch = useDispatch();
@@ -153,18 +155,12 @@ const Bio = (props) => {
               // className={styles.profileContainer}
               >
                 <div className={styles.bloodGroup}>
-                  {/* <img className={styles.blub} src={blub} alt="blub" />
-                <img className={styles.blub2} src={blub2} alt="blub2" /> */}
-                  {/* <p className={styles.bloodGroupText}>{user.bloodType}</p> */}
+
                 </div>
 
                 <div className="text-center">
                   <div className="flex flex-row items-center gap-x-6 px-3">
-                    {/* <img
-                  className="w-24 h-24 rounded-full"
-                  src={user.avater}
-                  alt="profilePicture"
-                /> */}
+
                     <img
                       className="w-24 h-24 rounded-full"
                       src="/images/chidi.png"
@@ -177,67 +173,19 @@ const Bio = (props) => {
                       <p className="text-sm my-1">{user.email}</p>
                       <p className="text-sm ">{user.phone}</p>
                       <span className="text-blue-500 my-2 text-sm hover:text-pryclr">
-                        {/* <Link to="/edit">Edit Profile</Link> */}
                         <button onClick={handleToggles}>Edit Profile</button>
                       </span>
                     </div>
                   </div>
-                  {/* <div className={styles.profilePicture}>
-                    <img
-                      className={`${styles.profilePic} rounded-full`}
-                      src={user.avater}
-                      alt={user.firstname}
-                    />
-                  </div> */}
-                  {/* <p className="my-2 text-lg text-black font-bold">
-                    {user.firstname} {user.lastname}
-                  </p> */}
-                  {/* <p
-                   
-                    className={`text-center text-gray-600 my-3`}
-                  >
-                    An Entrepreneur and a lover of humanity.
-                  </p> */}
                 </div>
-
-                {/* <div className={styles.flex}>
-                  <div className={styles.editButton}>
-                    <Link to="/edit">Edit</Link>
-                  </div>
-                  <Link to="/request">
-                    <div className={styles.circle}>2</div>
-                  </Link>
-                </div> */}
               </div>
             </div>
             {/* ------------------------------- Second Sitter -------------------------- */}
             <div>
-              <section
-                //   className={`
-                //     ${styles.bioContainer}
-                // w-1/3`}
-                className="bg-white  shadow-lg rounded-lg"
-              >
-                {/* <h3
-                  className={`text-black font-bold text-2xl py-4  text-center shadow-lg`}
-                >
-                  Details
-                </h3> */}
-
-                <div
-                  className="px-3 py-4"
-                  // className={styles.detailsContainer}
-                >
-                  {/* <div className={styles.grid}> */}
+              <section className="bg-white  shadow-lg rounded-lg">
+                <div className="px-3 py-4">
                   <div>
-                    {/* <div className={styles.details}> */}
                     <div className="grid grid-cols-2 px-3">
-                      {/* <p className={styles.detailText}>First name:</p>
-                      <p className={styles.detailText}>{user.firstname}</p> */}
-                      {/* <p className={styles.detailText}>Last name:</p>
-                      <p className={styles.detailText}>{user.lastname}</p> */}
-                      {/* <p className={styles.detailText}>Phone number:</p>
-                      <p className={styles.detailText}>{user.phone}</p> */}
                       <p className={styles.detailText}>Gender:</p>
                       <p className={styles.detailText}>{user.gender}</p>
                       <p className={styles.detailText}>Age:</p>
@@ -258,8 +206,6 @@ const Bio = (props) => {
                       <p className={styles.detailText}>{user.city}</p>
                       <p className={styles.detailText}>Ocupation:</p>
                       <p className={styles.detailText}>Teacher</p>
-                      {/* <p className={styles.detailText}>Email:</p>
-                      <p className={styles.detailText}>{user.email}</p> */}
                     </div>
                   </div>
                 </div>
@@ -268,10 +214,24 @@ const Bio = (props) => {
 
             {/* ----------- End of setters Sitter ------------- */}
           </div>
-          <div className="lg:w-1/3 w-full bg-white rounded-sm px-3 shadow-lg overflow-y-auto h-screen">
-            <h3 className="py-3">Requested Path Info</h3>
-            <div className="flex flex-col gap-6 ">
-              {/* {request &&
+          <div className="lg:w-1/3 w-full bg-white rounded-sm px-3 shadow-lg overflow-y-auto">
+            <h3 className="py-3 text-center text-lg font-semibold text-[#f6655f]">
+              Requests
+            </h3>
+            <BloodRequest />
+          </div>
+          <div className="lg:w-1/3 w-full bg-white rounded-sm px-3 shadow-lg ">
+            <h3 className="text-center text-lg font-semibold text-[#268d61] py-3">
+              Donated
+            </h3>
+            <Donated />
+          </div>
+        </section>
+      </>
+    );
+  }
+  {
+    /* {request &&
                 request?.map((patient) => (
                   <div
                     key={patient._id}
@@ -325,15 +285,7 @@ const Bio = (props) => {
                       {patient.state}
                     </p>
                   </div>
-                ))} */}
-            </div>
-          </div>
-          <div className="lg:w-1/3 w-full bg-white rounded-sm px-3 shadow-lg ">
-            Donated
-          </div>
-        </section>
-      </>
-    );
+                ))} */
   }
 };
 

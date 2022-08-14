@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 import styles from "./request.module.css";
 import hero from "../../assets/hero.png";
 // import profile from "../../assets/profile1.png";
@@ -6,11 +6,11 @@ import blub from "../../assets/blub.png";
 import blub2 from "../../assets/blub2.png";
 import donorPic from "../../assets/donorPic.png";
 import requestDrop from "../../assets/requestDrop.png";
-import ConfirmRequest from "./Modal/ConfirmRequest"
+import ConfirmRequest from "./Modal/ConfirmRequest";
 
 const Bio = () => {
-  const [id, setID] = useState(null)
-  const [tag, setTag] = useState("request")
+  const [id, setID] = useState(null);
+  const [tag, setTag] = useState("request");
 
   return (
     <>
@@ -50,8 +50,20 @@ const Bio = () => {
         <div className={styles.detailsContainer}>
           <div className={styles.detailsHead}>
             <div className={styles.headTags}>
-              <span onClick={() => setTag("request")} className={tag === "request" ? styles.active : styles.request }>Request</span>
-              <span onClick={() => setTag("donations")} className={tag === "donations" ? styles.active : styles.donations}>Donations</span>
+              <span
+                onClick={() => setTag("request")}
+                className={tag === "request" ? styles.active : styles.request}
+              >
+                Request
+              </span>
+              <span
+                onClick={() => setTag("donations")}
+                className={
+                  tag === "donations" ? styles.active : styles.donations
+                }
+              >
+                Donations
+              </span>
             </div>
 
             <ul className={styles.unorderedList}>
@@ -71,7 +83,9 @@ const Bio = () => {
                   </div>
                 </div>
 
-                {tag === "donations" && <span className={styles.greenSide}>Donated</span>}
+                {tag === "donations" && (
+                  <span className={styles.greenSide}>Donated</span>
+                )}
               </li>
 
               <li className={styles.list} onClick={() => setID(2)}>
@@ -90,7 +104,9 @@ const Bio = () => {
                   </div>
                 </div>
 
-                {tag === "donations" && <span className={styles.greenSide}>Donated</span>}
+                {tag === "donations" && (
+                  <span className={styles.greenSide}>Donated</span>
+                )}
               </li>
 
               <li className={styles.list} onClick={() => setID(3)}>
@@ -109,7 +125,9 @@ const Bio = () => {
                   </div>
                 </div>
 
-                {tag === "donations" && <span className={styles.greenSide}>Donated</span>}
+                {tag === "donations" && (
+                  <span className={styles.greenSide}>Donated</span>
+                )}
               </li>
             </ul>
           </div>
