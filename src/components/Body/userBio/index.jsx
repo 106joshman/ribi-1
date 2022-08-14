@@ -17,6 +17,7 @@ import {
 import DashboardEdit from "../Modal/DashboardEdit";
 import BloodRequest from "./BloodRequest";
 import Donated from "./Donated";
+import { Badge } from "@mui/material";
 
 const Bio = (props) => {
   const dispatch = useDispatch();
@@ -104,7 +105,14 @@ const Bio = (props) => {
           <div className="relative">
             {/* Dropdown Options */}
             <div className="flex items-center cursor-pointer space-x-3">
-              <NotificationsNoneIcon className="mr-3 hover:text-red-500" />
+              <div className="notifik mr">
+                <Badge badgeContent={3} color="error">
+                  <NotificationsNoneIcon
+                    className=" hover:text-red-500"
+                    size="medium"
+                  />
+                </Badge>
+              </div>
               <div
                 className="flex space-x-2 items-center"
                 onClick={() => setDropdown(!dropdown)}
@@ -116,8 +124,13 @@ const Bio = (props) => {
                 /> */}
                 <img
                   className="w-12 h-12 rounded-full"
-                  src="/images/chidi.png"
+                  src={user.avater}
                   alt={user.firstname}
+                  onError={(event) => {
+                    event.target.src =
+                      "https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png";
+                    event.onerror = null;
+                  }}
                 />
                 <p>
                   <KeyboardArrowDownIcon className="w-6 h-4 ml-2 hover:text-red-500" />
@@ -154,17 +167,19 @@ const Bio = (props) => {
               <div
               // className={styles.profileContainer}
               >
-                <div className={styles.bloodGroup}>
-
-                </div>
+                <div className={styles.bloodGroup}></div>
 
                 <div className="text-center">
                   <div className="flex flex-row items-center gap-x-6 px-3">
-
                     <img
                       className="w-24 h-24 rounded-full"
-                      src="/images/chidi.png"
+                      src={user.avater}
                       alt={user.firstname}
+                      onError={(event) => {
+                        event.target.src =
+                          "https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png";
+                        event.onerror = null;
+                      }}
                     />
                     <div className="flex flex-col text-left">
                       <p className=" text-2xl font-bold">

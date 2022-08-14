@@ -510,6 +510,11 @@ const Popup = (props) => {
                     className={stylee.img}
                     src={donor.avater}
                     alt="donor holder"
+                    onError={(event) => {
+                      event.target.src =
+                        "https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png";
+                      event.onerror = null;
+                    }}
                   />
                 </div>
                 <div className={stylee.detailWrap}>
