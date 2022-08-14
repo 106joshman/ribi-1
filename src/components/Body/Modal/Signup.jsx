@@ -278,7 +278,9 @@ const Signup = () => {
                           Forget Password?
                         </button>
                       </span>
-                      <button className={styles.submitSignInButton}>Sign In</button>
+                      <button className={styles.submitSignInButton}>
+                        Sign In
+                      </button>
                     </div>
                     <span
                       onClick={() => setLogin(false)}
@@ -508,17 +510,19 @@ const Signup = () => {
                           className="mr-2"
                           required
                         />{" "}
-                        I have read the terms and agreed with the
+                        I agree to the
                         <Link
                           to="/privacy"
                           className="ml-1 hover:underline text-red-400"
                         >
-                          User Agreement
+                          Terms of Service, Privacy Policy and User Agreement.
                         </Link>
                       </span>
                     </div>
 
-                    <button className={`${styles.submitButton} my-2`}>Sign Up</button>
+                    <button className={`${styles.submitButton} my-2`}>
+                      Sign Up
+                    </button>
                     <span className="mt-2 mb-8 text-center">
                       Already have an Account?{" "}
                       <span

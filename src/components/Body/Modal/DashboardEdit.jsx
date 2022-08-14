@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import closeIcon from "../../../assets/close.png";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
@@ -10,14 +11,14 @@ const DashboardEdit = ({ handleToggles }) => {
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.user.token);
 
-  const [firstname, setFirstname] = useState(user.firstname);
-  const [lastname, setLastname] = useState(user.lastname);
-  const [phone, setPhone] = useState(user.phone);
-  const [bloodType, setBloodType] = useState(user.bloodType);
-  const [address, setAddress] = useState(user.donorLocation);
-  const [stateValue, setStateValue] = useState(user.state);
-  const [city, setCity] = useState(user.city);
-  const [email, setEmail] = useState(user.email);
+  const [firstname, setFirstname] = useState(user?.firstname);
+  const [lastname, setLastname] = useState(user?.lastname);
+  const [phone, setPhone] = useState(user?.phone);
+  const [bloodType, setBloodType] = useState(user?.bloodType);
+  const [address, setAddress] = useState(user?.donorLocation);
+  const [stateValue, setStateValue] = useState(user?.state);
+  const [city, setCity] = useState(user?.city);
+  const [email, setEmail] = useState(user?.email);
 
   // Handles Form Submission
 
@@ -33,6 +34,7 @@ const DashboardEdit = ({ handleToggles }) => {
       state: stateValue ? stateValue : user?.stateValue,
       city: city ? city : user?.city,
     };
+    console.log("This is just the data", data);
     const response = await axios.patch(
       "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
       data,
@@ -42,8 +44,9 @@ const DashboardEdit = ({ handleToggles }) => {
         },
       }
     );
-    console.log(response.data);
-    handleToggles();
+    console.log("This is the which is newly updated", response.data);
+    console.log("This is just the data", data);
+    // handleToggles();
     return Swal.fire({
       icon: "success",
       title: "Profile Updated",
@@ -58,10 +61,10 @@ const DashboardEdit = ({ handleToggles }) => {
     return (
       <section className="fixed w-screen h-screen  flex items-center bg-blue-100 top-0 left-0 justify-center z-50 ">
         <button
-          className="absolute cursor-pointer top-2 right-8 text-pryclr"
+          className="absolute cursor-pointer top-4 right-6 text-pryclr"
           onClick={handleToggles}
         >
-          X
+          <img src={closeIcon} alt="close" />
         </button>
         <div className="relative">
           <div className="">
@@ -151,11 +154,19 @@ const DashboardEdit = ({ handleToggles }) => {
                 <input
                   type="submit"
                   value="Update"
-                  className="px-6 py-2 bg-thickred rounded-full font-bold text-white hover:bg-red-500 w-full cursor-pointer"
+                  className="lg:block md:block hidden px-6 py-2 bg-thickred rounded-full bg-red-500 font-bold text-white hover:bg-red-600 w-full cursor-pointer"
                   // onClick={() => handleSubmit()}
                 />
               </div>
             </form>
+            <div className="lg:hidden md:hidden block mt-6">
+              <input
+                type="submit"
+                value="Update"
+                className="px-6 py-2 bg-thickred rounded-full bg-red-500 font-bold text-white hover:bg-red-600 w-full cursor-pointer"
+                onClick={handleSubmit}
+              />
+            </div>
           </div>
         </div>
       </section>

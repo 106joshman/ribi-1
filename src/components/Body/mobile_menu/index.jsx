@@ -3,8 +3,10 @@ import styles from "./style.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Signup from "../Modal/Signup";
+import { useSelector } from "react-redux";
 
 const Menu = (props) => {
+  const token = useSelector((state) => state.user.token);
   const [isLogged] = useState(false);
 
   if (!props.show) {
@@ -20,20 +22,34 @@ const Menu = (props) => {
         </div>
         <div className={styles.navHolder}>
           <nav className={styles.navLink}>
-            <Link
-              to="/need-blood"
-              className={styles.need}
-              onClick={props.onClose}
-            >
-              need blood
-            </Link>
-            {isLogged ? (
-              <Link to="/bio" className={styles.donate} onClick={props.onClose}>
-                donate blood
+            {!token ? (
+              <Link
+                to="/need-blood"
+                className={styles.need}
+                onClick={props.onClose}
+              >
+                need blood
               </Link>
             ) : (
-              <Signup />
+              <Link to="/bio" className={styles.need} onClick={props.onClose}>
+                Account
+              </Link>
             )}
+            {!token ? (
+              <>
+                {isLogged ? (
+                  <Link
+                    to="/bio"
+                    className={styles.donate}
+                    onClick={props.onClose}
+                  >
+                    donate blood
+                  </Link>
+                ) : (
+                  <Signup />
+                )}
+              </>
+            ) : null}
           </nav>
         </div>
       </div>

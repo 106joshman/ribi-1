@@ -74,6 +74,9 @@ const Need = () => {
 
         <section className={styles.findDonor}>
           <div className={styles.donorTitle}>Find Blood Donors Here</div>
+          <p className="text-center text-xs px-8 text-slate-600">
+            Search with Blood type (e.g. O, O+, A, A+, B) Or with state/city
+          </p>
           <div className={styles.donorSearchContainer}>
             <input
               className={styles.donorSearch}
@@ -82,7 +85,8 @@ const Need = () => {
               onChange={(e) => setSearch(e.target.value)}
               // onKeyPress={getSearch}
               // onKeyUp={getSearch}
-              placeholder="Search by State/ Province"
+              placeholder="Search with Lagos or Ikeja or A+"
+              title="Search with Blood type (e.g. O, O+, A, A+, B) Or with state/city"
             />
             <button
               className={styles.searchButton}
@@ -92,9 +96,9 @@ const Need = () => {
               Search
             </button>
           </div>
-          <p className="text-gray-400 text-center">
+          {/* <p className="text-gray-400 text-center">
             Search with Blood type (e.g. O, O+, A, A+, B) Or with state or city
-          </p>
+          </p> */}
         </section>
 
         <section className={styles.availableDonor}>
