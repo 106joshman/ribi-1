@@ -4,6 +4,7 @@ import hero from "../../assets/hero.png";
 import spinners from "../../assets/images/spinner.svg";
 import profile1 from "../../assets/profile1.png";
 import place from "../../assets/place.png";
+import Default from "../../assets/defaultUserImage.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -36,7 +37,7 @@ const Need = () => {
       const uniqueIds = [];
       let setResponse = allResponse.filter((element) => {
         const isDuplicate = uniqueIds.includes(element._id);
-
+        
         if (!isDuplicate) {
           uniqueIds.push(element._id);
           return true;
@@ -54,7 +55,12 @@ const Need = () => {
     setIsPending(true);
     const getDonors = async () => {
       const response = await axios.get(
-        "https://ribi-donor.herokuapp.com/api/v1/donors"
+        "https://ribi-donor.herokuapp.com/api/v1/donors",
+        {
+          params: {
+            _limit: 10,
+          },
+        }
       );
       setIsPending(false);
       setData(response.data.users);
@@ -136,6 +142,10 @@ const Need = () => {
                             }}
                             src={user.avater || profile1}
                             alt={user.name}
+                            onError={(event) => {
+                              event.target.src = { Default };
+                              event.onerror = null;
+                            }}
                           />
                         </div>
 
