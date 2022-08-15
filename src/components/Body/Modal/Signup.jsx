@@ -429,16 +429,7 @@ const Signup = () => {
                           onChange={(e) => setCountry(e.target.value)}
                         />
                       </div>
-                      <div className={styles.formController}>
-                        <label required={true} className={styles.label}>
-                          Your Location*
-                        </label>
-                        <input
-                          type="text"
-                          className={styles.inputField}
-                          onChange={(e) => setAddress(e.target.value)}
-                        />
-                      </div>
+
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           State*
@@ -467,6 +458,16 @@ const Signup = () => {
                       </div>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
+                          Your Location*
+                        </label>
+                        <input
+                          type="text"
+                          className={styles.inputField}
+                          onChange={(e) => setAddress(e.target.value)}
+                        />
+                      </div>
+                      <div className={styles.formController}>
+                        <label required={true} className={styles.label}>
                           Email
                         </label>
                         <input
@@ -478,7 +479,7 @@ const Signup = () => {
 
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
-                          Create Password
+                          Password
                         </label>
                         <div className={styles.inputContainer}>
                           <input
@@ -513,6 +514,7 @@ const Signup = () => {
                         I agree to the
                         <Link
                           to="/privacy"
+                          onClick={handleClose}
                           className="ml-1 hover:underline text-red-400"
                         >
                           Terms of Service, Privacy Policy and User Agreement.
