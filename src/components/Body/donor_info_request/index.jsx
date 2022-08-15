@@ -4,7 +4,8 @@ import styles from "./donorInfo.module.css";
 import design from "../need.module.css";
 import hero from "../../../assets/hero.png";
 import Popu from "../pop";
-import DonorVerified from "../donee-verify-request";
+import Default from '../../../assets/defaultUserImage.png'
+// import DonorVerified from "../donee-verify-request";
 // import { useSelector } from "react-redux";
 // import axios from "axios";
 
@@ -47,6 +48,10 @@ function DonorInfoRequest() {
               className={styles.image}
               src={donor.avater}
               alt={donor.firstname}
+              onError={event => {
+                event.target.src="https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png"
+                event.onerror = null
+              }}
             />
             <h5 className={styles.userName}>
               {donor.firstname} {donor.lastname}

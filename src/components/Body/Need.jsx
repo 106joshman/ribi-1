@@ -4,6 +4,7 @@ import hero from "../../assets/hero.png";
 import spinners from "../../assets/images/spinner.svg";
 import profile1 from "../../assets/profile1.png";
 import place from "../../assets/place.png";
+import Default from "../../assets/defaultUserImage.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -24,7 +25,13 @@ const Need = () => {
   const getSearch = async (evt) => {
     try {
       const response = await Promise.all(
-        urls.map((url) => fetch(url).then((res) => res.json()))
+        urls.map((url) =>
+          fetch(url, {
+            params: {
+              _limit: 10,
+            },
+          }).then((res) => res.json())
+        )
       );
 
       let allResponse = [
@@ -54,7 +61,12 @@ const Need = () => {
     setIsPending(true);
     const getDonors = async () => {
       const response = await axios.get(
-        "https://ribi-donor.herokuapp.com/api/v1/donors"
+        "https://ribi-donor.herokuapp.com/api/v1/donors",
+        {
+          params: {
+            _limit: 10,
+          },
+        }
       );
       setIsPending(false);
       setData(response.data.users);
@@ -127,15 +139,20 @@ const Need = () => {
                         className={`${styles.link} rounded-lg  py-4 px-3 bg-[#f1908c1a] `}
                         to={`/donor-request/${user._id}`}
                       >
-                        <div style={{ width: `60px`, height: `60px` }}>
+                        <div style={{ width: "60px", height: "60px" }}>
                           <img
                             style={{
-                              height: `100%`,
-                              width: `100%`,
-                              borderRadius: `50%`,
+                              height: " 100%",
+                              width: "100%",
+                              borderRadius: "50%",
                             }}
                             src={user.avater || profile1}
                             alt={user.name}
+                            onError={(event) => {
+                              event.target.src =
+                                "https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png";
+                              event.onerror = null;
+                            }}
                           />
                         </div>
 
@@ -168,7 +185,7 @@ const Need = () => {
                       key={user._id}
                       className={`${styles.donorItem} rounded-lg`}
                     >
-                      <div style={{ width: `60px`, height: `60px` }}>
+                      <div style={{ width: "60px", height: "60px" }}>
                         <img
                           style={{
                             height: `100%`,
@@ -187,7 +204,7 @@ const Need = () => {
                         className={`${styles.link} hover:bg-blue-200 hover:shadow-lg py-4 px-3 rounded-lg`}
                         to={`/donor-request/${user._id}`}
                       >
-                        <div style={{ width: `60px`, height: `60px` }}>
+                        <div style={{ width: "60px", height: "60px" }}>
                           <img
                             style={{
                               height: `100%`,
@@ -196,6 +213,11 @@ const Need = () => {
                             }}
                             src={user.avater || profile1}
                             alt={user.name}
+                            onError={(event) => {
+                              event.target.src =
+                                "https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png";
+                              event.onerror = null;
+                            }}
                           />
                         </div>
 
