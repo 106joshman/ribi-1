@@ -1,320 +1,353 @@
 .bioSection {
-    position: relative;
-  }
-  
-  .imageContainer {
-    width: 100%;
-  }
-  
-  .heroImg {
-    width: 100%;
-  }
-  
-  .textContainer {
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .heroText {
-    position: absolute;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 45px;
-    line-height: 80px;
-    color: #f6655f;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .bioContainer {
-    width: 80%;
-    margin: 49px auto;
-    background: #f6655f;
-    padding: 37px;
-  }
-  
-  .profileContainer {
-    width: 440px;
-    background: #EB5757;
-    border-radius: 25px;
-    margin: 0 auto 16px auto;
-    padding: 1rem 0;
-    position: relative;
-  }
-  
-  .bloodGroup {
-    
-  }
-  
-  .blub {
-    position: absolute;
-    right: 22px;
-    top: 25px;
-  }
-  
-  .blub2 {
-    position: absolute;
-    right: 23px;
-    top: 58px;
-  }
-  
-  .bloodGroupText {
-    position: absolute;
-    right: 32px;
-    top: 35px;
-  }
-  
-  .profilePicture {
-    display: flex;
-    justify-content: center;
-    align-items: center
-  }
-  
-  .profilePic {
-    margin-top: 36px;
-    width: 180px;
-    height: 176px;
-  }
-  
-  .flex {
-    margin-top: 64px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 22px;
-  }
-  
-  .editButton {
-    cursor: pointer;
-    width: 104px;
-    height: 46px;
-    background: #f6655f;
-    border-radius: 100px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    color: #ffffff;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    justify-content: center;
-    -ms-align-items: center;
-    align-items: center;
-  }
-  
-  .circle {
-    width: 30px;
-    height: 30px;
-    background: #f6655f;
-    border-radius: 50%;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    justify-content: center;
-    -ms-align-items: center;
-    align-items: center;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    color: #ffffff;
-  }
-  
+  position: relative;
+  text-align: center;
+}
+
+.imageContainer {
+  width: 100%;
+}
+
+.heroImg {
+  width: 100%;
+}
+
+.textContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.heroText {
+  position: absolute;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  /* line-height: 80px; */
+  color: #f6655f;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.bioContainer {
+  width: 80%;
+  margin: 49px auto;
+  background: #f6655f;
+  padding: 37px;
+}
+
+.profileContainer {
+  width: 440px;
+  background: #eb5757;
+  border-radius: 25px;
+  margin: 0 auto 16px auto;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.bloodGroup {
+}
+
+.blub {
+  position: absolute;
+  right: 22px;
+  top: 25px;
+}
+
+.blub2 {
+  position: absolute;
+  right: 23px;
+  top: 58px;
+}
+
+.bloodGroupText {
+  position: absolute;
+  right: 32px;
+  top: 35px;
+}
+
+.profilePicture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilePic {
+  margin-top: 36px;
+  width: 180px;
+  height: 176px;
+}
+
+.flex {
+  margin-top: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 22px;
+}
+
+.editButton {
+  cursor: pointer;
+  width: 104px;
+  height: 46px;
+  background: #f6655f;
+  border-radius: 100px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  background: #f6655f;
+  border-radius: 50%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.bioText {
+  width: 25%;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 auto 42px auto;
+}
+
+.detailsTitle {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  margin: 0 auto 8px auto;
+}
+
+.detailsContainer {
+  width: 602px;
+  height: 613px;
+  background: #ffffff;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+
+.details {
+  width: 70%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+}
+
+.detailText {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #434343;
+  margin-bottom: 30px;
+}
+
+.grid {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.donate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.donateTitle {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 56px;
+  text-align: center;
+  color: #f6655f;
+  width: 100%;
+  margin-top: 72px;
+  margin-bottom: 20px;
+}
+
+.donateDesc {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #434343;
+  opacity: 0.8;
+}
+
+.donateButtons {
+  display: flex;
+  margin-top: 62px;
+}
+
+.donateButton {
+  margin-right: 29px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+  background: #f6655f;
+  border-radius: 20px;
+  border: none;
+  width: 109px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.privacyDetails {
+  margin-top: 33px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.heading {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 65px;
+  color: #f6655f;
+  font-weight: 400;
+}
+
+.paragraph {
+  margin-bottom: 3rem;
+}
+
+.date {
+  margin: 1.5rem 0;
+}
+
+.sharedData {
+  margin-top: 2rem;
+}
+
+/* MEDIA SCREENS */
+@media (max-width: 1097px) {
   .bioText {
-    width: 25%;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0 auto 42px auto;
+    width: 50%;
   }
-  
-  .detailsTitle {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #ffffff;
-    margin: 0 auto 8px auto;
-  }
-  
+}
+
+@media (max-width: 811px) {
   .detailsContainer {
-    width: 602px;
-    height: 613px;
-    background: #ffffff;
-    border-radius: 25px;
-    margin: 0 auto;
-  }
-  
-  .details {
-    width: 70%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
-  }
-  
-  .detailText {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    color: #434343;
-    margin-bottom: 30px;
-  }
-  
-  .grid {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .donate {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .donateTitle {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 40px;
-    line-height: 56px;
-    text-align: center;
-    color: #f6655f;
     width: 100%;
-    margin-top: 72px;
-    margin-bottom: 20px;
-  }
-  
-  .donateDesc {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 22px;
-    text-align: center;
-    color: #434343;
-    opacity: 0.8;
-  }
-  
-  .donateButtons {
-    display: flex;
-    margin-top: 62px;
-  }
-  
-  .donateButton {
-    margin-right: 29px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 22px;
-    color: #ffffff;
-    background: #f6655f;
-    border-radius: 20px;
-    border: none;
-    width: 109px;
-    height: 34px;
-    cursor: pointer;
   }
 
-  .privacyDetails {
-      margin-top: 33px;
-      padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 40px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .profileContainer {
+    width: 100%;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 40px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .bioText {
+    width: 100%;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 40px !important;
+  }
+
+  .bioContainer {
+    width: 100%;
+  }
+
+  .details {
+    width: 100%;
+  }
+
+  .heroText {
+    font-size: 20px;
   }
 
   .heading {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 65px;
-    color: #F6655F;
-    font-weight: 400;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 350px) {
+  .heroText {
+    font-size: 25px;
   }
 
-  .paragraph {
-    margin-bottom: 3rem;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 40px !important;
   }
-
-  .date {
-      margin: 1.5rem 0;
-  }
-
-  .sharedData {
-      margin-top: 2rem;
-  }
-  
-  /* MEDIA SCREENS */
-  @media (max-width: 1097px) {
-    .bioText {
-      width: 50%;
-    }
-  }
-  
-  @media (max-width: 811px) {
-    .detailsContainer {
-      width: 100%;
-    }
-  }
-  
-  @media (max-width: 620px) {
-    .profileContainer {
-      width: 100%;
-    }
-  }
-  
-  @media (max-width: 500px) {
-    .bioText {
-      width: 100%;
-    }
-  
-    .bioContainer {
-      width: 100%;
-    }
-  
-    .details {
-      width: 100%;
-    }
-  
-    .heroText {
-      font-size: 20px;
-    }
-
-    .heading {
-        font-size: 28px;
-    }
-  }
-  
-  @media (max-width: 350px) {
-    .heroText {
-      font-size: 25px;
-    }
-  }
-  
+}

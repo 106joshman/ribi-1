@@ -14,6 +14,7 @@ import "sweetalert2/src/sweetalert2.scss";
 import DonorInfoRequest from "./components/Body/donor_info_request";
 import WithoutNav from "./components/header/navheaders/WithoutNav";
 import { WithNav } from "./components/header/navheaders/WithNav";
+import MoveUp from "./components/Body/MoveUp";
 function App() {
   return (
     <Router>
@@ -37,6 +38,7 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
+        <MoveUp />
       </div>
     </Router>
   );
