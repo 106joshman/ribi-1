@@ -166,7 +166,7 @@ const Signup = () => {
           return Swal.fire({
             icon: "success",
             title: "Login Successful",
-            text: "You have Successfully Logged in",
+            text: `${response.data.user?.firstname} have Successfully Logged in`,
           });
         } catch (error) {
           handleClose();
