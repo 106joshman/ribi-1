@@ -18,6 +18,7 @@ import DashboardEdit from "../Modal/DashboardEdit";
 import BloodRequest from "./BloodRequest";
 import Donated from "./Donated";
 import { Badge } from "@mui/material";
+import Swal from "sweetalert2";
 
 const Bio = (props) => {
   const dispatch = useDispatch();
@@ -56,6 +57,13 @@ const Bio = (props) => {
     dispatch(dispatchUserToken(!token));
     dispatch(dispatchUser(!user));
     dispatch(dispatchUserId(!userId));
+    Swal.fire({
+      icon: "info",
+      title: "Logout Successful",
+      text: `${user?.firstname} have been logged out`,
+      showConfirmButton: false,
+      timer: 2500,
+    });
     return navigate("/");
   };
 
