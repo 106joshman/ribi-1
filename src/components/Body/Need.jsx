@@ -4,7 +4,7 @@ import hero from "../../assets/hero.png";
 import spinners from "../../assets/images/spinner.svg";
 import profile1 from "../../assets/profile1.png";
 import place from "../../assets/place.png";
-import Default from "../../assets/defaultUserImage.png";
+// import Default from "../../assets/defaultUserImage.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 

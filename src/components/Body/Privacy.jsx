@@ -12,7 +12,7 @@ const Privacy = () => {
         </div>
       </section>
 
-      <section className={styles.privacyDetails}>
+      <section className="mt-[33px] px-5 md:px-10 py-1">
         <h2 className={styles.heading}>Privacy</h2>
         <p className={styles.paragraph}>
           This Privacy Policy describes how we collect and use the personal

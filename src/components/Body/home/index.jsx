@@ -114,7 +114,7 @@ const Home = () => {
           </p>
           <div style={{ margin: "20px 0" }}>
             <Link
-              to="/learn-more"
+              to="/signup"
               className={styles.linkBlood}
               style={{ backgroundColor: "#f66557" }}
             >
@@ -137,7 +137,7 @@ const Home = () => {
           })}
         </div>
       </div>
-      <div className={styles.objectives}>
+      <div className={`{styles.objectives} `}>
         <div className="mssn">
           <p className={styles.objctText}>
             Your donation will save lives.{" "}
