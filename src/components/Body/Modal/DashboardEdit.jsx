@@ -24,7 +24,7 @@ const DashboardEdit = ({ handleToggles }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Profile Submitted");
+    // console.log("Profile Submitted");
     const data = {
       firstname: firstname ? firstname : user?.firstname,
       lastname: lastname ? lastname : user?.lastname,
@@ -34,7 +34,7 @@ const DashboardEdit = ({ handleToggles }) => {
       state: stateValue ? stateValue : user?.stateValue,
       city: city ? city : user?.city,
     };
-    console.log("This is just the data", data);
+    // console.log("This is just the data", data);
     const response = await axios.patch(
       "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
       data,
@@ -44,8 +44,8 @@ const DashboardEdit = ({ handleToggles }) => {
         },
       }
     );
-    console.log("This is the which is newly updated", response.data);
-    console.log("This is just the data", data);
+    // console.log("This is the which is newly updated", response.data);
+    // console.log("This is just the data", data);
     // handleToggles();
     return Swal.fire({
       icon: "success",
@@ -56,7 +56,7 @@ const DashboardEdit = ({ handleToggles }) => {
 
   if (!token) {
     navigate("/home");
-    console.log("Go back Home");
+    // console.log("Go back Home");
   } else {
     return (
       <section className="fixed w-screen h-screen  flex items-center bg-blue-100 top-0 left-0 justify-center z-50 ">
