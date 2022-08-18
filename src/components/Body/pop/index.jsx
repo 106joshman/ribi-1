@@ -160,8 +160,8 @@ const Popup = (props) => {
       data: patientRequestData,
     })
       .then((response) => {
-        console.log(response);
-        console.log(response.data.name);
+        // console.log(response);
+        // console.log(response.data.name);
         Swal.fire({
           icon: "success",
           title: "Request Successful",
@@ -171,7 +171,7 @@ const Popup = (props) => {
       })
       .catch((error) => {
         // handleClose();
-        console.log(error);
+        // console.log(error);
         return Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -350,7 +350,7 @@ const Popup = (props) => {
               </div>
               <div className="">
                 <label htmlFor="" className={styles.label}>
-                  Ailment Diagnosis
+                  Ailment Diagnosis (Sickness)
                 </label>
                 <input
                   type="text"

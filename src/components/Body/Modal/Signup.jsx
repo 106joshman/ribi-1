@@ -123,8 +123,8 @@ const Signup = () => {
             data
           );
           handleClose();
-          navigate.push("/");
-          console.log(response.data);
+          navigate.push("/login");
+          // console.log(response.data);
           return Swal.fire({
             icon: "success",
             title: "Sign up Successful",
@@ -335,7 +335,7 @@ const Signup = () => {
                             accept="image/*, capture=camera "
                             id="fusk"
                             onChange={(e) => {
-                              console.log(e.target.files);
+                              // console.log(e.target.files);
                               setImage(URL.createObjectURL(e.target.files[0]));
                             }}
                           />
