@@ -51,8 +51,7 @@
   position: relative;
 }
 
-.bloodGroup {
-}
+
 
 .blub {
   position: absolute;
@@ -340,7 +339,7 @@
 
 @media (max-width: 350px) {
   .heroText {
-    font-size: 25px;
+    font-size: 19px;
   }
 
   h2,
