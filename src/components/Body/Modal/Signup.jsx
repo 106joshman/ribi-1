@@ -6,7 +6,7 @@ import closeIcon from "../../../assets/close.png";
 import logo from "../../../assets/logo.png";
 import man from "../../../assets/man.png";
 import img from "../../../assets/img.png";
-// import defaultPhoto from "../../../assets/defaultPhoto.png";
+import defaultPhoto from "../../../assets/defaultPhoto.png";
 import { RemoveRedEye, VisibilityOff } from "@mui/icons-material";
 import WindowSize from "../../../hooks/windowSize";
 import axios from "axios";
@@ -55,7 +55,7 @@ const Signup = () => {
     setForgetPassword(true);
   }
 
-  // Validate: File types (png or jpeg)
+  //Validate: File types (png or jpeg)
   // const types = ["image/png", "image/jpeg"];
 
   // Get All States in Nigeria
@@ -73,7 +73,6 @@ const Signup = () => {
   const [image, setImage] = useState(
     "https://cdn.pixabay.com/photo/2018/11/13/21/43/instagram-3814049_960_720.png"
   );
-  // const [image, setImage] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
@@ -101,7 +100,7 @@ const Signup = () => {
           text: "All fields are required!",
         });
       } else {
-        const userData = {
+        const data = {
           avater: image,
           firstname: firstName,
           lastname: lastName,
@@ -121,12 +120,11 @@ const Signup = () => {
         try {
           const response = await axios.post(
             "https://ribi-donor.herokuapp.com/api/v1/auth/register",
-            userData
+            data
           );
           handleClose();
-          // navigate.push("/");
-          console.log(response.data);
-          // setImage("https://cdn.pixabay.com/photo/2018/11/13/21/43/instagram-3814049_960_720.png")
+          navigate.push("/login");
+          // console.log(response.data);
           return Swal.fire({
             icon: "success",
             title: "Sign up Successful",
@@ -140,7 +138,6 @@ const Signup = () => {
             text: error.response?.data.msg,
           });
         }
-       
       }
     } else {
       if (!email || !password) {
@@ -323,7 +320,7 @@ const Signup = () => {
                         <div className={styles.profilePicFlex}>
                           <img
                             className={styles.defaultPhoto}
-                            src={image}
+                            src={!image ? defaultPhoto : image}
                             alt="default"
                           />
                           <label
@@ -338,8 +335,8 @@ const Signup = () => {
                             accept="image/*, capture=camera "
                             id="fusk"
                             onChange={(e) => {
-                            //  setImage(e.target.files[0]);
-                            setImage(URL.createObjectURL(e.target.files[0]));
+                              // console.log(e.target.files);
+                              setImage(URL.createObjectURL(e.target.files[0]));
                             }}
                           />
                         </div>
@@ -407,17 +404,9 @@ const Signup = () => {
                         >
                           <option value="null"></option>
                           <option value="A">A</option>
-                          <option value="A-">A-</option>
-                          <option value="A+">A+</option>
                           <option value="B">B</option>
-                          <option value="B-">B-</option>
-                          <option value="B+">B+</option>
                           <option value="AB">AB</option>
-                          <option value="AB-">AB-</option>
-                          <option value="AB+">AB+</option>
                           <option value="O">O</option>
-                          <option value="O-">O-</option>
-                          <option value="O+">O+</option>
                         </select>
                       </div>
                       <div className={styles.formController}>
