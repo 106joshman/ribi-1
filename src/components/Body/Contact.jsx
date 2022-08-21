@@ -18,10 +18,10 @@ const Contact = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(name);
-    // console.log(email);
-    // console.log(subject);
-    // console.log(message);
+    console.log(name);
+    console.log(email);
+    console.log(subject);
+    console.log(message);
   };
 
   return (

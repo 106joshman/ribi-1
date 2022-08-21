@@ -56,7 +56,7 @@ const Edit = () => {
         },
       }
     );
-    // console.log(response.data);
+    console.log(response.data);
     handleClose();
     // navigate(-1)
     return Swal.fire({
