@@ -226,16 +226,15 @@ Screen orientation
     margin-left: 112px !important;
   }
   .aboutCard {
-    grid-template-columns: repeat(1, minmax(auto, 1fr));
+    grid-template-columns: repeat(2, minmax(auto, 1fr));
     gap: 10px;
   }
   .singleCard {
-    width: 80%;
+    width: 100%;
     background-color: #ffffff;
     border-radius: 6px;
     padding: 20px;
     margin: 10px;
-    box-shadow: 0 10px 6px -6px rgb(196, 194, 194);
   }
   .workText {
     color: #f6655f;
@@ -243,6 +242,23 @@ Screen orientation
     font-weight: 700;
     margin-bottom: 24px;
     font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+.about {
+    flex-direction: column-reverse;
+  }
+
+  .aboutText {
+    width: unset;
+  }
+
+  .aboutCard {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 50px;
+    place-items: center;
   }
 }
 
@@ -285,10 +301,6 @@ Screen orientation
 
   .aboutHeading {
     text-decoration: none;
-  }
-
-  .aboutText {
-    width: unset;
   }
 
   .bloodTypesWrapper {

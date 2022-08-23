@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Signup from "../Body/Modal/Signup";
 import Menu from "../Body/mobile_menu";
 import { useSelector } from "react-redux";
+import { MobileMenu } from "../Body/mobile_menu/MUIMENU";
 
 const Header = () => {
   // const [isOpen, setOpen] = useState(false);
@@ -78,16 +79,8 @@ const Header = () => {
         </div>
       </nav>
       <div className={styles.hamburger}>
-        <button
-          // onClick={}
-          className={styles.icon}
-          onClick={() => {
-            setShow(true);
-          }}
-        >
-          <GiHamburgerMenu size={35} color="#f6655f" />
-        </button>
-        <Menu onClose={() => setShow(false)} show={show} />
+        <MobileMenu />
+        {/* <Menu onClose={() => setShow(false)} show={show} /> */}
       </div>
     </div>
   );

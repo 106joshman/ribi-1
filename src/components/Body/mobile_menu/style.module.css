@@ -40,7 +40,7 @@
 .navLink {
   display: flex;
   flex-direction: column;
-  /* margin: 100px auto; */
+  margin: 225px auto;
   align-items: center;
   font-size: 14px;
 }
@@ -49,11 +49,12 @@
   border-radius: 9999px;
   /* color: white; */
   text-transform: uppercase;
-  color: #f66557;
+  /* color: #f66557; */
   font-size: 16px;
-  border: 2px solid #f66557;
+  /* border: 2px solid #f66557; */
   text-align: center;
   padding: 10px 20px;
+  background-color: #f66557;
   width: 160px;
   margin: 40px 4px;
   cursor: pointer;

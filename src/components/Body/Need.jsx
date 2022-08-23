@@ -7,9 +7,11 @@ import place from "../../assets/place.png";
 // import Default from "../../assets/defaultUserImage.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Paginate } from "./pagination";
+// import { Pagination, Stack } from "@mui/material";
 
 const Need = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [searchData, setSearchData] = useState(null);
   const [isPending, setIsPending] = useState(false);
 
@@ -61,15 +63,12 @@ const Need = () => {
     setIsPending(true);
     const getDonors = async () => {
       const response = await axios.get(
-        "https://ribi-donor.herokuapp.com/api/v1/donors",
-        {
-          params: {
-            _limit: 10,
-          },
-        }
+        "https://ribi-donor.herokuapp.com/api/v1/donors"
       );
       setIsPending(false);
       setData(response.data.users);
+      // count:response.data.users.length
+      console.log(response.data.users.length);
     };
     getDonors();
   }, []);
@@ -125,7 +124,7 @@ const Need = () => {
                 <img src={spinners} className="flex" alt="spinner" />
               </div>
             )}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-11 px-8 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-2.5 md:py-11 md:px-8 mx-auto">
               {searchData
                 ? searchData?.map((user) => (
                     // <div key={user._id} className={`${styles.donorItem} flex`}>
@@ -252,6 +251,8 @@ const Need = () => {
                 : null}
               {/* {searchResult && <p>User Not Found</p>} */}
             </div>
+            <Paginate />
+          
           </div>
         </section>
       </>
