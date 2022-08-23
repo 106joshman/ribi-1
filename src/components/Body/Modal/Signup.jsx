@@ -42,7 +42,9 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(null);
+  };
   const [login, setLogin] = useState(false);
   const [forgetPassword, setForgetPassword] = useState(false);
 

@@ -109,11 +109,12 @@ const Home = () => {
             We provide the day to day communication between the individual who
             needs the blood and the donor who is ready to donate his/blood to
             save a life. We are open to different Medical Centers who are ready
-            to make this a successfuly and assisting to save human lives by
+            to make this a success in assisting to save human lives by
             establishing a testing center for the Donor and the Donee.
           </p>
           <div style={{ margin: "20px 0" }}>
             <Link
+            title="Sign-up to see how"
               to="/signup"
               className={styles.linkBlood}
               style={{ backgroundColor: "#f66557" }}
@@ -126,11 +127,11 @@ const Home = () => {
       <div className={styles.typesContainer}>
         <h4 className={styles.types}>Blood Types</h4>
         <div className={styles.bloodTypesWrapper}>
-          {blood.map(({ type }) => {
+          {blood.map((item) => {
             return (
-              <div key={blood.id} className={styles.blood}>
+              <div key={item.id} className={styles.blood}>
                 <div className={styles.drop}>
-                  <p className={styles.bloodText}>{type}</p>
+                  <p className={styles.bloodText}>{item.type}</p>
                 </div>
               </div>
             );
