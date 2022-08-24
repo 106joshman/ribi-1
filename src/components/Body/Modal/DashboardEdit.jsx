@@ -14,11 +14,11 @@ const DashboardEdit = ({ handleToggles }) => {
   const [firstname, setFirstname] = useState(user?.firstname);
   const [lastname, setLastname] = useState(user?.lastname);
   const [phone, setPhone] = useState(user?.phone);
-  const [bloodType, setBloodType] = useState(user?.bloodType);
+  // const [bloodType, setBloodType] = useState(user?.bloodType);
   const [address, setAddress] = useState(user?.donorLocation);
   const [stateValue, setStateValue] = useState(user?.state);
   const [city, setCity] = useState(user?.city);
-  const [email, setEmail] = useState(user?.email);
+  // const [email, setEmail] = useState(user?.email);
 
   // Handles Form Submission
 
@@ -29,7 +29,7 @@ const DashboardEdit = ({ handleToggles }) => {
       firstname: firstname ? firstname : user?.firstname,
       lastname: lastname ? lastname : user?.lastname,
       phone: phone ? phone : user?.phone,
-      bloodType: bloodType ? bloodType : user?.bloodType,
+      // bloodType: bloodType ? bloodType : user?.bloodType,
       donorLocation: address ? address : user?.address,
       state: stateValue ? stateValue : user?.stateValue,
       city: city ? city : user?.city,
@@ -44,9 +44,9 @@ const DashboardEdit = ({ handleToggles }) => {
         },
       }
     );
-    // console.log("This is the which is newly updated", response.data);
+    console.log("This is the which is newly updated", response.data);
     // console.log("This is just the data", data);
-    // handleToggles();
+     handleToggles();
     return Swal.fire({
       icon: "success",
       title: "Profile Updated",
@@ -72,7 +72,7 @@ const DashboardEdit = ({ handleToggles }) => {
               Edit Profile
             </p>
             <form
-              className="w-full overflow-y-auto lg:h-auto lg:overflow-visible h-96 scrolled"
+              className="w-full  lg:h-auto  scrolled"
               onSubmit={handleSubmit}
             >
               <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
@@ -81,7 +81,6 @@ const DashboardEdit = ({ handleToggles }) => {
                   className="px-4 py-2 outline-none "
                   type="text"
                   value={firstname}
-                  // placeholder={user.firstname}
                   onChange={(e) => setFirstname(e.target.value)}
                 />
               </div>
@@ -103,7 +102,7 @@ const DashboardEdit = ({ handleToggles }) => {
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
-              <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
+              {/* <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>Email</label>
                 <input
                   className="px-4 py-2 outline-none text-gray-500 bg-white cursor-not-allowed"
@@ -112,8 +111,8 @@ const DashboardEdit = ({ handleToggles }) => {
                   disabled
                   onChange={(e) => setEmail(e.target.value)}
                 />
-              </div>
-              <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
+              </div> */}
+              {/* <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>Blood Type</label>
                 <input
                   className="px-4 py-2 outline-none text-gray-500 bg-white cursor-not-allowed"
@@ -122,7 +121,7 @@ const DashboardEdit = ({ handleToggles }) => {
                   disabled
                   onChange={(e) => setBloodType(e.target.value)}
                 />
-              </div>
+              </div> */}
               <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>Donor Location</label>
                 <input
@@ -154,19 +153,12 @@ const DashboardEdit = ({ handleToggles }) => {
                 <input
                   type="submit"
                   value="Update"
-                  className="lg:block md:block hidden px-6 py-2 bg-thickred rounded-full bg-red-500 font-bold text-white hover:bg-red-600 w-full cursor-pointer"
-                  // onClick={() => handleSubmit()}
+                  className="lg:block md:block px-6 py-2 bg-thickred rounded-full bg-red-500 font-bold text-white hover:bg-red-600 w-full cursor-pointer"
+                 
                 />
               </div>
             </form>
-            <div className="lg:hidden md:hidden block mt-6">
-              <input
-                type="submit"
-                value="Update"
-                className="px-6 py-2 bg-thickred rounded-full bg-red-500 font-bold text-white hover:bg-red-600 w-full cursor-pointer"
-                onClick={handleSubmit}
-              />
-            </div>
+         
           </div>
         </div>
       </section>
