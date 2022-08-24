@@ -72,9 +72,10 @@ const Signup = () => {
   }, []);
 
   // set values
-  const [image, setImage] = useState(
-    "https://cdn.pixabay.com/photo/2018/11/13/21/43/instagram-3814049_960_720.png"
-  );
+  // const [image, setImage] = useState(
+  //   "https://cdn.pixabay.com/photo/2018/11/13/21/43/instagram-3814049_960_720.png"
+  // );
+  const [image, setImage] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
@@ -102,7 +103,7 @@ const Signup = () => {
           text: "All fields are required!",
         });
       } else {
-        const data = {
+        const userData = {
           avater: image,
           firstname: firstName,
           lastname: lastName,
@@ -122,22 +123,23 @@ const Signup = () => {
         try {
           const response = await axios.post(
             "https://ribi-donor.herokuapp.com/api/v1/auth/register",
-            data
+            userData
           );
-          handleClose();
-          navigate.push("/login");
-          // console.log(response.data);
+          console.log("user data from post", response);
+           handleClose();
+          navigate("/");
           return Swal.fire({
             icon: "success",
             title: "Sign up Successful",
             text: "You have Successfully Signed up",
           });
         } catch (error) {
+          // console.log("this is a catch error from signup", error.response.statusText)
           handleClose();
           return Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: error.response?.data.msg,
+            text: `This is a ${error.response?.statusText} error`,
           });
         }
       }
@@ -337,8 +339,9 @@ const Signup = () => {
                             accept="image/*, capture=camera "
                             id="fusk"
                             onChange={(e) => {
-                              // console.log(e.target.files);
+                              // setImage(e.target.files[0]);
                               setImage(URL.createObjectURL(e.target.files[0]));
+                              console.log(e.target.files[0])
                             }}
                           />
                         </div>
@@ -405,10 +408,19 @@ const Signup = () => {
                           onChange={(e) => setBloodType(e.target.value)}
                         >
                           <option value="null"></option>
+                          <option value="null"></option>
                           <option value="A">A</option>
+                          <option value="A-">A-</option>
+                          <option value="A+">A+</option>
                           <option value="B">B</option>
+                          <option value="B-">B-</option>
+                          <option value="B+">B+</option>
                           <option value="AB">AB</option>
+                          <option value="AB-">AB-</option>
+                          <option value="AB+">AB+</option>
                           <option value="O">O</option>
+                          <option value="O-">O-</option>
+                          <option value="O+">O+</option>
                         </select>
                       </div>
                       <div className={styles.formController}>
