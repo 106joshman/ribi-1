@@ -25,7 +25,7 @@ const DashboardEdit = ({ handleToggles }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log("Profile Submitted");
-    const data = {
+    const userData = {
       firstname: firstname ? firstname : user?.firstname,
       lastname: lastname ? lastname : user?.lastname,
       phone: phone ? phone : user?.phone,
@@ -37,14 +37,14 @@ const DashboardEdit = ({ handleToggles }) => {
     // console.log("This is just the data", data);
     const response = await axios.patch(
       "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
-      data,
+      userData,
       {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       }
     );
-    console.log("This is the which is newly updated", response.data);
+    console.log("This is the newly updated", response.data);
     // console.log("This is just the data", data);
      handleToggles();
     return Swal.fire({
