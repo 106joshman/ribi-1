@@ -60,6 +60,9 @@ export const MobileMenu = () => {
             ) : (
               <Link
                 href="/bio"
+                underline="none"
+                color="white"
+                className={styles.need}
                 aria-label="Will lead to user account bio if user is logged in"
                 onClick={handleClose}
               >

@@ -4,7 +4,8 @@ import styles from "./donorInfo.module.css";
 import design from "../need.module.css";
 import hero from "../../../assets/hero.png";
 import Popu from "../pop";
-import Default from '../../../assets/defaultUserImage.png'
+import Default from "../../../assets/defaultUserImage.png";
+import Loader from "../../Loader";
 // import DonorVerified from "../donee-verify-request";
 // import { useSelector } from "react-redux";
 // import axios from "axios";
@@ -13,6 +14,11 @@ function DonorInfoRequest() {
   const { id } = useParams();
 
   // const user = useSelector((state) => state.user.user);
+  const [isLoading, setIsLoading] = useState(true);
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 2000);
+
   const [donor, setDonor] = useState(null);
   const [show, setShow] = useState(false);
 
@@ -27,9 +33,6 @@ function DonorInfoRequest() {
     };
     fetchDonor();
   }, [id]);
-  // commemt here lets see
-  // Can you see mine
-  // yes.
 
   return (
     <>
@@ -41,55 +44,66 @@ function DonorInfoRequest() {
       </section>
 
       {/* <p>Welcome {id} </p> */}
-      {donor && (
-        <div className={styles.findDonor}>
-          <div className={styles.imgHolder}>
-            <img
-              className={styles.image}
-              src={donor.avater}
-              alt={donor.firstname}
-              onError={event => {
-                event.target.src="https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png"
-                event.onerror = null
-              }}
-            />
-            <h5 className={styles.userName}>
-              {donor.firstname} {donor.lastname}
-            </h5>
-            {/* <p className="font-semibold profileNumber">#1229</p> */}
-          </div>
-          <div className={styles.donorCard}>
-            <div className={styles.donorLocWrap}>
-              <p className={styles.donorLocTop}>Location</p>
-              <p className={`${styles.donorLocation} first-letter:uppercase`}>
-                {donor.state} State
-              </p>
-              <p className={`${styles.donorLocation} first-letter:uppercase`}>
-                {donor.city}
-              </p>
+      {isLoading && <Loader />}
+      {!isLoading
+        ? donor && (
+            <div className={styles.findDonor}>
+              <div className={styles.imgHolder}>
+                <img
+                  className={styles.image}
+                  src={donor.avater}
+                  alt={donor.firstname}
+                  onError={(event) => {
+                    event.target.src =
+                      "https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png";
+                    event.onerror = null;
+                  }}
+                />
+                <h5 className={styles.userName}>
+                  {donor.firstname} {donor.lastname}
+                </h5>
+                {/* <p className="font-semibold profileNumber">#1229</p> */}
+              </div>
+              <div className={styles.donorCard}>
+                <div className={styles.donorLocWrap}>
+                  <p className={styles.donorLocTop}>Location</p>
+                  <p
+                    className={`${styles.donorLocation} first-letter:uppercase`}
+                  >
+                    {donor.state} State
+                  </p>
+                  <p
+                    className={`${styles.donorLocation} first-letter:uppercase`}
+                  >
+                    {donor.city}
+                  </p>
+                </div>
+                <div className={styles.donorStatusWrap}>
+                  <p className={styles.donorLocWrap}>Availability</p>
+                  <h5 className="">Available</h5>
+                </div>
+                <div className={styles.bloodTypeWrap}>
+                  <p className={styles.bloodType}>{donor.bloodType}</p>
+                </div>
+              </div>
+              <div className={styles.button}>
+                <div
+                  className={styles.center}
+                  onClick={() => {
+                    setShow(true);
+                  }}
+                >
+                  <button className={styles.fontWeight}>Request</button>
+                </div>
+                <Popu
+                  onClose={() => setShow(false)}
+                  show={show}
+                  donor={donor}
+                />
+              </div>
             </div>
-            <div className={styles.donorStatusWrap}>
-              <p className={styles.donorLocWrap}>Availability</p>
-              <h5 className="">Available</h5>
-            </div>
-            <div className={styles.bloodTypeWrap}>
-              <p className={styles.bloodType}>{donor.bloodType}</p>
-            </div>
-          </div>
-          <div className={styles.button}>
-            <div
-              className={styles.center}
-              onClick={() => {
-                setShow(true);
-              }}
-            >
-              <button className={styles.fontWeight}>Request</button>
-            </div>
-            <Popu onClose={() => setShow(false)} show={show} donor={donor} />
-          </div>
-        </div>
-      )}
-      <div></div>
+          )
+        : null}
     </>
   );
 }
