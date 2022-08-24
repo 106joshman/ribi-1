@@ -68,7 +68,7 @@ const Need = () => {
       setIsPending(false);
       setData(response.data.users);
       // count:response.data.users.length
-      console.log(response.data.users.length);
+      // console.log(response.data.users.length);
     };
     getDonors();
   }, []);
@@ -252,7 +252,7 @@ const Need = () => {
               {/* {searchResult && <p>User Not Found</p>} */}
             </div>
             <Paginate />
-          
+
           </div>
         </section>
       </>
