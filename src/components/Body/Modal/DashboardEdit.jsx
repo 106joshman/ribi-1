@@ -5,6 +5,7 @@ import closeIcon from "../../../assets/close.png";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
+import { AiOutlineCamera } from "react-icons/ai";
 
 const DashboardEdit = ({ handleToggles }) => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const DashboardEdit = ({ handleToggles }) => {
   const [address, setAddress] = useState(user?.donorLocation);
   const [stateValue, setStateValue] = useState(user?.state);
   const [city, setCity] = useState(user?.city);
+  const [image, setImage] = useState(user?.avater);
   // const [email, setEmail] = useState(user?.email);
 
   // Handles Form Submission
@@ -46,7 +48,7 @@ const DashboardEdit = ({ handleToggles }) => {
     );
     console.log("This is the newly updated", response.data);
     // console.log("This is just the data", data);
-     handleToggles();
+    handleToggles();
     return Swal.fire({
       icon: "success",
       title: "Profile Updated",
@@ -68,13 +70,46 @@ const DashboardEdit = ({ handleToggles }) => {
         </button>
         <div className="relative">
           <div className="">
-            <p className="my-4 text-2xl font-bold text-center lg:my-8">
+            <p className="my-4 text-[18px] lg:text-2xl font-bold text-center lg:my-8">
               Edit Profile
             </p>
             <form
               className="w-full  lg:h-auto  scrolled"
-              onSubmit={handleSubmit}
+              // onSubmit={handleSubmit}
             >
+              <div className="relative flex justify-center items-center">
+                <img
+                  src={
+                    !image
+                      ? "https://cdn.pixabay.com/photo/2018/11/13/21/43/instagram-3814049_960_720.png"
+                      : image
+                  }
+                  alt={user.firstname}
+                  onError={(event) => {
+                    event.target.src =
+                      "https://cdn.pixabay.com/photo/2018/11/13/21/43/instagram-3814049_960_720.png";
+                    event.onerror = null;
+                  }}
+                  className="w-24 h-24 rounded-full opacity-75 border-black object-fill"
+                />
+                <div className="fileContent w-24 h-24 rounded-full">
+                  <label className="text-[10px] text-center ">
+                    <AiOutlineCamera className="text-[24px] text-red-500" />
+                    <input
+                      style={{ display: "none" }}
+                      type="file"
+                      accept="image/*, capture=camera "
+                      id="fusk"
+                      onChange={(e) => {
+                        setImage(URL.createObjectURL(e.target.files[0]));
+                        console.log(e.target.files[0]);
+                      }}
+                    />
+                    <br />
+                    <span id="imageName"></span>
+                  </label>
+                </div>
+              </div>
               <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>Firstname</label>
                 <input
@@ -150,15 +185,16 @@ const DashboardEdit = ({ handleToggles }) => {
                 />
               </div>
               <div className="my-5 ">
-                <input
-                  type="submit"
-                  value="Update"
+                <button
+                  onClick={handleSubmit}
+                  // type="submit"
+                  // value="Update"
                   className="lg:block md:block px-6 py-2 bg-thickred rounded-full bg-red-500 font-bold text-white hover:bg-red-600 w-full cursor-pointer"
-                 
-                />
+                >
+                  Update
+                </button>
               </div>
             </form>
-         
           </div>
         </div>
       </section>
