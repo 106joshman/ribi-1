@@ -11,7 +11,7 @@ const Footer = () => {
       <div className={styles.footerTop}>
         <h5 className={styles.headText}>DONATE BLOOD WHEN NEEDED</h5>
         <p className={styles.missionText}>
-          Please book an appointment to donate. Appointments are available at
+          Kindly register to donate. Appointments are available at
           some of our centres.
         </p>
         <div className={styles.bttn}>
