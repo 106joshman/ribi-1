@@ -61,7 +61,7 @@ const Insight = () => {
               </p>
             </div>
             <div className="donees bg-black p-2 h-[180px] w-[350px] flex flex-col justify-evenly rounded-lg h-about">
-              <h4 className="text-white text-3xl my-2">Request</h4>
+              <h4 className="text-white text-3xl my-2">Requests</h4>
               <p className="text-green-700 text-6xl">
                 <CountUp start={0} end={request.numberOfRequests} />
                 {/* {!request.numberOfRequests ? 0 : request.numberOfRequests} */}
