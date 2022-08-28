@@ -159,7 +159,7 @@ const Need = () => {
                           {user.firstname} {user.lastname}
                         </h5>
 
-                        <div className={styles.location}>
+                        {/* <div className={styles.location}>
                           <img
                             className={styles.place}
                             src={place}
@@ -168,7 +168,20 @@ const Need = () => {
                           <p className={styles.locationName}>
                             {user.homeAddress}
                           </p>
+                        </div> */}
+                        <div className={styles.location}>
+                          <img
+                            className={styles.place}
+                            src={place}
+                            alt="place"
+                          />
+                          <p
+                            className={`${styles.locationName} first-letter:uppercase`}
+                          >
+                            {user.state} State
+                          </p>
                         </div>
+
                         <p className={styles.city}>{user.city}</p>
                         <div className={styles.bloodGroupContainer}>
                           <h4 className={styles.bloodGroup}>
@@ -252,7 +265,6 @@ const Need = () => {
               {/* {searchResult && <p>User Not Found</p>} */}
             </div>
             <Paginate />
-
           </div>
         </section>
       </>
