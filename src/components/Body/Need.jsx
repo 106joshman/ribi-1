@@ -182,7 +182,9 @@ const Need = () => {
                           </p>
                         </div>
 
-                        <p className={styles.city}>{user.city}</p>
+                        <p className={`${styles.city} first-letter:uppercase`}>
+                          {user.city}
+                        </p>
                         <div className={styles.bloodGroupContainer}>
                           <h4 className={styles.bloodGroup}>
                             {user.bloodType}
