@@ -34,18 +34,12 @@ const Privacy = () => {
         <h2 className={styles.heading}>User Agreement</h2>
         <p className={styles.paragraph}>
           You allowed us to share your Personal Information with third parties
-          such as Hospitals, medical research institutions, pharmaceutical
+          such as Hospitals, Blood banks, medical research institutions, pharmaceutical
           companies, biotech companies and health ministries for purpose of
           medical research, diseases eradication and drugs discovery.
         </p>
+
         <h2 className={styles.heading}>Security</h2>
-        <p className={styles.paragraph}>
-          You allowed us to share your Personal Information with third parties
-          such as Hospitals, medical research institutions, pharmaceutical
-          companies, biotech companies and health ministries for purpose of
-          medical research, diseases eradication and drugs discovery.
-        </p>
-        <h2 className={styles.heading}>User Agreement</h2>
         <p className={styles.paragraph}>
           The security of your Personal Information is important to us. When you
           enter information into our forms, we encrypt the transmission of that
