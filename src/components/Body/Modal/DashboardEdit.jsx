@@ -82,7 +82,7 @@ const DashboardEdit = ({ handleToggles }) => {
             </p>
             <form
               className="w-full  lg:h-auto  scrolled"
-              onSubmit={handleSubmit}
+              // onSubmit={handleSubmit}
             >
               <div className="relative flex justify-center items-center my-4">
                 <img
@@ -193,10 +193,8 @@ const DashboardEdit = ({ handleToggles }) => {
               </div>
               <div className="my-5 ">
                 <button
-                  type="submit"
-                  // onClick={handleSubmit}
                   // type="submit"
-                  // value="Update"
+                  onClick={handleSubmit}
                   className="lg:block md:block px-6 py-2 bg-thickred rounded-full bg-red-500 font-bold text-white hover:bg-red-600 w-full cursor-pointer"
                 >
                   Update
