@@ -35,15 +35,17 @@ const style = {
   overflowY: "scroll",
 };
 
-const Signup = () => {
+const Signup = ({ handleModalClose }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const size = WindowSize();
   const [showPassword, setShowPassword] = useState(false);
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    setOpen(true);
+  };
   const handleClose = () => {
-    setOpen(null);
+    setOpen(false);
   };
   const [login, setLogin] = useState(false);
   const [forgetPassword, setForgetPassword] = useState(false);
@@ -126,7 +128,7 @@ const Signup = () => {
             userData
           );
           console.log("user data from post", response);
-           handleClose();
+          handleClose();
           navigate("/");
           return Swal.fire({
             icon: "success",
@@ -341,7 +343,7 @@ const Signup = () => {
                             onChange={(e) => {
                               // setImage(e.target.files[0]);
                               setImage(URL.createObjectURL(e.target.files[0]));
-                              console.log(e.target.files[0])
+                              console.log(e.target.files[0]);
                             }}
                           />
                         </div>
@@ -528,7 +530,10 @@ const Signup = () => {
                         I agree to the
                         <Link
                           to="/privacy"
-                          onClick={handleClose}
+                          onClick={() => {
+                            handleModalClose();
+                            handleClose();
+                          }}
                           className="ml-1 hover:underline text-red-400"
                         >
                           Terms of Service, Privacy Policy and User Agreement.

@@ -13,7 +13,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "100vw",
-  height:"100vh",
+  height: "100vh",
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -24,23 +24,23 @@ export const MobileMenu = () => {
   const token = useSelector((state) => state.user.token);
   const [isLogged] = useState(false);
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleModalOpen = () => setModalOpen(true);
+  const handleModalClose = () => setModalOpen(false);
   return (
     <div>
-      <Button onClick={handleOpen}>
+      <Button onClick={handleModalOpen}>
         <GiHamburgerMenu size={35} color="#f6655f" />
       </Button>
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={modalOpen}
+        onClose={handleModalClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
           <div className={styles.closeIcon}>
-            <button className={styles.button} onClick={handleClose}>
+            <button className={styles.button} onClick={handleModalClose}>
               <AiOutlineClose size={36} color="black" />
             </button>
           </div>
@@ -50,10 +50,10 @@ export const MobileMenu = () => {
                 href="/need-blood"
                 underline="none"
                 color="white"
-                sx={{mb: 3 }}
+                sx={{ mb: 3 }}
                 aria-label="Need blood link"
                 className={styles.need}
-                onClick={handleClose}
+                onClick={handleModalClose}
               >
                 need blood
               </Link>
@@ -64,7 +64,7 @@ export const MobileMenu = () => {
                 color="white"
                 className={styles.need}
                 aria-label="Will lead to user account bio if user is logged in"
-                onClick={handleClose}
+                onClick={handleModalClose}
               >
                 Account
               </Link>
@@ -75,12 +75,12 @@ export const MobileMenu = () => {
                   <Link
                     href="/bio"
                     aria-label="Link to sign up modal if user is not signed in yet"
-                    onClick={handleClose}
+                    onClick={handleModalClose}
                   >
-                    donate blood
+                    {/* donate blood */}
                   </Link>
                 ) : (
-                  <Signup />
+                  <Signup  handleSignupClose={handleModalClose} />
                 )}
               </>
             ) : null}
