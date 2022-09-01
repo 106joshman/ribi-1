@@ -56,7 +56,7 @@ const Header = () => {
             </Link>
           ) : (
             <Link
-              to="/bio"
+              to="/dashboard"
               className="text-[#f6655f] mx-1 py-2.5 px-5 cursor-pointer outline outline-1 outline-[#f6655f] hover:bg-[#f7c9c7] rounded-3xl text-base uppercase"
             >
               Account
@@ -66,7 +66,7 @@ const Header = () => {
             <>
               {isLogged ? (
                 <Link
-                  to="/bio"
+                  to="/dashboard"
                   className="text-white mx-1 py-2 px-3 cursor-pointer bg-[#f6655f] hover:bg-[#f7c9c7]  rounded-3xl text-base uppercase"
                 >
                   donate blood

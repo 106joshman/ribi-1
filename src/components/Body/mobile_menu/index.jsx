@@ -31,7 +31,7 @@ const Menu = (props) => {
                 need blood
               </Link>
             ) : (
-              <Link to="/bio" className={styles.need} onClick={props.onClose}>
+              <Link to="/dashboard" className={styles.need} onClick={props.onClose}>
                 Account
               </Link>
             )}
@@ -39,7 +39,7 @@ const Menu = (props) => {
               <>
                 {isLogged ? (
                   <Link
-                    to="/bio"
+                    to="/dashboard"
                     className={styles.donate}
                     onClick={props.onClose}
                   >

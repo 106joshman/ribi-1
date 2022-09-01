@@ -59,11 +59,7 @@ const Home = () => {
           <p className={styles.smallText}>
             Register today and help save a live
           </p>
-          <Link
-            // to="/bio"
-            to="/need-blood"
-            className={styles.linkBlood}
-          >
+          <Link to="/need-blood" className={styles.linkBlood}>
             Find Blood <AiOutlineArrowRight className="ml-2" />
           </Link>
         </div>
@@ -114,7 +110,7 @@ const Home = () => {
           </p>
           <div style={{ margin: "20px 0" }}>
             <Link
-            title="Sign-up to see how"
+              title="Sign-up to see how"
               to="/signup"
               className={styles.linkBlood}
               style={{ backgroundColor: "#f66557" }}

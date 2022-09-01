@@ -168,7 +168,7 @@ const Signup = ({ handleModalClose }) => {
           dispatch(dispatchUserToken(response.data.token));
           dispatch(dispatchUserId(response.data.user.userId));
           handleClose();
-          navigate("/bio");
+          navigate("/dashboard");
           return Swal.fire({
             icon: "success",
             title: "Login Successful",
