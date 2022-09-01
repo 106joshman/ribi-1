@@ -59,7 +59,7 @@ export const MobileMenu = () => {
               </Link>
             ) : (
               <Link
-                href="/bio"
+                href="/dashboard"
                 underline="none"
                 color="white"
                 className={styles.need}
@@ -73,14 +73,14 @@ export const MobileMenu = () => {
               <>
                 {isLogged ? (
                   <Link
-                    href="/bio"
+                    href="/dashboard"
                     aria-label="Link to sign up modal if user is not signed in yet"
                     onClick={handleModalClose}
                   >
                     {/* donate blood */}
                   </Link>
                 ) : (
-                  <Signup  handleSignupClose={handleModalClose} />
+                  <Signup handleSignupClose={handleModalClose} />
                 )}
               </>
             ) : null}

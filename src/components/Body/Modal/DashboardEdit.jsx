@@ -37,23 +37,30 @@ const DashboardEdit = ({ handleToggles }) => {
       city: city ? city : user?.city,
     };
     // console.log("This is just the data", data);
-    const response = await axios.patch(
-      "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
-      userData,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    console.log("This is the newly updated", response.data);
-    // console.log("This is just the data", data);
-    handleToggles();
-    return Swal.fire({
-      icon: "success",
-      title: "Profile Updated",
-      text: "Your Profile is updated",
-    });
+
+    try {
+      const response = await axios.patch(
+        "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
+        userData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("This is the newly updated", response.data);
+      return Swal.fire({
+        icon: "success",
+        title: "Profile Updated",
+        text: "Your Profile is updated",
+      });
+    } catch (error) {
+      return Swal.fire({
+        icon: "error",
+        title: "Profile error",
+        text: `${error}`,
+      });
+    }
   };
 
   if (!token) {
@@ -75,9 +82,9 @@ const DashboardEdit = ({ handleToggles }) => {
             </p>
             <form
               className="w-full  lg:h-auto  scrolled"
-              // onSubmit={handleSubmit}
+              onSubmit={handleSubmit}
             >
-              <div className="relative flex justify-center items-center">
+              <div className="relative flex justify-center items-center my-4">
                 <img
                   src={
                     !image
@@ -94,7 +101,7 @@ const DashboardEdit = ({ handleToggles }) => {
                 />
                 <div className="fileContent w-24 h-24 rounded-full">
                   <label className="text-[10px] text-center ">
-                    <AiOutlineCamera className="text-[24px] text-red-500" />
+                    <AiOutlineCamera className="text-[24px] text-slate-500" />
                     <input
                       style={{ display: "none" }}
                       type="file"
@@ -186,7 +193,8 @@ const DashboardEdit = ({ handleToggles }) => {
               </div>
               <div className="my-5 ">
                 <button
-                  onClick={handleSubmit}
+                  type="submit"
+                  // onClick={handleSubmit}
                   // type="submit"
                   // value="Update"
                   className="lg:block md:block px-6 py-2 bg-thickred rounded-full bg-red-500 font-bold text-white hover:bg-red-600 w-full cursor-pointer"

@@ -253,8 +253,8 @@ const Bio = (props) => {
       </>
     );
   }
-  {
-    /* {request &&
+  // {
+  /* {request &&
                 request?.map((patient) => (
                   <div
                     key={patient._id}
@@ -309,7 +309,7 @@ const Bio = (props) => {
                     </p>
                   </div>
                 ))} */
-  }
 };
+// };
 
 export default Bio;
