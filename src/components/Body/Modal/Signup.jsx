@@ -20,6 +20,7 @@ import {
 } from "../../../redux/userSlice.js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ReactFlagsSelect from "react-flags-select";
 
 const style = {
   position: "absolute",
@@ -121,6 +122,7 @@ const Signup = ({ handleModalClose }) => {
           email,
           password,
         };
+        console.log(country, city);
 
         try {
           const response = await axios.post(
@@ -439,10 +441,16 @@ const Signup = ({ handleModalClose }) => {
                         <label required={true} className={styles.label}>
                           Country*
                         </label>
-                        <input
+                        {/* <input
                           type="text"
                           className={styles.inputField}
                           onChange={(e) => setCountry(e.target.value)}
+                        /> */}
+                        <ReactFlagsSelect
+                          selected={country}
+                          className=" rounded-lg h-9"
+                          selectButtonClassName={styles.inputField}
+                          onSelect={(e) => setCountry(e)}
                         />
                       </div>
 
