@@ -1,15 +1,21 @@
 import { AiOutlineArrowRight } from "react-icons/ai";
 import styles from "./home.module.css";
-import { Link } from "react-router-dom";
+import { Link as button } from "react-router-dom";
 import image from "../../images/Group1.png";
 import search from "../../images/Group147.png";
 import contact from "../../images/Group148.png";
 import heart from "../../images/Group157.png";
 import hands from "../../images/Group217.png";
 import work from "../../images/unsplash_W6yy0wYV-hk.png";
+import { useState } from "react";
+import Signup from "../Modal/Signup";
 
 const Home = () => {
   // donor instructions card
+  const [register, setRegister] = useState(false);
+  const handleOpenRegister = () => {
+    setRegister(true);
+  };
   const cardData = [
     {
       id: 0,
@@ -59,9 +65,9 @@ const Home = () => {
           <p className={styles.smallText}>
             Register today and help save a live
           </p>
-          <Link to="/need-blood" className={styles.linkBlood}>
+          <button to="/need-blood" className={styles.linkBlood}>
             Find Blood <AiOutlineArrowRight className="ml-2" />
-          </Link>
+          </button>
         </div>
         <div className="hero-right hidden md:inline md:w-3/5">
           <div className={styles.backGround}>
@@ -109,14 +115,16 @@ const Home = () => {
             establishing a testing center for the Donor and the Donee.
           </p>
           <div style={{ margin: "20px 0" }}>
-            <Link
+            {/* <Signup register={register} /> */}
+            <button
               title="Sign-up to see how"
-              to="/signup"
+              // to="/signup"
+              onClick={handleOpenRegister}
               className={styles.linkBlood}
-              style={{ backgroundColor: "#f66557" }}
+              style={{ backgroundColor: "#f6655f" }}
             >
               Learn More <AiOutlineArrowRight className="ml-2" />
-            </Link>
+            </button>
           </div>
         </div>
       </div>

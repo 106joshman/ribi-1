@@ -8,6 +8,7 @@ import Select from "react-select";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import ReactFlagsSelect from "react-flags-select";
 // import DonorVerified from "../donee-verify-request";
 // import DonorInfo from "../donee-verify-request";
 
@@ -367,7 +368,7 @@ const Popup = (props) => {
                 <label htmlFor="" className={styles.label}>
                   Country
                 </label>
-                <input
+                {/* <input
                   type="text"
                   className={styles.inputBox}
                   value={country}
@@ -376,6 +377,12 @@ const Popup = (props) => {
                   }}
                   name="country"
                   id=""
+                /> */}
+                <ReactFlagsSelect
+                  selected={country}
+                  className=" rounded-lg h-9"
+                  selectButtonClassName={styles.inputBox}
+                  onSelect={(e) => setCountry(e)}
                 />
               </div>
               <div className="">
