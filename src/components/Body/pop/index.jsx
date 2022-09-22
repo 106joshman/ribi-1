@@ -380,9 +380,12 @@ const Popup = (props) => {
                 /> */}
                 <ReactFlagsSelect
                   selected={country}
-                  className=" rounded-lg h-9"
-                  selectButtonClassName={styles.inputBox}
-                  onSelect={(e) => setCountry(e)}
+                  searchable="true"
+                  placeholder=""
+                  searchPlaceholder="Search countries"
+                  className={styles.dropdown}
+                  selectButtonClassName={styles.inputBoxC}
+                  onSelect={(code) => setCountry(code)}
                 />
               </div>
               <div className="">
