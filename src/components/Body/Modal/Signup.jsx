@@ -1,4 +1,7 @@
-import { useState, useEffect } from "react";
+import {
+  useState,
+  // useEffect
+} from "react";
 import { Backdrop, Box, Modal, Fade } from "@mui/material";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import styles from "./signup.module.css";
@@ -51,7 +54,7 @@ const Signup = ({ handleModalClose }) => {
   const [login, setLogin] = useState(false);
   const [forgetPassword, setForgetPassword] = useState(false);
 
-  const [states, setStates] = useState([]);
+  // const [states, setStates] = useState([]);
 
   // Handles Forget Password
   function handleForgetPassword() {
@@ -64,15 +67,15 @@ const Signup = ({ handleModalClose }) => {
   // const types = ["image/png", "image/jpeg"];
 
   // Get All States in Nigeria
-  useEffect(() => {
-    const getStates = async () => {
-      const response = await axios.get(
-        "https://nigerian-states-info.herokuapp.com/api/v1/states"
-      );
-      setStates(response.data.data);
-    };
-    getStates();
-  }, []);
+  // useEffect(() => {
+  //   const getStates = async () => {
+  //     const response = await axios.get(
+  //       "https://nigerian-states-info.herokuapp.com/api/v1/states"
+  //     );
+  //     setStates(response.data.data);
+  //   };
+  //   getStates();
+  // }, []);
 
   // set values
   // const [image, setImage] = useState(
@@ -88,7 +91,7 @@ const Signup = ({ handleModalClose }) => {
   const [ailmentDiagnosis, setAilmentDiagnosis] = useState("");
   const [country, setCountry] = useState("");
   const [address, setAddress] = useState("");
-  const [stateValue, setStateValue] = useState("");
+  const [state, setState] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -117,12 +120,12 @@ const Signup = ({ handleModalClose }) => {
           ailmentDiagnosis,
           country,
           donorLocation: address,
-          state: stateValue,
+          state,
           city,
           email,
           password,
         };
-        console.log(country, city);
+        console.log(country, city, state);
 
         try {
           const response = await axios.post(
@@ -448,8 +451,11 @@ const Signup = ({ handleModalClose }) => {
                         /> */}
                         <ReactFlagsSelect
                           selected={country}
-                          className=" rounded-lg h-9"
-                          selectButtonClassName={styles.inputField}
+                          searchable='true'
+                          className=" rounded-lg h-9 text-black p-0"
+                          placeholder=''
+                          searchPlaceholder="Search countries"
+                          selectButtonClassName={styles.inputFieldC}
                           onSelect={(e) => setCountry(e)}
                         />
                       </div>
@@ -458,8 +464,15 @@ const Signup = ({ handleModalClose }) => {
                         <label required={true} className={styles.label}>
                           State*
                         </label>
+                        <input
+                          type="text"
+                          name="state"
+                          id="state"
+                          className={styles.inputField}
+                          onChange={(e) => setState(e.target.value)}
+                        />
 
-                        <select
+                        {/* <select
                           className={styles.inputField}
                           onChange={(e) => setStateValue(e.target.value)}
                         >
@@ -468,7 +481,7 @@ const Signup = ({ handleModalClose }) => {
                               {state.info.officialName}
                             </option>
                           ))}
-                        </select>
+                        </select> */}
                       </div>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
