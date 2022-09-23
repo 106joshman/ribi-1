@@ -14,13 +14,13 @@ import { RemoveRedEye, VisibilityOff } from "@mui/icons-material";
 import WindowSize from "../../../hooks/windowSize";
 import axios from "axios";
 import Swal from "sweetalert2";
-// import Signin from "./Signin";
 import { Link } from "react-router-dom";
 import {
   dispatchIsLogged,
   dispatchUserToken,
   dispatchUserId,
 } from "../../../redux/userSlice.js";
+import { apiBaseURL } from "../../../axios";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ReactFlagsSelect from "react-flags-select";
@@ -95,7 +95,10 @@ const Signup = ({ handleModalClose }) => {
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState(new Date());
   const [userChecked, setUserChecked] = useState(false);
+
+  console.log(dateOfBirth);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -115,6 +118,7 @@ const Signup = ({ handleModalClose }) => {
           lastname: lastName,
           gender,
           age,
+          dateOfBirth: dateOfBirth,
           phone,
           bloodType,
           ailmentDiagnosis,
@@ -129,7 +133,7 @@ const Signup = ({ handleModalClose }) => {
 
         try {
           const response = await axios.post(
-            "https://ribi-donor.herokuapp.com/api/v1/auth/register",
+            `${apiBaseURL}/v1/auth/register`,
             userData
           );
           console.log("user data from post", response);
@@ -166,7 +170,7 @@ const Signup = ({ handleModalClose }) => {
 
         try {
           const response = await axios.post(
-            "https://ribi-donor.herokuapp.com/api/v1/auth/login",
+            `${apiBaseURL}/v1/auth/login`,
             data
           );
           dispatch(dispatchIsLogged());
@@ -406,6 +410,17 @@ const Signup = ({ handleModalClose }) => {
                           onChange={(e) => setPhone(e.target.value)}
                         />
                       </div>
+                      {/* Date of Birth */}
+                      <div className={styles.formController}>
+                        <label required={true} className={styles.label}>
+                          Date of Birth*
+                        </label>
+                        <input
+                          type="date"
+                          className={styles.inputField}
+                          onChange={(e) => setDateOfBirth(e.target.value)}
+                        />
+                      </div>
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           Blood Type*
@@ -451,9 +466,9 @@ const Signup = ({ handleModalClose }) => {
                         /> */}
                         <ReactFlagsSelect
                           selected={country}
-                          searchable='true'
+                          searchable="true"
                           className=" rounded-lg h-9 text-black p-0"
-                          placeholder=''
+                          placeholder=""
                           searchPlaceholder="Search countries"
                           selectButtonClassName={styles.inputFieldC}
                           onSelect={(e) => setCountry(e)}

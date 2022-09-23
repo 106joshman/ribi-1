@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./request.module.css";
 import hero from "../../assets/hero.png";
 // import profile from "../../assets/profile1.png";
@@ -11,6 +11,12 @@ import ConfirmRequest from "./Modal/ConfirmRequest";
 const Bio = () => {
   const [id, setID] = useState(null);
   const [tag, setTag] = useState("request");
+  useEffect(() => {
+    return window.scrollTo({
+      top: 0,
+      behaviour: "smooth",
+    });
+  }, []);
 
   return (
     <>

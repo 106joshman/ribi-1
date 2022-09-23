@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./bio.module.css";
 import logo from "../../images/logo.svg";
-
+import { apiBaseURL } from "../../../axios";
 import { Link, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -72,14 +72,11 @@ const Bio = (props) => {
 
     if (token) {
       const getUser = async () => {
-        const response = await axios.get(
-          `https://ribi-donor.herokuapp.com/api/v1/donors/${userId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await axios.get(`${apiBaseURL}/v1/donors/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         dispatch(dispatchUser(response.data.user));
         return () => ac.abort();
       };

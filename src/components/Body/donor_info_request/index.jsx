@@ -4,14 +4,22 @@ import styles from "./donorInfo.module.css";
 import design from "../need.module.css";
 import hero from "../../../assets/hero.png";
 import Popu from "../pop";
-import Default from "../../../assets/defaultUserImage.png";
+// import Default from "../../../assets/defaultUserImage.png";
 import Loader from "../../Loader";
+import { apiBaseURL } from "../../../axios";
 // import DonorVerified from "../donee-verify-request";
 // import { useSelector } from "react-redux";
 // import axios from "axios";
 
 function DonorInfoRequest() {
   const { id } = useParams();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth",
+    });
+  }, []);
 
   // const user = useSelector((state) => state.user.user);
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +32,7 @@ function DonorInfoRequest() {
 
   useEffect(() => {
     const fetchDonor = () => {
-      fetch("https://ribi-donor.herokuapp.com/api/v1/donors/" + id)
+      fetch(`${apiBaseURL}/v1/donors/` + id)
         .then((res) => res.json())
         .then((data) => {
           setDonor(data.user);

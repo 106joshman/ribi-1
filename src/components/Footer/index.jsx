@@ -27,7 +27,7 @@ const Footer = () => {
       <div className={styles.footerDetails}>
         <div className={styles.left}>
           <Link to="/home">
-            <img src={logo} alt="RIBI logo" srcset="" />
+            <img src={logo} alt="RIBI logo" />
           </Link>
         </div>
 

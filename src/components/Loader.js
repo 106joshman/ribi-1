@@ -15,7 +15,7 @@ const Loader = () => {
       >
         <Stack spacing={2}>
           <div className="borders w-40 h-40 border grid place-items-center rounded-full shadow-lg animate-spin">
-            <img src={Logo} alt="Ribi logo" srcSet="" />
+            <img src={Logo} alt="Ribi logo" />
           </div>
         </Stack>
       </Grid>

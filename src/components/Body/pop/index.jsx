@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import ReactFlagsSelect from "react-flags-select";
+import { apiBaseURL } from "../../../axios";
 // import DonorVerified from "../donee-verify-request";
 // import DonorInfo from "../donee-verify-request";
 
@@ -157,7 +158,7 @@ const Popup = (props) => {
 
     axios({
       method: "post",
-      url: "https://ribi-donor.herokuapp.com/api/v1/patients",
+      url: `${apiBaseURL}/v1/patients`,
       data: patientRequestData,
     })
       .then((response) => {

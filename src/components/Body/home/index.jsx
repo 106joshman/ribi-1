@@ -1,6 +1,6 @@
 import { AiOutlineArrowRight } from "react-icons/ai";
 import styles from "./home.module.css";
-import { Link as button } from "react-router-dom";
+import { Link } from "react-router-dom";
 import image from "../../images/Group1.png";
 import search from "../../images/Group147.png";
 import contact from "../../images/Group148.png";
@@ -65,9 +65,9 @@ const Home = () => {
           <p className={styles.smallText}>
             Register today and help save a live
           </p>
-          <button to="/need-blood" className={styles.linkBlood}>
+          <Link to="/need-blood" className={styles.linkBlood}>
             Find Blood <AiOutlineArrowRight className="ml-2" />
-          </button>
+          </Link>
         </div>
         <div className="hero-right hidden md:inline md:w-3/5">
           <div className={styles.backGround}>
@@ -76,7 +76,6 @@ const Home = () => {
                 src={image}
                 className={styles.heroImage}
                 alt="Ribi homapage display"
-                srcSet=""
               />
             </div>
           </div>
@@ -89,12 +88,7 @@ const Home = () => {
             return (
               <div key={index} className={styles.singleCard}>
                 {/* w-about bg-white h- lg:m-5 md:mx-auto shadow-md m-5 p-5 rounded-md */}
-                <img
-                  src={item.image}
-                  alt=""
-                  srcSet=""
-                  className={styles.cardImage}
-                />
+                <img src={item.image} alt="" className={styles.cardImage} />
                 <p className={styles.cardText}>{item.text}</p>
               </div>
             );
@@ -190,7 +184,6 @@ const Home = () => {
             <img
               src={work}
               alt="A laboratory Scientist"
-              srcSet=""
               className={styles.workImage}
             />
           </div>

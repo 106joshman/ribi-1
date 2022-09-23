@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./need.module.css";
 import hero from "../../assets/hero.png";
 import spinners from "../../assets/images/spinner.svg";
@@ -8,6 +8,8 @@ import place from "../../assets/place.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Paginate } from "./pagination";
+import { apiBaseURL } from "../../axios";
+
 // import { Pagination, Stack } from "@mui/material";
 
 const Need = () => {
@@ -18,9 +20,9 @@ const Need = () => {
   const [search, setSearch] = useState("");
   // const [donor, setDonor] = useState({});
   const urls = [
-    `https://ribi-donor.herokuapp.com/api/v1/donors?city=${search}`,
-    `https://ribi-donor.herokuapp.com/api/v1/donors?state=${search}`,
-    `https://ribi-donor.herokuapp.com/api/v1/donors?bloodType=${search}`,
+    `${apiBaseURL}/v1/donors?city=${search}`,
+    `${apiBaseURL}/v1/donors?state=${search}`,
+    `${apiBaseURL}/v1/donors?bloodType=${search}`,
   ];
 
   // Fecth all Search results
@@ -62,9 +64,7 @@ const Need = () => {
   useEffect(() => {
     setIsPending(true);
     const getDonors = async () => {
-      const response = await axios.get(
-        "https://ribi-donor.herokuapp.com/api/v1/donors"
-      );
+      const response = await axios.get(`${apiBaseURL}/v1/donors`);
       setIsPending(false);
       setData(response.data.users);
       // count:response.data.users.length

@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import { AiOutlineCamera } from "react-icons/ai";
+import { apiBaseURL } from "../../../axios";
 
 const DashboardEdit = ({ handleToggles }) => {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ const DashboardEdit = ({ handleToggles }) => {
 
     try {
       const response = await axios.patch(
-        "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
+        `${apiBaseURL}/v1/donors/updateUser`,
         userData,
         {
           headers: {
@@ -55,10 +56,11 @@ const DashboardEdit = ({ handleToggles }) => {
         text: "Your Profile is updated",
       });
     } catch (error) {
+      console.log(error.response);
       return Swal.fire({
         icon: "error",
         title: "Profile error",
-        text: `${error}`,
+        text: `error`,
       });
     }
   };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./donate.module.css";
 import hero from "../../assets/hero.png";
 import { Link } from "react-router-dom";
@@ -15,6 +15,13 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [subject, setSubject] = useState("");
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth",
+    });
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -131,21 +138,21 @@ const Contact = () => {
             <div className="border-t-2 border-b-2 border-opacity-75 mr-5">
               <ul className="my-5">
                 <li className="flex">
-                  <img src={call} alt="" srcSet="" />
+                  <img src={call} alt="" />
                   <p className="ml-2 text-sm">
                     +234 8013 756 884, +234 8013 756 844
                   </p>
                 </li>
                 <li className="flex my-4">
-                  <img src={mail} alt="" srcSet="" />
+                  <img src={mail} alt="" />
                   <p className="ml-2 text-sm">teamspace@mail.com</p>
                 </li>
                 <li className="flex my-4">
-                  <img src={browser} alt="" srcSet="" />
+                  <img src={browser} alt="" />
                   <p className="ml-2 text-sm">www.teamspace.com</p>
                 </li>
                 <li className="flex">
-                  <img src={map} alt="" srcSet="" />
+                  <img src={map} alt="" />
                   <p className="ml-2 text-sm">Lagos, Nigeria</p>
                 </li>
               </ul>
@@ -154,13 +161,13 @@ const Contact = () => {
               <h5 className="font-semibold my-2">Connect with us</h5>
               <div className="flex flex-row">
                 <Link to="/">
-                  <img src={facebook} alt="" srcSet="" />
+                  <img src={facebook} alt="" />
                 </Link>
                 <Link to="/">
-                  <img src={Linkedin} className="mx-3" alt="" srcSet="" />
+                  <img src={Linkedin} className="mx-3" alt="" />
                 </Link>
                 <Link to="/">
-                  <img src={Twitter} alt="" srcSet="" />
+                  <img src={Twitter} alt="" />
                 </Link>
               </div>
             </div>
