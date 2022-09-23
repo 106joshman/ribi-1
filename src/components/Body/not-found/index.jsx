@@ -6,7 +6,7 @@ const ErrorPage = () => {
   return (
     <div className={style.wrapper}>
       <div className={style.errImage}>
-        <img src={error} alt="Error Doctor" srcset="" />
+        <img src={error} alt="Error Doctor" />
       </div>
       <div className={style.errText}>
         <h3 className={style.errHead}>OOPS! PAGE NOT FOUND.</h3>

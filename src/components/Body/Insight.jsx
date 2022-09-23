@@ -4,16 +4,22 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import CountUp from "react-countup";
+import { apiBaseURL } from "../../axios";
 
 const Insight = () => {
   const [count, setCount] = useState({});
   const [request, setRequest] = useState({});
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth",
+    });
+  }, []);
+
   const getCount = () => {
-    const donorUrl =
-      "https://ribi-donor.herokuapp.com/api/v1/donors/donor-count";
-    const requestUrl =
-      "https://ribi-donor.herokuapp.com/api/v1/patients/request-count";
+    const donorUrl = `${apiBaseURL}/v1/donors/donor-count`;
+    const requestUrl = `${apiBaseURL}/v1/patients/request-count`;
     const getDonor = axios.get(donorUrl);
     const getRequest = axios.get(requestUrl);
     axios

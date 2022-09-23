@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import requestDrop from "../../../assets/requestDrop.png";
 import styles from "../request.module.css";
 import ConfirmRequest from "../Modal/ConfirmRequest";
 
 const BloodRequest = () => {
   const [id, setID] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth",
+    });
+  }, []);
+
   return (
     <>
       <div className="flex flex-col gap-6 ">
