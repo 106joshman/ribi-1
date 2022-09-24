@@ -1,50 +1,49 @@
-import { Pagination, Stack } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 
-export const Paginate = () => {
-  const [page, setPage] = useState(1);
-  const pageSize = 10;
-  const handleChange = (event, value) => {
-    setPage(value);
-  };
+export const Paginate = ({
+  donorsPerPage,
+  totalDonors,
+  changePage,
+  // currentPage,
+  // nextPage,
+  // prevPage,
+}) => {
+  const pageNumber = [];
+
+  for (let i = 1; i <= Math.ceil(totalDonors / donorsPerPage); i++) {
+    pageNumber.push(i);
+  }
   return (
-    <Stack
-      spacing={2}
-      sx={{ p: 3 }}
-      direction="row"
-      alignItems="center"
-      justifyContent="center"
-    >
-      <Pagination
-        count={10}
-        color="secondary"
-        siblingCount={0}
-        page={page}
-        onChange={handleChange}
-        size="large"
-        alignItems="center"
-      />
-    </Stack>
+    <nav>
+      <ul className="flex justify-center my-4">
+        {/* If currentpage is beyond page 1, allow user to go back one page. You can't go back if you're on page 1. */}
+        {/* {currentPage > 1 ? (
+          <li className="" onclick={() => prevPage(currentPage)}>
+            <a href="#">PREV</a>
+          </li>
+        ) : (
+          ""
+        )} */}
+        {pageNumber.map((number) => (
+          <li
+            key={number}
+            className="px-2 border rounded-lg hover:bg-[#f6655f] hover:text-white font-poppins cursor-pointer mx-1"
+          >
+            <button onClick={() => changePage(number)} className="p-2">
+              {number}
+            </button>
+          </li>
+        ))}
+
+        {/* {currentPage < pageNumber[pageNumber.length - 1] ? (
+          <li className="" onclick={() => nextPage(currentPage)}>
+            <a href="#">NEXT</a>
+          </li>
+        ) : (
+          ""
+        )} */}
+      </ul>
+    </nav>
   );
 };
-
-  {/* <Stack
-              spacing={2}
-              sx={{ p: 3 }}
-              direction="row"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Pagination
-                sx={{ size: "small" }}
-                md={{ size: "large" }}
-                count={10}
-                color="secondary"
-                siblingCount={0}
-                page={currentPage}
-                onChange={handleChange}
-                pageSize={10}
-                alignItems="center"
-              />
-            </Stack> */}
