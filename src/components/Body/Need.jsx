@@ -4,18 +4,34 @@ import hero from "../../assets/hero.png";
 import spinners from "../../assets/images/spinner.svg";
 import profile1 from "../../assets/profile1.png";
 import place from "../../assets/place.png";
-// import Default from "../../assets/defaultUserImage.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Paginate } from "./pagination";
 import { apiBaseURL } from "../../axios";
-
 // import { Pagination, Stack } from "@mui/material";
 
 const Need = () => {
   const [data, setData] = useState([]);
   const [searchData, setSearchData] = useState(null);
   const [isPending, setIsPending] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [donorsPerPage] = useState(12);
+
+  const indexOfLastDonor = currentPage * donorsPerPage;
+  const indexOfFirstDonor = indexOfLastDonor - donorsPerPage;
+  const currentDonor = data.slice(indexOfFirstDonor, indexOfLastDonor);
+
+  const onChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // const nextPage = (pageNumber) => {
+  //   setCurrentPage(pageNumber + 1);
+  // };
+
+  // const prevPage = (pageNumber) => {
+  //   setCurrentPage(pageNumber - 1);
+  // };
 
   const [search, setSearch] = useState("");
   // const [donor, setDonor] = useState({});
@@ -62,13 +78,11 @@ const Need = () => {
   };
 
   useEffect(() => {
-    setIsPending(true);
     const getDonors = async () => {
       const response = await axios.get(`${apiBaseURL}/v1/donors`);
       setIsPending(false);
       setData(response.data.users);
-      // count:response.data.users.length
-      // console.log(response.data.users.length);
+      console.log(response.data.users.length);
     };
     getDonors();
   }, []);
@@ -212,7 +226,7 @@ const Need = () => {
                       </div>
                     </div>
                   ))
-                ? data?.map((user) => (
+                ? currentDonor?.map((user) => (
                     <div key={user._id} className={styles.donorItem}>
                       <Link
                         className={`${styles.link} hover:bg-blue-200 hover:shadow-lg py-4 px-3 rounded-lg`}
@@ -266,8 +280,14 @@ const Need = () => {
                 : null}
               {/* {searchResult && <p>User Not Found</p>} */}
             </div>
-            <Paginate />
           </div>
+          <Paginate
+            donorsPerPage={donorsPerPage}
+            totalDonors={data.length}
+            changePage={onChange}
+            // prevPage={prevPage}
+            // nextPage={nextPage}
+          />
         </section>
       </>
     </div>
