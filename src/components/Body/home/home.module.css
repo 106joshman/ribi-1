@@ -171,6 +171,7 @@
   justify-content: space-evenly;
   color: white;
   text-align: center;
+  padding: 60px 40px;
 }
 
 .objectCard {
@@ -213,7 +214,7 @@
 .listImage {
   list-style-image: url(../../images/list-icon.png);
   margin-top: 20px;
-  padding: 0 20px;
+  /* padding: 0 20px; */
 }
 
 /* ======
@@ -246,7 +247,7 @@ Screen orientation
 }
 
 @media screen and (max-width: 950px) {
-.about {
+  .about {
     flex-direction: column-reverse;
   }
 
@@ -337,6 +338,7 @@ Screen orientation
   .objectCardHolder {
     display: flex;
     flex-direction: column;
+    padding: 20px;
   }
 
   .objectCard {
@@ -362,6 +364,7 @@ Screen orientation
 
   .workImage {
     width: 100%;
+    height: 100%;
   }
 }
 

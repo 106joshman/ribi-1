@@ -110,15 +110,15 @@ const Home = () => {
           </p>
           <div style={{ margin: "20px 0" }}>
             {/* <Signup register={register} /> */}
-            <button
+            <Link
               title="Sign-up to see how"
-              // to="/signup"
+              to="/about-us"
               onClick={handleOpenRegister}
               className={styles.linkBlood}
               style={{ backgroundColor: "#f6655f" }}
             >
               Learn More <AiOutlineArrowRight className="ml-2" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -145,7 +145,7 @@ const Home = () => {
             </span>
           </p>
         </div>
-        <div className={styles.objectCardHolder}>
+        <div className={`${styles.objectCardHolder} lg:px-12 px-8`}>
           {cardData.map(({ id, title, text }) => {
             return (
               <div key={id} className={styles.objectCard}>
@@ -159,7 +159,8 @@ const Home = () => {
                   {title}
                 </h6>
                 <p style={{ margin: "15px 0" }}>{text}</p>
-                <button
+                <Link
+                  to="/about-us"
                   style={{
                     cursor: "pointer",
                     display: "inline-flex",
@@ -171,7 +172,7 @@ const Home = () => {
                   className="hover:text-[#fabbbb]"
                 >
                   Learn More <AiOutlineArrowRight />
-                </button>
+                </Link>
               </div>
             );
           })}
@@ -180,7 +181,7 @@ const Home = () => {
       <div className={styles.work}>
         <h4 className={styles.workText}>How it Works</h4>
         <div className={styles.workContent}>
-          <div style={{ marginBottom: "16px" }}>
+          <div className="flex justify-center items-center box-border">
             <img
               src={work}
               alt="A laboratory Scientist"
@@ -188,17 +189,53 @@ const Home = () => {
             />
           </div>
           <div className={styles.workGuide}>
-            <p>
+            <p className="mt-5 px-4">
               All you need is to follow the below description and get the
               opportunity to Save a Life
             </p>
-            <ul className={styles.listImage}>
-              <li style={{ marginTop: "15px" }}>Register</li>
-              <li style={{ marginTop: "15px" }}>Fill your Profile</li>
-              <li style={{ marginTop: "15px " }}>Search for Blood Donor</li>
-              <li style={{ marginTop: "15px" }}>View Pending Request</li>
-              <li style={{ marginTop: "15px" }}>Make Blood Request</li>
-            </ul>
+            <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 lg:gap-6 gap-1">
+              <div>
+                <ul className={`${styles.listImage} bg-yellow-50 px-6 py-6`}>
+                  <h2 className="font-bold text-2xl">Donor</h2>
+                  <li style={{ marginTop: "15px", marginLeft: "12px" }}>
+                    Register/Signup
+                  </li>
+                  <li style={{ marginTop: "15px", marginLeft: "12px" }}>
+                    Complete your Profile
+                  </li>
+                  <li style={{ marginTop: "15px ", marginLeft: "12px" }}>
+                    Upload required Details
+                  </li>
+                  <li style={{ marginTop: "15px", marginLeft: "12px" }}>
+                    View Pending Request
+                  </li>
+                  <li style={{ marginTop: "15px", marginLeft: "12px" }}>
+                    Interract with Donne requesting for Blood Donation
+                  </li>
+                </ul>
+              </div>
+              {/* Donee */}
+              <div>
+                <ul className={`${styles.listImage} bg-red-50 px-6 py-6`}>
+                  <h2 className="font-bold text-2xl">Donee</h2>
+                  <li style={{ marginTop: "15px", marginLeft: "12px" }}>
+                    Click on Need Blood
+                  </li>
+                  <li style={{ marginTop: "15px", marginLeft: "12px" }}>
+                    Use the search box to search for a Donor
+                  </li>
+                  <li style={{ marginTop: "15px ", marginLeft: "12px" }}>
+                    Fill the request form to Make Blood Request from the Donor
+                  </li>
+                  <li style={{ marginTop: "15px", marginLeft: "12px" }}>
+                    Get the Donor info
+                  </li>
+                  <li style={{ marginTop: "15px", marginLeft: "12px" }}>
+                    Communicate with the Donor
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
