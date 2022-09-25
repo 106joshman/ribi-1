@@ -1,8 +1,9 @@
 import ErrorPage from "./components/Body/not-found";
 import Home from "./components/Body/home";
 import Need from "./components/Body/Need";
+import About from "./components/Body/About";
 import Bio from "./components/Body/userBio";
-import Request from "./components/Body/Request";
+// import Request from "./components/Body/Request";
 import Edit from "./components/Body/Edit";
 import Privacy from "./components/Body/Privacy";
 import Signin from "./components/Body/Modal/Signin";
@@ -27,6 +28,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
             <Route path="need-blood" element={<Need />} />
+            <Route path="about-us" element={<About />} />
             {/* <Route path="request" element={<Request />} /> */}
             <Route path="donor-request/:id" element={<DonorInfoRequest />} />
             <Route path="edit" element={<Edit />} />

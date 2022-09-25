@@ -78,6 +78,7 @@ const Need = () => {
   };
 
   useEffect(() => {
+    setIsPending(true);
     const getDonors = async () => {
       const response = await axios.get(`${apiBaseURL}/v1/donors`);
       setIsPending(false);
@@ -97,14 +98,14 @@ const Need = () => {
           </div>
         </section>
 
-        <section className={styles.findDonor}>
+        <section className={`${styles.findDonor}`}>
           <div className={styles.donorTitle}>Find Blood Donors Here</div>
           <p className="text-center text-xs px-8 text-slate-600">
             Search with Blood type (e.g. O, O+, A, A+, B) Or with state/city
           </p>
           <div className={styles.donorSearchContainer}>
             <input
-              className={styles.donorSearch}
+              className={`${styles.donorSearch}`}
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -114,7 +115,7 @@ const Need = () => {
               title="Search with Blood type (e.g. O, O+, A, A+, B) Or with state/city"
             />
             <button
-              className={styles.searchButton}
+              className={`${styles.searchButton}  hover:bg-[#f95853]`}
               onClick={getSearch}
               // ref={refBtn}
             >

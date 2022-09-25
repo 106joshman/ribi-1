@@ -34,9 +34,11 @@
 
 .findDonor {
   margin: 49px 80px;
-  /* padding: 1rem 2rem; */
+  padding: 2rem 1rem;
   height: 295px;
-  border: 1px solid #f6655f;
+  border-radius: 10px;
+  background: #fefefe;
+  box-shadow: 10px 10px 60px #fce1e1, -10px -10px 60px #ffffff;
 }
 
 .donorTitle {
@@ -44,10 +46,9 @@
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
-  line-height: 80px;
+  /* line-height: 80px; */
   color: #f6655f;
   text-align: center;
-  margin-top: 35px;
 }
 
 .donorSearchContainer {
@@ -66,7 +67,8 @@
   width: 700px;
   height: 60px;
   background: #ffffff;
-  border: 1px solid #f6655f;
+  border: 1px solid rgba(249, 203, 203, 0.07);
+  box-shadow: #f77e7e5b 8px 8px 24px;
   border-radius: 100px;
   outline: none;
 }
@@ -111,7 +113,9 @@
 }
 
 .availableDonorContainer {
-  border: 1px solid #f6655f;
+  border-radius: 10px;
+  background: #fefefe;
+  box-shadow: 10px 10px 60px #fce1e1, -10px -10px 60px #ffffff;
 }
 
 /* .donorLists {
