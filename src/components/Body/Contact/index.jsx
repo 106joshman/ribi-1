@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import styles from "./donate.module.css";
-import hero from "../../assets/hero.png";
+import styles from "../donate.module.css";
+import hero from "../../../assets/hero.png";
 import { Link } from "react-router-dom";
-import call from "../images/call.png";
-import mail from "../images/mail.png";
-import browser from "../images/browser.png";
-import map from "../images/map.png";
-import facebook from "../images/Facebook.png";
-import Linkedin from "../images/Linkedin.png";
-import Twitter from "../images/Twitter.png";
+import call from "../../images/call.png";
+import mail from "../../images/mail.png";
+import browser from "../../images/browser.png";
+import map from "../../images/map.png";
+import facebook from "../../images/Facebook.png";
+import Linkedin from "../../images/Linkedin.png";
+import Twitter from "../../images/Twitter.png";
 
 const Contact = () => {
   const [name, setName] = useState("");
