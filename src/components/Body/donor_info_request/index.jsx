@@ -82,8 +82,8 @@ function DonorInfoRequest() {
                     {donor.city}
                   </p>
                 </div>
-                <div className={styles.donorStatusWrap}>
-                  <p className={styles.donorLocWrap}>Availability</p>
+                <div className="border-white border-y p-3 mb-5 border-opacity-50">
+                  <p className="opacity-50 font-normal mb-5">Availability</p>
                   <h5 className="text-white">Available</h5>
                 </div>
                 <div className={styles.bloodTypeWrap}>
