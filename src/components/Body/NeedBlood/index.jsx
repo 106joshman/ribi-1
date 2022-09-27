@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "./need.module.css";
-import hero from "../../assets/hero.png";
-import spinners from "../../assets/images/spinner.svg";
-import profile1 from "../../assets/profile1.png";
-import place from "../../assets/place.png";
+import hero from "../../../assets/hero.png";
+import spinners from "../../../assets/images/spinner.svg";
+import profile1 from "../../../assets/profile1.png";
+import place from "../../../assets/place.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Paginate } from "./pagination";
-import { apiBaseURL } from "../../axios";
+import { Paginate } from "../pagination";
+import { apiBaseURL } from "../../../axios";
 // import { Pagination, Stack } from "@mui/material";
 
 const Need = () => {

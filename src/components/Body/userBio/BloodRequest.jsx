@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import requestDrop from "../../../assets/requestDrop.png";
-import styles from "../request.module.css";
+import styles from "../Request/request.module.css";
 import ConfirmRequest from "../Modal/ConfirmRequest";
 
 const BloodRequest = () => {

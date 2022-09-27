@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import requestDrop from "../../../assets/requestDrop.png";
-import styles from "../request.module.css";
-import ConfirmRequest from "../Modal/ConfirmRequest";
+import styles from "../Request/request.module.css";
 const Donated = () => {
   const [id, setID] = useState(null);
 
