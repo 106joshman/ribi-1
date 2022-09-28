@@ -4,13 +4,10 @@ import styles from "./header.module.css";
 import logo from "../images/logo.svg";
 import { Link } from "react-router-dom";
 import Signup from "../Body/Modal/Signup";
-import Menu from "../Body/mobile_menu";
 import { useSelector } from "react-redux";
-import { MobileMenu } from "../Body/mobile_menu/MUIMENU";
+import { MobileMenu } from "../Body/MobileMenu";
 
 const Header = () => {
-  // const [isOpen, setOpen] = useState(false);
-  const [show, setShow] = useState(false);
   const token = useSelector((state) => state.user.token);
   const [isLogged] = useState(false);
 
@@ -26,24 +23,6 @@ const Header = () => {
           <img src={logo} alt="RIBI logo" className={styles.img} />
         </Link>
       </div>
-      {/*<nav className="hidden sm:block">
-        {isLogged ? (
-          <>
-          <Link
-              to="/need-blood"
-              className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
-                  need blood
-          </Link>
-          <Link
-              to="/signup"
-              className="rounded-full text-white uppercase bg-thickred py-1 px-6 mx-1 cursor-pointer">
-                  donate blood
-          </Link>
-          </>
-          ) : (
-          <Signup />
-        )}
-        </nav>*/}
 
       <nav className={styles.nav}>
         <div className="flex">
@@ -80,7 +59,6 @@ const Header = () => {
       </nav>
       <div className={styles.hamburger}>
         <MobileMenu />
-        {/* <Menu onClose={() => setShow(false)} show={show} /> */}
       </div>
     </div>
   );

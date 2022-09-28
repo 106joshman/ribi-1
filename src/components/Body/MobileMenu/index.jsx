@@ -1,11 +1,11 @@
 import { Box, Button, Link, Modal } from "@mui/material";
 import React from "react";
 import { useState } from "react";
-import styles from "../style.module.css";
+import styles from "./style.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useSelector } from "react-redux";
-import Signup from "../../Modal/Signup";
+import Signup from "../Modal/Signup";
 
 const style = {
   position: "absolute",
