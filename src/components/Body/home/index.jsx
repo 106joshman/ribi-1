@@ -103,7 +103,7 @@ const Home = () => {
           </p>
           <p className="">
             We provide the day to day communication between the individual who
-            needs the blood and the donor who is ready to donate his/blood to
+            needs the blood and the donor who is ready to donate his/her blood to
             save a life. We are open to different Medical Centers who are ready
             to make this a success in assisting to save human lives by
             establishing a testing center for the Donor and the Donee.
