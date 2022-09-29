@@ -86,7 +86,7 @@ const Signup = ({ handleModalClose }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
-  const [age, setAge] = useState("");
+  // const [age, setAge] = useState("");
   const [phone, setPhone] = useState("");
   const [bloodType, setBloodType] = useState("");
   const [ailmentDiagnosis, setAilmentDiagnosis] = useState("");
@@ -138,7 +138,6 @@ const Signup = ({ handleModalClose }) => {
           firstname: firstName,
           lastname: lastName,
           gender,
-          age,
           dateOfBirth: dateOfBirth,
           phone,
           bloodType,
@@ -414,7 +413,7 @@ const Signup = ({ handleModalClose }) => {
                           <option value="female">Female</option>
                         </select>
                       </div>
-                      <div className={styles.formController}>
+                      {/* <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           Age*
                         </label>
@@ -423,7 +422,7 @@ const Signup = ({ handleModalClose }) => {
                           className={styles.inputField}
                           onChange={(e) => setAge(e.target.value)}
                         />
-                      </div>
+                      </div> */}
                       <div className={styles.formController}>
                         <label required={true} className={styles.label}>
                           Phone number*

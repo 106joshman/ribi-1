@@ -13,6 +13,7 @@ const DashboardEdit = ({ handleToggles }) => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.user.token);
+  // const autoClose = handleToggles();
 
   const [firstname, setFirstname] = useState(user?.firstname);
   const [lastname, setLastname] = useState(user?.lastname);
@@ -61,20 +62,23 @@ const DashboardEdit = ({ handleToggles }) => {
     // console.log("This is just the data", data);
 
     try {
-      const response = await axios.patch(
-        `${apiBaseURL}/v1/donors/updateUser`,
-        userData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      console.log("This is the newly updated", response.data);
+      // const response =
+      await axios.patch(`${apiBaseURL}/v1/donors/updateUser`, userData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      // console.log("This is the newly updated", response.data);
+
       return Swal.fire({
         icon: "success",
         title: "Profile Updated",
         text: "Your Profile is updated",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.reload();
+          return handleToggles();
+        }
       });
     } catch (error) {
       console.log(error.response);
