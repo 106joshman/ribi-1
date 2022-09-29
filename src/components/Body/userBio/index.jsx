@@ -209,9 +209,7 @@ const Bio = (props) => {
                       <p className={styles.detailText}>Gender:</p>
                       <p className={styles.detailText}>{user.gender}</p>
                       <p className={styles.detailText}>Date of Birth:</p>
-                      <p className={styles.detailText}>
-                        {user.dateOfBirth.toString().slice(0, 10)}
-                      </p>
+                      <p className={styles.detailText}>{user.dateOfBirth}</p>
                       <p className={styles.detailText}>Blood Type:</p>
                       <p className={styles.detailText}>{user.bloodType}</p>
                       <p className={styles.detailText}>Ailment Diagnosis:</p>
