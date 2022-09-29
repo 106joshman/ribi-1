@@ -21,6 +21,7 @@ import {
   dispatchUserId,
 } from "../../../redux/userSlice.js";
 import { apiBaseURL } from "../../../axios";
+import { apiBaseImageUpload } from "../../../axios";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ReactFlagsSelect from "react-flags-select";
@@ -81,7 +82,7 @@ const Signup = ({ handleModalClose }) => {
   // const [image, setImage] = useState(
   //   "https://cdn.pixabay.com/photo/2018/11/13/21/43/instagram-3814049_960_720.png"
   // );
-  const [image, setImage] = useState("");
+  const [profilePicture, setProfilePicture] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
@@ -97,6 +98,25 @@ const Signup = ({ handleModalClose }) => {
   const [password, setPassword] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState(new Date());
   const [userChecked, setUserChecked] = useState(false);
+
+  // handle Picture Upload
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+
+    const myFormData = new FormData();
+    myFormData.append("image", file);
+
+    try {
+      const { data } = await axios.post(
+        `${apiBaseImageUpload}/solitary`,
+        myFormData
+      );
+      setProfilePicture(data.secure_url);
+      console.log("data picture is:", data.secure_url);
+    } catch (err) {
+      console.log(`${err}`);
+    }
+  };
 
   console.log(dateOfBirth);
 
@@ -114,7 +134,7 @@ const Signup = ({ handleModalClose }) => {
         });
       } else {
         const userData = {
-          avater: image,
+          avater: profilePicture,
           firstname: firstName,
           lastname: lastName,
           gender,
@@ -341,7 +361,9 @@ const Signup = ({ handleModalClose }) => {
                         <div className={styles.profilePicFlex}>
                           <img
                             className={styles.defaultPhoto}
-                            src={!image ? defaultPhoto : image}
+                            src={
+                              !profilePicture ? defaultPhoto : profilePicture
+                            }
                             alt="default"
                           />
                           <label
@@ -355,11 +377,7 @@ const Signup = ({ handleModalClose }) => {
                             type="file"
                             accept="image/*, capture=camera "
                             id="fusk"
-                            onChange={(e) => {
-                              // setImage(e.target.files[0]);
-                              setImage(URL.createObjectURL(e.target.files[0]));
-                              console.log(e.target.files[0]);
-                            }}
+                            onChange={handleImageUpload}
                           />
                         </div>
                       </div>

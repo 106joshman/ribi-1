@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import { AiOutlineCamera } from "react-icons/ai";
 import { apiBaseURL } from "../../../axios";
+import { apiBaseImageUpload } from "../../../axios";
 
 const DashboardEdit = ({ handleToggles }) => {
   const navigate = useNavigate();
@@ -20,22 +21,42 @@ const DashboardEdit = ({ handleToggles }) => {
   const [address, setAddress] = useState(user?.donorLocation);
   const [stateValue, setStateValue] = useState(user?.state);
   const [city, setCity] = useState(user?.city);
-  const [image, setImage] = useState(user?.avater);
+  // const [image, setImage] = useState(user?.avater);
+  const [profilePicture, setProfilePicture] = useState(user?.avater);
   // const [email, setEmail] = useState(user?.email);
+
+  // handle Picture Upload
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+
+    const myFormData = new FormData();
+    myFormData.append("image", file);
+
+    try {
+      const { data } = await axios.post(
+        `${apiBaseImageUpload}/solitary`,
+        myFormData
+      );
+      setProfilePicture(data.secure_url);
+      // console.log("data picture is:", data.secure_url);
+    } catch (err) {
+      console.log(`${err}`);
+    }
+  };
+  // handle Picture Upload
 
   // Handles Form Submission
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("Profile Submitted");
     const userData = {
       firstname: firstname ? firstname : user?.firstname,
       lastname: lastname ? lastname : user?.lastname,
       phone: phone ? phone : user?.phone,
-      // bloodType: bloodType ? bloodType : user?.bloodType,
       donorLocation: address ? address : user?.address,
       state: stateValue ? stateValue : user?.stateValue,
       city: city ? city : user?.city,
+      avater: profilePicture ? profilePicture : user?.profilePicture,
     };
     // console.log("This is just the data", data);
 
@@ -89,9 +110,9 @@ const DashboardEdit = ({ handleToggles }) => {
               <div className="relative flex justify-center items-center my-4">
                 <img
                   src={
-                    !image
+                    !profilePicture
                       ? "https://cdn.pixabay.com/photo/2018/11/13/21/43/instagram-3814049_960_720.png"
-                      : image
+                      : profilePicture
                   }
                   alt={user.firstname}
                   onError={(event) => {
@@ -108,11 +129,12 @@ const DashboardEdit = ({ handleToggles }) => {
                       style={{ display: "none" }}
                       type="file"
                       accept="image/*, capture=camera "
-                      id="fusk"
-                      onChange={(e) => {
-                        setImage(URL.createObjectURL(e.target.files[0]));
-                        console.log(e.target.files[0]);
-                      }}
+                      // id="fusk"
+                      onChange={handleImageUpload}
+                      // onChange={(e) => {
+                      //   setImage(URL.createObjectURL(e.target.files[0]));
+                      //   console.log(e.target.files[0]);
+                      // }}
                     />
                     <br />
                     <span id="imageName"></span>
