@@ -107,9 +107,9 @@ const Popup = (props) => {
   };
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const { id } = useParams();
+  // const { id } = useParams();
 
-  console.log("This is a text for the id", id);
+  // console.log("This is a text for the id", id);
 
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");

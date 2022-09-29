@@ -21,7 +21,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route element={<WithoutNav />}>
-            <Route path="/dashboard" element={<Bio />} />
+            <Route path="dashboard" element={<Bio />} />
           </Route>
           <Route path="/" element={<WithNav />}>
             <Route index element={<Home />} />
