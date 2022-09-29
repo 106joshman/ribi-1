@@ -112,13 +112,13 @@ const Signup = ({ handleModalClose }) => {
         myFormData
       );
       setProfilePicture(data.secure_url);
-      console.log("data picture is:", data.secure_url);
+      // console.log("data picture is:", data.secure_url);
     } catch (err) {
       console.log(`${err}`);
     }
   };
 
-  console.log(dateOfBirth);
+  // console.log(dateOfBirth);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
