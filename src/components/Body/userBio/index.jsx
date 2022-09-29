@@ -34,7 +34,7 @@ const Bio = (props) => {
   const [openEdit, setOpenEdit] = useState(false);
 
   const handleToggles = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     setOpenEdit(!openEdit);
   };
 
@@ -208,8 +208,10 @@ const Bio = (props) => {
                     <div className="grid grid-cols-2 px-3">
                       <p className={styles.detailText}>Gender:</p>
                       <p className={styles.detailText}>{user.gender}</p>
-                      <p className={styles.detailText}>Age:</p>
-                      <p className={styles.detailText}>{user.age}</p>
+                      <p className={styles.detailText}>Date of Birth:</p>
+                      <p className={styles.detailText}>
+                        {user.dateOfBirth.toString().slice(0, 10)}
+                      </p>
                       <p className={styles.detailText}>Blood Type:</p>
                       <p className={styles.detailText}>{user.bloodType}</p>
                       <p className={styles.detailText}>Ailment Diagnosis:</p>
