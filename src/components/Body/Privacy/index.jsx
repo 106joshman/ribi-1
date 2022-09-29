@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./privacy.module.css";
-import hero from "../../assets/hero.png";
+import hero from "../../../assets/hero.png";
 
 const Privacy = () => {
   return (

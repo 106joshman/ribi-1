@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./need.module.css";
-import hero from "../../assets/hero.png";
+import styles from "../NeedBlood/need.module.css";
+import hero from "../../../assets/hero.png";
 
 const About = () => {
   return (

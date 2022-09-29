@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./donorInfo.module.css";
-import design from "../need.module.css";
+import design from "../NeedBlood/need.module.css";
 import hero from "../../../assets/hero.png";
 import Popu from "../pop";
-// import Default from "../../../assets/defaultUserImage.png";
-import Loader from "../../Loader";
+import Loader from "../../utils/Loader";
 import { apiBaseURL } from "../../../axios";
-// import DonorVerified from "../donee-verify-request";
-// import { useSelector } from "react-redux";
-// import axios from "axios";
 
 function DonorInfoRequest() {
   const { id } = useParams();
@@ -86,9 +82,9 @@ function DonorInfoRequest() {
                     {donor.city}
                   </p>
                 </div>
-                <div className={styles.donorStatusWrap}>
-                  <p className={styles.donorLocWrap}>Availability</p>
-                  <h5 className="">Available</h5>
+                <div className="border-white border-y p-3 mb-5 border-opacity-50">
+                  <p className="opacity-50 font-normal mb-5">Availability</p>
+                  <h5 className="text-white">Available</h5>
                 </div>
                 <div className={styles.bloodTypeWrap}>
                   <p className={styles.bloodType}>{donor.bloodType}</p>

@@ -1,10 +1,10 @@
-import styles from "./donate.module.css";
-import hero from "../../assets/hero.png";
+import styles from "../donate.module.css";
+import hero from '../../../assets/hero.png'
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import CountUp from "react-countup";
-import { apiBaseURL } from "../../axios";
+import { apiBaseURL } from "../../../axios";
 
 const Insight = () => {
   const [count, setCount] = useState({});

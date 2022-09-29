@@ -1,10 +1,9 @@
 import ErrorPage from "./components/Body/not-found";
 import Home from "./components/Body/home";
-import Need from "./components/Body/Need";
 import About from "./components/Body/About";
 import Bio from "./components/Body/userBio";
-// import Request from "./components/Body/Request";
-import Edit from "./components/Body/Edit";
+import Need from "./components/Body/NeedBlood";
+import Edit from "./components/Body/UserEdit";
 import Privacy from "./components/Body/Privacy";
 import Signin from "./components/Body/Modal/Signin";
 import Signup from "./components/Body/Modal/Signup";
@@ -15,7 +14,7 @@ import "sweetalert2/src/sweetalert2.scss";
 import DonorInfoRequest from "./components/Body/donor_info_request";
 import WithoutNav from "./components/header/navheaders/WithoutNav";
 import { WithNav } from "./components/header/navheaders/WithNav";
-import MoveUp from "./components/Body/MoveUp";
+import MoveUp from "./components/utils/MoveUp";
 function App() {
   return (
     <Router>

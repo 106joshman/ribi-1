@@ -6,7 +6,7 @@ import blub from "../../assets/blub.png";
 import blub2 from "../../assets/blub2.png";
 import donorPic from "../../assets/donorPic.png";
 import requestDrop from "../../assets/requestDrop.png";
-import ConfirmRequest from "./Modal/ConfirmRequest";
+import ConfirmRequest from "../Modal/ConfirmRequest";
 
 const Bio = () => {
   const [id, setID] = useState(null);
