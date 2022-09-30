@@ -210,7 +210,9 @@ const Bio = (props) => {
                       <p className={styles.detailText}>{user.gender}</p>
                       <p className={styles.detailText}>Date of Birth:</p>
                       <p className={styles.detailText}>
-                        {`${user.dateOfBirth}`.slice(0, 10)}
+                        {user.dateOfBirth
+                          ? `${user.dateOfBirth}`.slice(0, 10)
+                          : "0-0-0"}
                       </p>
                       <p className={styles.detailText}>Blood Type:</p>
                       <p className={styles.detailText}>{user.bloodType}</p>
