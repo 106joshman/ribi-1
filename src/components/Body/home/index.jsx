@@ -223,7 +223,9 @@ const Home = () => {
             </p>
             <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 lg:gap-6 gap-1">
               <div>
-                <ul className={`${styles.listImage} bg-yellow-50 px-6 py-6`}>
+                <ul
+                  className={`${styles.listImage} bg-white px-6 rounded-lg py-6 shadow-lg`}
+                >
                   <h2 className="font-bold text-2xl">Donor</h2>
                   <li style={{ marginTop: "15px", marginLeft: "12px" }}>
                     Register/Signup
@@ -244,7 +246,9 @@ const Home = () => {
               </div>
               {/* Donee */}
               <div>
-                <ul className={`${styles.listImage} bg-red-50 px-6 py-6`}>
+                <ul
+                  className={`${styles.listImage} bg-white px-6 rounded-lg py-6 shadow-lg`}
+                >
                   <h2 className="font-bold text-2xl">Donee</h2>
                   <li style={{ marginTop: "15px", marginLeft: "12px" }}>
                     Click on Need Blood
