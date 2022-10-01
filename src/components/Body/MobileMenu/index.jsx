@@ -47,8 +47,12 @@ export const MobileMenu = () => {
 
   return (
     <div>
-      <Button onClick={handleModalOpen} aria-expanded={modalOpen}>
-        <GiHamburgerMenu size={35} color="#f6655f" />
+      <Button
+        onClick={handleModalOpen}
+        aria-expanded={modalOpen}
+        className="shadow-md"
+      >
+        <GiHamburgerMenu size={28} color="#f6655f" />
       </Button>
       <Modal
         open={modalOpen}
