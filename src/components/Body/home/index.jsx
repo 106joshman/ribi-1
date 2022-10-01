@@ -176,7 +176,7 @@ const Home = () => {
         <div className={`${styles.objectCardHolder} lg:px-12 px-8`}>
           {cardData.map(({ id, title, text }) => {
             return (
-              <div key={id} className={styles.objectCard}>
+              <div key={id} className={`${styles.objectCard} rounded-lg`}>
                 <h6
                   style={{
                     margin: "20px 0",
@@ -197,9 +197,9 @@ const Home = () => {
                     alignItems: "center",
                     textAlign: "center",
                   }}
-                  className="hover:text-[#fabbbb]"
+                  className="hover:text-white hover:font-bold"
                 >
-                  Learn More <AiOutlineArrowRight />
+                  Learn More <AiOutlineArrowRight className="ml-2" />
                 </Link>
               </div>
             );
