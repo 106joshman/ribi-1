@@ -153,7 +153,7 @@ const Home = () => {
         <div className={styles.bloodTypesWrapper}>
           {blood.map((item) => {
             return (
-              <div key={item.id} className={styles.blood}>
+              <div key={item.id} className={`${styles.blood} drop-shadow-md`}>
                 <div className={styles.drop}>
                   <p className={styles.bloodText}>{item.type}</p>
                 </div>
