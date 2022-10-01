@@ -27,9 +27,27 @@ export const MobileMenu = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const handleModalOpen = () => setModalOpen(true);
   const handleModalClose = () => setModalOpen(false);
+
+  // const [mobileMenu, setMobileMenu] = useState(true);
+
+  // Control Mobile Menu Focus
+  // const mobileMenuRef = useRef();
+
+  // useEffect(() => {
+  //   const getMobileFocus = (e) => {
+  //     if (cref.current && !cref.current.contains(e.target)) {
+  //       setMobileMenu(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", getMobileFocus);
+  //   return () => {
+  //     document.removeEventListener("mousedown", getMobileFocus);
+  //   };
+  // }, [cref]);
+
   return (
     <div>
-      <Button onClick={handleModalOpen}>
+      <Button onClick={handleModalOpen} aria-expanded={modalOpen}>
         <GiHamburgerMenu size={35} color="#f6655f" />
       </Button>
       <Modal

@@ -61,13 +61,39 @@ const Home = () => {
     <main className="main">
       <div className={styles.heroWrapper}>
         <div className={styles.heroLeft}>
-          <h1 className={styles.bigText}>Learn To Give Blood</h1>
-          <p className={styles.smallText}>
-            Register today and help save a live
+          <h1 className={`${styles.bigText}`}>
+            Learn To <span className="text-[#f6655f]">Donate Blood</span>{" "}
+          </h1>
+          <p className={`${styles.smallText} lg:max-w-md my-[20px]`}>
+            We believe there are many people in the world who needs to be saved
+            and we are here so we can assist.
+            <span className="lg:block">
+              You can help save a life by{" "}
+              <span className=" text-[#f6655f]">Registering</span>, today.
+            </span>
           </p>
-          <Link to="/need-blood" className={styles.linkBlood}>
+          <Link
+            to="/need-blood"
+            className={`${styles.linkHero} hover:gap-[3px]`}
+          >
             Find Blood <AiOutlineArrowRight className="ml-2" />
           </Link>
+          {/* <div className="max-w-md text-xs">
+            <div className="flex items-center gap-x-4 ">
+              <div className="flex items-center gap-x-3">
+                Donated{" "}
+                <p className=" text-white bg-[#f6655f] py-1 px-2 rounded-full">
+                  40
+                </p>
+              </div>
+              <div className="flex items-center gap-x-3">
+                Requested{" "}
+                <p className=" text-white bg-[#f6655f] py-1 px-2 rounded-full">
+                  40
+                </p>
+              </div>
+            </div>
+          </div> */}
         </div>
         <div className="hero-right hidden md:inline md:w-3/5">
           <div className={styles.backGround}>
@@ -103,9 +129,9 @@ const Home = () => {
           </p>
           <p className="">
             We provide the day to day communication between the individual who
-            needs the blood and the donor who is ready to donate his/her blood to
-            save a life. We are open to different Medical Centers who are ready
-            to make this a success in assisting to save human lives by
+            needs the blood and the donor who is ready to donate his/her blood
+            to save a life. We are open to different Medical Centers who are
+            ready to make this a success in assisting to save human lives by
             establishing a testing center for the Donor and the Donee.
           </p>
           <div style={{ margin: "20px 0" }}>
@@ -137,8 +163,10 @@ const Home = () => {
         </div>
       </div>
       <div className={`{styles.objectives} `}>
-        <div className="mssn">
-          <p className={styles.objctText}>
+        <div className="mssn flex items-center justify-center">
+          <p
+            className={`${styles.objctText} max-w-lg capitalize text-black font-bold`}
+          >
             Your donation will save lives.{" "}
             <span className="lg:block">
               It’s not just an appointment, it’s a commitment to save lives!
