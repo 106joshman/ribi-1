@@ -60,6 +60,10 @@
   cursor: pointer;
 }
 
+.need:hover {
+  background-color: #f54b46;
+}
+
 .donate {
   border-radius: 9999px;
   color: white;
