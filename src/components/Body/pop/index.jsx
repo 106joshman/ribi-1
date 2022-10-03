@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./Popup.module.css";
 import stylee from "./verify.module.css";
 import { AiOutlineClose } from "react-icons/ai";
@@ -107,7 +107,7 @@ const Popup = (props) => {
   };
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  // const { id } = useParams();
+  const { id } = useParams();
 
   // console.log("This is a text for the id", id);
 
@@ -158,7 +158,7 @@ const Popup = (props) => {
 
     axios({
       method: "post",
-      url: `${apiBaseURL}/v1/patients`,
+      url: `${apiBaseURL}/v1/patients?donorId=${id}`,
       data: patientRequestData,
     })
       .then((response) => {

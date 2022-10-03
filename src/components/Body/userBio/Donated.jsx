@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import requestDrop from "../../../assets/requestDrop.png";
-import styles from "../Request/request.module.css";
+import styles from "./request.module.css";
 const Donated = () => {
-  const [id] = useState(null);
+  const [id, setID] = useState(null);
 
   return (
     <>
       <ul className={styles.unorderedList}>
-        <li className={styles.list} onClick={() => id(1)}>
+        <li className={styles.list} onClick={() => setID(1)}>
           <div className={styles.date}>
             <div className={styles.month}>Oct</div>
             <div className={styles.monthDate}>7</div>
@@ -23,7 +23,7 @@ const Donated = () => {
           <span className={styles.greenSide}>Donated</span>
         </li>
 
-        <li className={styles.list} onClick={() => id(2)}>
+        <li className={styles.list} onClick={() => setID(2)}>
           <div className={styles.date}>
             <div className={styles.month}>Dec</div>
             <div className={styles.monthDate}>8</div>
@@ -41,7 +41,7 @@ const Donated = () => {
           <span className={styles.greenSide}>Donated</span>
         </li>
 
-        <li className={styles.list} onClick={() => id(3)}>
+        <li className={styles.list} onClick={() => setID(3)}>
           <div className={styles.date}>
             <div className={styles.month}>Jan</div>
             <div className={styles.monthDate}>5</div>
