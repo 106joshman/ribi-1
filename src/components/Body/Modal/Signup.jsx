@@ -126,7 +126,7 @@ const Signup = ({ handleModalClose }) => {
     if (!login) {
       if (!firstName) {
         handleClose();
-        handleModalClose();
+        // handleModalClose();
         return Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -158,7 +158,7 @@ const Signup = ({ handleModalClose }) => {
           );
           console.log("user data from post", response);
           handleClose();
-          handleModalClose();
+          // handleModalClose();
           navigate("/");
           return Swal.fire({
             icon: "success",
@@ -168,7 +168,7 @@ const Signup = ({ handleModalClose }) => {
         } catch (error) {
           // console.log("this is a catch error from signup", error.response.statusText)
           handleClose();
-          handleModalClose();
+          // handleModalClose();
           return Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -179,7 +179,7 @@ const Signup = ({ handleModalClose }) => {
     } else {
       if (!email || !password) {
         handleClose();
-        handleModalClose();
+        // handleModalClose();
         return Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -200,7 +200,7 @@ const Signup = ({ handleModalClose }) => {
           dispatch(dispatchUserToken(response.data.token));
           dispatch(dispatchUserId(response.data.user.userId));
           handleClose();
-          handleModalClose();
+          // handleModalClose();
           navigate("/dashboard");
           return Swal.fire({
             icon: "success",
@@ -209,11 +209,11 @@ const Signup = ({ handleModalClose }) => {
           });
         } catch (error) {
           handleClose();
-          handleModalClose();
+          // handleModalClose();
           return Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: error.response.data.msg,
+            text: `${error.message}, Try Again...`,
           });
         }
       }
