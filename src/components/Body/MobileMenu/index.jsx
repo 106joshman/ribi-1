@@ -57,7 +57,8 @@ export const MobileMenu = () => {
               <Link
                 href="/need-blood"
                 underline="none"
-                color="white"
+                // color="white"
+                color="#f66557"
                 sx={{ mb: 3 }}
                 aria-label="Need blood link"
                 className={styles.need}
