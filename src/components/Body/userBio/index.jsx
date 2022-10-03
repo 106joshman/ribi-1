@@ -111,12 +111,18 @@ const Bio = (props) => {
             {/* Dropdown Options */}
             <div className="flex items-center cursor-pointer space-x-3">
               <div className="notifik mr">
-                <Badge badgeContent={3} color="error">
+                {/* <div className=" bg-red-200 p-2"> */}
+                <Badge
+                  badgeContent={user.requests.length}
+                  color="error"
+                  className="animate-pulse"
+                >
                   <NotificationsNoneIcon
-                    className=" hover:text-red-500"
+                    className=" hover:text-red-500 "
                     size="medium"
                   />
                 </Badge>
+                {/* </div> */}
               </div>
               <div
                 className="flex space-x-2 items-center"
