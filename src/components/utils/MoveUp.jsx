@@ -24,7 +24,7 @@ const MoveUp = () => {
           className="fixed bottom-3 right-3 p-2 hover:bg-slate-800 rounded-full border-2 border-white bg-[#f6655f] text-white cursor-pointer hover:rotate-2"
           onClick={goToTop}
         >
-          <AiOutlineArrowUp className="hover:scale-125" />
+          <AiOutlineArrowUp className="hover:scale-125 animate-bounce" />
         </div>
       )}
     </>

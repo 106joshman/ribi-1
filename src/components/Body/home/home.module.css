@@ -1,12 +1,12 @@
 .heroWrapper {
-  padding: 36px 40px;
+  padding: 72px 40px;
   display: flex;
   flex-direction: row;
   height: auto;
   width: 100%;
   align-items: center;
-  background-color: #f6655f;
-  color: white;
+  background-color: #f9e9e9;
+  color: #333333;
   justify-content: space-between;
 }
 
@@ -17,12 +17,13 @@
 
 .bigText {
   font-size: 5vw;
+  line-height: 70px;
   font-weight: 700;
 }
 
 .smallText {
   font-weight: 400;
-  margin: 20px auto;
+  /* margin: 20px auto; */
   line-height: 1.625;
 }
 
@@ -31,10 +32,21 @@
   margin-bottom: 40px;
   display: inline-flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: 2px solid white;
   text-decoration: none;
   color: white;
+}
+.linkHero {
+  border-radius: 1.5rem;
+  margin-bottom: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  border: 2px solid #f6655f;
+  text-decoration: none;
+  color: #f6655f;
+  transition: 0.3s ease;
 }
 
 .heroRight {
@@ -62,8 +74,8 @@
 }
 
 .about {
-  background: rgba(241, 144, 140, 0.1);
-  padding: 48px 40px;
+  /* background: rgba(241, 144, 140, 0.1); */
+  padding: 64px 40px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -72,16 +84,23 @@
 .aboutCard {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 50px;
+  gap: 5px;
+  padding: 20px;
 }
 
 .singleCard {
   width: 160px;
   background-color: #ffffff;
   border-radius: 6px;
-  padding: 20px;
-  margin: 20px;
-  box-shadow: 0 10px 6px -6px rgb(196, 194, 194);
+  padding: 30px;
+  margin: 10px;
+
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.singleCard:hover {
+  box-shadow: 0 4px 4px 4px rgb(230, 184, 173);
+  transform: scale(1.1);
 }
 
 .aboutText {
@@ -274,9 +293,9 @@ Screen orientation
     text-align: center;
   }
 
-  /* .bigText {
+  .bigText {
     font-size: 48px;
-  } */
+  }
 
   .heroRight {
     width: 60%;
