@@ -43,7 +43,7 @@ const Edit = () => {
       state: stateValue ? stateValue : user?.state,
       city: city ? city : user?.city,
     };
-    const response = await axios.patch(
+    await axios.patch(
       "https://ribi-donor.herokuapp.com/api/v1/donors/updateUser",
       data,
       {

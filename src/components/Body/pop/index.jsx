@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Popup.module.css";
 import stylee from "./verify.module.css";
 import { AiOutlineClose } from "react-icons/ai";

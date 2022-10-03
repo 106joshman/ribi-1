@@ -46,6 +46,7 @@ const Signup = ({ handleModalClose }) => {
   const size = WindowSize();
   const [showPassword, setShowPassword] = useState(false);
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => {
     setOpen(true);
   };

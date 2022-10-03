@@ -8,13 +8,13 @@ import heart from "../../images/Group157.png";
 import hands from "../../images/Group217.png";
 import work from "../../images/unsplash_W6yy0wYV-hk.png";
 import { useState } from "react";
-import Signup from "../Modal/Signup";
+// import Signup from "../Modal/Signup";
 
 const Home = () => {
   // donor instructions card
-  const [register, setRegister] = useState(false);
+  const [register] = useState(false);
   const handleOpenRegister = () => {
-    setRegister(true);
+    register(true);
   };
   const cardData = [
     {
