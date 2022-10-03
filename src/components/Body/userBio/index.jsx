@@ -242,6 +242,19 @@ const Bio = (props) => {
             <h3 className="py-3 text-center text-lg font-semibold text-[#f6655f]">
               Pending Requests
             </h3>
+
+            <div className="my-4">
+              {user?.requests.map((id, index) => (
+                <>
+                  <div key={index}>
+                    <p className="my-2 bg-slate-100 hover:bg-red-100 p-3">
+                      {id}
+                    </p>
+                  </div>
+                </>
+              ))}
+            </div>
+
             <BloodRequest />
           </div>
           <div className="lg:w-1/3 w-full bg-white rounded-sm px-3 shadow-lg ">
