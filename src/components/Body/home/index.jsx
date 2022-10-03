@@ -61,13 +61,39 @@ const Home = () => {
     <main className="main">
       <div className={styles.heroWrapper}>
         <div className={styles.heroLeft}>
-          <h1 className={styles.bigText}>Learn To Give Blood</h1>
-          <p className={styles.smallText}>
-            Register today and help save a live
+          <h1 className={`${styles.bigText}`}>
+            Learn To <span className="text-[#f6655f]">Donate Blood</span>{" "}
+          </h1>
+          <p className={`${styles.smallText} lg:max-w-md my-[20px]`}>
+            We believe there are many people in the world who needs to be saved
+            and we are here so we can assist.
+            <span className="lg:block">
+              You can help save a life by{" "}
+              <span className=" text-[#f6655f]">Registering</span>, today.
+            </span>
           </p>
-          <Link to="/need-blood" className={styles.linkBlood}>
+          <Link
+            to="/need-blood"
+            className={`${styles.linkHero} hover:gap-[3px]`}
+          >
             Find Blood <AiOutlineArrowRight className="ml-2" />
           </Link>
+          {/* <div className="max-w-md text-xs">
+            <div className="flex items-center gap-x-4 ">
+              <div className="flex items-center gap-x-3">
+                Donated{" "}
+                <p className=" text-white bg-[#f6655f] py-1 px-2 rounded-full">
+                  40
+                </p>
+              </div>
+              <div className="flex items-center gap-x-3">
+                Requested{" "}
+                <p className=" text-white bg-[#f6655f] py-1 px-2 rounded-full">
+                  40
+                </p>
+              </div>
+            </div>
+          </div> */}
         </div>
         <div className="hero-right hidden md:inline md:w-3/5">
           <div className={styles.backGround}>
@@ -127,7 +153,7 @@ const Home = () => {
         <div className={styles.bloodTypesWrapper}>
           {blood.map((item) => {
             return (
-              <div key={item.id} className={styles.blood}>
+              <div key={item.id} className={`${styles.blood} drop-shadow-md`}>
                 <div className={styles.drop}>
                   <p className={styles.bloodText}>{item.type}</p>
                 </div>
@@ -137,8 +163,10 @@ const Home = () => {
         </div>
       </div>
       <div className={`{styles.objectives} `}>
-        <div className="mssn">
-          <p className={styles.objctText}>
+        <div className="mssn flex items-center justify-center">
+          <p
+            className={`${styles.objctText} max-w-lg capitalize text-black font-bold`}
+          >
             Your donation will save lives.{" "}
             <span className="lg:block">
               It’s not just an appointment, it’s a commitment to save lives!
@@ -148,7 +176,7 @@ const Home = () => {
         <div className={`${styles.objectCardHolder} lg:px-12 px-8`}>
           {cardData.map(({ id, title, text }) => {
             return (
-              <div key={id} className={styles.objectCard}>
+              <div key={id} className={`${styles.objectCard} rounded-lg`}>
                 <h6
                   style={{
                     margin: "20px 0",
@@ -169,9 +197,9 @@ const Home = () => {
                     alignItems: "center",
                     textAlign: "center",
                   }}
-                  className="hover:text-[#fabbbb]"
+                  className="hover:text-white hover:font-bold"
                 >
-                  Learn More <AiOutlineArrowRight />
+                  Learn More <AiOutlineArrowRight className="ml-2" />
                 </Link>
               </div>
             );
@@ -195,7 +223,9 @@ const Home = () => {
             </p>
             <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 lg:gap-6 gap-1">
               <div>
-                <ul className={`${styles.listImage} bg-yellow-50 px-6 py-6`}>
+                <ul
+                  className={`${styles.listImage} bg-white px-6 rounded-lg py-6 shadow-lg`}
+                >
                   <h2 className="font-bold text-2xl">Donor</h2>
                   <li style={{ marginTop: "15px", marginLeft: "12px" }}>
                     Register/Signup
@@ -216,7 +246,9 @@ const Home = () => {
               </div>
               {/* Donee */}
               <div>
-                <ul className={`${styles.listImage} bg-red-50 px-6 py-6`}>
+                <ul
+                  className={`${styles.listImage} bg-white px-6 rounded-lg py-6 shadow-lg`}
+                >
                   <h2 className="font-bold text-2xl">Donee</h2>
                   <li style={{ marginTop: "15px", marginLeft: "12px" }}>
                     Click on Need Blood

@@ -27,10 +27,15 @@ export const MobileMenu = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const handleModalOpen = () => setModalOpen(true);
   const handleModalClose = () => setModalOpen(false);
+
   return (
     <div>
-      <Button onClick={handleModalOpen}>
-        <GiHamburgerMenu size={35} color="#f6655f" />
+      <Button
+        onClick={handleModalOpen}
+        aria-expanded={modalOpen}
+        className="shadow-md"
+      >
+        <GiHamburgerMenu size={28} color="#f6655f" />
       </Button>
       <Modal
         open={modalOpen}
@@ -39,9 +44,12 @@ export const MobileMenu = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div className={styles.closeIcon}>
-            <button className={styles.button} onClick={handleModalClose}>
-              <AiOutlineClose size={36} color="black" />
+          <div className={`${styles.closeIcon} -mt-4`}>
+            <button
+              className={`${styles.button} hover:animate-pulse`}
+              onClick={handleModalClose}
+            >
+              <AiOutlineClose size={34} color="black" />
             </button>
           </div>
           <nav className={styles.navLink}>
