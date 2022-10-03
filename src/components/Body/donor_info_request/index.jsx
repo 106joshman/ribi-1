@@ -103,6 +103,7 @@ function DonorInfoRequest() {
                   onClose={() => setShow(false)}
                   show={show}
                   donor={donor}
+                  donorId={id}
                 />
               </div>
             </div>

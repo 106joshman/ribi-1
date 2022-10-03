@@ -25,14 +25,6 @@ const Need = () => {
     setCurrentPage(pageNumber);
   };
 
-  // const nextPage = (pageNumber) => {
-  //   setCurrentPage(pageNumber + 1);
-  // };
-
-  // const prevPage = (pageNumber) => {
-  //   setCurrentPage(pageNumber - 1);
-  // };
-
   const [search, setSearch] = useState("");
   // const [donor, setDonor] = useState({});
   const urls = [

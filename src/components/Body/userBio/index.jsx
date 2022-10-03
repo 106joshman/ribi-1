@@ -240,7 +240,7 @@ const Bio = (props) => {
           </div>
           <div className="lg:w-1/3 w-full bg-white rounded-sm px-3 shadow-lg overflow-y-auto">
             <h3 className="py-3 text-center text-lg font-semibold text-[#f6655f]">
-              Requests
+              Pending Requests
             </h3>
             <BloodRequest />
           </div>
