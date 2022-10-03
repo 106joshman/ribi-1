@@ -111,12 +111,18 @@ const Bio = (props) => {
             {/* Dropdown Options */}
             <div className="flex items-center cursor-pointer space-x-3">
               <div className="notifik mr">
-                <Badge badgeContent={3} color="error">
+                {/* <div className=" bg-red-200 p-2"> */}
+                <Badge
+                  badgeContent={user.requests.length}
+                  color="error"
+                  className="animate-pulse"
+                >
                   <NotificationsNoneIcon
-                    className=" hover:text-red-500"
+                    className=" hover:text-red-500 "
                     size="medium"
                   />
                 </Badge>
+                {/* </div> */}
               </div>
               <div
                 className="flex space-x-2 items-center"
@@ -242,6 +248,19 @@ const Bio = (props) => {
             <h3 className="py-3 text-center text-lg font-semibold text-[#f6655f]">
               Pending Requests
             </h3>
+
+            <div className="my-4">
+              {user?.requests.map((id, index) => (
+                <>
+                  <div key={index}>
+                    <p className="my-2 bg-slate-100 hover:bg-red-100 p-3">
+                      {id}
+                    </p>
+                  </div>
+                </>
+              ))}
+            </div>
+
             <BloodRequest />
           </div>
           <div className="lg:w-1/3 w-full bg-white rounded-sm px-3 shadow-lg ">
