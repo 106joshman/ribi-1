@@ -46,6 +46,7 @@ const Signup = ({ handleModalClose }) => {
   const size = WindowSize();
   const [showPassword, setShowPassword] = useState(false);
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -224,7 +225,10 @@ const Signup = ({ handleModalClose }) => {
     <>
       <button
         className="text-white mx-1 py-2.5 px-5 text-center cursor-pointer bg-[#f6655f] hover:bg-[#f54b46] border-none outline-none rounded-3xl text-base uppercase"
-        onClick={handleOpen}
+        onClick={() => {
+          handleModalClose();
+          handleOpen();
+        }}
       >
         donate blood
       </button>

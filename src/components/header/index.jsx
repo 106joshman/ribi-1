@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
 import styles from "./header.module.css";
 import logo from "../images/logo.svg";
 import { Link } from "react-router-dom";

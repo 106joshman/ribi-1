@@ -8,13 +8,13 @@ import heart from "../../images/Group157.png";
 import hands from "../../images/Group217.png";
 import work from "../../images/unsplash_W6yy0wYV-hk.png";
 import { useState } from "react";
-import Signup from "../Modal/Signup";
+// import Signup from "../Modal/Signup";
 
 const Home = () => {
   // donor instructions card
-  const [register, setRegister] = useState(false);
+  const [register] = useState(false);
   const handleOpenRegister = () => {
-    setRegister(true);
+    register(true);
   };
   const cardData = [
     {
@@ -103,9 +103,9 @@ const Home = () => {
           </p>
           <p className="">
             We provide the day to day communication between the individual who
-            needs the blood and the donor who is ready to donate his/her blood to
-            save a life. We are open to different Medical Centers who are ready
-            to make this a success in assisting to save human lives by
+            needs the blood and the donor who is ready to donate his/her blood
+            to save a life. We are open to different Medical Centers who are
+            ready to make this a success in assisting to save human lives by
             establishing a testing center for the Donor and the Donee.
           </p>
           <div style={{ margin: "20px 0" }}>
