@@ -3,12 +3,16 @@ import requestDrop from "../../../assets/requestDrop.png";
 import styles from "./request.module.css";
 import ConfirmRequest from "../Modal/ConfirmRequest";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 import { apiBaseURL } from "../../../axios";
-import { TempleBuddhist } from "@mui/icons-material";
+import { dispatchUser } from "../../../redux/userSlice";
 
 const BloodRequest = () => {
   const [id, setID] = useState(null);
   const [requestData, setRequestData] = useState([]);
+
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
     window.scrollTo({
@@ -17,13 +21,18 @@ const BloodRequest = () => {
     });
   }, []);
 
+  console.log(user.requests);
+
   useEffect(() => {
-    const getRequest = async () => {
-      const res = await axios.get(`${apiBaseURL}/v1/patients/user/request`);
-      setRequestData(res);
-      console.log(res.data.msg);
-    };
-    getRequest();
+    if (user) {
+      const getRequest = async () => {
+        const res = await axios.get(`${apiBaseURL}/v1/patients/user/request`);
+        console.log(res.user.requests);
+        dispatch(dispatchUser(res.data.user));
+        setRequestData(user.requests);
+      };
+      getRequest();
+    }
   }, []);
 
   return (
@@ -43,7 +52,9 @@ const BloodRequest = () => {
                 </div>
                 <div className={styles.requestPint}>
                   <img className={styles.drop} src={requestDrop} alt="drop" />{" "}
-                  <span className={styles.pintLevel}>{TempleBuddhist.pintOfBlood} pint of blood</span>
+                  <span className={styles.pintLevel}>
+                    {item.pintOfBlood} pint of blood
+                  </span>
                 </div>
               </div>
             </li>
