@@ -113,7 +113,7 @@ const Bio = (props) => {
               <div className="notifik mr">
                 {/* <div className=" bg-red-200 p-2"> */}
                 <Badge
-                  badgeContent={user.requests.length}
+                  badgeContent={user?.requests?.length}
                   color="error"
                   className="animate-pulse"
                 >
@@ -250,7 +250,7 @@ const Bio = (props) => {
             </h3>
 
             <div className="my-4">
-              {user?.requests.map((id, index) => (
+              {user?.requests?.map((id, index) => (
                 <>
                   <div key={index}>
                     <p className="my-2 bg-slate-100 hover:bg-red-100 p-3">
