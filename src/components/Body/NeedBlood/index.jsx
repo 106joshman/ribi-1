@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Paginate } from "../pagination";
 import { apiBaseURL } from "../../../axios";
-import { BiSearch } from "react-icons/bi";
+import { FaSearch } from "react-icons/fa";
 // import { Pagination, Stack } from "@mui/material";
 
 const Need = () => {
@@ -117,7 +117,7 @@ const Need = () => {
                 onClick={getSearch}
                 // ref={refBtn}
               >
-                <BiSearch className="lg:text-3xl text-2xl font-bold" />
+                <FaSearch className="lg:text-3xl text-2xl" />
               </button>
             </div>
             {/* <p className="text-gray-400 text-center">
