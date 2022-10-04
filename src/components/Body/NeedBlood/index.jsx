@@ -93,7 +93,9 @@ const Need = () => {
 
         <section className="my-16">
           <div>
-            <p className={`${styles.donorTitle}`}>Find Blood Donors Here</p>
+            <p className={`${styles.donorTitle} lg:px-12 px-4`}>
+              Find Blood Donors Here
+            </p>
             <p className="text-center text-xs px-8 text-slate-600 my-3">
               Search with Blood type (e.g. O, O+, A, A+, B) Or with state/city
             </p>
@@ -127,7 +129,9 @@ const Need = () => {
         </section>
 
         <section className={styles.availableDonor}>
-          <h2 className={styles.availableDonorTitle}>Available Donors</h2>
+          <h2 className={`${styles.availableDonorTitle} py-4`}>
+            Available Donors
+          </h2>
 
           {/* Users Info */}
 
