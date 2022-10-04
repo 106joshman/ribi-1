@@ -11,14 +11,14 @@ const Footer = () => {
       <div className={styles.footerTop}>
         <h5 className={styles.headText}>DONATE BLOOD WHEN NEEDED</h5>
         <p className={styles.missionText}>
-          Kindly register to donate. Appointments are available at
-          some of our centres.
+          Kindly register to donate. Appointments are available at some of our
+          centres.
         </p>
         <div className={styles.bttn}>
-          <Link to="/insights" className={styles.btn}>
+          <Link to="/insights" className={`${styles.btn} hover:bg-red-400`}>
             👀 Insights
           </Link>
-          <Link to="/contact-us" className={styles.btn}>
+          <Link to="/contact-us" className={`${styles.btn} hover:bg-red-400`}>
             👋 Contact
           </Link>
         </div>
@@ -36,13 +36,13 @@ const Footer = () => {
         </div>
 
         <div className={styles.right}>
-          <div className={styles.socialContainer}>
+          <div className={`${styles.socialContainer} hover:bg-red-400`}>
             <img src={facebook} alt="facebook" />
           </div>
-          <div className={styles.socialContainer}>
+          <div className={`${styles.socialContainer} hover:bg-red-400`}>
             <img src={linkedin} alt="linkedin" />
           </div>
-          <div className={styles.socialContainer}>
+          <div className={`${styles.socialContainer} hover:bg-red-400`}>
             <img src={twitter} alt="twitter" />
           </div>
         </div>

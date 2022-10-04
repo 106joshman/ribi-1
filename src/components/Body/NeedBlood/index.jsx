@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Paginate } from "../pagination";
 import { apiBaseURL } from "../../../axios";
+import { BiSearch } from "react-icons/bi";
 // import { Pagination, Stack } from "@mui/material";
 
 const Need = () => {
@@ -90,33 +91,39 @@ const Need = () => {
           </div>
         </section>
 
-        <section className={`${styles.findDonor}`}>
-          <div className={styles.donorTitle}>Find Blood Donors Here</div>
-          <p className="text-center text-xs px-8 text-slate-600">
-            Search with Blood type (e.g. O, O+, A, A+, B) Or with state/city
-          </p>
-          <div className={styles.donorSearchContainer}>
-            <input
-              className={`${styles.donorSearch}`}
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              // onKeyPress={getSearch}
-              // onKeyUp={getSearch}
-              placeholder="Search with Lagos or Ikeja or A+"
-              title="Search with Blood type (e.g. O, O+, A, A+, B) Or with state/city"
-            />
-            <button
-              className={`${styles.searchButton}  hover:bg-[#f95853]`}
-              onClick={getSearch}
-              // ref={refBtn}
-            >
-              Search
-            </button>
+        <section className="my-16">
+          <div>
+            <p className={`${styles.donorTitle}`}>Find Blood Donors Here</p>
+            <p className="text-center text-xs px-8 text-slate-600 my-3">
+              Search with Blood type (e.g. O, O+, A, A+, B) Or with state/city
+            </p>
           </div>
-          {/* <p className="text-gray-400 text-center">
+          <section className={`${styles.findDonor}`}>
+            <div
+              className={`${styles.donorSearchContainer}  lg:px-[2rem] py-8 px-[10px]`}
+            >
+              <input
+                className={`${styles.donorSearch} flex-1`}
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                // onKeyPress={getSearch}
+                // onKeyUp={getSearch}
+                placeholder="Search with Lagos or Ikeja or A+"
+                title="Search with Blood type (e.g. O, O+, A, A+, B) Or with state/city"
+              />
+              <button
+                className={`${styles.searchButton}  hover:bg-[#f95853]`}
+                onClick={getSearch}
+                // ref={refBtn}
+              >
+                <BiSearch className="lg:text-3xl text-2xl font-bold" />
+              </button>
+            </div>
+            {/* <p className="text-gray-400 text-center">
             Search with Blood type (e.g. O, O+, A, A+, B) Or with state or city
           </p> */}
+          </section>
         </section>
 
         <section className={styles.availableDonor}>
@@ -124,7 +131,9 @@ const Need = () => {
 
           {/* Users Info */}
 
-          <div className={styles.availableDonorContainer}>
+          <div
+            className={`${styles.availableDonorContainer} lg:px-[2rem] py-8 px-[10px]`}
+          >
             {/* <div className={styles.donorLists}> */}
             {isPending && (
               <div className="flex justify-center text-center items-center w-full h-auto">
