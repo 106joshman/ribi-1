@@ -249,7 +249,7 @@ const Bio = (props) => {
               Pending Requests
             </h3>
 
-            <div className="my-4">
+            {/* <div className="my-4">
               {user?.requests?.map((id, index) => (
                 <>
                   <div key={index}>
@@ -259,7 +259,7 @@ const Bio = (props) => {
                   </div>
                 </>
               ))}
-            </div>
+            </div> */}
 
             <BloodRequest />
           </div>
