@@ -3,16 +3,14 @@ import requestDrop from "../../../assets/requestDrop.png";
 import styles from "./request.module.css";
 import ConfirmRequest from "../Modal/ConfirmRequest";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { apiBaseURL } from "../../../axios";
-import { dispatchUser } from "../../../redux/userSlice";
 
 const BloodRequest = () => {
   const [id, setID] = useState(null);
   const [requestData, setRequestData] = useState([]);
 
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.user);
+  const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
     window.scrollTo({
@@ -21,19 +19,29 @@ const BloodRequest = () => {
     });
   }, []);
 
-  console.log(user.requests);
-
   useEffect(() => {
-    if (user) {
-      const getRequest = async () => {
-        const res = await axios.get(`${apiBaseURL}/v1/patients/user/request`);
-        console.log(res.user.requests);
-        dispatch(dispatchUser(res.data.user));
-        setRequestData(user.requests);
-      };
-      getRequest();
-    }
-  }, []);
+    console.log(token);
+    const getRequest = async () => {
+      if (token) {
+        try {
+          const res = await axios.get(
+            `${apiBaseURL}/v1/patients/user/request`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          console.log("this is the result:", res.data);
+          setRequestData(res.data);
+        } catch (err) {
+          console.log(`${err}`);
+        }
+      }
+    };
+    getRequest();
+  }, [token]);
 
   return (
     <>
