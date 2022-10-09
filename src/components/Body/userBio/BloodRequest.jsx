@@ -3,7 +3,7 @@ import requestDrop from "../../../assets/requestDrop.png";
 import styles from "./request.module.css";
 import ConfirmRequest from "../Modal/ConfirmRequest";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { apiBaseURL } from "../../../axios";
 import { dispatchUser, dispatchUserToken } from "../../../redux/userSlice";
 
@@ -17,6 +17,7 @@ const BloodRequest = () => {
 
   const createDate = user.createdAt;
   const newDate = new Date(createDate);
+  const newDates = newDate.toUTCString();
 
   useEffect(() => {
     window.scrollTo({
@@ -29,21 +30,45 @@ const BloodRequest = () => {
 
   // const filterBy=sta
 
+  // useEffect(() => {
+  //   if (token) {
+  //     const getRequest = async () => {
+  //       const res = await axios.get(`${apiBaseURL}/v1/patients/user/request`, {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       });
+  //       // console.log(res.user.requests);
+  //       dispatch(dispatchUserToken(token));
+  //       setRequestData(user.requests);
+  //     };
+  //     getRequest();
+  //   }
+  // }, []);
   useEffect(() => {
-    if (token) {
-      const getRequest = async () => {
-        const res = await axios.get(`${apiBaseURL}/v1/patients/user/request`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        // console.log(res.user.requests);
-        dispatch(dispatchUserToken(token));
-        setRequestData(user.requests);
-      };
-      getRequest();
-    }
-  }, []);
+    console.log(token);
+    const getRequest = async () => {
+      if (token) {
+        try {
+          const res = await axios.get(
+            `${apiBaseURL}/v1/patients/user/request`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          console.log("this is the result:", res.data);
+          dispatch(dispatchUserToken(token));
+          setRequestData(res.data);
+        } catch (err) {
+          console.log(`${err}`);
+        }
+      }
+    };
+    getRequest();
+  }, [token]);
 
   // const newRequest = requestData.filter((data) => {
   //   return data.status === "pending";

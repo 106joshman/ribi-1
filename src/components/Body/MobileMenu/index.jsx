@@ -57,7 +57,8 @@ export const MobileMenu = () => {
               <Link
                 href="/need-blood"
                 underline="none"
-                color="white"
+                // color="white"
+                color="#f66557"
                 sx={{ mb: 3 }}
                 aria-label="Need blood link"
                 className={styles.need}
@@ -69,7 +70,7 @@ export const MobileMenu = () => {
               <Link
                 href="/dashboard"
                 underline="none"
-                color="white"
+                color="#f66557"
                 className={styles.need}
                 aria-label="Will lead to user account bio if user is logged in"
                 onClick={handleModalClose}

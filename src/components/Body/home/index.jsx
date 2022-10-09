@@ -2,10 +2,10 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import styles from "./home.module.css";
 import { Link } from "react-router-dom";
 import image from "../../images/Group1.png";
-import search from "../../images/Group147.png";
-import contact from "../../images/Group148.png";
-import heart from "../../images/Group157.png";
-import hands from "../../images/Group217.png";
+import search from "../../../assets/homeimg/search.jpg";
+import contact from "../../../assets/homeimg/contact.jpg";
+import heart from "../../../assets/homeimg/heart.jpg";
+import hands from "../../../assets/homeimg/hands.jpg";
 import work from "../../images/unsplash_W6yy0wYV-hk.png";
 import { useState } from "react";
 // import Signup from "../Modal/Signup";
@@ -34,7 +34,9 @@ const Home = () => {
     { id: 0, type: "A" },
     { id: 1, type: "AB" },
     { id: 2, type: "B" },
-    { id: 3, type: "O" },
+    { id: 3, type: "B+" },
+    { id: 4, type: "O" },
+    { id: 5, type: "O+" },
   ];
 
   // about ribi card array
@@ -74,7 +76,7 @@ const Home = () => {
           </p>
           <Link
             to="/need-blood"
-            className={`${styles.linkHero} hover:gap-[3px]`}
+            className={`${styles.linkHero} hover:gap-[3px] hover:bg-[#f54b46] hover:text-white`}
           >
             Find Blood <AiOutlineArrowRight className="ml-2" />
           </Link>
@@ -134,13 +136,12 @@ const Home = () => {
             ready to make this a success in assisting to save human lives by
             establishing a testing center for the Donor and the Donee.
           </p>
-          <div style={{ margin: "20px 0" }}>
+          <div style={{ marginTop: "20px" }}>
             {/* <Signup register={register} /> */}
             <Link
-              title="Sign-up to see how"
               to="/about-us"
               onClick={handleOpenRegister}
-              className={styles.linkBlood}
+              className={`${styles.linkBlood}`}
               style={{ backgroundColor: "#f6655f" }}
             >
               Learn More <AiOutlineArrowRight className="ml-2" />
@@ -148,7 +149,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className={styles.typesContainer}>
+      {/* Blood Types */}
+      <div className={`${styles.typesContainer} bg-red-50`}>
         <h4 className={styles.types}>Blood Types</h4>
         <div className={styles.bloodTypesWrapper}>
           {blood.map((item) => {
@@ -162,7 +164,7 @@ const Home = () => {
           })}
         </div>
       </div>
-      <div className={`{styles.objectives} `}>
+      <div className={`${styles.objectives} py-64`}>
         <div className="mssn flex items-center justify-center">
           <p
             className={`${styles.objctText} max-w-lg capitalize text-black font-bold`}
@@ -173,10 +175,15 @@ const Home = () => {
             </span>
           </p>
         </div>
-        <div className={`${styles.objectCardHolder} lg:px-12 px-8`}>
+        <div
+          className={`grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 justify-center lg:px-12 px-[20px] mx-auto`}
+        >
           {cardData.map(({ id, title, text }) => {
             return (
-              <div key={id} className={`${styles.objectCard} rounded-lg`}>
+              <div
+                key={id}
+                className={`${styles.objectCard} mx-auto my-[15px] lg:w-[85%] w-[100%] rounded-lg`}
+              >
                 <h6
                   style={{
                     margin: "20px 0",
@@ -186,7 +193,7 @@ const Home = () => {
                 >
                   {title}
                 </h6>
-                <p style={{ margin: "15px 0" }}>{text}</p>
+                <p style={{ margin: "15px 0", textAlign: "center" }}>{text}</p>
                 <Link
                   to="/about-us"
                   style={{
@@ -213,7 +220,7 @@ const Home = () => {
             <img
               src={work}
               alt="A laboratory Scientist"
-              className={styles.workImage}
+              className={`w-[100%] h-[100%] object-cover rounded-lg`}
             />
           </div>
           <div className={styles.workGuide}>
@@ -228,10 +235,10 @@ const Home = () => {
                 >
                   <h2 className="font-bold text-2xl">Donor</h2>
                   <li style={{ marginTop: "15px", marginLeft: "12px" }}>
-                    Register/Signup
+                    Firstly, click on the donate button to Register.
                   </li>
                   <li style={{ marginTop: "15px", marginLeft: "12px" }}>
-                    Complete your Profile
+                    Sign in and complete your Profile
                   </li>
                   <li style={{ marginTop: "15px ", marginLeft: "12px" }}>
                     Upload required Details
@@ -240,7 +247,7 @@ const Home = () => {
                     View Pending Request
                   </li>
                   <li style={{ marginTop: "15px", marginLeft: "12px" }}>
-                    Interract with Donne requesting for Blood Donation
+                    Interract with Donee requesting for Blood Donation
                   </li>
                 </ul>
               </div>

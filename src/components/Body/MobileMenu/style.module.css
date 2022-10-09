@@ -49,19 +49,19 @@
   border-radius: 9999px;
   /* color: white; */
   text-transform: uppercase;
-  /* color: #f66557; */
+  color: #f66557;
   font-size: 16px;
-  /* border: 2px solid #f66557; */
+  border: 2px solid #f66557;
   text-align: center;
   padding: 14px 20px;
-  background-color: #f6655f;
+  /* background-color: #f6655f; */
   width: 160px;
   margin: 40px 4px;
   cursor: pointer;
 }
 
 .need:hover {
-  background-color: #f54b46;
+  background-color: #f7c9c7;
 }
 
 .donate {

@@ -30,7 +30,7 @@ const ConfirmRequest = ({ id, setID, requestData }) => {
                   <p className={styles.detailText}>First name:</p>
                   <p className={styles.detailText}>{requestData.firstname}</p>
                   <p className={styles.detailText}>Last name:</p>
-                  <p className={styles.detailText}>Fatosho</p>
+                  <p className={styles.detailText}>{requestData.lastname}</p>
                   <p className={styles.detailText}>Phone number:</p>
                   <p className={styles.detailText}>0901234567789</p>
                   <p className={styles.detailText}>Blood Type:</p>
