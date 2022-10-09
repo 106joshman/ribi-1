@@ -15,6 +15,7 @@ import DonorInfoRequest from "./components/Body/donor_info_request";
 import WithoutNav from "./components/header/navheaders/WithoutNav";
 import { WithNav } from "./components/header/navheaders/WithNav";
 import MoveUp from "./components/utils/MoveUp";
+import  RecoverPassword  from "./components/Body/forgot-password/RecoverPassword";
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route element={<WithoutNav />}>
             <Route path="dashboard" element={<Bio />} />
+            <Route path="recover-password" element={<RecoverPassword />} />
           </Route>
           <Route path="/" element={<WithNav />}>
             <Route index element={<Home />} />
@@ -37,6 +39,7 @@ function App() {
             <Route path="contact-us" element={<Contact />} />
             <Route path="insights" element={<Insight />} />
             <Route path="*" element={<ErrorPage />} />
+            
           </Route>
         </Routes>
         <MoveUp />
