@@ -5,14 +5,18 @@ import ConfirmRequest from "../Modal/ConfirmRequest";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { apiBaseURL } from "../../../axios";
-import { dispatchUser } from "../../../redux/userSlice";
+import { dispatchUser, dispatchUserToken } from "../../../redux/userSlice";
 
 const BloodRequest = () => {
-  const [id, setID] = useState(null);
+  const [id, setID] = useState(false);
   const [requestData, setRequestData] = useState([]);
 
   const dispatch = useDispatch();
+  const token = useSelector((state) => state.user.token);
   const user = useSelector((state) => state.user.user);
+
+  const createDate = user.createdAt;
+  const newDate = new Date(createDate);
 
   useEffect(() => {
     window.scrollTo({
@@ -21,29 +25,43 @@ const BloodRequest = () => {
     });
   }, []);
 
-  console.log(user.requests);
+  // console.log(user.requests);
+
+  // const filterBy=sta
 
   useEffect(() => {
-    if (user) {
+    if (token) {
       const getRequest = async () => {
-        const res = await axios.get(`${apiBaseURL}/v1/patients/user/request`);
-        console.log(res.user.requests);
-        dispatch(dispatchUser(res.data.user));
+        const res = await axios.get(`${apiBaseURL}/v1/patients/user/request`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        // console.log(res.user.requests);
+        dispatch(dispatchUserToken(token));
         setRequestData(user.requests);
       };
       getRequest();
     }
   }, []);
 
+  // const newRequest = requestData.filter((data) => {
+  //   return data.status === "pending";
+  // });
+
   return (
     <>
       <div className="flex flex-col gap-6 ">
         <ul className={styles.unorderedList}>
-          {requestData?.map((item, index) => (
-            <li className={styles.list} key={index}>
+          {requestData?.map((item) => (
+            <li
+              className={styles.list}
+              key={item.id}
+              onClick={() => setID(true)}
+            >
               <div className={styles.date}>
                 <div className={styles.month}>Oct</div>
-                <div className={styles.monthDate}>7</div>
+                <div className={styles.monthDate}>7{item.updatedAt}</div>
               </div>
 
               <div className={styles.requestDetails}>
@@ -108,7 +126,9 @@ const BloodRequest = () => {
             </div>
           </li> */}
         </ul>
-        {id && <ConfirmRequest setID={setID} id={id} />}
+        {id && (
+          <ConfirmRequest setID={setID} id={id} requestData={requestData} />
+        )}
       </div>
     </>
   );

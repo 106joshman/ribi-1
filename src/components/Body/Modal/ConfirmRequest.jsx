@@ -8,7 +8,7 @@ const initialState = {
   error: null,
 };
 
-const ConfirmRequest = ({ id, setID }) => {
+const ConfirmRequest = ({ id, setID, requestData }) => {
   const [alert, setAlert] = useState(initialState);
   return (
     <>
@@ -28,7 +28,7 @@ const ConfirmRequest = ({ id, setID }) => {
               <div className={styles.grid}>
                 <div className={styles.details}>
                   <p className={styles.detailText}>First name:</p>
-                  <p className={styles.detailText}>Dare</p>
+                  <p className={styles.detailText}>{requestData.firstname}</p>
                   <p className={styles.detailText}>Last name:</p>
                   <p className={styles.detailText}>Fatosho</p>
                   <p className={styles.detailText}>Phone number:</p>
