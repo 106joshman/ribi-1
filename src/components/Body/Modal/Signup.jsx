@@ -58,13 +58,6 @@ const Signup = ({ handleModalClose }) => {
 
   // const [states, setStates] = useState([]);
 
-  // Handles Forget Password
-  function handleForgetPassword() {
-    setLogin(false);
-    handleClose();
-    setForgetPassword(true);
-  }
-
   //Validate: File types (png or jpeg)
   // const types = ["image/png", "image/jpeg"];
 
@@ -116,6 +109,41 @@ const Signup = ({ handleModalClose }) => {
       // console.log("data picture is:", data.secure_url);
     } catch (err) {
       console.log(`${err}`);
+    }
+  };
+
+  // Forget Password Modal
+  function forgotPasswordModal() {
+    setLogin(false);
+    handleClose();
+    setForgetPassword(true);
+  }
+
+  // Handles Forgt Password Logic
+
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+    try {
+      const userData = {
+        email,
+      };
+      const response = await axios.post(
+        `${apiBaseURL}/v1/donors/forgot-password`,
+        userData
+      );
+      console.log("user data from post", response);
+      setForgetPassword(false);
+      return Swal.fire({
+        icon: "success",
+        title: "Password Details Sent",
+        text: "Check your email to recover your password",
+      });
+    } catch (err) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${err}. Try again.`,
+      });
     }
   };
 
@@ -313,7 +341,7 @@ const Signup = ({ handleModalClose }) => {
                     <div className={styles.forgotButton}>
                       <span className={`${styles}.forgot`}>
                         <button
-                          onClick={handleForgetPassword}
+                          onClick={forgotPasswordModal}
                           className="hover:text-[#f6655f]"
                         >
                           Forget Password?
@@ -626,6 +654,7 @@ const Signup = ({ handleModalClose }) => {
           </Box>
         </Fade>
       </Modal>
+      {/* Forgot Password */}
       <>
         {forgetPassword ? (
           <section>
@@ -663,18 +692,22 @@ const Signup = ({ handleModalClose }) => {
                       //   className="flex flex-col items-center justify-start"
                       >
                         <label htmlFor="Email" className="text-left block">
-                          Email*
+                          Email
                         </label>
                         <input
                           type="email"
-                          className="w-[80vw] lg:w-[40vw] md:w-[46vw] rounded-lg h-[34px] border border-black block px-3 outline-0"
+                          className="w-[80vw] lg:w-[40vw] md:w-[46vw] rounded-full h-[34px] roun border border-black block px-3 outline-0"
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
                         />
                       </div>
-                      <input
+                      <button
                         type="submit"
-                        value="Send"
-                        className="bg-red-500 text-white w-[78px] h-[45px]  rounded-lg mt-[34px] mb-[28px] cursor-pointer hover:bg-red-600"
-                      />
+                        className="bg-red-500 text-white   rounded-full mt-[34px] mb-[28px] cursor-pointer hover:bg-red-600 py-3 px-6"
+                        onClick={handleForgotPassword}
+                      >
+                        Send
+                      </button>
                     </form>
                     <button
                       onClick={handleOpen}
