@@ -10,6 +10,7 @@ import { apiBaseURL } from "../../../axios";
 import { dispatchUserToken } from "../../../redux/userSlice";
 import Loader from "../../utils/Loader";
 import moment from "moment";
+import { Pinterest } from "@mui/icons-material";
 
 const BloodRequest = () => {
   const [id, setID] = useState(false);
@@ -53,9 +54,13 @@ const BloodRequest = () => {
     getRequest();
   }, [token, dispatch]);
 
-  const handleView = (_id) => {
-    console.log(_id);
-    setID(true);
+  // const handleView = (_id) => {
+  //   console.log(_id);
+  //   setID(true);
+  // };
+  const handleView = (e) => {
+    console.log(e);
+    setID(e);
   };
 
   return (
@@ -115,7 +120,7 @@ const BloodRequest = () => {
                       </div>
                     </div>
                   </li>
-                  {id && (
+                  {id === _id && (
                     // <ConfirmRequest setID={setID} id={id} requestData={requestData} />
                     <>
                       <div
@@ -153,20 +158,28 @@ const BloodRequest = () => {
                                   <p className={styles2.detailText}>
                                     Phone number:
                                   </p>
-                                  <p className={styles2.detailText}>
-                                    {phone}
-                                  </p>
+                                  <p className={styles2.detailText}>{phone}</p>
                                   <p className={styles2.detailText}>
                                     Blood Type:
                                   </p>
-                                  <p className={styles2.detailText}>{bloodType}</p>
+                                  <p className={styles2.detailText}>
+                                    {bloodType}
+                                  </p>
                                   <p className={styles2.detailText}>Country:</p>
-                                  <p className={styles2.detailText}>{country}</p>
+                                  <p className={styles2.detailText}>
+                                    {country}
+                                  </p>
                                   <p className={styles2.detailText}>
                                     Home Address:
                                   </p>
                                   <p className={styles2.detailText}>
                                     {patientLocation}
+                                  </p>
+                                  <p className={styles2.detailText}>
+                                    Amount of Blood:
+                                  </p>
+                                  <p className={styles2.detailText}>
+                                    {pintOfBlood}
                                   </p>
                                   <p className={styles2.detailText}>State:</p>
                                   <p className={styles2.detailText}>{state}</p>
@@ -175,9 +188,7 @@ const BloodRequest = () => {
                                   </p>
                                   <p className={styles2.detailText}>{city}</p>
                                   <p className={styles2.detailText}>Email:</p>
-                                  <p className={styles2.detailText}>
-                                    {email}
-                                  </p>
+                                  <p className={styles2.detailText}>{email}</p>
                                 </div>
                               </div>
 
