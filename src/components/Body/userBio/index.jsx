@@ -28,6 +28,7 @@ const Bio = (props) => {
   const navigate = useNavigate();
 
   // props.funcNav(false);
+  // console.log(token)
 
   const [dropdown, setDropdown] = useState(false);
   // const [request, setRequest] = useState(null);
@@ -78,6 +79,7 @@ const Bio = (props) => {
           },
         });
         dispatch(dispatchUser(response.data.user));
+        // console.log(user._id)
         return () => ac.abort();
       };
 

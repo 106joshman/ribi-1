@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
 import requestDrop from "../../../assets/requestDrop.png";
 import styles from "./request.module.css";
-import ConfirmRequest from "../Modal/ConfirmRequest";
+// import ConfirmRequest from "../Modal/ConfirmRequest";
+import styles2 from "../Modal/confirmRequest.module.css";
+import { AiOutlineClose } from "react-icons/ai";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { apiBaseURL } from "../../../axios";
+import { dispatchUserToken } from "../../../redux/userSlice";
+import Loader from "../../utils/Loader";
+import moment from "moment";
 
 const BloodRequest = () => {
-  const [id, setID] = useState(null);
+  const [id, setID] = useState(false);
   const [requestData, setRequestData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
+  const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
@@ -33,90 +40,184 @@ const BloodRequest = () => {
             }
           );
 
-          console.log("this is the result:", res.data);
+          console.log("this is the general data result:", res.data);
+          console.log("this is the general data result:", res.data.firstname);
+          dispatch(dispatchUserToken(token));
           setRequestData(res.data);
+          setIsLoading(false);
         } catch (err) {
           console.log(`${err}`);
         }
       }
     };
     getRequest();
-  }, [token]);
+  }, [token, dispatch]);
+
+  const handleView = (_id) => {
+    console.log(_id);
+    setID(true);
+  };
 
   return (
     <>
       <div className="flex flex-col gap-6 ">
+        {/* {isLoading && <Loader />} */}
         <ul className={styles.unorderedList}>
-          {requestData?.map((item, index) => (
-            <li className={styles.list} key={index}>
-              <div className={styles.date}>
-                <div className={styles.month}>Oct</div>
-                <div className={styles.monthDate}>7</div>
-              </div>
+          {!isLoading ? (
+            requestData?.map(
+              ({
+                updatedAt,
+                patientLocation,
+                pintOfBlood,
+                _id,
+                index,
+                firstname,
+                lastname,
+                phone,
+                bloodType,
+                country,
+                city,
+                email,
+                state,
+              }) => (
+                <>
+                  <li
+                    className={styles.list}
+                    key={index}
+                    onClick={() => {
+                      handleView(_id);
+                    }}
+                  >
+                    <div className={`${styles.date} items-center`}>
+                      <div className={styles.month}>
+                        {moment(updatedAt).format("MMM")}
+                      </div>
+                      <div className={styles.monthDate}>
+                        {moment(updatedAt).format("Do")}
+                      </div>
+                    </div>
 
-              <div className={styles.requestDetails}>
-                <div className={styles.requestTitle}>
-                  {item.patientLocation}
-                </div>
-                <div className={styles.requestPint}>
-                  <img className={styles.drop} src={requestDrop} alt="drop" />{" "}
-                  <span className={styles.pintLevel}>
-                    {item.pintOfBlood} pint of blood
-                  </span>
-                </div>
-              </div>
-            </li>
-          ))}
-          {/* <li className={styles.list} onClick={() => setID(1)}>
-            <div className={styles.date}>
-              <div className={styles.month}>Oct</div>
-              <div className={styles.monthDate}>7</div>
-            </div>
+                    <div
+                      className={`${styles.requestDetails} flex justify-evenly`}
+                    >
+                      <div className={styles.requestTitle}>
+                        {patientLocation}
+                      </div>
+                      <div className={styles.requestPint}>
+                        <img
+                          className={styles.drop}
+                          src={requestDrop}
+                          alt="drop"
+                        />{" "}
+                        <span className={styles.pintLevel}>
+                          {pintOfBlood} pint of blood
+                        </span>
+                      </div>
+                    </div>
+                  </li>
+                  {id && (
+                    // <ConfirmRequest setID={setID} id={id} requestData={requestData} />
+                    <>
+                      <div
+                        className="modal fixed top-0 left-0 w-full h-full outline-none overflow-x-hidden overflow-y-hidden bg-[#f2f2f2cc]"
+                        tabIndex="-1"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <div className="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
+                          <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-[#f6655f] bg-clip-padding p-3 rounded-md outline-none text-current">
+                            <button
+                              onClick={() => setID(null)}
+                              className={styles2.cross}
+                            >
+                              <AiOutlineClose color="white" size={32} />
+                            </button>
+                            <div className={styles2.main}>
+                              <h3 className={styles2.heading}>
+                                Confirm Request
+                              </h3>
 
-            <div className={styles.requestDetails}>
-              <div className={styles.requestTitle}>Lagos Teaching Hospital</div>
-              <div className={styles.requestPint}>
-                <img className={styles.drop} src={requestDrop} alt="drop" />{" "}
-                <span className={styles.pintLevel}>One pint of blood</span>
-              </div>
-            </div>
-          </li>
+                              <div className={styles2.grid}>
+                                <div className={styles2.details}>
+                                  <p className={styles2.detailText}>
+                                    First name:
+                                  </p>
+                                  <p className={styles2.detailText}>
+                                    {firstname}
+                                  </p>
+                                  <p className={styles2.detailText}>
+                                    Last name:
+                                  </p>
+                                  <p className={styles2.detailText}>
+                                    {lastname}
+                                  </p>
+                                  <p className={styles2.detailText}>
+                                    Phone number:
+                                  </p>
+                                  <p className={styles2.detailText}>
+                                    {phone}
+                                  </p>
+                                  <p className={styles2.detailText}>
+                                    Blood Type:
+                                  </p>
+                                  <p className={styles2.detailText}>{bloodType}</p>
+                                  <p className={styles2.detailText}>Country:</p>
+                                  <p className={styles2.detailText}>{country}</p>
+                                  <p className={styles2.detailText}>
+                                    Home Address:
+                                  </p>
+                                  <p className={styles2.detailText}>
+                                    {patientLocation}
+                                  </p>
+                                  <p className={styles2.detailText}>State:</p>
+                                  <p className={styles2.detailText}>{state}</p>
+                                  <p className={styles2.detailText}>
+                                    City/Town:
+                                  </p>
+                                  <p className={styles2.detailText}>{city}</p>
+                                  <p className={styles2.detailText}>Email:</p>
+                                  <p className={styles2.detailText}>
+                                    {email}
+                                  </p>
+                                </div>
+                              </div>
 
-          <li className={styles.list} onClick={() => setID(2)}>
-            <div className={styles.date}>
-              <div className={styles.month}>Dec</div>
-              <div className={styles.monthDate}>8</div>
-            </div>
+                              <hr />
 
-            <div className={styles.requestDetails}>
-              <div className={styles.requestTitle}>
-                Iyana Ipaja Medical Hospital
-              </div>
-              <div className={styles.requestPint}>
-                <img className={styles.drop} src={requestDrop} alt="drop" />{" "}
-                <span className={styles.pintLevel}>One pint of blood</span>
-              </div>
-            </div>
-          </li>
-
-          <li className={styles.list} onClick={() => setID(3)}>
-            <div className={styles.date}>
-              <div className={styles.month}>Jan</div>
-              <div className={styles.monthDate}>5</div>
-            </div>
-
-            <div className={styles.requestDetails}>
-              <div className={styles.requestTitle}>
-                Lagos state Medical Hospital
-              </div>
-              <div className={styles.requestPint}>
-                <img className={styles.drop} src={requestDrop} alt="drop" />{" "}
-                <span className={styles.pintLevel}>One pint of blood</span>
-              </div>
-            </div>
-          </li> */}
+                              <div className={styles2.confirmButtons}>
+                                <button
+                                  // onClick={() =>
+                                  // setAlert({
+                                  //   success: "Request Confirmed",
+                                  // })
+                                  // }
+                                  className={styles2.yesButton}
+                                >
+                                  Yes
+                                </button>
+                                <button
+                                  // onClick={() =>
+                                  //   setAlert({
+                                  //     error: "Request Denied",
+                                  //   })
+                                  // }
+                                  className={styles2.noButton}
+                                >
+                                  No
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </>
+              )
+            )
+          ) : (
+            <Loader />
+          )}
         </ul>
-        {id && <ConfirmRequest setID={setID} id={id} />}
       </div>
     </>
   );
