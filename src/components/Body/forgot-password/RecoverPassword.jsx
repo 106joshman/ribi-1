@@ -32,7 +32,7 @@ const RecoverPassword = () => {
         password,
       };
       await axios.post(
-        `${apiBaseURL}/v1/donors/reset-password/:${token}`,
+        `${apiBaseURL}/v1/auth/reset-password?resetToken/=${token}`,
         userData,
         {
           headers: {
