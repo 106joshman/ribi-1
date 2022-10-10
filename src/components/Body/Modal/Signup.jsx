@@ -239,10 +239,11 @@ const Signup = ({ handleModalClose }) => {
         } catch (error) {
           handleClose();
           // handleModalClose();
+          console.log(`${error.message}`);
           return Swal.fire({
             icon: "error",
-            title: "Oops...",
-            text: `${error.message}, Try Again...`,
+            title: "Email or Password input is wrong",
+            text: `Please enter the right email or password`,
           });
         }
       }
