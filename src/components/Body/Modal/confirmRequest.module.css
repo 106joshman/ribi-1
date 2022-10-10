@@ -50,9 +50,9 @@
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 22px;
   line-height: 24px;
-  color: #f6655f;
+  color: #fff;
   border-bottom: 1px solid #f6655f;
   margin-bottom: 2rem;
 }
@@ -71,6 +71,11 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.details p:nth-child(odd){
+  text-align: center;
+  padding-left: 30px;
 }
 
 .detailText {
