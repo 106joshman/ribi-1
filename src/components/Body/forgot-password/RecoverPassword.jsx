@@ -14,6 +14,8 @@ const RecoverPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  console.log("just check the: ", token);
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -55,24 +57,20 @@ const RecoverPassword = () => {
   };
 
   return (
-    <div className=" h-screen  flex items-center justify-center flex-col">
-      <div className="w-full max-w-lg py-6">
-        <div className="">
-          <div className="">
-            <div className="flex gap-2 items-center justify-center my-4 py-3 ">
-              <img src={logo} alt="Ribi logo" className="w-[30px]" />
-              <p className="{styles.logoText}">RIBI</p>
-            </div>
-            <div className="bg-slate-50 py-2 text-slate-700 text-center text-[18px] font-bold shadow">
-              <h3>Change Password</h3>
-            </div>
-          </div>
-        </div>
-
+    <div className=" h-screen  flex items-center justify-center flex-col bg-slate-100">
+      <div className="w-full lg:max-w-md max-w-sm py-6 bg-white shadow lg:m-0 mx-[20px]">
         <form
-          className="px-8 shadow py-12 flex items-center justify-center flex-col"
+          className="px-8  py-12 flex items-center justify-center flex-col"
           onSubmit={handleChangePassword}
         >
+          {/* Password reset header */}
+          <div className="flex gap-2 items-center justify-center ">
+            <img src={logo} alt="Ribi logo" className="w-[30px]" />
+            <p className="{styles.logoText}">RIBI</p>
+          </div>
+          <div className="py-2 text-slate-700 text-center text-[22px] my-2 font-bold">
+            <h3>Password Reset</h3>
+          </div>
           <div className="my-4 grid w-full">
             <label htmlFor="password" className="mb-2">
               New Password
@@ -130,7 +128,7 @@ const RecoverPassword = () => {
           <div className="flex justify-center my-2">
             <button
               type="submit"
-              className="bg-[#f6655f] text-white rounded-full cursor-pointer hover:bg-red-600 py-3 px-6"
+              className="border-[#f6655f] border-[1px] text-[#f6655f] rounded-full cursor-pointer hover:bg-red-600 hover:text-white py-3 px-10"
               //   onClick={handleChangePassword}
             >
               Submit

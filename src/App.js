@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route element={<WithoutNav />}>
             <Route path="dashboard" element={<Bio />} />
-            <Route path="recover-password" element={<RecoverPassword />} />
+            <Route path="recover-password/:resetToken" element={<RecoverPassword />} />
           </Route>
           <Route path="/" element={<WithNav />}>
             <Route index element={<Home />} />
