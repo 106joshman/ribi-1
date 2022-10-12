@@ -5,11 +5,14 @@ import Swal from "sweetalert2";
 import { apiBaseURL } from "../../../axios";
 import axios from "axios";
 import { RemoveRedEye, VisibilityOff } from "@mui/icons-material";
+import Signup from "../Modal/Signup";
 
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const RecoverPassword = () => {
+const ResetPassword = () => {
   const token = useSelector((state) => state.user.token);
+  const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -22,6 +25,13 @@ const RecoverPassword = () => {
   const handleChangePassword = async (e) => {
     console.log(confirmPassword);
     e.preventDefault();
+    if (password === "" || confirmPassword === "") {
+      return Swal.fire({
+        icon: "info",
+        title: "Password input cannot be Empty",
+        text: "Make sure you enter a passowrd",
+      });
+    }
     if (password !== confirmPassword) {
       return Swal.fire({
         icon: "info",
@@ -44,8 +54,8 @@ const RecoverPassword = () => {
       );
       return Swal.fire({
         icon: "success",
-        title: "Password Details Sent",
-        text: "Check your email to recover your password",
+        title: "Success",
+        text: "Password Changed Successfully",
       });
     } catch (err) {
       return Swal.fire({
@@ -58,9 +68,9 @@ const RecoverPassword = () => {
 
   return (
     <div className=" h-screen  flex items-center justify-center flex-col bg-slate-100">
-      <div className="w-full lg:max-w-md max-w-sm py-6 bg-white shadow lg:m-0 mx-[20px]">
+      <div className="w-full lg:max-w-md max-w-sm bg-white shadow lg:m-0 mx-[20px]">
         <form
-          className="px-8  py-12 flex items-center justify-center flex-col"
+          className="px-8  py-8 flex items-center justify-center flex-col"
           onSubmit={handleChangePassword}
         >
           {/* Password reset header */}
@@ -71,8 +81,8 @@ const RecoverPassword = () => {
           <div className="py-2 text-slate-700 text-center text-[22px] my-2 font-bold">
             <h3>Password Reset</h3>
           </div>
-          <div className="my-4 grid w-full">
-            <label htmlFor="password" className="mb-2">
+          <div className="my-2 grid w-full">
+            <label htmlFor="password" className="mb-2 text-sm text-slate-600">
               New Password
             </label>
             <div className="relative">
@@ -98,8 +108,8 @@ const RecoverPassword = () => {
               </div>
             </div>
           </div>
-          <div className="my-4 grid w-full">
-            <label htmlFor="password" className="mb-2">
+          <div className="my-2 grid w-full">
+            <label htmlFor="password" className="mb-2 text-sm text-slate-600">
               Confirm New Password
             </label>
             <div className="relative">
@@ -140,4 +150,4 @@ const RecoverPassword = () => {
   );
 };
 
-export default RecoverPassword;
+export default ResetPassword;
