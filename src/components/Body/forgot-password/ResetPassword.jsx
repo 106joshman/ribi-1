@@ -41,10 +41,10 @@ const ResetPassword = () => {
     }
     try {
       const userData = {
-        password,
+        newPassword: password,
       };
       await axios.post(
-        `${apiBaseURL}/v1/auth/reset-password?resetToken=${token}`,
+        `${apiBaseURL}/v1/donors/reset-password/${token}`,
         userData,
         {
           headers: {
