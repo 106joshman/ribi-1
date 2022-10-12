@@ -44,3 +44,7 @@ body {
   color: inherit;
 }
 
+.swal2-popup {
+  width: 24em !important;
+  max-width: 100%;
+}

@@ -28,20 +28,20 @@ const ResetPassword = () => {
 
     if (password === "" || confirmPassword === "") {
       return Swal.fire({
-        icon: "info",
+        icon: "warning",
         title: "Password input cannot be Empty",
         text: "Make sure you enter a passowrd",
       });
     }
     if (password.length <= 7 || confirmPassword.length <= 7) {
       return Swal.fire({
-        icon: "info",
+        icon: "warning",
         text: "Password cannot be less than 8 characters",
       });
     }
     if (password !== confirmPassword) {
       return Swal.fire({
-        icon: "info",
+        icon: "warning",
         title: "Password does not match",
         text: "Make sure the passowrd you entered are the same",
       });
