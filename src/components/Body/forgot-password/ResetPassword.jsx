@@ -8,11 +8,11 @@ import { RemoveRedEye, VisibilityOff } from "@mui/icons-material";
 import Signup from "../Modal/Signup";
 
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
   const token = useSelector((state) => state.user.token);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -25,11 +25,18 @@ const ResetPassword = () => {
   const handleChangePassword = async (e) => {
     console.log(confirmPassword);
     e.preventDefault();
+
     if (password === "" || confirmPassword === "") {
       return Swal.fire({
         icon: "info",
         title: "Password input cannot be Empty",
         text: "Make sure you enter a passowrd",
+      });
+    }
+    if (password.length <= 7 || confirmPassword.length <= 7) {
+      return Swal.fire({
+        icon: "info",
+        text: "Password cannot be less than 8 characters",
       });
     }
     if (password !== confirmPassword) {
@@ -45,23 +52,24 @@ const ResetPassword = () => {
       };
       await axios.post(
         `${apiBaseURL}/v1/donors/reset-password/${token}`,
-        userData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        userData
       );
       return Swal.fire({
         icon: "success",
         title: "Success",
         text: "Password Changed Successfully",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.reload();
+          return <Signup />;
+        }
       });
     } catch (err) {
+      console.log(`${err}`);
       return Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: `${err}. Try again.`,
+        text: `Try again.`,
       });
     }
   };
