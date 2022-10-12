@@ -15,7 +15,7 @@ import DonorInfoRequest from "./components/Body/donor_info_request";
 import WithoutNav from "./components/header/navheaders/WithoutNav";
 import { WithNav } from "./components/header/navheaders/WithNav";
 import MoveUp from "./components/utils/MoveUp";
-import  RecoverPassword  from "./components/Body/forgot-password/RecoverPassword";
+import  ResetPassword  from "./components/Body/forgot-password/ResetPassword";
 function App() {
   return (
     <Router>
@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route element={<WithoutNav />}>
             <Route path="dashboard" element={<Bio />} />
-            <Route path="recover-password/:resetToken" element={<RecoverPassword />} />
+            <Route path="reset-password/:resetToken" element={<ResetPassword />} />
           </Route>
           <Route path="/" element={<WithNav />}>
             <Route index element={<Home />} />
