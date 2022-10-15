@@ -99,7 +99,7 @@ const ResetPassword = () => {
                 value={password}
                 required
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full py-2 px-4 rounded-full shadow appearance-none border border-slate-200 text-slate-700 focus:shadow-outline outline-0"
+                className="w-full py-2 px-4 rounded-lg shadow appearance-none border border-slate-300 text-slate-700 focus:shadow-outline outline-0"
               />
               <div className="absolute right-2 top-2">
                 {showPassword === false ? (
@@ -126,7 +126,7 @@ const ResetPassword = () => {
                 required
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full py-2 px-4 rounded-full shadow appearance-none border border-slate-200 text-slate-700 focus:shadow-outline outline-0"
+                className="w-full py-2 px-4 rounded-lg shadow appearance-none border border-slate-300 text-slate-700 focus:shadow-outline outline-0"
               />
               <div className="absolute right-2 top-2">
                 {showConfirmPassword === false ? (
