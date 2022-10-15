@@ -81,7 +81,7 @@ const Popup = (props) => {
     control: (styles) => ({
       ...styles,
       backgroundColor: "transparent",
-      color: "black",
+      color: "white",
       outline: "none",
       border: "1px solid white",
       borderRadius: "8px !important",
@@ -278,7 +278,7 @@ const Popup = (props) => {
                   Gender
                 </label>
                 <Select
-                  className=""
+                  className="text-white"
                   styles={selectStyles}
                   value={gender}
                   onChange={(e) => setGender(e)}
@@ -338,7 +338,7 @@ const Popup = (props) => {
                   Blood Type
                 </label>
                 <Select
-                  className=""
+                  className="text-white"
                   styles={selectStyles}
                   value={bloodType}
                   onChange={(e) => {

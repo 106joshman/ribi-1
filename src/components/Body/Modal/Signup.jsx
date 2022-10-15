@@ -680,7 +680,7 @@ const Signup = ({ handleModalClose }) => {
                 {" "}
                 <div className={styles.top}>
                   <div className={styles.left}>
-                    <img src={logo} alt="Ribi logo" className="w-[40%]" />
+                    <img src={logo} alt="Ribi logo" className="w-[30%]" />
                     <p className={styles.logoText}>RIBI</p>
                   </div>
                   <div
