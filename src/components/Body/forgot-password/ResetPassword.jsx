@@ -8,10 +8,13 @@ import { RemoveRedEye, VisibilityOff } from "@mui/icons-material";
 import Signup from "../Modal/Signup";
 
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
-  const token = useSelector((state) => state.user.token);
+  const params = useParams()
+  const token = params.resetToken
+  // const token = useSelector((state) => state.user.token);
   // const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
