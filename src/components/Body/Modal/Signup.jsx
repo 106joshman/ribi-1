@@ -724,7 +724,7 @@ const Signup = ({ handleModalClose }) => {
                         type="submit"
                         className="bg-red-500 text-white   rounded-full mt-[34px] mb-[28px] cursor-pointer hover:bg-red-600 py-3 px-10"
                       >
-                        Send
+                        Submit
                       </button>
                     </form>
                     <button
