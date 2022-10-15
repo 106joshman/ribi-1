@@ -3,7 +3,7 @@ import {
   // useEffect
 } from "react";
 import { Backdrop, Box, Modal, Fade } from "@mui/material";
-import { AiOutlineArrowLeft, AiOutlineLoading } from "react-icons/ai";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 import styles from "./signup.module.css";
 import closeIcon from "../../../assets/close.png";
 import logo from "../../../assets/logo.png";
