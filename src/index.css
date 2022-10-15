@@ -48,3 +48,7 @@ body {
   width: 24em !important;
   max-width: 100%;
 }
+
+.swal2-styled.swal2-confirm {
+  background-color: #7fcc52 !important;
+}
