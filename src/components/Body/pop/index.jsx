@@ -84,7 +84,7 @@ const Popup = (props) => {
       color: "black",
       outline: "none",
       border: "1px solid white",
-      borderRadius: "24px !important",
+      borderRadius: "8px !important",
     }),
     option: (provided, state) => ({
       ...provided,
@@ -467,7 +467,7 @@ const Popup = (props) => {
               <div className={styles.buttonWrap}>
                 <button
                   type="submit"
-                  className="font-bold mx-3 cursor-pointer py-1 px-5 rounded-3xl bg-white text-[#f6655f]"
+                  className="font-bold mx-3 cursor-pointer py-2 px-8 text-[13px] rounded-3xl border-white border-[1.5px] bg-white hover:bg-slate-100 text-[#f6655f]"
                   onClick={handleSubmit}
                 >
                   Confirm
