@@ -148,7 +148,7 @@ const DashboardEdit = ({ handleToggles }) => {
               <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>Firstname</label>
                 <input
-                  className="px-4 py-2 outline-none "
+                  className="px-4 py-2 outline-none rounded-lg "
                   type="text"
                   value={firstname}
                   onChange={(e) => setFirstname(e.target.value)}
@@ -157,7 +157,7 @@ const DashboardEdit = ({ handleToggles }) => {
               <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>Lastname</label>
                 <input
-                  className="px-4 py-2 outline-none "
+                  className="px-4 py-2 outline-none rounded-lg "
                   type="text"
                   value={lastname}
                   onChange={(e) => setLastname(e.target.value)}
@@ -166,7 +166,7 @@ const DashboardEdit = ({ handleToggles }) => {
               <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>Phone</label>
                 <input
-                  className="px-4 py-2 outline-none "
+                  className="px-4 py-2 outline-none rounded-lg "
                   type="text"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
@@ -175,7 +175,7 @@ const DashboardEdit = ({ handleToggles }) => {
               {/* <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>Email</label>
                 <input
-                  className="px-4 py-2 outline-none text-gray-500 bg-white cursor-not-allowed"
+                  className="px-4 py-2 outline-none rounded-lg text-gray-500 bg-white cursor-not-allowed"
                   type="email"
                   value={email}
                   disabled
@@ -185,7 +185,7 @@ const DashboardEdit = ({ handleToggles }) => {
               {/* <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>Blood Type</label>
                 <input
-                  className="px-4 py-2 outline-none text-gray-500 bg-white cursor-not-allowed"
+                  className="px-4 py-2 outline-none rounded-lg text-gray-500 bg-white cursor-not-allowed"
                   type="text"
                   value={bloodType}
                   disabled
@@ -195,7 +195,7 @@ const DashboardEdit = ({ handleToggles }) => {
               <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>Donor Location</label>
                 <input
-                  className="px-4 py-2 outline-none "
+                  className="px-4 py-2 outline-none rounded-lg "
                   type="text"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
@@ -204,7 +204,7 @@ const DashboardEdit = ({ handleToggles }) => {
               <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>State</label>
                 <input
-                  className="px-4 py-2 outline-none "
+                  className="px-4 py-2 outline-none rounded-lg "
                   type="text"
                   value={stateValue}
                   onChange={(e) => setStateValue(e.target.value)}
@@ -213,7 +213,7 @@ const DashboardEdit = ({ handleToggles }) => {
               <div className="flex gap-x-6 flex-col my-2 gap-y-2 lg:flex-row lg:items-center lg:gap-x-8 lg:flex lg:justify-between ">
                 <label>City</label>
                 <input
-                  className="px-4 py-2 outline-none "
+                  className="px-4 py-2 outline-none rounded-lg "
                   type="text"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
