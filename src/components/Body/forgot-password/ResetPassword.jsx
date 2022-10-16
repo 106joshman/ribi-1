@@ -13,10 +13,9 @@ import { useParams } from "react-router-dom";
 
 const ResetPassword = () => {
   const params = useParams()
-  const token = params.resetToken
+  const token = params.token
   // const token = useSelector((state) => state.user.token);
   // const navigate = useNavigate();
-
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -53,7 +52,6 @@ const ResetPassword = () => {
       const userData = {
         newPassword: password,
       };
-      window.alert(token,params)
       await axios.post(
         `${apiBaseURL}/v1/donors/reset-password/${token}`,
         userData
