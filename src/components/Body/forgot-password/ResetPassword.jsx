@@ -53,6 +53,7 @@ const ResetPassword = () => {
       const userData = {
         newPassword: password,
       };
+      window.alert(token,params)
       await axios.post(
         `${apiBaseURL}/v1/donors/reset-password/${token}`,
         userData
