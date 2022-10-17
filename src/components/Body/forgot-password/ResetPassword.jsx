@@ -16,7 +16,7 @@ const ResetPassword = () => {
   const token = params.token
   // const token = useSelector((state) => state.user.token);
   // const navigate = useNavigate();
-  // window.alert(token)
+  window.alert(token)
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
