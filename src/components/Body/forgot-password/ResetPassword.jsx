@@ -11,11 +11,11 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
-  // const params = useParams();
+// const params = useParams();
   const { token } = useParams();
   // const token = params.resetToken;
   const navigate = useNavigate();
-
+  
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 

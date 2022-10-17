@@ -10,6 +10,7 @@ import { apiBaseURL } from "../../../axios";
 import { dispatchUserToken } from "../../../redux/userSlice";
 import Loader from "../../utils/Loader";
 import moment from "moment";
+import Empty from "../../../assets/illustration_empty_content.svg";
 // import { Pinterest } from "@mui/icons-material";
 
 const BloodRequest = () => {
@@ -28,6 +29,8 @@ const BloodRequest = () => {
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
+
     console.log(token);
     const getRequest = async () => {
       if (token) {
@@ -44,10 +47,11 @@ const BloodRequest = () => {
           console.log("this is the general data result:", res.data);
           console.log("this is the general data result:", res.data.firstname);
           dispatch(dispatchUserToken(token));
-          setRequestData(res.data);
           setIsLoading(false);
+          setRequestData(res.data);
         } catch (err) {
           console.log(`${err}`);
+          setIsLoading(false);
         }
       }
     };
@@ -65,10 +69,20 @@ const BloodRequest = () => {
 
   return (
     <>
+      <div className="load">{isLoading && <Loader />}</div>
       <div className="flex flex-col gap-6 ">
-        {/* {isLoading && <Loader />} */}
         <ul className={styles.unorderedList}>
-          {!isLoading ? (
+          {!requestData ? (
+            // <Loader />
+            <div className="wrapper p-6">
+              <div className="empty py-16 px-4 flex flex-col justify-center items-center h-full">
+                <span className="">
+                  <img src={Empty} alt="Emptty data icon" srcset="" />
+                </span>
+                <h5 className=" text-xl font-bold my-3 text-center">No Data</h5>
+              </div>
+            </div>
+          ) : (
             requestData
               ?.slice(0)
               .reverse()
@@ -245,8 +259,6 @@ const BloodRequest = () => {
                   </>
                 )
               )
-          ) : (
-            <Loader />
           )}
         </ul>
       </div>
