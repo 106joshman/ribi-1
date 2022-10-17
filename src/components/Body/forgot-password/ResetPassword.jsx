@@ -5,17 +5,16 @@ import Swal from "sweetalert2";
 import { apiBaseURL } from "../../../axios";
 import axios from "axios";
 import { RemoveRedEye, VisibilityOff } from "@mui/icons-material";
-import Signup from "../Modal/Signup";
+// import Signup from "../Modal/Signup";
 
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
-  const params = useParams()
-  const token = params.resetToken
-  // const token = useSelector((state) => state.user.token);
-  // const navigate = useNavigate();
+  // const params = useParams();
+  const { token } = useParams();
+  // const token = params.resetToken;
+  const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -32,11 +31,11 @@ const ResetPassword = () => {
     if (password === "" || confirmPassword === "") {
       return Swal.fire({
         icon: "warning",
-        title: "Password input cannot be Empty",
+        title: "Password inputs cannot be Empty",
         text: "Make sure you enter a passowrd",
       });
     }
-    if (password.length <= 7 || confirmPassword.length <= 7) {
+    if (password.length < 8 || confirmPassword.length < 8) {
       return Swal.fire({
         icon: "warning",
         text: "Password cannot be less than 8 characters",
@@ -63,8 +62,7 @@ const ResetPassword = () => {
         text: "Password Changed Successfully",
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.reload();
-          return <Signup />;
+          return navigate("/");
         }
       });
     } catch (err) {
@@ -152,7 +150,7 @@ const ResetPassword = () => {
               className="border-[#f6655f] border-[1px] text-[#f6655f] rounded-full cursor-pointer hover:bg-red-600 hover:text-white py-3 px-10"
               //   onClick={handleChangePassword}
             >
-              Submit
+              Reset Password
             </button>
           </div>
         </form>
