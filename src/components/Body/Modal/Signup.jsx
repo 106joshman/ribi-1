@@ -341,12 +341,12 @@ const Signup = ({ handleModalClose }) => {
                             onChange={(e) => setPassword(e.target.value)}
                           />
                           {showPassword === false ? (
-                            <RemoveRedEye
+                            <VisibilityOff
                               style={{ color: "#C0C6C9", cursor: "pointer" }}
                               onClick={() => setShowPassword(!showPassword)}
                             />
                           ) : (
-                            <VisibilityOff
+                            <RemoveRedEye
                               style={{ color: "#C0C6C9", cursor: "pointer" }}
                               onClick={() => setShowPassword(!showPassword)}
                             />
@@ -608,12 +608,12 @@ const Signup = ({ handleModalClose }) => {
                             onChange={(e) => setPassword(e.target.value)}
                           />
                           {showPassword === false ? (
-                            <RemoveRedEye
+                            <VisibilityOff
                               style={{ color: "#C0C6C9", cursor: "pointer" }}
                               onClick={() => setShowPassword(!showPassword)}
                             />
                           ) : (
-                            <VisibilityOff
+                            <RemoveRedEye
                               style={{ color: "#C0C6C9", cursor: "pointer" }}
                               onClick={() => setShowPassword(!showPassword)}
                             />
