@@ -89,6 +89,7 @@ const Signup = ({ handleModalClose }) => {
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
+  const [recoverEmail, setRecoverEmail] = useState("");
   const [password, setPassword] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState(new Date());
   const [userChecked, setUserChecked] = useState(false);
@@ -118,34 +119,6 @@ const Signup = ({ handleModalClose }) => {
     handleClose();
     setForgetPassword(true);
   }
-
-  // Handles Forgt Password Logic
-
-  const handleForgotPassword = async (e) => {
-    e.preventDefault();
-    try {
-      const userData = {
-        email,
-      };
-      const response = await axios.post(
-        `${apiBaseURL}/v1/donors/forgot-password`,
-        userData
-      );
-      console.log("user data from post", response);
-      setForgetPassword(false);
-      return Swal.fire({
-        icon: "success",
-        title: "Password Details Sent",
-        text: "Check your email to recover your password",
-      });
-    } catch (err) {
-      return Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: `${err}. Try again.`,
-      });
-    }
-  };
 
   // console.log(dateOfBirth);
 
@@ -250,6 +223,48 @@ const Signup = ({ handleModalClose }) => {
     }
   };
 
+  // Handles Forgt Password Logic
+
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+    if (recoverEmail === "") {
+      return Swal.fire({
+        icon: "warning",
+        text: "Make sure you enter an email",
+      });
+    }
+
+    try {
+      const userData = {
+        email: recoverEmail,
+      };
+
+      const response = await axios.post(
+        `${apiBaseURL}/v1/donors/forgot-password`,
+        userData
+      );
+      setForgetPassword(false);
+      console.log(response);
+      return Swal.fire({
+        icon: "success",
+        title: `success...`,
+        // text: "We have emailed your password reset link!",
+        text: `${response.data.message}`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          return navigate("/");
+        }
+      });
+    } catch (err) {
+      console.log(`${err}`);
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${err.data.message}. Try again.`,
+      });
+    }
+  };
+
   return (
     <>
       <button
@@ -326,12 +341,12 @@ const Signup = ({ handleModalClose }) => {
                             onChange={(e) => setPassword(e.target.value)}
                           />
                           {showPassword === false ? (
-                            <RemoveRedEye
+                            <VisibilityOff
                               style={{ color: "#C0C6C9", cursor: "pointer" }}
                               onClick={() => setShowPassword(!showPassword)}
                             />
                           ) : (
-                            <VisibilityOff
+                            <RemoveRedEye
                               style={{ color: "#C0C6C9", cursor: "pointer" }}
                               onClick={() => setShowPassword(!showPassword)}
                             />
@@ -593,12 +608,12 @@ const Signup = ({ handleModalClose }) => {
                             onChange={(e) => setPassword(e.target.value)}
                           />
                           {showPassword === false ? (
-                            <RemoveRedEye
+                            <VisibilityOff
                               style={{ color: "#C0C6C9", cursor: "pointer" }}
                               onClick={() => setShowPassword(!showPassword)}
                             />
                           ) : (
-                            <VisibilityOff
+                            <RemoveRedEye
                               style={{ color: "#C0C6C9", cursor: "pointer" }}
                               onClick={() => setShowPassword(!showPassword)}
                             />
@@ -659,12 +674,13 @@ const Signup = ({ handleModalClose }) => {
       <>
         {forgetPassword ? (
           <section>
-            <div className="fixed top-0 left-0 w-screen flex justify-center items-center my-0 mx-auto h-screen bg-white z-50 bg-opacity-80">
-              <div className="w-[90vw] lg:w-[52vw] md:w-[56vw] lg:h-[86vh] bg-white shadow-lg p-8">
+            <div className="fixed top-0 left-0 w-screen flex justify-center items-center my-0 mx-auto h-screen bg-slate-100 z-50 ">
+              {/* <div className="w-[90vw] lg:w-[52vw] md:w-[56vw] lg:h-[86vh] bg-white shadow-lg p-8"> */}
+              <div className="w-full lg:max-w-md max-w-sm bg-white shadow-lg lg:m-0 mx-[20px] py-8 px-5">
                 {" "}
                 <div className={styles.top}>
                   <div className={styles.left}>
-                    <img src={logo} alt="Ribi logo" className="w-[40%]" />
+                    <img src={logo} alt="Ribi logo" className="w-[30%]" />
                     <p className={styles.logoText}>RIBI</p>
                   </div>
                   <div
@@ -683,31 +699,32 @@ const Signup = ({ handleModalClose }) => {
                     <p className="text-red-500">Forget Password</p>{" "}
                     <span className="bg-red-400 h-[0.12rem] w-28"></span>
                   </div>
-                  <div className="mt-[37px] text-center flex flex-col justify-center">
-                    <p>
+                  <div className="mt-6 text-center flex flex-col justify-center">
+                    {/* <p>
                       Enter your email below to receive your password reset
                       instructions
-                    </p>
-                    <form className="mt-[37px] flex flex-col items-center justify-center">
-                      <div
-                      //   className="flex flex-col items-center justify-start"
-                      >
+                    </p> */}
+                    <form
+                      className="mt-2 flex flex-col items-center justify-center"
+                      onSubmit={handleForgotPassword}
+                    >
+                      <div className="w-full">
                         <label htmlFor="Email" className="text-left block">
                           Email
                         </label>
                         <input
                           type="email"
-                          className="w-[80vw] lg:w-[40vw] md:w-[46vw] rounded-full h-[34px] roun border border-black block px-3 outline-0"
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
+                          className="w-full py-2 px-4 shadow rounded-lg appearance-none border border-slate-300 text-slate-700 focus:shadow-outline outline-0"
+                          onChange={(e) => setRecoverEmail(e.target.value)}
+                          // required
                         />
                       </div>
+
                       <button
                         type="submit"
-                        className="bg-red-500 text-white   rounded-full mt-[34px] mb-[28px] cursor-pointer hover:bg-red-600 py-3 px-6"
-                        onClick={handleForgotPassword}
+                        className="bg-red-500 text-white   rounded-full mt-[34px] mb-[28px] cursor-pointer hover:bg-red-600 py-3 px-10"
                       >
-                        Send
+                        Submit
                       </button>
                     </form>
                     <button

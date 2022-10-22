@@ -1,2 +1,2 @@
-export const apiBaseURL =  "https://ribi-b.herokuapp.com/api";
-export const apiBaseImageUpload =  "https://ribi-b.herokuapp.com";
+export const apiBaseURL = process.env.REACT_APP_API_URL 
+export const apiBaseImageUpload =  process.env.REACT_APP_API_IMGUPLOAD
