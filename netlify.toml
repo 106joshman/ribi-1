@@ -4,4 +4,4 @@
   status = 200
 
   [build]
-  command = "npm run build && node ./axios/index.js"
+  command = "npm run build && node ./src/axios/index.js"
