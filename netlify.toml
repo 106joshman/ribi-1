@@ -3,5 +3,4 @@
   to = "/"
   status = 200
 
-  [build]
-  command = "yarn build && node ./src/axios/index.js"
+
