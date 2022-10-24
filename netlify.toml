@@ -4,4 +4,4 @@
   status = 200
 
   [build]
-  command = "yarn run build && node ./src/axios/index.js"
+  command = "yarn build && node ./src/axios/index.js"
