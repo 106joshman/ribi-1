@@ -16,7 +16,7 @@ import Empty from "../../../assets/illustration_empty_content.svg";
 const BloodRequest = () => {
   const [id, setID] = useState(false);
   const [requestData, setRequestData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
@@ -72,17 +72,7 @@ const BloodRequest = () => {
       <div className="load">{isLoading && <Loader />}</div>
       <div className="flex flex-col gap-6 ">
         <ul className={styles.unorderedList}>
-          {!requestData ? (
-            // <Loader />
-            <div className="wrapper p-6">
-              <div className="empty py-16 px-4 flex flex-col justify-center items-center h-full">
-                <span className="">
-                  <img src={Empty} alt="Emptty data icon" srcset="" />
-                </span>
-                <h5 className=" text-xl font-bold my-3 text-center">No Data</h5>
-              </div>
-            </div>
-          ) : (
+          {requestData.length > 0 ? (
             requestData
               ?.slice(0)
               .reverse()
@@ -259,8 +249,34 @@ const BloodRequest = () => {
                   </>
                 )
               )
+          ) : (
+            <div className="wrapper p-6">
+              <div className="empty py-16 px-4 flex flex-col justify-center items-center h-full">
+                <span className="">
+                  <img src={Empty} alt="Emptty data icon" srcset="" />
+                </span>
+                <h5 className=" text-xl font-bold my-3 text-center">
+                  No pending request for this user
+                </h5>
+              </div>
+            </div>
           )}
         </ul>
+
+        {/* {requestData.length < 1 ? (
+          <div className="wrapper p-6">
+            <div className="empty py-16 px-4 flex flex-col justify-center items-center h-full">
+              <span className="">
+                <img src={Empty} alt="Emptty data icon" srcset="" />
+              </span>
+              <h5 className=" text-xl font-bold my-3 text-center">
+                No pending request for this user
+              </h5>
+            </div>
+          </div>
+        ) : (
+          requestData
+        )} */}
       </div>
     </>
   );
