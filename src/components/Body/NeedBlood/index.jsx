@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./need.module.css";
 import hero from "../../../assets/hero.png";
-import spinners from "../../../assets/images/spinner.svg";
+// import spinners from "../../../assets/images/spinner.svg";
 import profile1 from "../../../assets/profile1.png";
 import place from "../../../assets/place.png";
 import { Link } from "react-router-dom";
@@ -27,32 +27,50 @@ const Need = () => {
     setCurrentPage(pageNumber);
   };
 
+  // const initialSearch = {
+  //   state: "",
+  //   bloodType: "",
+  //   city: "",
+  // };
+  // const [search, setSearch] = useState({ city: "", state: "", bloodType: "" });
   const [search, setSearch] = useState("");
+
   // const [donor, setDonor] = useState({});
-  const urls = [
-    `${apiBaseURL}/v1/donors?city=${search}`,
-    `${apiBaseURL}/v1/donors?state=${search}`,
-    `${apiBaseURL}/v1/donors?bloodType=${search}`,
-  ];
+  // const urls = [`${apiBaseURL}/v1/donors?city=${search}`];
+  // const urls = [
+  //   `${apiBaseURL}/v1/donors?bloodType=${search}`,
+  //   `${apiBaseURL}/v1/donors?city=${search}`,
+  //   `${apiBaseURL}/v1/donors?state=${search}`,
+  // ];
+  // const urls = [
+  // `${apiBaseURL}/v1/donors?state=${search.state}&bloodType=${search.bloodType}&city=${search.city}`,
+  //   `${apiBaseURL}/v1/donors?state=${search}&bloodType=${search}&city=${search}`,
+  // ];
+  const urls = `${apiBaseURL}/v1/donors?state=&bloodType=${search}&city=`;
+  console.log("This is a link to ", urls);
 
   // Fecth all Search results
   const getSearch = async (evt) => {
+    evt.preventDefault();
     try {
-      const response = await Promise.all(
-        urls.map((url) =>
-          fetch(url, {
-            params: {
-              _limit: 10,
-            },
-          }).then((res) => res.json())
-        )
-      );
-
-      let allResponse = [
-        ...response[0].users,
-        ...response[1].users,
-        ...response[2].users,
-      ];
+      const response = await axios.get(urls);
+      // const response = await Promise.all(
+      //   urls.map((url) =>
+      //     fetch(url, {
+      //       params: {
+      //         _limit: 10,
+      //       },
+      //     }).then((res) => res.json())
+      //   )
+      // );
+      console.log("Hey this is ", response);
+      const allResponse = response.data.users;
+      // let allResponse = [
+      //   ...response,
+      // ...response[0].users,
+      // ...response[1].users,
+      // ...response[2].users,
+      // ];
 
       const uniqueIds = [];
       let setResponse = allResponse.filter((element) => {
@@ -66,8 +84,12 @@ const Need = () => {
         return false;
       });
       setSearchData(setResponse);
+
+      // console.log("Maybe check", response.data.result);
+      // console.log("Maybe", response.data.users);
+      // setSearchData(response.data.users);
     } catch (error) {
-      // console.log("Error", error);
+      console.log("Error", error);
     }
   };
 
@@ -77,7 +99,7 @@ const Need = () => {
       const response = await axios.get(`${apiBaseURL}/v1/donors`);
       setIsPending(false);
       setData(response.data.users);
-      console.log(response.data.users.length);
+      // console.log(response.data.users.length);
     };
     getDonors();
   }, []);
@@ -109,7 +131,9 @@ const Need = () => {
                 className={`${styles.donorSearch} flex-1`}
                 type="text"
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
                 // onKeyPress={getSearch}
                 // onKeyUp={getSearch}
                 placeholder="Search with Lagos or Ikeja or A+"
