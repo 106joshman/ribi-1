@@ -10,6 +10,8 @@ import { Paginate } from "../pagination";
 import { apiBaseURL } from "../../../axios";
 import { FaSearch } from "react-icons/fa";
 import Loader from "../../utils/Loader";
+import Swal from "sweetalert2";
+
 // import { Pagination, Stack } from "@mui/material";
 
 const Need = () => {
@@ -27,50 +29,54 @@ const Need = () => {
     setCurrentPage(pageNumber);
   };
 
-  // const initialSearch = {
-  //   state: "",
-  //   bloodType: "",
-  //   city: "",
-  // };
-  // const [search, setSearch] = useState({ city: "", state: "", bloodType: "" });
   const [search, setSearch] = useState("");
 
   // const [donor, setDonor] = useState({});
   // const urls = [`${apiBaseURL}/v1/donors?city=${search}`];
-  // const urls = [
-  //   `${apiBaseURL}/v1/donors?bloodType=${search}`,
-  //   `${apiBaseURL}/v1/donors?city=${search}`,
-  //   `${apiBaseURL}/v1/donors?state=${search}`,
-  // ];
+  const urls = [
+    `${apiBaseURL}/v1/donors?bloodType=${search}`,
+    `${apiBaseURL}/v1/donors?city=${search}`,
+    `${apiBaseURL}/v1/donors?state=${search}`,
+  ];
   // const urls = [
   // `${apiBaseURL}/v1/donors?state=${search.state}&bloodType=${search.bloodType}&city=${search.city}`,
   //   `${apiBaseURL}/v1/donors?state=${search}&bloodType=${search}&city=${search}`,
   // ];
-  const urls = `${apiBaseURL}/v1/donors?state=&bloodType=${search}&city=`;
-  console.log("This is a link to ", urls);
+  // const urls = `${apiBaseURL}/v1/donors?state=&bloodType=${search}&city=`;
+  // console.log("This is a link to ", urls);
 
   // Fecth all Search results
   const getSearch = async (evt) => {
     evt.preventDefault();
     try {
-      const response = await axios.get(urls);
-      // const response = await Promise.all(
-      //   urls.map((url) =>
-      //     fetch(url, {
-      //       params: {
-      //         _limit: 10,
-      //       },
-      //     }).then((res) => res.json())
-      //   )
-      // );
-      console.log("Hey this is ", response);
-      const allResponse = response.data.users;
-      // let allResponse = [
-      //   ...response,
-      // ...response[0].users,
-      // ...response[1].users,
-      // ...response[2].users,
-      // ];
+      // const response = await axios.get(urls);
+      const response = await Promise.all(
+        urls.map((url) =>
+          fetch(url, {
+            params: {
+              _limit: 10,
+            },
+          }).then((res) => res.json())
+        )
+      );
+      // console.log(response);
+
+      // console.log("Hey this is ", response);
+      // const allResponse = response.data.users;
+      let allResponse = [
+        // ...response,
+        ...response[0].users,
+        ...response[1].users,
+        ...response[2].users,
+      ];
+
+      if (allResponse.length === 0) {
+        Swal.fire({
+          icon: "info",
+          text: `Donor not found for this details`,
+          confirmButtonText: "Try Again",
+        });
+      }
 
       const uniqueIds = [];
       let setResponse = allResponse.filter((element) => {
@@ -89,7 +95,7 @@ const Need = () => {
       // console.log("Maybe", response.data.users);
       // setSearchData(response.data.users);
     } catch (error) {
-      console.log("Error", error);
+      console.log("Error", `${error}`);
     }
   };
 
@@ -164,12 +170,7 @@ const Need = () => {
             className={`${styles.availableDonorContainer} lg:px-[2rem] py-8 px-[10px]`}
           >
             {/* <div className={styles.donorLists}> */}
-            {isPending && (
-              // <div className="flex justify-center text-center items-center w-full h-auto">
-              //   <img src={spinners} className="flex" alt="spinner" />
-              // </div>
-              <Loader />
-            )}
+            {isPending && <Loader />}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-2.5 md:py-11 md:px-8 mx-auto">
               {searchData
                 ? searchData?.map((user) => (
