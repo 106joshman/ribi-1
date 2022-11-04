@@ -236,8 +236,8 @@ const Bio = (props) => {
                       <p className={styles.detailText}>{user.state}</p>
                       <p className={styles.detailText}>City/Town:</p>
                       <p className={styles.detailText}>{user.city}</p>
-                      <p className={styles.detailText}>Ocupation:</p>
-                      <p className={styles.detailText}>Teacher</p>
+                      {/* <p className={styles.detailText}>Ocupation:</p>
+                      <p className={styles.detailText}>Teacher</p> */}
                     </div>
                   </div>
                 </div>
