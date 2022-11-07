@@ -31,6 +31,17 @@ const Need = () => {
 
   const [search, setSearch] = useState("");
 
+  function handleSearchConvert() {
+    let charChange = `${search}`;
+    if (charChange.indexOf("+")) {
+      let charCheck = charChange.replace("+", "%2B");
+      setSearch(charCheck);
+    }
+  }
+  useEffect(() => {
+    handleSearchConvert();
+  });
+
   // const [donor, setDonor] = useState({});
   // const urls = [`${apiBaseURL}/v1/donors?city=${search}`];
   const urls = [
@@ -76,6 +87,7 @@ const Need = () => {
           text: `Donor not found for this details`,
           confirmButtonText: "Try Again",
         });
+        // setSearch("");
       }
 
       const uniqueIds = [];
@@ -89,7 +101,9 @@ const Need = () => {
 
         return false;
       });
+
       setSearchData(setResponse);
+      // handleSearchConvert();
 
       // console.log("Maybe check", response.data.result);
       // console.log("Maybe", response.data.users);
