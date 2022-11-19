@@ -20,7 +20,7 @@ import Donated from "./Donated";
 import { Badge } from "@mui/material";
 import Swal from "sweetalert2";
 
-const Bio = (props) => {
+const Bio = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
   const user = useSelector((state) => state.user.user);
@@ -34,20 +34,12 @@ const Bio = (props) => {
   // const [request, setRequest] = useState(null);
   const [openEdit, setOpenEdit] = useState(false);
 
+  const [requestData, setRequestData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleToggles = (e) => {
-    // e.preventDefault();
     setOpenEdit(!openEdit);
   };
-
-  // useEffect(() => {
-  //   const handleFetchRequest = async () => {
-  //     const res = await axios.get(
-  //       "https://ribi-donor.herokuapp.com/api/v1/patients"
-  //     );
-  //     setRequest(res.data.requests);
-  //   };
-  //   return handleFetchRequest();
-  // });
 
   const logout = () => {
     sessionStorage.clear();
@@ -87,18 +79,41 @@ const Bio = (props) => {
     }
   }, [userId, dispatch, token]);
 
+  useEffect(() => {
+    setIsLoading(true);
+
+    // console.log(token);
+    const getRequest = async () => {
+      if (token) {
+        try {
+          const res = await axios.get(
+            `${apiBaseURL}/v1/patients/user/request`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          console.log("this is the general data result:", res.data);
+          // console.log("this is the single data result:", res.data._id);
+          dispatch(dispatchUserToken(token));
+          setIsLoading(false);
+          setRequestData(res.data);
+        } catch (err) {
+          console.log(`${err}`);
+          setIsLoading(false);
+        }
+      }
+    };
+    getRequest();
+  }, [token, dispatch]);
+
   if (!token) {
-    // return navigate("/home");
     return <Navigate to="/" />;
   } else {
     return (
       <>
-        {/* <section className={styles.bioSection}>
-          <div className={styles.imageContainer}>
-            <img className={styles.heroImg} src={hero} alt="hero" />
-            <p className={styles.heroText}>DONOR BIO DATA</p>
-          </div>
-        </section> */}
         {/* Dashboard Nav Section */}
         <section className="flex justify-between items-center px-2 py-4 relative bg-green-50 shadow-sm">
           {openEdit && (
@@ -250,88 +265,26 @@ const Bio = (props) => {
             <h3 className="py-3 text-center text-lg font-semibold text-[#f6655f]">
               Pending Requests
             </h3>
-
-            {/* <div className="my-4">
-              {user?.requests?.map((id, index) => (
-                <>
-                  <div key={index}>
-                    <p className="my-2 bg-slate-100 hover:bg-red-100 p-3">
-                      {id}
-                    </p>
-                  </div>
-                </>
-              ))}
-            </div> */}
-
-            <BloodRequest />
+            <BloodRequest
+              isLoading={isLoading}
+              requestData={requestData}
+              setRequestData={setRequestData}
+            />
           </div>
           <div className="lg:w-1/3 w-full bg-white rounded-sm px-3 shadow-lg ">
             <h3 className="text-center text-lg font-semibold text-[#268d61] py-3">
               Donated
             </h3>
-            <Donated />
+            <Donated
+              isLoading={isLoading}
+              requestData={requestData}
+              setRequestData={setRequestData}
+            />
           </div>
         </section>
       </>
     );
   }
-  // {
-  /* {request &&
-                request?.map((patient) => (
-                  <div
-                    key={patient._id}
-                    className="shadow-md bg-gray-100 p-6  gap-6"
-                  >
-                    <p>
-                      <span className="text-red-600">Firstname: </span>
-                      {patient.firstname}
-                    </p>
-                    <p>
-                      <span className="text-red-600">Lastname: </span>{" "}
-                      {patient.lastname}
-                    </p>
-
-                    <p>
-                      <span className="text-red-600">Blood type: </span>{" "}
-                      {patient.bloodType}
-                    </p>
-                    <p>
-                      <span className="text-red-600">Gender: </span>{" "}
-                      {patient.gender}
-                    </p>
-                    <p>
-                      <span className="text-red-600">Phone: </span>{" "}
-                      {patient.phone}
-                    </p>
-                    <p>
-                      <span className="text-red-600">Address: </span>{" "}
-                      {patient.donorLocation}
-                    </p>
-                    <p>
-                      <span className="text-red-600">Country: </span>{" "}
-                      {patient.country}
-                    </p>
-                    <p>
-                      <span className="text-red-600">
-                        Pint of Blood Needed:{" "}
-                      </span>{" "}
-                      {patient.pintOfBlood}
-                    </p>
-                    <p>
-                      <span className="text-red-600">Ailment: </span>{" "}
-                      {patient.ailmentDiagnosis}
-                    </p>
-                    <p>
-                      <span className="text-red-600">Email: </span>{" "}
-                      {patient.email}
-                    </p>
-                    <p>
-                      <span className="text-red-600">State: </span>{" "}
-                      {patient.state}
-                    </p>
-                  </div>
-                ))} */
 };
-// };
 
 export default Bio;

@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from "react";
 import requestDrop from "../../../assets/requestDrop.png";
 import styles from "./request.module.css";
-// import ConfirmRequest from "../Modal/ConfirmRequest";
 import styles2 from "../Modal/confirmRequest.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import { apiBaseURL } from "../../../axios";
-import { dispatchUserToken } from "../../../redux/userSlice";
+// import { dispatchUserToken } from "../../../redux/userSlice";
 import Loader from "../../utils/Loader";
 import moment from "moment";
 import Empty from "../../../assets/illustration_empty_content.svg";
+// import { useParams } from "react-router-dom";
 // import { Pinterest } from "@mui/icons-material";
 
-const BloodRequest = () => {
-  const [id, setID] = useState(false);
-  const [requestData, setRequestData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+const BloodRequest = ({ isLoading, requestData }) => {
+  const [userId, setUserId] = useState(false);
+  // const [requestData, setRequestData] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const { id } = useParams();
 
-  const dispatch = useDispatch();
-  const token = useSelector((state) => state.user.token);
+  // const dispatch = useDispatch();
+  // const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
     window.scrollTo({
@@ -28,43 +29,20 @@ const BloodRequest = () => {
     });
   }, []);
 
-  useEffect(() => {
-    setIsLoading(true);
+  const UpdateStatus = async () => {
+    try {
+      await axios.put(`${apiBaseURL}/v1/patients/update?id=${userId}`);
+      console.log(userId);
+      setUserId(null);
+      window.location.reload(false);
+    } catch (error) {
+      console.log("Error", `${error}`);
+    }
+  };
 
-    console.log(token);
-    const getRequest = async () => {
-      if (token) {
-        try {
-          const res = await axios.get(
-            `${apiBaseURL}/v1/patients/user/request`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
-
-          console.log("this is the general data result:", res.data);
-          console.log("this is the general data result:", res.data.firstname);
-          dispatch(dispatchUserToken(token));
-          setIsLoading(false);
-          setRequestData(res.data);
-        } catch (err) {
-          console.log(`${err}`);
-          setIsLoading(false);
-        }
-      }
-    };
-    getRequest();
-  }, [token, dispatch]);
-
-  // const handleView = (_id) => {
-  //   console.log(_id);
-  //   setID(true);
-  // };
   const handleView = (e) => {
     console.log(e);
-    setID(e);
+    setUserId(e);
   };
 
   return (
@@ -76,6 +54,7 @@ const BloodRequest = () => {
             requestData
               ?.slice(0)
               .reverse()
+              .filter((requestData) => requestData.status === "pending")
               .map(
                 ({
                   updatedAt,
@@ -136,8 +115,8 @@ const BloodRequest = () => {
                         </div>
                       </div>
                     </li>
-                    {id === _id && (
-                      // <ConfirmRequest setID={setID} id={id} requestData={requestData} />
+                    {userId === _id && (
+                      // <ConfirmRequest setUserId={setUserId} id={id} requestData={requestData} />
                       <>
                         <div
                           className="modal fixed top-0 left-0 w-full h-full outline-none overflow-x-hidden overflow-y-hidden bg-[#f2f2f2cc]"
@@ -147,7 +126,7 @@ const BloodRequest = () => {
                           <div className="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
                             <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-[#f6655f] bg-clip-padding p-3 rounded-md outline-none text-current">
                               <button
-                                onClick={() => setID(null)}
+                                onClick={() => setUserId(null)}
                                 className={styles2.cross}
                               >
                                 <AiOutlineClose color="white" size={32} />
@@ -199,7 +178,7 @@ const BloodRequest = () => {
                                       Amount of Blood:
                                     </p>
                                     <p className={styles2.detailText}>
-                                      {pintOfBlood}
+                                      {pintOfBlood} pint of Blood
                                     </p>
                                     <p className={styles2.detailText}>State:</p>
                                     <p className={styles2.detailText}>
@@ -220,22 +199,14 @@ const BloodRequest = () => {
 
                                 <div className={styles2.confirmButtons}>
                                   <button
-                                    // onClick={() =>
-                                    // setAlert({
-                                    //   success: "Request Confirmed",
-                                    // })
-                                    // }
+                                    onClick={UpdateStatus}
                                     className={styles2.yesButton}
                                   >
                                     Yes
                                   </button>
                                   <button
-                                    // onClick={() =>
-                                    //   setAlert({
-                                    //     error: "Request Denied",
-                                    //   })
-                                    // }
-                                    className={styles2.noButton}
+                                    onClick={() => setUserId(null)}
+                                    className={`${styles2.noButton} hover:bg-white hover:text-[#F54B46]`}
                                   >
                                     No
                                   </button>
@@ -262,21 +233,6 @@ const BloodRequest = () => {
             </div>
           )}
         </ul>
-
-        {/* {requestData.length < 1 ? (
-          <div className="wrapper p-6">
-            <div className="empty py-16 px-4 flex flex-col justify-center items-center h-full">
-              <span className="">
-                <img src={Empty} alt="Emptty data icon" srcset="" />
-              </span>
-              <h5 className=" text-xl font-bold my-3 text-center">
-                No pending request for this user
-              </h5>
-            </div>
-          </div>
-        ) : (
-          requestData
-        )} */}
       </div>
     </>
   );
