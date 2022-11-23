@@ -41,7 +41,7 @@
 
 .profileContainer {
   width: 440px;
-  background: #EB5757;
+  background: #eb5757;
   border-radius: 25px;
   margin: 0 auto 16px auto;
   padding: 1rem 0;
@@ -49,7 +49,6 @@
 }
 
 .bloodGroup {
-  
 }
 
 .blub {
@@ -73,7 +72,7 @@
 .profilePicture {
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 .profilePic {

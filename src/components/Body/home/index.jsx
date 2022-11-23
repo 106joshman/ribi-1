@@ -176,13 +176,13 @@ const Home = () => {
           </p>
         </div>
         <div
-          className={`grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 justify-center lg:px-12 px-[20px] mx-auto`}
+          className={`grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 justify-center lg:px-12 px-[20px] lg:max-w-[1000px] mx-auto`}
         >
           {cardData.map(({ id, title, text }) => {
             return (
               <div
                 key={id}
-                className={`${styles.objectCard} mx-auto my-[15px] lg:w-[85%] w-[100%] rounded-lg`}
+                className={`${styles.objectCard} mx-auto my-[15px] lg:max-w-[400px] w-[100%] rounded-lg`}
               >
                 <h6
                   style={{

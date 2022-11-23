@@ -15,7 +15,7 @@ const About = () => {
         {/* Card Sections */}
         <section className="my-16">
           {/* First card */}
-          <section className=" mx-6 lg:mx-12  bg-green-100 py-12">
+          <section className=" mx-6 lg:mx-12  bg-green-50 py-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-6">
               <div className="px-4 lg:px-8 lg:flex md:flex sm:flex hidden flex-center items-center">
                 <img src="/assets/donate.jpg" alt="donate" className="w-full" />
@@ -45,7 +45,7 @@ const About = () => {
             </div>
           </section>
           {/* second card */}
-          <section className="mx-6 lg:mx-12  bg-yellow-100 py-12">
+          <section className="mx-6 lg:mx-12  bg-yellow-50 py-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-6">
               <div className="px-4 lg:px-8">
                 <h2 className="my-2 font-bold text-3xl text-[#f6655f]">

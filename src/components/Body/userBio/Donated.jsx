@@ -22,7 +22,8 @@ const Donated = ({ isLoading, requestData }) => {
       <ul className={styles.unorderedList}>
         {requestData.length > 0 ? (
           requestData
-            ?.reverse()
+            ?.slice(0)
+            .reverse()
             .filter((requestData) => requestData.status === "accepted")
             .map(
               ({

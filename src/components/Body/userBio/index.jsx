@@ -7,7 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+// import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+// import MoreVert from "@mui/icons-material/MoreVert";
 import {
   dispatchUser,
   dispatchLogout,
@@ -19,6 +20,14 @@ import BloodRequest from "./BloodRequest";
 import Donated from "./Donated";
 import { Badge } from "@mui/material";
 import Swal from "sweetalert2";
+// import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+// import MenuItem from "@mui/material/MenuItem";
+import {
+  usePopupState,
+  bindTrigger,
+  bindMenu,
+} from "material-ui-popup-state/hooks";
 
 const Bio = () => {
   const dispatch = useDispatch();
@@ -29,8 +38,12 @@ const Bio = () => {
 
   // props.funcNav(false);
   // console.log(token)
+  const popupState = usePopupState({
+    variant: "popover",
+    popupId: "demoMenu",
+  });
 
-  const [dropdown, setDropdown] = useState(false);
+  // const [dropdown, setDropdown] = useState(false);
   // const [request, setRequest] = useState(null);
   const [openEdit, setOpenEdit] = useState(false);
 
@@ -39,9 +52,11 @@ const Bio = () => {
 
   const handleToggles = (e) => {
     setOpenEdit(!openEdit);
+    popupState.close();
   };
 
   const logout = () => {
+    popupState.close();
     sessionStorage.clear();
     localStorage.clear();
     localStorage.removeItem(user);
@@ -126,13 +141,13 @@ const Bio = () => {
           </Link>
           <div className="relative">
             {/* Dropdown Options */}
-            <div className="flex items-center cursor-pointer space-x-3">
+            <div className="flex items-center  space-x-3">
               <div className="notifik mr">
                 {/* <div className=" bg-red-200 p-2"> */}
                 <Badge
                   badgeContent={user?.requests?.length}
                   color="error"
-                  className="animate-pulse"
+                  className="animate-pulse cursor-pointer"
                 >
                   <NotificationsNoneIcon
                     className=" hover:text-red-500 "
@@ -143,7 +158,8 @@ const Bio = () => {
               </div>
               <div
                 className="flex space-x-2 items-center"
-                onClick={() => setDropdown(!dropdown)}
+                // onClick={() => setDropdown(!dropdown)}
+                // {...bindTrigger(popupState)}
               >
                 {/* <img
                   className="w-12 h-12 rounded-full"
@@ -151,22 +167,54 @@ const Bio = () => {
                   alt="profilePicture"
                 /> */}
                 <img
-                  className="w-12 h-12 rounded-full"
+                  className="w-12 h-12 rounded-full cursor-pointer hover:opacity-50"
                   src={user.avater}
                   alt={user.firstname}
+                  {...bindTrigger(popupState)}
                   onError={(event) => {
                     event.target.src =
                       "https://180dc.org/wp-content/uploads/2022/04/Blank-Avatar-300x262.png";
                     event.onerror = null;
                   }}
                 />
-                <p>
-                  <KeyboardArrowDownIcon className="w-6 h-4 ml-2 hover:text-red-500" />
-                </p>
+
+                <Menu {...bindMenu(popupState)} className="top-5">
+                  <div
+                    className="hover:bg-red-400 cursor-pointer py-3 px-5 hover:text-white"
+                    onClick={handleToggles}
+                  >
+                    <button>Edit Profile</button>
+                  </div>
+                  <div
+                    className="hover:bg-red-400 cursor-pointer py-3 px-5 hover:text-white"
+                    onClick={popupState.close}
+                  >
+                    <button>Notification</button>
+                  </div>
+                  <div
+                    className="hover:bg-red-400 cursor-pointer py-3 px-5 hover:text-white"
+                    onClick={logout}
+                  >
+                    <button>Logout</button>
+                  </div>
+                  <div
+                    className="hover:bg-red-400 cursor-pointer py-3 px-5 hover:text-white"
+                    onClick={popupState.close}
+                  >
+                    <button>About</button>
+                  </div>
+
+                  <span
+                    className="text-xs px-3 mb-2"
+                    onClick={popupState.close}
+                  >
+                    Version 0.1.0
+                  </span>
+                </Menu>
               </div>
             </div>
 
-            {dropdown && (
+            {/* {dropdown && (
               <ul className="space-y-4 absolute z-10 shadow-lg bg-blue-100 pb-3">
                 <li className="hover:bg-red-400 cursor-pointer py-2 px-3 hover:text-white">
                   <button onClick={handleToggles}>Edit Profile</button>
@@ -182,7 +230,7 @@ const Bio = () => {
                   <span className="text-xs px-3 mb-2">Version 0.1.0</span>
                 </li>
               </ul>
-            )}
+            )} */}
           </div>
         </section>
         {/* ----------------------------------------------- End of Dashboard Navbar ----------------------------------- */}

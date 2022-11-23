@@ -12,7 +12,6 @@ import { FaSearch } from "react-icons/fa";
 import Loader from "../../utils/Loader";
 import Swal from "sweetalert2";
 
-
 const Need = () => {
   const [data, setData] = useState([]);
   const [searchData, setSearchData] = useState(null);
@@ -30,16 +29,16 @@ const Need = () => {
 
   const [search, setSearch] = useState("");
 
-  function handleSearchConvert() {
+  const handleSearchConvert = async () => {
     let charChange = `${search}`;
     if (charChange.indexOf("+")) {
       let charCheck = charChange.replace("+", "%2B");
       setSearch(charCheck);
     }
-  }
-  useEffect(() => {
-    handleSearchConvert();
-  });
+  };
+  // useEffect(() => {
+  //   handleSearchConvert();
+  // });
 
   // const [donor, setDonor] = useState({});
   // const urls = [`${apiBaseURL}/v1/donors?city=${search}`];
@@ -100,7 +99,7 @@ const Need = () => {
 
         return false;
       });
-
+      handleSearchConvert();
       setSearchData(setResponse);
       // handleSearchConvert();
 
