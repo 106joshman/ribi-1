@@ -55,6 +55,7 @@ const Login = () => {
       );
       setForgetPassword(false);
       console.log(response);
+
       return Swal.fire({
         icon: "success",
         title: `success...`,
@@ -96,11 +97,19 @@ const Login = () => {
       });
     } catch (error) {
       console.log(`${error.message}`);
-      return Swal.fire({
-        icon: "error",
-        title: "Email or Password input is wrong",
-        text: `Please enter the right email or password`,
-      });
+      if (`${error.message}` === "Network Error") {
+        Swal.fire({
+          icon: "error",
+          title: "Network Error",
+          text: `Please check your network and try again`,
+        });
+      } else {
+        return Swal.fire({
+          icon: "error",
+          title: "Email or Password input is wrong",
+          text: `Please enter the right email or password`,
+        });
+      }
     }
   };
   return (
@@ -109,7 +118,7 @@ const Login = () => {
         className={` grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 h-screen`}
       >
         <div
-          className={`${styles.mainLeft} px-8 sm:px-28 md:px-48 lg:px-48 xl:px-58 py-6 col-span-3`}
+          className={`${styles.mainLeft} px-8 sm:px-24 md:px-28 lg:px-40 xl:px-58 2xl:px-64 py-6 col-span-3`}
         >
           <div className={`py-6 mb-16`}>
             <div

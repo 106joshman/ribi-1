@@ -79,6 +79,13 @@ const Register = ({ handleModalClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (profilePicture === "") {
+      return Swal.fire({
+        icon: "warning",
+        text: "You must upload a profile picture",
+      });
+    }
+
     const userData = {
       avater: profilePicture,
       firstname: firstName,
@@ -153,7 +160,7 @@ const Register = ({ handleModalClose }) => {
                   accept="image/*, capture=camera "
                   id="fusk"
                   onChange={handleImageUpload}
-                  required
+                  // required
                 />
               </div>
             </div>
