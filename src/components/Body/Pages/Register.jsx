@@ -127,17 +127,17 @@ const Register = ({ handleModalClose }) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 h-screen">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 h-screen mt-6">
         <div className={`${styles.mainLeft} px-8 lg:px-24 py-6 col-span-3`}>
-          <div className={`py-6 mb-16`}>
+          <div className={`my-12`}>
             <div
-              className={`flex items-center lg:justify-start justify-center`}
+              className={`flex items-center lg:justify-center justify-center`}
             >
               <img src={logo} alt="Ribi logo" className={styles.logoImg} />
               <p className={styles.logoText}>RIBI</p>
             </div>
           </div>
-          <div className="text-left text-3xl my-4 p-3 bg-[#f6655f] flex justify-center items-center gap-4">
+          <div className="text-left text-3xl mt-4 mb-10 p-3 bg-[#f6655f] flex justify-center items-center gap-4">
             <p className="text-white">Register</p>
           </div>
           <form onSubmit={handleSubmit} className={styles.form}>

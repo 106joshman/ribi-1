@@ -113,23 +113,23 @@ const Login = () => {
     }
   };
   return (
-    <div className="">
+    <div className="mt-6">
       <div
         className={` grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 h-screen`}
       >
         <div
           className={`${styles.mainLeft} px-8 sm:px-24 md:px-28 lg:px-40 xl:px-58 2xl:px-64 py-6 col-span-3`}
         >
-          <div className={`py-6 mb-16`}>
+          <div className={`my-12`}>
             <div
-              className={`flex items-center lg:justify-start justify-center`}
+              className={`flex items-center lg:justify-center justify-center`}
             >
               <img src={logo} alt="Ribi logo" className={styles.logoImg} />
               <p className={styles.logoText}>RIBI</p>
             </div>
           </div>
-          <div className="text-left text-3xl my-4 p-3 bg-[#f6655f] flex justify-center items-center gap-4">
-            <p className="text-white">Login</p>
+          <div className="text-left text-3xl mt-4 mb-10 p-3 bg-[#f6655f] flex justify-center items-center gap-4">
+            <p className="text-white uppercase">Login</p>
           </div>
           <div className={styles.nav}></div>
 
@@ -210,11 +210,11 @@ const Login = () => {
         <section>
           <section className="fixed top-0 left-0 w-screen flex justify-center items-center my-0 mx-auto h-screen bg-slate-100 z-50 ">
             {/* <div className="w-[90vw] lg:w-[52vw] md:w-[56vw] lg:h-[86vh] bg-white shadow-lg p-8"> */}
-            <div className="w-full lg:max-w-md max-w-sm bg-white shadow-lg lg:m-0 mx-[20px] py-8 px-5">
+            <div className="w-full lg:max-w-lg max-w-sm bg-white shadow-lg lg:m-0 mx-[20px] py-12 px-10 rounded-lg">
               {" "}
-              <div className={styles.top}>
+              <div className={`flex items-center justify-center mb-6`}>
                 <div className={`flex gap-2 items-center justify-center`}>
-                  <img src={logo} alt="Ribi logo" className="w-[30%]" />
+                  <img src={logo} alt="Ribi logo" className="w-[20%]" />
                   <p className={styles.logoText}>RIBI</p>
                 </div>
                 <div
