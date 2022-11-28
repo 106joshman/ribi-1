@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import linkedin from "../../assets/linkedin.png";
 
 const Footer = () => {
+  const date = new Date();
+  const currentYear = date.getFullYear(4);
   return (
     <footer className={styles.footerSection}>
       <div className={styles.footerTop}>
@@ -14,12 +16,17 @@ const Footer = () => {
           Kindly register to donate. Appointments are available at some of our
           centres.
         </p>
-        <div className={styles.bttn}>
+        <div className={`${styles.bttn}`}>
           <Link to="/insights" className={`${styles.btn} hover:bg-red-400`}>
             👀 Insights
           </Link>
           <Link to="/contact-us" className={`${styles.btn} hover:bg-red-400`}>
             👋 Contact
+          </Link>
+        </div>
+        <div className="flex justify-center items-center py-3 px-4">
+          <Link to="/privacy" className={`hover:text-red-400`}>
+            ⚙️ Terms of Service, 🔏 Privacy Policy and 🧑 User Agreement
           </Link>
         </div>
       </div>
@@ -32,7 +39,9 @@ const Footer = () => {
         </div>
 
         <div className={styles.center}>
-          <p>© 2021 RIBI. All Rights Reserved. </p>
+          <p className="leading-normal">
+            © {currentYear} RIBI. All Rights Reserved.{" "}
+          </p>
         </div>
 
         <div className={styles.right}>

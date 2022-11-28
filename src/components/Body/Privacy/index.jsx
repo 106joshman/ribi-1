@@ -1,19 +1,39 @@
 import React from "react";
 import styles from "./privacy.module.css";
-import hero from "../../../assets/hero.png";
+// import hero from "../../../assets/hero.png";
+import privacHero from "./assets/privacy-hero.png";
 
 const Privacy = () => {
   return (
     <>
-      <section className={styles.bioSection}>
-        <div className={styles.imageContainer}>
-          <img className={styles.heroImg} src={hero} alt="hero" />
-          <p className={styles.heroText}>PRIVACY POLICY AND USER AGREEMENT</p>
+      {/* <section className={`${styles.bioSection} h-80`}> */}
+      <section className={`shadow border-t-2 border-slate-200 `}>
+        {/* <div className={styles.imageContainer}> */}
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 h-[400px] items-center`}
+        >
+          {/* <img className={styles.heroImg} src={hero} alt="hero" />
+          <p className={styles.heroText}>PRIVACY POLICY AND USER AGREEMENT</p> */}
+          <div
+            className={`col-span-2 flex items-center justify-center px-12 py-10 bg-white h-[400px]`}
+          >
+            {" "}
+            <p className="text-red-500 text-4xl leading-normal font-bold">
+              PRIVACY POLICY AND USER AGREEMENT
+            </p>
+          </div>
+          <div className={`col-span-3`}>
+            <img
+              className={`h-[400px] object-fill lg:flex hidden w-full`}
+              src={privacHero}
+              alt="hero"
+            />
+          </div>
         </div>
       </section>
 
       <section className="my-24 px-5 md:px-10 py-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="shadow-md px-8 py-6 h-auto bg-slate-50 rounded-sm hover:scale(1)">
+        <div className="shadow-md px-8 py-10 h-min bg-slate-50 rounded-sm hover:scale-105">
           <h2 className={`${styles.heading} `}>Privacy</h2>
           <p className={`${styles.paragraph}`}>
             This Privacy Policy describes how we collect and use the personal
@@ -24,7 +44,7 @@ const Privacy = () => {
             Privacy Shield Agreement.
           </p>
         </div>
-        <div className="shadow-md px-8 py-6 h-auto bg-slate-50 rounded-sm hover:scale(1)">
+        <div className="shadow-md px-8 py-10 h-min bg-slate-50 rounded-sm hover:scale-105">
           <h2 className={`${styles.heading} `}>
             Collection of Personal Information
           </h2>
@@ -37,7 +57,7 @@ const Privacy = () => {
             city, state.
           </p>
         </div>
-        <div className="shadow-md px-8 py-6 h-auto bg-slate-50 rounded-sm hover:scale(1)">
+        <div className="shadow-md px-8 py-10 h-min bg-slate-50 rounded-sm hover:scale-105">
           <h2 className={`${styles.heading} `}>User Agreement</h2>
           <p className={`${styles.paragraph}`}>
             You allowed us to share your Personal Information with third parties
@@ -47,7 +67,7 @@ const Privacy = () => {
             discovery.
           </p>
         </div>
-        <div className="shadow-md px-8 py-6 h-auto bg-slate-50 rounded-sm hover:scale(1)">
+        <div className="shadow-md px-8 py-10 h-min bg-slate-50 rounded-sm hover:scale-105">
           <h2 className={`${styles.heading} `}>Security</h2>
           <p className={`${styles.paragraph}`}>
             The security of your Personal Information is important to us. When
@@ -63,7 +83,7 @@ const Privacy = () => {
           </p>
         </div>
 
-        <div className="shadow-md px-8 py-6 h-auto bg-slate-50 rounded-sm hover:scale(1)">
+        <div className="shadow-md px-8 py-10 h-min bg-slate-50 rounded-sm hover:scale-105">
           <h2 className={`${styles.heading} `}>
             Correcting and Updating Your Personal Information
           </h2>
@@ -73,7 +93,7 @@ const Privacy = () => {
             edit.
           </p>
         </div>
-        <div className="shadow-md px-8 py-6 h-auto bg-slate-50 rounded-sm hover:scale(1)">
+        <div className="shadow-md px-8 py-10 h-min bg-slate-50 rounded-sm hover:scale-105">
           <h2 className={`${styles.heading} `}>
             Notification of Privacy Policy Changes
           </h2>

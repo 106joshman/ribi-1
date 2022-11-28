@@ -1,6 +1,7 @@
 .bioSection {
   position: relative;
   text-align: center;
+  max-height: 500px;
 }
 
 .imageContainer {
@@ -260,7 +261,7 @@
 }
 
 .paragraph {
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
   font-size: 1rem;
   line-height: 1.8;
 }

@@ -38,7 +38,7 @@
   /* height: 295px; */
   border-radius: 10px;
   background: #fefefe;
-  box-shadow: 10px 10px 60px #fce1e1, -10px -10px 60px #ffffff;
+  box-shadow: 2px 2px 10px #fce1e1, -2px -2px 10px #ffffff;
 }
 
 .donorTitle {
@@ -54,20 +54,20 @@
 .donorSearchContainer {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
 }
 
 .donorSearch {
   /* margin-right: 33px; */
   padding: 2rem;
-  width: 100%;
+  max-width: 768px;
   /* height: 100%; */
-  border: none;
+  border: 1px solid rgba(248, 180, 180, 0.3);
   /* width: 700px; */
   height: 60px;
   background: #ffffff;
   /* border: 1px solid rgba(249, 203, 203, 0.07); */
-  box-shadow: #f77e7e5b 8px 8px 24px;
+  box-shadow: #f8cfcf5b 8px 8px 24px;
   border-radius: 100px 0 0 100px;
   outline: none;
 }
@@ -118,7 +118,7 @@
 .availableDonorContainer {
   border-radius: 10px;
   background: #fefefe;
-  box-shadow: 10px 10px 60px #fce1e1, -10px -10px 60px #ffffff;
+  box-shadow: 2px 2px 10px #fce1e1, -2px -2px 10px #ffffff;
 }
 
 /* .donorLists {

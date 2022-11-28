@@ -390,7 +390,7 @@ const Register = ({ handleModalClose }) => {
             </span>
           </form>
         </div>
-        <div className="w-[40%] right-0 hidden lg:flex items-center justify-center h-[100vh] bg-slate-200 col-span-2 flex-col fixed">
+        <div className="w-[40%] right-0 hidden lg:flex items-center justify-center h-[100vh] bg-slate-200 col-span-2 flex-col fixed top-0">
           <div className={styles.ready}>Ready to Donate</div>
           <div className={styles.imageContainer}>
             <img src={man} alt="man" />

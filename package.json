@@ -60,8 +60,9 @@
   },
   "devDependencies": {
     "auto": "^10.37.2",
-    "postcss": "^8.4.14",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
     "prefixer": "^0.0.3",
-    "tailwindcss": "^3.1.6"
+    "tailwindcss": "^3.2.4"
   }
 }
