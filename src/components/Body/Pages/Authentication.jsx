@@ -235,19 +235,29 @@ export default function Authentication() {
             </li>
           </ul>
           <div className="p-3 mt-6 bg-white border mb-8">
+            <Link
+              to="/"
+              className={`flex items-center lg:justify-center justify-center`}
+            >
+              <img
+                src={logo}
+                alt="Ribi logo"
+                className={`${styles.logoImg} w-6`}
+              />
+              <p className={styles.logoText}>RIBI</p>
+            </Link>
             <div className={openTab === 1 ? "block" : "hidden"}>
               {/* --------------------------------------Login ----------------------------------- */}{" "}
               <div>
-                <div className="mt-6">
-                  <div className={` grid grid-cols-1`}>
+                <div className="">
+                  <div className={`grid grid-cols-1 mb-8`}>
                     <div
                       className={`${styles.mainLeft} px-8 sm:px-24 md:px-28 lg:px-40 xl:px-58 2xl:px-64 py-6 `}
                     >
-                      <div className={`my-4`}></div>
-                      <div className="text-left text-3xl mt-4 mb-10 p-3 flex justify-center items-center gap-4">
+                      <div className="text-left my-4 text-3xl mb-10 p-3 flex justify-center items-center gap-4">
                         <p className="text-slate-700">Hello, Welcome back</p>
                       </div>
-                      <div className={styles.nav}></div>
+                      {/* <div className={styles.nav}></div> */}
 
                       <form
                         onSubmit={handlesLoginSubmit}
@@ -408,13 +418,12 @@ export default function Authentication() {
             </div>
             {/* -------------------------------------------- Register Block ---------------------------------------------- */}
             <div className={openTab === 2 ? "block" : "hidden"}>
-              <>
-                <div className="grid grid-cols-1 mt-6 mb-8">
+              <div className="">
+                <div className="grid grid-cols-1 mb-8">
                   <div
                     className={`${styles.mainLeft} px-8 sm:px-24 md:px-28 lg:px-32 xl:px-48 2xl:px-56 py-6 `}
                   >
-                    <div className={`my-4`}></div>
-                    <div className="text-left text-3xl mt-4 mb-10 p-3  flex justify-center items-center gap-4">
+                    <div className="text-left text-3xl my-4 mb-10 p-3  flex justify-center items-center gap-4">
                       <p className="text-slate-700">Ready to Donate!</p>
                     </div>
                     <form
@@ -678,7 +687,7 @@ export default function Authentication() {
                     </form>
                   </div>
                 </div>
-              </>
+              </div>
             </div>
           </div>
         </div>
