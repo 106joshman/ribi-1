@@ -63,7 +63,7 @@ const Home = () => {
     <main className="main">
       <div className={styles.heroWrapper}>
         <div className={styles.heroLeft}>
-          <h1 className={`${styles.bigText}`}>
+          <h1 className={`${styles.bigText} leading-tight`}>
             Learn To <span className="text-[#f6655f]">Donate Blood</span>{" "}
           </h1>
           <p className={`${styles.smallText} lg:max-w-md my-[20px]`}>

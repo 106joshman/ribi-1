@@ -19,6 +19,7 @@ import MoveUp from "./components/utils/MoveUp";
 import  ResetPassword  from "./components/Body/forgot-password/ResetPassword";
 import Login from "./components/Body/Pages/Login";
 import Register from "./components/Body/Pages/Register";
+import Authentication from "./components/Body/Pages/Authentication";
 function App() {
   return (
     <Router>
@@ -29,6 +30,7 @@ function App() {
             <Route path="dashboard" element={<Bio />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+            <Route path="authentication" element={<Authentication />} />
             <Route path="reset-password/:token" element={<ResetPassword />} />
           </Route>
           <Route path="/" element={<WithNav />}>
