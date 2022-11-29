@@ -11,7 +11,7 @@ import { apiBaseURL } from "../../../axios";
 import { FaSearch } from "react-icons/fa";
 import Loader from "../../utils/Loader";
 import Swal from "sweetalert2";
-
+import needblood from "./assets/needblood.png";
 
 const Need = () => {
   const [data, setData] = useState([]);
@@ -30,16 +30,16 @@ const Need = () => {
 
   const [search, setSearch] = useState("");
 
-  function handleSearchConvert() {
+  const handleSearchConvert = async () => {
     let charChange = `${search}`;
     if (charChange.indexOf("+")) {
       let charCheck = charChange.replace("+", "%2B");
       setSearch(charCheck);
     }
-  }
-  useEffect(() => {
-    handleSearchConvert();
-  });
+  };
+  // useEffect(() => {
+  //   handleSearchConvert();
+  // });
 
   // const [donor, setDonor] = useState({});
   // const urls = [`${apiBaseURL}/v1/donors?city=${search}`];
@@ -100,7 +100,7 @@ const Need = () => {
 
         return false;
       });
-
+      handleSearchConvert();
       setSearchData(setResponse);
       // handleSearchConvert();
 
@@ -124,16 +124,42 @@ const Need = () => {
   }, []);
 
   return (
-    <div>
+    <div className="">
       <>
-        <section className={styles.newBloodSection}>
+        {/* Top Hero */}
+        <section className="shadow border-t-2 border-slate-200">
+          {/* <div className={styles.imageContainer}> */}
+          <div
+            className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 h-[400px] items-center`}
+          >
+            {/* <img className={styles.heroImg} src={hero} alt="hero" />
+          <p className={styles.heroText}>PRIVACY POLICY AND USER AGREEMENT</p> */}
+            <div
+              className={`col-span-2 flex items-center justify-center px-12 py-10  h-[400px]`}
+            >
+              {" "}
+              <p className="text-red-500 text-4xl leading-normal font-bold">
+                SEARCH AND REQUEST FOR BLOOD
+              </p>
+            </div>
+            <div className={`col-span-3`}>
+              <img
+                className={`h-[400px] object-fill lg:flex hidden w-full`}
+                src={needblood}
+                alt="hero"
+              />
+            </div>
+          </div>
+        </section>
+        {/* Top Hero */}
+        {/* <section className={styles.newBloodSection}>
           <div className={styles.imageContainer}>
             <img className={styles.heroImg} src={hero} alt="hero" />
             <p className={styles.heroText}>NEED BLOOD</p>
           </div>
-        </section>
+        </section> */}
 
-        <section className="my-16">
+        <section className="mt-32 mb-16">
           <div>
             <p className={`${styles.donorTitle} lg:px-12 px-4`}>
               Find Blood Donors Here

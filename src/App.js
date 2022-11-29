@@ -12,17 +12,23 @@ import Contact from "./components/Body/Contact";
 import Insight from "./components/Body/Insight";
 import "sweetalert2/src/sweetalert2.scss";
 import DonorInfoRequest from "./components/Body/donor_info_request";
+
 import WithoutNav from "./components/header/navheaders/WithoutNav";
 import { WithNav } from "./components/header/navheaders/WithNav";
 import MoveUp from "./components/utils/MoveUp";
 import  ResetPassword  from "./components/Body/forgot-password/ResetPassword";
+import Login from "./components/Body/Pages/Login";
+import Register from "./components/Body/Pages/Register";
 function App() {
   return (
     <Router>
       <div className="App">
+       
         <Routes>
           <Route element={<WithoutNav />}>
             <Route path="dashboard" element={<Bio />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
             <Route path="reset-password/:token" element={<ResetPassword />} />
           </Route>
           <Route path="/" element={<WithNav />}>

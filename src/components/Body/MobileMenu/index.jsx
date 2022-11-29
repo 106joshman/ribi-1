@@ -12,10 +12,11 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "100vw",
-  height: "100vh",
+  width: "95vw",
+  height: "95vh",
   bgcolor: "background.paper",
   border: "2px solid #000",
+  borderRadius: "10px",
   boxShadow: 24,
   p: 4,
 };
@@ -27,6 +28,15 @@ export const MobileMenu = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const handleModalOpen = () => setModalOpen(true);
   const handleModalClose = () => setModalOpen(false);
+
+  const handlesMenuClose = () => {
+    // setModalOpen(false);
+    <Signup />;
+    handleModalClose(false);
+    // setModalOpen(false);
+    // setModalOpen.close();
+    // console.log("closed");
+  };
 
   return (
     <div>
@@ -89,7 +99,22 @@ export const MobileMenu = () => {
                     {/* donate blood */}
                   </Link>
                 ) : (
-                  <Signup handleSignupClose={handleModalClose} />
+                  <div
+                  // onClick={handlesMenuClose}
+                  >
+                    <Link
+                      href="/register"
+                      className={styles.need}
+                      underline="none"
+                      // color="white"
+                      color="#f66557"
+                      sx={{ mb: 3 }}
+                      aria-label="Donate blood link"
+                      onClick={handleModalClose}
+                    >
+                      Donate Blood
+                    </Link>
+                  </div>
                 )}
               </>
             ) : null}
