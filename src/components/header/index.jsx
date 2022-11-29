@@ -51,7 +51,7 @@ const Header = () => {
                 </Link>
               ) : (
                 <Link
-                  to="/register"
+                  to="/authentication"
                   className="text-white mx-1 py-[14px] px-5 cursor-pointer bg-[#f6655f] hover:bg-[#f64645]  rounded-3xl text-base uppercase"
                 >
                   donate blood

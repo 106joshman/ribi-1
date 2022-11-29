@@ -37,9 +37,35 @@ const Need = () => {
       setSearch(charCheck);
     }
   };
-  // useEffect(() => {
-  //   handleSearchConvert();
-  // });
+  // handleSearchConvert();
+
+  // Convert to uppercase
+  const handleCaseConvert = () => {
+    // e.preventDefault();
+    let charChange = `${search}`;
+    if (
+      charChange === "a" ||
+      charChange === "a-" ||
+      charChange === "a+" ||
+      charChange === "b" ||
+      charChange === "b-" ||
+      charChange === "b+" ||
+      charChange === "ab" ||
+      charChange === "ab-" ||
+      charChange === "ab+" ||
+      charChange === "o" ||
+      charChange === "o-" ||
+      charChange === "o+"
+    ) {
+      let charCheck = charChange.toUpperCase();
+      setSearch(charCheck);
+    }
+  };
+
+  useEffect(() => {
+    handleSearchConvert();
+    handleCaseConvert();
+  });
 
   // const [donor, setDonor] = useState({});
   // const urls = [`${apiBaseURL}/v1/donors?city=${search}`];
@@ -100,7 +126,6 @@ const Need = () => {
 
         return false;
       });
-      handleSearchConvert();
       setSearchData(setResponse);
       // handleSearchConvert();
 
