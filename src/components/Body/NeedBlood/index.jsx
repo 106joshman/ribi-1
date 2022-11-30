@@ -155,21 +155,21 @@ const Need = () => {
         <section className="shadow border-t-2 border-slate-200">
           {/* <div className={styles.imageContainer}> */}
           <div
-            className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 h-[400px] items-center`}
+            className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 h-[250px] md:h-[400px] lg:h-[400px] items-center`}
           >
             {/* <img className={styles.heroImg} src={hero} alt="hero" />
           <p className={styles.heroText}>PRIVACY POLICY AND USER AGREEMENT</p> */}
             <div
-              className={`col-span-2 flex items-center justify-center px-12 py-10  h-[400px]`}
+              className={`col-span-2 flex items-center justify-center px-12 py-10 h-[250px] md:h-[400px] text-center md:text-left lg:text-left lg:h-[400px] bg-[#f6655f] md:bg-white lg:bg-white`}
             >
               {" "}
-              <p className="text-red-500 text-4xl leading-normal font-bold">
+              <p className="text-white md:text-[#f6655f] lg:text-[#f6655f] text-4xl leading-normal font-bold">
                 SEARCH AND REQUEST FOR BLOOD
               </p>
             </div>
             <div className={`col-span-3`}>
               <img
-                className={`h-[400px] object-fill lg:flex hidden w-full`}
+                className={`h-[400px] object-fill lg:flex md:flex sm:hidden hidden w-full`}
                 src={needblood}
                 alt="hero"
               />
