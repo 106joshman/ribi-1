@@ -35,7 +35,6 @@
 .findDonor {
   margin: 49px 45px;
   padding: 2rem 1rem;
-  /* height: 295px; */
   border-radius: 10px;
   background: #fefefe;
   box-shadow: 2px 2px 10px #fce1e1, -2px -2px 10px #ffffff;
@@ -60,13 +59,11 @@
 .donorSearch {
   /* margin-right: 33px; */
   padding: 2rem;
+  width: 100%;
   max-width: 768px;
-  /* height: 100%; */
   border: 1px solid rgba(248, 180, 180, 0.3);
-  /* width: 700px; */
   height: 60px;
   background: #ffffff;
-  /* border: 1px solid rgba(249, 203, 203, 0.07); */
   box-shadow: #f8cfcf5b 8px 8px 24px;
   border-radius: 100px 0 0 100px;
   outline: none;
@@ -77,12 +74,10 @@
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  /* line-height: 27px; */
   color: #f6655f;
 }
 
 .searchButton {
-  /* width: 200px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,7 +89,6 @@
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
-  /* line-height: 36px; */
   color: #ffffff;
   outline: none;
   cursor: pointer;
@@ -269,7 +263,10 @@ width: 100%;
 
 @media (max-width: 500px) {
   .findDonor {
-    margin: 43px 20px;
+    margin: 43px 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
 }
 
@@ -311,8 +308,8 @@ width: 100%;
   }
 } */
 
-/* @media (max-width: 753px) {
+/* @media (max-width: 450px) {
   .donorSearch {
-    height: 70px;
+    width: 250px;
   }
 } */

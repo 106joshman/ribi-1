@@ -195,7 +195,7 @@ const Need = () => {
           </div>
           <section className={`${styles.findDonor}`}>
             <div
-              className={`${styles.donorSearchContainer}  lg:px-[2rem] py-8 px-[10px]`}
+              className={`${styles.donorSearchContainer} hidden lg:flex items-center  lg:px-[2rem] py-8 px-[10px]`}
             >
               <input
                 className={`${styles.donorSearch} flex-1`}

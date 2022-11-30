@@ -77,11 +77,7 @@ const About = () => {
                   Who we are
                 </h2>
                 <div className="lg:hidden md:hidden sm:hidden my-4 lg:px-8 flex">
-                  <img
-                    src="/assets/donate.jpg"
-                    alt="donate"
-                    className="w-full"
-                  />
+                  <img src={wegive} alt="donate" className="w-full" />
                 </div>
                 <p>
                   We are the intermediary between the Donor, Donee and the
