@@ -208,13 +208,17 @@ export default function Authentication() {
 
   return (
     <div className="mx-auto">
-      <div>
+      <div className="flex items-center lg:justify-center justify-center">
         <Link
           to="/"
-          className={`flex items-center lg:justify-center justify-center mt-8`}
+          className={`flex items-center lg:justify-center justify-center mt-8 max-w-min hover:scale-110`}
         >
-          <img src={logo} alt="Ribi logo" className={`${styles.logoImg} w-6`} />
-          <p className={styles.logoText}>RIBI</p>
+          <img
+            src={logo}
+            alt="Ribi logo"
+            className={`${styles.logoImg} w-6 hover:animate-bounce`}
+          />
+          <p className={`${styles.logoText} hover:animate-bounce`}>RIBI</p>
         </Link>
       </div>
       <div className="container mx-auto mt-12">

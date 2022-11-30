@@ -7,10 +7,16 @@ import contact from "../../../assets/homeimg/contact.jpg";
 import heart from "../../../assets/homeimg/heart.jpg";
 import hands from "../../../assets/homeimg/hands.jpg";
 import work from "../../images/unsplash_W6yy0wYV-hk.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 // import Signup from "../Modal/Signup";
 
 const Home = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   // donor instructions card
   const [register] = useState(false);
   const handleOpenRegister = () => {
@@ -63,10 +69,21 @@ const Home = () => {
     <main className="main">
       <div className={styles.heroWrapper}>
         <div className={styles.heroLeft}>
-          <h1 className={`${styles.bigText} leading-tight`}>
-            Learn To <span className="text-[#f6655f]">Donate Blood</span>{" "}
+          <h1
+            className={`${styles.bigText} leading-tight`}
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            Learn To{" "}
+            <span className="text-[#f6655f]" data-aos="fade-right">
+              Donate Blood
+            </span>{" "}
           </h1>
-          <p className={`${styles.smallText} lg:max-w-md my-[20px]`}>
+          <p
+            className={`${styles.smallText} lg:max-w-md my-[20px]`}
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
             We believe there are many people in the world who needs to be saved
             and we are here so we can assist.
             <span className="lg:block">
@@ -77,6 +94,8 @@ const Home = () => {
           <Link
             to="/need-blood"
             className={`${styles.linkHero} hover:gap-[3px] hover:bg-[#f54b46] hover:text-white`}
+            data-aos="zoom-in-right"
+            data-aos-duration="1000"
           >
             Find Blood <AiOutlineArrowRight className="ml-2" />
           </Link>
@@ -123,7 +142,13 @@ const Home = () => {
           })}
         </div>
         <div className={styles.aboutText}>
-          <h4 className={styles.aboutHeading}>About RIBI</h4>
+          <h4
+            className={styles.aboutHeading}
+            data-aos="zoom-in-up"
+            data-aos-duration="1000"
+          >
+            About RIBI
+          </h4>
           <p style={{ margin: "20px 0" }}>
             RIBI is an intermediary between the Donor, Donee and the Medical
             Center. We are focus on saving life by creating an avenue in which
@@ -151,7 +176,13 @@ const Home = () => {
       </div>
       {/* Blood Types */}
       <div className={`${styles.typesContainer} bg-red-50`}>
-        <h4 className={styles.types}>Blood Types</h4>
+        <h4
+          className={styles.types}
+          data-aos="zoom-in-up"
+          data-aos-duration="1000"
+        >
+          Blood Types
+        </h4>
         <div className={styles.bloodTypesWrapper}>
           {blood.map((item) => {
             return (
@@ -168,6 +199,8 @@ const Home = () => {
         <div className="mssn flex items-center justify-center">
           <p
             className={`${styles.objctText} max-w-lg capitalize text-black font-bold`}
+            data-aos="zoom-in-down"
+            data-aos-duration="1000"
           >
             Your donation will save lives.{" "}
             <span className="lg:block">
@@ -214,7 +247,13 @@ const Home = () => {
         </div>
       </div>
       <div className={styles.work}>
-        <h4 className={styles.workText}>How it Works</h4>
+        <h4
+          className={styles.workText}
+          data-aos="zoom-in-up"
+          data-aos-duration="1000"
+        >
+          How it Works
+        </h4>
         <div className={styles.workContent}>
           <div className="flex justify-center items-center box-border">
             <img

@@ -28,7 +28,7 @@
 }
 
 .linkBlood {
-  border-radius: 1.5rem;
+  border-radius: 6rem;
   /* margin-bottom: 40px; */
   display: inline-flex;
   align-items: center;
@@ -42,7 +42,7 @@
   background: #f54b46;
 }
 .linkHero {
-  border-radius: 1.5rem;
+  border-radius: 6rem;
   margin-bottom: 40px;
   display: inline-flex;
   align-items: center;

@@ -268,7 +268,7 @@ const Signup = ({ handleModalClose }) => {
   return (
     <>
       <button
-        className="text-white mx-1 py-[14px] px-5 text-center cursor-pointer bg-[#f6655f] hover:bg-[#f54b46] border-none outline-none rounded-3xl text-base uppercase"
+        className="text-white mx-1 py-[14px] px-5 text-center cursor-pointer bg-[#f6655f] hover:bg-[#f54b46] border-none outline-none rounded-full text-base uppercase"
         onClick={handleOpen}
       >
         donate blood
