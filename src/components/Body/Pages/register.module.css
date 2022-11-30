@@ -14,7 +14,7 @@
 } */
 
 .logoImg {
-  margin-right: 12px;
+  margin-right: 8px;
 }
 
 .logoText {
@@ -116,6 +116,7 @@
   border-radius: 8px;
   outline: none;
   line-height: 15px;
+  /* max-width: 400px; */
 }
 
 .inputFieldC {

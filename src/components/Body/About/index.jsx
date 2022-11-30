@@ -11,21 +11,19 @@ const About = () => {
         <section className="shadow border-t-2 border-slate-200">
           {/* <div className={styles.imageContainer}> */}
           <div
-            className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 h-[400px] items-center`}
+            className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 h-[250px] md:h-[400px] lg:h-[400px] items-center`}
           >
-            {/* <img className={styles.heroImg} src={hero} alt="hero" />
-          <p className={styles.heroText}>PRIVACY POLICY AND USER AGREEMENT</p> */}
             <div
-              className={`col-span-2 flex items-center justify-center px-12 py-10  h-[400px]`}
+              className={`col-span-2 flex items-center justify-center px-12 py-10 h-[250px] md:h-[400px] text-center md:text-left lg:text-left lg:h-[400px] bg-[#f6655f] md:bg-white lg:bg-white`}
             >
               {" "}
-              <p className="text-red-500 text-4xl leading-normal font-bold">
+              <p className="text-white md:text-[#f6655f] lg:text-[#f6655f] text-4xl leading-normal font-bold">
                 GET TO KNOW MORE ABOUT US
               </p>
             </div>
-            <div className={` col-span-3`}>
+            <div className={`col-span-3`}>
               <img
-                className={`h-[400px] object-fill lg:flex  w-full`}
+                className={`h-[400px] object-fill lg:flex md:flex sm:hidden hidden w-full`}
                 src={abouthero}
                 alt="hero"
               />
@@ -40,7 +38,7 @@ const About = () => {
           </div>
         </section> */}
         {/* Card Sections */}
-        <section className={`${styles.aboutBg} mt-32 mb-16`}>
+        <section className={`${styles.aboutBg} mt-8 lg:mt-32 mb-16`}>
           {/* First card */}
           <section className=" mx-6 lg:mx-12   py-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-6">
@@ -86,7 +84,7 @@ const About = () => {
                   />
                 </div>
                 <p>
-                  We are the intermediary between the DOnr, Donee and the
+                  We are the intermediary between the Donor, Donee and the
                   Donation Center. We help you connect with each others in view
                   to save life and enable a growing society.
                 </p>

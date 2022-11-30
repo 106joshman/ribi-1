@@ -37,21 +37,21 @@ const Contact = () => {
       <section className="shadow border-t-2 border-slate-200">
         {/* <div className={styles.imageContainer}> */}
         <div
-          className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 h-[400px] items-center`}
+          className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 h-[250px] md:h-[400px] lg:h-[400px] items-center`}
         >
           {/* <img className={styles.heroImg} src={hero} alt="hero" />
           <p className={styles.heroText}>PRIVACY POLICY AND USER AGREEMENT</p> */}
           <div
-            className={`col-span-2 flex items-center justify-center px-12 py-10  h-[400px]`}
+            className={`col-span-2 flex items-center justify-center px-12 py-10 h-[250px] md:h-[400px] text-center md:text-left lg:text-left lg:h-[400px] bg-[#f6655f] md:bg-white lg:bg-white`}
           >
             {" "}
-            <p className="text-red-500 text-4xl leading-normal font-bold">
+            <p className="text-white md:text-[#f6655f] lg:text-[#f6655f] text-4xl leading-normal font-bold">
               YOU CAN REACH US ANYTIME{" "}
             </p>
           </div>
           <div className={`col-span-3`}>
             <img
-              className={`h-[400px] object-fill lg:flex hidden w-full`}
+              className={`h-[400px] object-fill lg:flex md:flex sm:hidden hidden w-full`}
               src={contact}
               alt="hero"
             />
@@ -65,7 +65,7 @@ const Contact = () => {
           <p className={styles.heroText}>Contact Us</p>
         </div>
       </section> */}
-      <div className="contact font-poppins my-5 px-10">
+      <div className="contact font-poppins my-5 px-0 lg:px-10">
         {/* <div className="mapview h-hero md:w-full md:h-52">
           <iframe
             title="map"
@@ -78,9 +78,9 @@ const Contact = () => {
           ></iframe>
         </div> */}
         <div className="info flex flex-col justify-between my-24 md:flex-row-reverse">
-          <div className="form md:w-2/5 shadow-lg  md:p-5 px-4 py-8">
+          <div className="form md:w-2/5 shadow-lg  md:p-5 px-6 py-8">
             <h5 className="text-2xl font-semibold my-3">Send Us a Message</h5>
-            <form className="px-6 py-5">
+            <form className="px-0 md:px-6 lg:px-6 py-5">
               <div className="fName my-4">
                 <label htmlFor="FName" className="text-xs">
                   Full Name*
@@ -142,7 +142,7 @@ const Contact = () => {
                   className="px-5 rounded-lg py-3 border border-gray-500 w-full resize-none"
                 ></textarea>
               </div>
-              <div className="submit my-3">
+              <div className="submit my-3 flex justify-center text-center">
                 <button
                   type="submit"
                   onSubmit={handleSubmit}
@@ -153,7 +153,7 @@ const Contact = () => {
               </div>
             </form>
           </div>
-          <div className="details md:w-3/5 py-8">
+          <div className="details md:w-3/5 px-6 py-8">
             <h5 className="font-semibold">
               We look forward to hearing from you.
             </h5>

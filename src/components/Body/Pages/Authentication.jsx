@@ -208,6 +208,15 @@ export default function Authentication() {
 
   return (
     <div className="mx-auto">
+      <div>
+        <Link
+          to="/"
+          className={`flex items-center lg:justify-center justify-center mt-8`}
+        >
+          <img src={logo} alt="Ribi logo" className={`${styles.logoImg} w-6`} />
+          <p className={styles.logoText}>RIBI</p>
+        </Link>
+      </div>
       <div className="container mx-auto mt-12">
         <div className="flex flex-col items-center justify-center ">
           <ul className="flex space-x-2">
@@ -234,33 +243,32 @@ export default function Authentication() {
               </button>
             </li>
           </ul>
-          <div className="p-3 mt-6 bg-white border mb-8">
+          <div className="p-3 mt-8 bg-white border mb-8">
             <div className={openTab === 1 ? "block" : "hidden"}>
               {/* --------------------------------------Login ----------------------------------- */}{" "}
               <div>
-                <div className="mt-6">
-                  <div className={` grid grid-cols-1`}>
+                <div className="">
+                  <div className={`grid grid-cols-1 mb-8`}>
                     <div
-                      className={`${styles.mainLeft} px-8 sm:px-24 md:px-28 lg:px-40 xl:px-58 2xl:px-64 py-6 `}
+                      className={`px-8 sm:px-16 md:px-16 lg:px-32 xl:px-48 2xl:px-56 py-6 `}
                     >
-                      <div className={`my-4`}></div>
-                      <div className="text-left text-3xl mt-4 mb-10 p-3 flex justify-center items-center gap-4">
+                      <div className="my-4 text-3xl mb-10 p-3 flex justify-center items-center text-center gap-4">
                         <p className="text-slate-700">Hello, Welcome back</p>
                       </div>
-                      <div className={styles.nav}></div>
+                      {/* <div className={styles.nav}></div> */}
 
                       <form
                         onSubmit={handlesLoginSubmit}
                         className={styles.form}
                       >
-                        <div className={styles.formGroup}>
+                        <div className="grid grid-cols-1 gap-4">
                           <div className={styles.formController}>
                             <label required={true} className={styles.label}>
                               Email
                             </label>
                             <input
                               type="email"
-                              className={styles.inputField}
+                              className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                               onChange={(e) => setEmail(e.target.value)}
                             />
                           </div>
@@ -272,7 +280,7 @@ export default function Authentication() {
                             <div className={styles.inputContainer}>
                               <input
                                 type={showPassword ? "text" : "password"}
-                                className={styles.inputFieldPassword}
+                                className={`${styles.inputFieldPassword} w-auto md:w-[300px] lg:w-[350px]`}
                                 onChange={(e) => setPassword(e.target.value)}
                               />
                               {showPassword === false ? (
@@ -294,27 +302,27 @@ export default function Authentication() {
                               )}
                             </div>
                           </div>
-                        </div>
-                        {/* Login Button */}
-                        <div className="flex justify-center items-center">
-                          <button
-                            className={`my-2 py-4 px-8 bg-[#f6655f] rounded-full text-white text-[14px] font-bold w-64 hover:opacity-75`}
-                          >
-                            Login
-                          </button>
-                        </div>
-                        {/* Login other choices */}
-                        <div className="flex flex-col gap-y-4 lg:flex-row justify-center items-center mt-5 mb-5">
-                          <span className={`${styles}.forgot`}>
-                            <p
-                              onClick={forgotPasswordModal}
-                              className="hover:text-[#f6655f] cursor-pointer"
+
+                          {/* Login Button */}
+                          <div className="flex justify-center items-center">
+                            <button
+                              className={`my-2 py-4 px-8 bg-[#f6655f] rounded-full text-white text-[14px] font-bold w-64 hover:opacity-75`}
                             >
-                              Forget Password?
-                            </p>
-                          </span>
-                          {/* Signup Option */}
-                          {/* <span>
+                              Login
+                            </button>
+                          </div>
+                          {/* Login other choices */}
+                          <div className="flex flex-col gap-y-4 lg:flex-row justify-center items-center mt-5 mb-5">
+                            <span className={`${styles}.forgot`}>
+                              <p
+                                onClick={forgotPasswordModal}
+                                className="hover:text-[#f6655f] cursor-pointer"
+                              >
+                                Forget Password?
+                              </p>
+                            </span>
+                            {/* Signup Option */}
+                            {/* <span>
                             Don’t have an Account?{" "}
                             <Link
                               to="/register"
@@ -323,6 +331,7 @@ export default function Authentication() {
                               Register
                             </Link>
                           </span>{" "} */}
+                          </div>
                         </div>
                       </form>
                     </div>
@@ -408,13 +417,12 @@ export default function Authentication() {
             </div>
             {/* -------------------------------------------- Register Block ---------------------------------------------- */}
             <div className={openTab === 2 ? "block" : "hidden"}>
-              <>
-                <div className="grid grid-cols-1 mt-6 mb-8">
+              <div className="">
+                <div className="grid grid-cols-1 mb-8">
                   <div
-                    className={`${styles.mainLeft} px-8 sm:px-24 md:px-28 lg:px-32 xl:px-48 2xl:px-56 py-6 `}
+                    className={`px-8 sm:px-16 md:px-16 lg:px-32 xl:px-48 2xl:px-56 py-6 `}
                   >
-                    <div className={`my-4`}></div>
-                    <div className="text-left text-3xl mt-4 mb-10 p-3  flex justify-center items-center gap-4">
+                    <div className="text-center text-3xl my-4 mb-10 p-3  flex justify-center items-center gap-4">
                       <p className="text-slate-700">Ready to Donate!</p>
                     </div>
                     <form
@@ -458,7 +466,7 @@ export default function Authentication() {
                           </label>
                           <input
                             type="text"
-                            className={styles.inputField}
+                            className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                             onChange={(e) => setFirstName(e.target.value)}
                             required
                           />
@@ -469,7 +477,7 @@ export default function Authentication() {
                           </label>
                           <input
                             type="text"
-                            className={styles.inputField}
+                            className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                             onChange={(e) => setLastName(e.target.value)}
                             required
                           />
@@ -479,7 +487,7 @@ export default function Authentication() {
                             Gender*
                           </label>
                           <select
-                            className={styles.inputField}
+                            className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                             onChange={(e) => setGender(e.target.value)}
                             required
                           >
@@ -495,7 +503,7 @@ export default function Authentication() {
                           </label>
                           <input
                             type="text"
-                            className={styles.inputField}
+                            className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                             onChange={(e) => setPhone(e.target.value)}
                             required
                           />
@@ -507,7 +515,7 @@ export default function Authentication() {
                           </label>
                           <input
                             type="date"
-                            className={styles.inputField}
+                            className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                             onChange={(e) => setDateOfBirth(e.target.value)}
                             required
                           />
@@ -517,7 +525,7 @@ export default function Authentication() {
                             Blood Type*
                           </label>
                           <select
-                            className={styles.inputField}
+                            className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                             onChange={(e) => setBloodType(e.target.value)}
                             required
                           >
@@ -543,7 +551,7 @@ export default function Authentication() {
                           </label>
                           <input
                             type="text"
-                            className={styles.inputField}
+                            className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                             onChange={(e) =>
                               setAilmentDiagnosis(e.target.value)
                             }
@@ -574,7 +582,7 @@ export default function Authentication() {
                             type="text"
                             name="state"
                             id="state"
-                            className={styles.inputField}
+                            className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                             onChange={(e) => setState(e.target.value)}
                             required
                           />
@@ -585,7 +593,7 @@ export default function Authentication() {
                           </label>
                           <input
                             type="text"
-                            className={styles.inputField}
+                            className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                             onChange={(e) => setCity(e.target.value)}
                             required
                           />
@@ -596,7 +604,7 @@ export default function Authentication() {
                           </label>
                           <input
                             type="text"
-                            className={styles.inputField}
+                            className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                             onChange={(e) => setAddress(e.target.value)}
                             required
                           />
@@ -607,7 +615,7 @@ export default function Authentication() {
                           </label>
                           <input
                             type="email"
-                            className={styles.inputField}
+                            className={`${styles.inputField} w-auto md:w-[300px] lg:w-[350px]`}
                             onChange={(e) => setEmail(e.target.value)}
                             required
                           />
@@ -678,7 +686,7 @@ export default function Authentication() {
                     </form>
                   </div>
                 </div>
-              </>
+              </div>
             </div>
           </div>
         </div>

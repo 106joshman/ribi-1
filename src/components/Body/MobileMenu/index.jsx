@@ -12,6 +12,9 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
+  display: "grid",
+  placeItems: "center",
+  justifyContent: "center",
   width: "95vw",
   height: "95vh",
   bgcolor: "background.paper",
@@ -39,7 +42,7 @@ export const MobileMenu = () => {
   };
 
   return (
-    <div>
+    <div className="relative">
       <Button
         onClick={handleModalOpen}
         aria-expanded={modalOpen}
@@ -54,9 +57,9 @@ export const MobileMenu = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div className={`${styles.closeIcon} -mt-4`}>
+          <div className={`${styles.closeIcon} absolute top-5 right-5`}>
             <button
-              className={`${styles.button} hover:animate-pulse`}
+              className={`${styles.button}  hover:animate-pulse`}
               onClick={handleModalClose}
             >
               <AiOutlineClose size={34} color="black" />
@@ -71,7 +74,7 @@ export const MobileMenu = () => {
                 color="#f66557"
                 sx={{ mb: 3 }}
                 aria-label="Need blood link"
-                className={styles.need}
+                className={`h-[56px] uppercase text-[#f66557] text-[16px] border-2 border-[#f6655f] w-[160px] my-[40px] mx-[4px] cursor-pointer hover:bg-[#f7c9c7] rounded-full flex justify-center items-center`}
                 onClick={handleModalClose}
               >
                 need blood
@@ -81,7 +84,7 @@ export const MobileMenu = () => {
                 href="/dashboard"
                 underline="none"
                 color="#f66557"
-                className={styles.need}
+                className={`h-[56px] uppercase text-[#f66557] text-[16px] border-2 border-[#f6655f] w-[160px] my-[40px] mx-[4px] cursor-pointer hover:bg-[#f7c9c7] rounded-full flex justify-center items-center`}
                 aria-label="Will lead to user account bio if user is logged in"
                 onClick={handleModalClose}
               >
@@ -104,7 +107,7 @@ export const MobileMenu = () => {
                   >
                     <Link
                       href="/authentication"
-                      className={styles.need}
+                      className={`h-[56px] uppercase text-[#f66557] text-[16px] border-2 border-[#f6655f] w-[160px] my-[40px] mx-[4px] cursor-pointer hover:bg-[#f7c9c7] rounded-full flex justify-center items-center`}
                       underline="none"
                       // color="white"
                       color="#f66557"
