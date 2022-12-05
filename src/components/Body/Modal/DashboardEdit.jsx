@@ -127,7 +127,7 @@ const DashboardEdit = ({ handleToggles }) => {
                   className="w-24 h-24 rounded-full opacity-75 border-black object-fill"
                 />
                 <div className="fileContent w-24 h-24 rounded-full">
-                  <label className="text-[10px] text-center ">
+                  <label className="text-[10px] text-center  cursor-pointer">
                     <AiOutlineCamera className="text-[24px] text-slate-500" />
                     <input
                       style={{ display: "none" }}

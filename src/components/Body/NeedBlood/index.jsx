@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./need.module.css";
-import hero from "../../../assets/hero.png";
+// import hero from "../../../assets/hero.png";
 // import spinners from "../../../assets/images/spinner.svg";
 import profile1 from "../../../assets/profile1.png";
 import place from "../../../assets/place.png";
@@ -63,6 +63,11 @@ const Need = () => {
   };
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth",
+    });
+
     handleSearchConvert();
     handleCaseConvert();
   });
