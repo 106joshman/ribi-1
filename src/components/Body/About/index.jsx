@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./about.module.css";
 import abouthero from "./assets/abouthero.jpg";
 import wegive from "./assets/wegive.jpg";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth",
+    });
+  }, []);
   return (
     <div>
       <>

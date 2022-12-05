@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./privacy.module.css";
 // import hero from "../../../assets/hero.png";
 import privacHero from "./assets/privacy-hero.png";
 
 const Privacy = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth",
+    });
+  }, []);
   return (
     <>
       {/* <section className={`${styles.bioSection} h-80`}> */}
